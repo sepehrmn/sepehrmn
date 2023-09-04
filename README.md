@@ -2,7 +2,7 @@
 
 - 🔭 I'm currently incorporating AI into my coding and daily workflows. 
 - 🌱 Trying to get good at training and/or fine-tuning small task-specific generative models.
-- 👯 Interested in collaborating on projects involving several models and intelligent agents that utilize them effectively.
+- 👯 Interested in AI/ML infra, and on collaborating on projects involving several models and intelligent agents that utilize them effectively.
 - 💬 My other interests include XR and computational psychiatry.
 
 <!--

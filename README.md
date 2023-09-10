@@ -3,7 +3,7 @@
 - 🔭 I'm currently incorporating AI into my coding and daily workflows. 
 - 🌱 Trying to get good at training and/or fine-tuning small task-specific generative models.
 - 👯 Interested in AI/ML infra, and on collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 My other interests include XR and computational psychiatry.
+- 💬 My other interests include spatial computing and computational psychiatry.
 
 <!--
 **sepehrmn/sepehrmn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -60,11 +60,20 @@
         <a href="https://pandas.pydata.org" title="Pandas">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg' alt='Pandas Icon' height='32'>
         </a> 
+        <a href="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" title="SciPy">
+            <img src='https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg' alt='SciPy Icon' height='32'>
+        </a> 
+        <a href="https://huggingface.co" title="Hugging Face">
+            <img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Hugging Face Icon' height='32'>
+        </a>   
+        <a href="https://openai.com/blog/openai-api" title="OpenAI APIs">
+            <img src='https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg' alt='OpenAI icon' height='32'>
+        </a> 
         <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
             <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>
         </a> 
-    </td> NEST scipy matplotlib openai huggingface transformers
-</tr>
+    </td>    https://openai.com/blog/openai-api
+</tr> 
 
 
 <tr>

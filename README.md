@@ -39,7 +39,10 @@
         <a href="https://www.anaconda.org" title="Anaconda">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/anaconda/anaconda-original.svg' alt='Anaconda Icon' height='32'>
         </a>
-    </td>
+        <a href="https://code.visualstudio.com" title="Visual Studio Code">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg' alt='Visual Studio Code Icon' height='32'>
+        </a>
+    </td>CI/CL
 </tr>
 
 <tr>
@@ -128,14 +131,11 @@
         <a href="https://mochajs.org/" title="Mocha">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mocha/mocha-plain.svg' alt='Mocha icon' height='32'>
         </a>
-        <a href="https://www.chaijs.com" title="Chai">
-            <img src='http://chaijs.com/img/chai-logo.png' alt='Chai icon' height='32'>
+        <a href="https://pytest.org" title="Pytest">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg' alt='Pytest icon' height='32'>
         </a>
-        <a href="https://www.sinonjs.org" title="Sinon">
-            <img src='https://sinonjs.org/assets/images/logo.png' alt='Sinon icon' height='32'>
-        </a>
-        <a href="https://istanbul.js.org/" title="NYC/Istanbul">
-            <img src='https://avatars.githubusercontent.com/u/13523395?s=200&v=4' alt='NYC/Istanbul icon' height='32'>
+        <a href="https://www.sinonjs.org" title="CI/CL"> CI/CL
+            <img src='' alt='CI/CL icon' height='32'>
         </a>
     </td>
 </tr>
@@ -156,21 +156,6 @@
 </tbody>
 </table>
 
-
-<!--
-**sepehrmn/sepehrmn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
 
 <!--
 **sepehrmn/sepehrmn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

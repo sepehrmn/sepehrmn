@@ -67,7 +67,7 @@
             <img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Hugging Face Icon' height='32'>
         </a>   
         <a href="https://openai.com/blog/openai-api" title="OpenAI APIs">
-            <img src='https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg' alt='OpenAI icon' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/openai-logomark.svg' alt='OpenAI icon' height='32'>
         </a> 
         <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
             <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>

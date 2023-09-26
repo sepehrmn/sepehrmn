@@ -1,9 +1,9 @@
 ### Hi there 👋 I'm Sepehr. I'm a software and AI engineer. 
 
-- 🔭 I'm currently working on improving my DevOps skills integrating some AI into daily workflows.
-- 🌱 Learning training and/or fine-tuning small task-specific generative models.
-- 👯 Interested in AI/ML infra, and on collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 I'm also interested in spatial computing and AI applications in this medium. 
+- 🔭 I'm currently working on improving my DevOps skills and integrating AI into daily workflows.
+- 🌱 Learning training and fine-tuning small task-specific generative models.
+- 👯 Interested in AI/ML infra, and collaborating on projects involving several models and intelligent agents that utilize them effectively.
+- 💬 I'm also interested in spatial computing and AI applications in this context. 
 
 ## Social
 

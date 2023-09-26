@@ -7,9 +7,9 @@
 
 ## Social
 
-[<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/twitter/twitter-original.svg' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN)
+[<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN)
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
-[<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/substack.svg' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://substack.com/@thetorus)
+[<img src='https://substackcdn.com/image/fetch/w_500,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fsubstack.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://substack.com/@thetorus)
 
 ## Stack
 
@@ -139,6 +139,20 @@
         </a>
         <a href="https://www.jenkins.io" title="Jenkins icon"> 
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='CI/CL icon' height='32'>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td>Visualization</td>
+    <td>
+        <a href="https://pypi.org/project/matplotlib/" title="Matplotlib">
+            <img src='https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg' alt='Matplotlib icon' height='32'>
+        </a>
+        <a href="https://expo.dev/" title="Seaborn">
+            <img src='https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg' alt='Seaborn icon' height='32'>
+        </a>
+        <a href="https://www.tableau.com" title="Tableau">
+            <img src='https://www.tableau.com/sites/default/files/2022-04/TableauLogo_RGB.png' alt='Tableau icon' height='32'>
         </a>
     </td>
 </tr>

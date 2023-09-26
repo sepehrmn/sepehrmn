@@ -22,8 +22,8 @@
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/ubuntu/ubuntu-plain.svg' alt='Linux Ubuntu' height='32'>
         </a>
         <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg' alt='MacOS' height='32'>
-        <a href="https://github.com/zsh-users/zsh" title="zsh with oh-my-zsh">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg' alt='Windows' height='32'>
+        <a href="https://learn.microsoft.com/en-us/windows/wsl/" title="Windows with WSL2">
+            <img src='https://learn.microsoft.com/en-us/windows/images/wsl-icon.png' alt='Windows with WSL2' height='32'>
         </a>
     </td>
 </tr>

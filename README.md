@@ -105,20 +105,14 @@
         <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML 5">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg' alt='HTML Icon' height='32'>
         </a>
+        <a href="https://sass-lang.com/" title="SASS/SCSS">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>
+        </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='javascript' height='32'>
         </a>
         <a href="https://blazejs.org" title="Blaze JS">
             <img src='https://cdn.rawgit.com/meteor/blaze/master/images/logo.svg' alt='blazejs icon' height='32'>
-        </a>
-        <a href="https://sass-lang.com/" title="SASS/SCSS">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>
-        </a>
-        <a href="https://getbootstrap.com" title="Bootstrap 4 and 5">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg' alt='Bootstrap Icon' height='32'>
-        </a>
-        <a href="https://fontawesome.com" title="Fontawesome 5 and 6">
-            <img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/fontawesome.svg' alt='fontaweseome icon' height='32'>
         </a>
     </td>
 </tr>

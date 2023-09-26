@@ -3,7 +3,7 @@
 - 🔭 I'm currently working on improving my DevOps skills integrating some AI into daily workflows.
 - 🌱 Learning training and/or fine-tuning small task-specific generative models.
 - 👯 Interested in AI/ML infra, and on collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 My other interests include spatial computing and computational psychiatry.
+- 💬 I'm also interested in spatial computing and AI applications in this medium. 
 
 ## Social
 

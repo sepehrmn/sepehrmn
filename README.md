@@ -82,6 +82,12 @@
 <tr>
     <td>Backend</td>
     <td>
+        <a href="https://www.w3schools.com/c/index.php" title="C">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-plain.svg' alt='C icon' height='32'>
+        </a> 
+        <a href="https://cplusplus.com" title="C++">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg' alt='C++ icon' height='32'>
+        </a>  
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='javascript icon' height='32'>
         </a>        
@@ -96,14 +102,14 @@
 <tr>
     <td>Frontend</td>
     <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML 5">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg' alt='HTML Icon' height='32'>
+        </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='javascript' height='32'>
         </a>
         <a href="https://blazejs.org" title="Blaze JS">
             <img src='https://cdn.rawgit.com/meteor/blaze/master/images/logo.svg' alt='blazejs icon' height='32'>
-        </a>
-        <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML 5">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg' alt='HTML Icon' height='32'>
         </a>
         <a href="https://sass-lang.com/" title="SASS/SCSS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>

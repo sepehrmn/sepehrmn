@@ -59,7 +59,10 @@
         </a>
         <a href="https://pandas.pydata.org" title="Pandas">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg' alt='Pandas Icon' height='32'>
-        </a>
+        </a> 
+        <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
+            <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>
+        </a> 
     </td> NEST scipy matplotlib openai huggingface transformers
 </tr>
 

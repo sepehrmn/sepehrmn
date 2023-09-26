@@ -5,7 +5,7 @@
 - 👯 Interested in AI/ML infra, and collaborating on projects involving several models and intelligent agents that utilize them effectively.
 - 💬 I'm also interested in spatial computing and AI applications in this context. 
 
-## Social
+## Socials
 
 [<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN)
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
@@ -20,8 +20,8 @@
     <td>
         <a href="https://Ubuntu.org/" title="Linux / Ubuntu">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/ubuntu/ubuntu-plain.svg' alt='Linux Ubuntu' height='32'>
-        </a>
-        <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg' alt='MacOS' height='32'>
+        <a href="https://developer.apple.com/macos/" title="MacOS">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg' alt='MacOS' height='32'>
         <a href="https://learn.microsoft.com/en-us/windows/wsl/" title="Windows with WSL2">
             <img src='https://learn.microsoft.com/en-us/windows/images/wsl-icon.png' alt='Windows with WSL2' height='32'>
         </a>

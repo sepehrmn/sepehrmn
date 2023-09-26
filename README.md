@@ -57,7 +57,7 @@
         <a href="https://pandas.pydata.org" title="Pandas">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg' alt='Pandas Icon' height='32'>
         </a>
-    </td>
+    </td> NEST scipy matplotlib openai huggingface transformers
 </tr>
 
 
@@ -140,13 +140,16 @@
     </td>
 </tr>
 <tr>
-    <td>Mobile</td>
+    <td>Native</td>
     <td>
         <a href="https://reactnative.dev/" title="React Native">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React Native icon' height='32'>
         </a>
         <a href="https://expo.dev/" title="Expo for React Native">
             <img src='https://github.com/expo/expo/raw/main/.github/resources/banner.png' alt='Expo for React Native icon' height='32'>
+        </a>
+        <a href="https://www.unity.com/" title="Unity for Spatial Computing">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg' alt='Unity for Spatial Computing' height='32'>
         </a>
     </td>
 </tr>

@@ -1,7 +1,7 @@
 ### Hi there 👋 I'm Sepehr. I'm a software and AI engineer. 
 
 - 🔭 I'm currently working on improving my DevOps skills integrating some AI into daily workflows.
-- 🌱 Trying to get good at training and/or fine-tuning small task-specific generative models.
+- 🌱 Learning training and/or fine-tuning small task-specific generative models.
 - 👯 Interested in AI/ML infra, and on collaborating on projects involving several models and intelligent agents that utilize them effectively.
 - 💬 My other interests include spatial computing and computational psychiatry.
 
@@ -9,7 +9,7 @@
 
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/twitter/twitter-original.svg' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN)
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
-[<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/substack-original.svg' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://substack.com/@thetorus)
+[<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/substack.svg' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://substack.com/@thetorus)
 
 
 

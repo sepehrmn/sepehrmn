@@ -134,8 +134,8 @@
         <a href="https://pytest.org" title="Pytest">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg' alt='Pytest icon' height='32'>
         </a>
-        <a href="https://www.sinonjs.org" title="CI/CL"> CI/CL
-            <img src='' alt='CI/CL icon' height='32'>
+        <a href="https://www.jenkins.io" title="Jenkins icon"> 
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='CI/CL icon' height='32'>
         </a>
     </td>
 </tr>

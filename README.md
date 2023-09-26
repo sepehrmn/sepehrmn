@@ -60,7 +60,7 @@
         <a href="https://pandas.pydata.org" title="Pandas">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg' alt='Pandas Icon' height='32'>
         </a> 
-        <a href="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" title="SciPy">
+        <a href="https://scipy.org/" title="SciPy">
             <img src='https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg' alt='SciPy Icon' height='32'>
         </a> 
         <a href="https://huggingface.co" title="Hugging Face">

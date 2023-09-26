@@ -93,11 +93,17 @@
         </a>        
         <a href="https://nodejs.org/" title="NodeJs">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' alt='NodeJs icon' height='32'>
-        </a>        
+        </a>  
+        <a href="https://www.mysql.com" title="MySQL">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-plain.svg' alt='MySQL icon' height='32'>
+        </a>
         <a href="https://mongodb.com/" title="MongoDB">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg' alt='MongoDB icon' height='32'>
         </a>
-    </td>
+        <a href="https://www.postgresql.org/" title="postgreSQL">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg' alt='postgreSQL icon' height='32'>
+        </a>
+    </td> 
 </tr>
 <tr>
     <td>Frontend</td>

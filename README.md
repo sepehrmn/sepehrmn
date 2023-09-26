@@ -157,7 +157,7 @@
         <a href="https://pypi.org/project/matplotlib/" title="Matplotlib">
             <img src='https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg' alt='Matplotlib icon' height='32'>
         </a>
-        <a href="https://expo.dev/" title="Seaborn">
+        <a href="https://seaborn.pydata.org/" title="Seaborn">
             <img src='https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg' alt='Seaborn icon' height='32'>
         </a>
         <a href="https://www.tableau.com" title="Tableau">

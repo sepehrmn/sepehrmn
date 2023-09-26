@@ -42,7 +42,7 @@
         <a href="https://code.visualstudio.com" title="Visual Studio Code">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg' alt='Visual Studio Code Icon' height='32'>
         </a>
-    </td>CI/CL
+    </td>
 </tr>
 
 <tr>
@@ -72,7 +72,7 @@
         <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
             <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>
         </a> 
-    </td>    https://openai.com/blog/openai-api
+    </td>    
 </tr> 
 
 

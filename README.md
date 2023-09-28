@@ -69,6 +69,9 @@
         <a href="https://openai.com/blog/openai-api" title="OpenAI APIs">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/openai-logomark.svg' alt='OpenAI icon' height='32'>
         </a> 
+        <a href="https://github.com/langchain-ai/langchain" title="LangChain">
+            <img src='https://avatars.githubusercontent.com/u/126733545' alt='LangChain icon' height='32'>
+        </a> 
         <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
             <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>
         </a> 

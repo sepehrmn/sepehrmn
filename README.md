@@ -151,8 +151,8 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://pytest.org" title="Pytest">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg' alt='Pytest icon' height='32'>
         </a>
-        <a href="https://www.jenkins.io" title="Jenkins icon"> 
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='CI/CL icon' height='32'>
+        <a href="https://www.jenkins.io" title="Jenkins"> 
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='Jenkins icon' height='32'>
         </a>
     </td>
 </tr>

@@ -140,6 +140,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://blazejs.org" title="Blaze JS">
             <img src='https://cdn.rawgit.com/meteor/blaze/master/images/logo.svg' alt='blazejs icon' height='32'>
         </a>
+        <a href="https://react.dev" title="React">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React icon' height='32'>
+        </a>
     </td>
 </tr>
 <tr>

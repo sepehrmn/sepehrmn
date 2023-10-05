@@ -5,7 +5,7 @@ Currently employed at the Free University of Berlin studying natural language us
 - 🔭 I'm currently working on improving my DevOps skills and integrating AI into daily workflows.
 - 🌱 Learning training and fine-tuning small task-specific generative models.
 - 👯 Interested in AI/ML infra, and collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 I'm also interested in spatial computing, computational psychiatry, and applications of AI in these areas. 
+- 💬 I'm also interested in spatial computing, computational psychiatry, and applying AI in these areas. 
 
 ## Socials
 

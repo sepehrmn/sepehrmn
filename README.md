@@ -154,6 +154,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://www.jenkins.io" title="Jenkins"> 
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='Jenkins icon' height='32'>
         </a>
+        <a href="https://www.travis-ci.com" title="Travis-CI"> 
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
+        </a>
     </td>
 </tr>
 <tr>
@@ -186,19 +189,3 @@ Currently employed at the Free University of Berlin studying natural language us
 </tr>
 </tbody>
 </table>
-
-
-<!--
-**sepehrmn/sepehrmn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->

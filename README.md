@@ -9,9 +9,9 @@ Currently employed at the Free University of Berlin studying natural language us
 
 ## Socials
 
-[<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN)
+[<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://twitter.com/SepehrMN) &nbsp;
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
-[<img src='https://substackcdn.com/image/fetch/w_500,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fsubstack.png' alt='Sepehr Mahmoudian on Twitter' height='40'>](https://substack.com/@thetorus)
+[<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png' alt='Sepehr Mahmoudian on Twitter' width='45' height='45'>](https://substack.com/@thetorus)
 
 ## Expertise
 

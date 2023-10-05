@@ -50,7 +50,7 @@ Currently employed at the Free University of Berlin studying natural language us
 <tr>
     <td>AI/ML</td>
     <td>
-        <a href="https://www.pytorch.org" title="PyTorch">
+        <a href="https://pytorch.org" title="PyTorch">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='PyTorch Icon' height='32'>
         </a>
         <a href="https://python.org" title="Python">

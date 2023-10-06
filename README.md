@@ -14,6 +14,7 @@ Currently employed at the Free University of Berlin studying natural language us
 [<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png' alt='Sepehr Mahmoudian on Google Scholar' height='40'>](https://scholar.google.com/citations?user=t3PSg8kAAAAJ)
 [<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on X (Twitter)' height='37' width='37'>](https://twitter.com/SepehrMN) 
 [<img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Sepehr Mahmoudian on Hugging Face' width='45' height='45'>](https://huggingface.co/TheTorus)
+
 ## Expertise
 
 <table>
@@ -90,6 +91,10 @@ Currently employed at the Free University of Berlin studying natural language us
         </a>
         <a href="https://kubernetes.io" title="Kubernetes">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg' alt='Kubernetes icon' height='32'>
+        </a>
+        </a>
+        <a href="https://www.terraform.io" title="Terraform">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg' alt='Terraform icon' height='32'>
         </a>
         <a href="https://aws.amazon.com/" title="AWS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg' alt='AWS Icon' height='32'>

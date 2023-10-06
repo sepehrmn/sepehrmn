@@ -101,6 +101,12 @@ Currently employed at the Free University of Berlin studying natural language us
         </a>
         <a href="https://azure.microsoft.com/" title="Azure">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg' alt='Azure icon' height='32'>
+        </a>      
+        <a href="https://www.jenkins.io" title="Jenkins"> 
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='Jenkins icon' height='32'>
+        </a>
+        <a href="https://www.travis-ci.com" title="Travis-CI"> 
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
         </a>
     </td>
 </tr>
@@ -159,12 +165,6 @@ Currently employed at the Free University of Berlin studying natural language us
         </a>
         <a href="https://pytest.org" title="Pytest">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg' alt='Pytest icon' height='32'>
-        </a>
-        <a href="https://www.jenkins.io" title="Jenkins"> 
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='Jenkins icon' height='32'>
-        </a>
-        <a href="https://www.travis-ci.com" title="Travis-CI"> 
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
         </a>
     </td>
 </tr>

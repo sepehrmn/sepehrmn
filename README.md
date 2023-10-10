@@ -96,9 +96,6 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://www.terraform.io" title="Terraform">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg' alt='Terraform icon' height='32'>
         </a>
-        <a href="https://aws.amazon.com/" title="AWS">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg' alt='AWS Icon' height='32'>
-        </a>
         <a href="https://azure.microsoft.com/" title="Azure">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg' alt='Azure icon' height='32'>
         </a>      

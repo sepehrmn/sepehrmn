@@ -105,11 +105,11 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://www.travis-ci.com" title="Travis-CI"> 
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
         </a>
-        <a href="https://www.travis-ci.com" title="OpenMPI"> 
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
+        <a href="https://www.open-mpi.org" title="OpenMPI"> 
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/openmpi-icon.png' alt='OpenMPI icon' height='32'>
         </a>
-        <a href="https://www.travis-ci.com" title="Travis-CI"> 
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
+        <a href="https://www.openmp.org" title="OpenMP"> 
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/openmp-icon.png' alt='OpenMP icon' height='32'>
         </a>
     </td>
 </tr>

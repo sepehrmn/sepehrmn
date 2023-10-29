@@ -180,6 +180,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://seaborn.pydata.org/" title="Seaborn">
             <img src='https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg' alt='Seaborn icon' height='32'>
         </a>
+        <a href="https://threejs.org" title="Three.js">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg' alt='Three.JS icon' height='32'>
+        </a>
         <a href="https://marimo.io/" title="Marimo">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/marimo-icon.svg' alt='Marimo icon' height='32'>
         </a>

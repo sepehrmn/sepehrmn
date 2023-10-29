@@ -186,6 +186,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://threejs.org" title="Three.js">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg' alt='Three.JS icon' height='32'>
         </a>
+        <a href="https://bokeh.org" title="Bokeh">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/bokeh-icon.svg' alt='Bokeh icon' height='32'>
+        </a>
         <a href="https://www.tableau.com" title="Tableau">
             <img src='https://www.tableau.com/sites/default/files/2022-04/TableauLogo_RGB.png' alt='Tableau icon' height='32'>
         </a>

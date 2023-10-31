@@ -206,6 +206,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://expo.dev/" title="Expo for React Native">
             <img src='https://github.com/expo/expo/raw/main/.github/resources/banner.png' alt='Expo for React Native icon' height='32'>
         </a>
+        <a href="https://developer.apple.com/swift/" title="Swift">
+            <img src='https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg' alt='Swift' height='32'>
+        </a>
         <a href="https://www.unity.com/" title="Unity for Spatial Computing">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg' alt='Unity for Spatial Computing' height='32'>
         </a>

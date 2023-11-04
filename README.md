@@ -70,8 +70,8 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://scipy.org/" title="SciPy">
             <img src='https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg' alt='SciPy Icon' height='32'>
         </a> 
-        <a href="" title="Pydantic">
-            <img src='' alt='Pydantic' height='32'>
+        <a href="https://docs.pydantic.dev/latest/" title="Pydantic">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png' alt='Pydantic' height='32'>
         </a> 
         <a href="https://huggingface.co" title="Hugging Face Transformers">
             <img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Hugging Face Icon' height='32'>

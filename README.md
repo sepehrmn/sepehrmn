@@ -160,7 +160,10 @@ Currently employed at the Free University of Berlin studying natural language us
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>
         </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='javascript' height='32'>
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='JavaScript' height='32'>
+        </a>
+        <a href="https://www.typescriptlang.org" title="TypeScript">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg' alt='TypeScript' height='32'>
         </a>
         <a href="https://blazejs.org" title="Blaze JS">
             <img src='https://cdn.rawgit.com/meteor/blaze/master/images/logo.svg' alt='blazejs icon' height='32'>

@@ -16,7 +16,8 @@ Currently employed at the Free University of Berlin studying natural language us
 [<img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Sepehr Mahmoudian on Hugging Face' width='45' height='45'>](https://huggingface.co/TheTorus)
 
 ## Expertise
-
+* Advanced
+* * Expert
 <table>
 <tbody>
 <tr>

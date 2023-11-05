@@ -47,6 +47,9 @@ Currently employed at the Free University of Berlin studying natural language us
         <a href="https://code.visualstudio.com" title="Visual Studio Code">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg' alt='Visual Studio Code Icon' height='32'>
         </a>
+        <a href="https://developer.apple.com/xcode/" title="Xcode">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/xcode/xcode-original.svg' alt='Xcode Icon' height='32'>
+        </a>
         <a href="https://jupyter.org" title="Jupyter">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg' alt='Jupyter Icon' height='32'>
         </a>

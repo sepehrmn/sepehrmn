@@ -22,7 +22,7 @@ Currently employed at the Free University of Berlin studying natural language us
 <tr>
     <td>OS</td>
     <td>
-        <a href="https://Ubuntu.org/" title="Linux / Ubuntu">
+        <a href="https://Ubuntu.com/" title="Linux / Ubuntu">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/ubuntu/ubuntu-plain.svg' alt='Linux Ubuntu' height='32'>
         <a href="https://developer.apple.com/macos/" title="MacOS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg' alt='MacOS' height='32'>

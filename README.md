@@ -233,4 +233,4 @@ I use Python and its ecosystem daily. I use C/C++ for deployment when performanc
 </tbody>
 </table>
 
- My most important skill is picking up a new tech/language rapidly and learning fast.
+ My most important skill is picking up a new tech/language rapidly and learning fast. I think it will be more important than ever with how fast technology will be advancing.

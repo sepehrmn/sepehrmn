@@ -1,11 +1,13 @@
 ### Hi there 👋 I'm Sepehr. I'm a software and AI engineer. 
 
-Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do computational neuroscience and AI research but I'm more interested in building and shipping real products. I want to make an impact and together build a better future for humanity!
+Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do computational neuroscience and AI research but I'm more interested in building and shipping real products. 
 
 - 🔭 I'm currently working on improving my DevOps skills and integrating AI into daily workflows.
 - 🌱 Learning training and fine-tuning small task-specific generative models.
 - 👯 Interested in collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 I'm also interested in spatial computing, general healthcare and computational psychiatry, and applying AI in these areas. 
+- 💬 I'm also interested in spatial computing, general healthcare and computational psychiatry, and applying AI in these areas.
+
+I am passionate and energetic about what I do and always happy to work with likeminded people. I want to make an impact and together build a better future for humanity!
 
 ## Socials
 

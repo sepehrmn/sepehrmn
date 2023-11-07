@@ -19,7 +19,7 @@ Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm 
 
 ## Expertise
 
-I use Python and its ecosystem daily but you can find the full list of technologies I use below. I use C/C++ for deployment when performance is needed but I'm currently working on using Rust instead. Actively improving my serverless developer expertise with Azure and a bit of AWS. My most important skill is picking up a new tech/language rapidly and learning fast.
+I use Python and its ecosystem daily but you can find the full list of technologies I use below. I use C/C++ for deployment when performance is needed. Learning to use Rust instead. Actively improving my serverless developer expertise with Azure and a bit of AWS.
 
 <table>
 <tbody>
@@ -232,3 +232,5 @@ I use Python and its ecosystem daily but you can find the full list of technolog
 </tr>
 </tbody>
 </table>
+
+ My most important skill is picking up a new tech/language rapidly and learning fast.

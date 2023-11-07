@@ -17,7 +17,7 @@ Currently employed at the Free University of Berlin studying natural language us
 
 ## Expertise
 
-Mostly Python and its ecosystem. You can find the full list below. Currently working on adding RUST and improving my serverless expertise.
+Mostly Python and its ecosystem. You can find the full list below. Currently working on adding Rust and improving my serverless expertise with Azure and a bit of AWS.
 
 <table>
 <tbody>

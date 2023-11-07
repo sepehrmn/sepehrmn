@@ -9,6 +9,8 @@ Currently employed at the Free University of Berlin studying natural language us
 
 ## Socials
 
+Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm hoping to write more on Substack.
+
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
 [<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png' alt='Sepehr Mahmoudian on Substack' width='45' height='45'>](https://substack.com/@thetorus)
 [<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png' alt='Sepehr Mahmoudian on Google Scholar' height='40'>](https://scholar.google.com/citations?user=t3PSg8kAAAAJ)

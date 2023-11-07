@@ -1,6 +1,6 @@
 ### Hi there 👋 I'm Sepehr. I'm a software and AI engineer. 
 
-Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do neuroscience and AI research but I'm more interested in building and shipping real products.
+Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do neuroscience and AI research but I'm more interested in building and shipping real products. I want to make an impact and together build a better future for humanity!
 
 - 🔭 I'm currently working on improving my DevOps skills and integrating AI into daily workflows.
 - 🌱 Learning training and fine-tuning small task-specific generative models.

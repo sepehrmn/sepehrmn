@@ -23,6 +23,8 @@ Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm 
 
 I use Python and its ecosystem daily. I use C/C++ for deployment when performance is needed. Maybe Rust in the future. Actively improving my serverless developer expertise with Azure and a bit of AWS.
 
+I've used many machine learning models over the years including reinforcement learning, Bayesian modeling, various methods for clustering, classification, regression and dimensionality reduction.
+
 <table>
 <tbody>
 <tr>

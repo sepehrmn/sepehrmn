@@ -19,7 +19,7 @@ Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm 
 
 ## Expertise
 
-I use Python and its ecosystem daily but you can find the full list of technologies I use below. I use C/C++ for deployment when performance is needed but I'm currently working on using Rust instead. Actively improving my serverless developer expertise with Azure and a bit of AWS.
+I use Python and its ecosystem daily but you can find the full list of technologies I use below. I use C/C++ for deployment when performance is needed but I'm currently working on using Rust instead. Actively improving my serverless developer expertise with Azure and a bit of AWS. My most important skill is picking up a new tech/language rapidly and learning fast.
 
 <table>
 <tbody>
@@ -149,7 +149,10 @@ I use Python and its ecosystem daily but you can find the full list of technolog
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg' alt='MongoDB icon' height='32'>
         </a>
         <a href="https://www.postgresql.org/" title="postgreSQL">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg' alt='postgreSQL icon' height='32'>
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg' alt='postgreSQL icon' height='32'>
+        </a>
+        <a href="https://www.rust-lang.org" title="Rust">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-plain.svg' alt='Rust icon' height='36'>
         </a>
     </td> 
 </tr>

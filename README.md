@@ -237,4 +237,4 @@ I've used many machine learning models over the years including reinforcement le
 </tbody>
 </table>
 
- My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly and rapidly. I think these will be more important than ever with how fast technology will be advancing.
+ My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.

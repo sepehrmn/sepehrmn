@@ -166,6 +166,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML 5">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg' alt='HTML Icon' height='32'>
         </a>
+        <a href="https://www.w3.org/Style/CSS/" title="CSS">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg' alt='CSS Icon' height='32'>
+        </a>
         <a href="https://sass-lang.com/" title="SASS/SCSS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>
         </a>

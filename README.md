@@ -218,6 +218,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.tableau.com" title="Tableau">
             <img src='https://www.tableau.com/sites/default/files/2022-04/TableauLogo_RGB.png' alt='Tableau icon' height='32'>
         </a>
+        <a href="https://www.latex-project.org" title="LaTeX">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg' alt='LaTeX icon' height='36'>
+        </a>
     </td>
 </tr>
 <tr>
@@ -230,10 +233,10 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://github.com/expo/expo/raw/main/.github/resources/banner.png' alt='Expo for React Native icon' height='32'>
         </a>
         <a href="https://developer.apple.com/swift/" title="Swift">
-            <img src='https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg' alt='Swift' height='32'>
+            <img src='https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg' alt='Swift icon' height='32'>
         </a>
         <a href="https://www.unity.com/" title="Unity for Spatial Computing">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg' alt='Unity for Spatial Computing' height='32'>
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg' alt='Unity icon' height='32'>
         </a>
     </td>
 </tr>

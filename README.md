@@ -93,6 +93,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://github.com/langchain-ai/langchain" title="LangChain">
             <img src='https://avatars.githubusercontent.com/u/126733545' alt='LangChain icon' height='32'>
         </a> 
+        <a href="https://github.com/ml-explore" title="MLX">
+            <img src='https://ml-explore.github.io/mlx/build/html/_static/mlx_logo.png' alt='MLX Icon' height='32'>
+        </a> 
         <a href="https://nest-simulator.org" title="NEST Spiking Neural Network Simulator">
             <img src='https://nest-simulator.org/downloads/wiki/nest-wiki-main-page.png' alt='NEST Icon' height='32'>
         </a> 

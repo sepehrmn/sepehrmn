@@ -3,7 +3,7 @@
 Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do computational neuroscience and AI research but I'm more interested in building and shipping real products. 
 
 - 🔭 I'm currently working on improving my DevOps skills and training generative models.
-- 💬 I'm also interested in spatial computing, general healthcare, and computational psychiatry, and applying AI in these areas. Let's talk if you have an interesting project!
+- 💬 I'm also interested in spatial computing, healthcare and computational psychiatry, and applying AI in these areas. Let's talk if you have an interesting project!
 
 I am passionate and energetic about what I do and always happy to work with like-minded people. I want to make an impact and together build a better future for humanity!
 

@@ -2,16 +2,14 @@
 
 Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do computational neuroscience and AI research but I'm more interested in building and shipping real products. 
 
-- 🔭 I'm currently working on improving my DevOps skills and integrating AI into daily workflows.
-- 🌱 Learning training and fine-tuning small task-specific generative models.
-- 👯 Interested in collaborating on projects involving several models and intelligent agents that utilize them effectively.
-- 💬 I'm also interested in spatial computing, general healthcare and computational psychiatry, and applying AI in these areas.
+- 🔭 I'm currently working on improving my DevOps skills and training generative models.
+- 💬 I'm also interested in spatial computing, general healthcare, and computational psychiatry, and applying AI in these areas. Let's talk if you have an interesting project!
 
-I am passionate and energetic about what I do and always happy to work with likeminded people. I want to make an impact and together build a better future for humanity!
+I am passionate and energetic about what I do and always happy to work with like-minded people. I want to make an impact and together build a better future for humanity!
 
 ## Socials
 
-Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm hoping to write more on Substack.
+The best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm hoping to write more on Substack.
 
 [<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
 [<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png' alt='Sepehr Mahmoudian on Substack' width='45' height='45'>](https://substack.com/@thetorus)
@@ -23,7 +21,7 @@ Best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm 
 
 I use Python and its ecosystem daily. I use C/C++ for deployment when performance is needed. Maybe Rust in the future. Actively improving my serverless developer expertise with Azure and a bit of AWS.
 
-I've used many machine learning models over the years including reinforcement learning, Bayesian modeling, various methods for clustering, classification, regression and dimensionality reduction.
+I've used many machine learning models over the years including reinforcement learning, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
 
 <table>
 <tbody>

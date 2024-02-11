@@ -29,7 +29,7 @@ I've used many machine learning models over the years including reinforcement le
     <td>OS</td>
     <td>
         <a href="https://Ubuntu.com/" title="Linux / Ubuntu">
-            <img src='https://github.com/scipy/scipy.org/blob/main/static/images/ubuntu-plain.svg' alt='Linux Ubuntu' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/ubuntu-plain.svg' alt='Linux Ubuntu' height='32'>
         <a href="https://developer.apple.com/macos/" title="MacOS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg' alt='MacOS' height='32'>
         <a href="https://learn.microsoft.com/en-us/windows/wsl/" title="Windows with WSL2">

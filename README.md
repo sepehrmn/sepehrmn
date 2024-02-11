@@ -157,7 +157,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg' alt='postgreSQL icon' height='32'>
         </a>
         <a href="https://www.rust-lang.org" title="Rust">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-plain.svg' alt='Rust icon' height='36'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/rust-plain.png' alt='Rust icon' height='36'>
         </a>
     </td> 
 </tr>

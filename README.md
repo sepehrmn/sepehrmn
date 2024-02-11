@@ -148,7 +148,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' alt='NodeJs icon' height='32'>
         </a>  
         <a href="https://www.mysql.com" title="MySQL">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-plain.svg' alt='MySQL icon' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/mysql-plain.png' alt='MySQL icon' height='32'>
         </a>
         <a href="https://mongodb.com/" title="MongoDB">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg' alt='MongoDB icon' height='32'>

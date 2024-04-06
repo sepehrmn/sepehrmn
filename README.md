@@ -1,6 +1,6 @@
 ### Hi there 👋 I'm Sepehr. 
 
-Currently employed at the Free University of Berlin studying natural language using AI/ML and writing simulations of neural networks. I've done and still do computational neuroscience and AI research but I'm more interested in building and shipping real products. 
+Former computational neuroscientist now building something cool in AI + Healthcare :) 
 
 - 🔭 I'm currently working on improving my DevOps/MLOps skills and training generative models.
 - 💬 I'm also interested in spatial computing, healthcare and computational psychiatry, and applying AI in these areas. Let's talk if you have an interesting project!

@@ -19,7 +19,7 @@ The best way to reach me is via email. I am active on Linkedin and X (Twitter). 
 
 ## Expertise
 
-I use Python and its ecosystem daily. I use C/C++ for deployment when performance is needed. Maybe Rust in the future. Actively improving my serverless developer expertise with Azure and a bit of AWS.
+I use Python and its ecosystem daily for AI/ML. I use C/C++ and RUST when performance is needed. 
 
 I've used many machine learning models over the years including reinforcement learning, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
 

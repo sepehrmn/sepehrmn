@@ -141,6 +141,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://cplusplus.com" title="C++">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg' alt='C++ icon' height='32'>
         </a>  
+        <a href="https://www.djangoproject.com" title="Django">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/django-icon.svg' alt='C++ icon' height='32'>
+        </a>
         <a href="https://nodejs.org/" title="NodeJs">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' alt='NodeJs icon' height='32'>
         </a>  

@@ -138,6 +138,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.w3schools.com/c/index.php" title="C">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-plain.svg' alt='C icon' height='32'>
         </a> 
+        <a href="https://www.rust-lang.org" title="Rust">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/rust-plain.png' alt='Rust icon' height='36'>
+        </a>
         <a href="https://cplusplus.com" title="C++">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg' alt='C++ icon' height='32'>
         </a>  
@@ -155,9 +158,6 @@ I've used many machine learning models over the years including reinforcement le
         </a>
         <a href="https://www.postgresql.org/" title="postgreSQL">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg' alt='postgreSQL icon' height='32'>
-        </a>
-        <a href="https://www.rust-lang.org" title="Rust">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/rust-plain.png' alt='Rust icon' height='36'>
         </a>
     </td> 
 </tr>

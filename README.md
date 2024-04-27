@@ -1,6 +1,6 @@
 ### Hi there 👋 I'm Sepehr. 
 
-Former computational neuroscientist now building something cool in AI + Healthcare :) 
+Computational neuroscientist now building something cool in AI + Healthcare :) 
 
 - 🔭 I'm currently working on improving my DevOps/MLOps skills and training generative models.
 - 💬 I'm also interested in spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 

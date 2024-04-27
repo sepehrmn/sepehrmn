@@ -2,10 +2,9 @@
 
 Computational neuroscientist now building something cool in AI + Healthcare :) 
 
-- 🔭 I'm currently working on improving my DevOps/MLOps skills and training generative models.
-- 💬 I'm also interested in spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
+Personal interests include spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
 
-I am passionate and energetic about what I do and always happy to work with like-minded people. I want to make an impact and together build a better future for humanity!
+I am passionate and energetic about what I do and always happy to work with like-minded people. 
 
 ## Socials
 

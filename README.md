@@ -115,7 +115,10 @@ I've used many machine learning models over the years including reinforcement le
         </a>
         <a href="https://azure.microsoft.com/" title="Azure">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg' alt='Azure icon' height='32'>
-        </a>      
+        </a>     
+        <a href="https://cloud.google.com" title="GCP">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg' alt='GCP icon' height='32'>
+        </a>    
         <a href="https://www.jenkins.io" title="Jenkins"> 
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg' alt='Jenkins icon' height='32'>
         </a>

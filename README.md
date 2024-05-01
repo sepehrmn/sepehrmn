@@ -153,7 +153,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/django-icon.svg' alt='django icon' height='32'>
         </a>
         <a href="https://fastapi.tiangolo.com" title="FastAPI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.svg' alt='FastAPI icon' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png' alt='FastAPI icon' height='32'>
         </a>
         <a href="https://www.postgresql.org/" title="postgreSQL">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg' alt='postgreSQL icon' height='32'>

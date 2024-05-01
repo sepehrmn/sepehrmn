@@ -158,7 +158,7 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://sqlmodel.tiangolo.com" title="SQLModel">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/sqlmodel-icon.svg' alt='SQLModel icon' height='32'>
         </a>
-        <a href="https://sqlmodel.tiangolo.com" title="Neon">
+        <a href="https://neon.tech" title="Neon">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/neon-icon.svg' alt='Neon icon' height='32'>
         </a>
         <a href="https://www.postgresql.org/" title="postgreSQL">

@@ -179,7 +179,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg' alt='Tailwind CSS Icon' height='32'>
         </a>
         <a href="https://daisyui.com" title="daisyUI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/daisyUI-icon.svg' alt='daisyUI Icon' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/daisyui-icon.svg' alt='daisyUI Icon' height='32'>
         </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='JavaScript' height='32'>

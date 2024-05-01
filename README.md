@@ -178,6 +178,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://sass-lang.com/" title="SASS/SCSS">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg' alt='SASS Icon' height='32'>
         </a>
+        <a href="https://tailwindcss.com" title="Tailwind CSS">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg' alt='Tailwind CSS Icon' height='32'>
+        </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='JavaScript' height='32'>
         </a>

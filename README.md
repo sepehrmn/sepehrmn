@@ -169,9 +169,6 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://tailwindcss.com" title="Tailwind CSS">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg' alt='Tailwind CSS Icon' height='32'>
         </a>
-        <a href="https://daisyui.com" title="daisyUI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/daisyui-icon.svg' alt='daisyUI Icon' height='32'>
-        </a>
         <a href="https://nextjs.org" title="NEXT.js">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/nextjs-icon.jpg' alt='NEXT.js icon' height='32'>
         </a>

@@ -34,6 +34,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://learn.microsoft.com/en-us/windows/wsl/" title="Windows with WSL2">
             <img src='https://learn.microsoft.com/en-us/windows/images/wsl-icon.png' alt='Windows with WSL2' height='32'>
         </a>
+        <a href="https://nixos.org" title="NixOS">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/nixos-icon.svg' alt='Nix and NixOS' height='32'>
+        </a>
     </td>
 </tr>
 <tr>

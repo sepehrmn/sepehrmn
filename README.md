@@ -143,6 +143,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://python.org" title="Python">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
         </a>
+        <a href="https://python.org" title="Python">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
+        </a>
         <a href="https://fastapi.tiangolo.com" title="FastAPI">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png' alt='FastAPI icon' height='32'>
         </a>

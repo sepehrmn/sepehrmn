@@ -169,12 +169,6 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://tailwindcss.com" title="Tailwind CSS">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg' alt='Tailwind CSS Icon' height='32'>
         </a>
-        <a href="https://nextjs.org" title="NEXT.js">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/nextjs-icon.jpg' alt='NEXT.js icon' height='32'>
-        </a>
-        <a href="https://ui.shadcn.com" title="shadcn/ui">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png' alt='shadcn/ui icon' height='32'>
-        </a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg' alt='JavaScript' height='32'>
         </a>
@@ -183,6 +177,12 @@ I've used many machine learning models over the years including reinforcement le
         </a>
         <a href="https://react.dev" title="React">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React icon' height='32'>
+        </a>
+        <a href="https://nextjs.org" title="NEXT.js">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/nextjs-icon.jpg' alt='NEXT.js icon' height='32'>
+        </a>
+        <a href="https://ui.shadcn.com" title="shadcn/ui">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png' alt='shadcn/ui icon' height='32'>
         </a>
     </td>
 </tr>

@@ -66,11 +66,11 @@ I've used many machine learning models over the years including reinforcement le
 <tr>
     <td>AI/ML</td>
     <td>
-        <a href="https://github.com/pytorch/pytorch" title="PyTorch">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='PyTorch Icon' height='32'>
-        </a>
         <a href="https://python.org" title="Python">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
+        </a>
+        <a href="https://github.com/pytorch/pytorch" title="PyTorch">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='PyTorch Icon' height='32'>
         </a>
         <a href="https://numpy.org" title="Numpy">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg' alt='Numpy icon' height='32'>

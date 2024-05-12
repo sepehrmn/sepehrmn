@@ -181,9 +181,6 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.typescriptlang.org" title="TypeScript">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg' alt='TypeScript' height='32'>
         </a>
-        <a href="https://blazejs.org" title="Blaze JS">
-            <img src='https://cdn.rawgit.com/meteor/blaze/master/images/logo.svg' alt='blazejs icon' height='32'>
-        </a>
         <a href="https://react.dev" title="React">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' alt='React icon' height='32'>
         </a>

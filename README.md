@@ -4,8 +4,6 @@ Computational neuroscientist now building something cool in AI + Healthcare :)
 
 Personal interests include spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
 
-I am passionate and energetic about what I do and always happy to work with like-minded people. 
-
 ## Socials
 
 The best way to reach me is via email. I am active on Linkedin and X (Twitter). I'm hoping to write more on Substack.

@@ -99,7 +99,7 @@ I've used many machine learning models over the years including reinforcement le
 
 
 <tr>
-    <td>DevOps</td>
+    <td>DevOps/MLOps</td>
     <td>
         <a href="https://Docker.com" title="Docker">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' alt='Dockerr icon' height='32'>

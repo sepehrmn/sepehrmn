@@ -1,6 +1,6 @@
 ### Hi there 👋 I'm Sepehr. 
 
-Computational neuroscientist now building something cool in AI + Healthcare as the CTO of LeoZane.
+Computational neuroscientist now building something cool in AI + Healthcare as the CTO of an early-stage startup.
 
 Personal interests include spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
 

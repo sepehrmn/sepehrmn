@@ -216,9 +216,6 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://bokeh.org" title="Bokeh">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/bokeh-icon.png' alt='Bokeh icon' height='32'>
         </a>
-        <a href="https://www.tableau.com" title="Tableau">
-            <img src='https://www.tableau.com/sites/default/files/2022-04/TableauLogo_RGB.png' alt='Tableau icon' height='32'>
-        </a>
         <a href="https://www.latex-project.org" title="LaTeX">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg' alt='LaTeX icon' height='36'>
         </a>

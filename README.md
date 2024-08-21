@@ -233,6 +233,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://developer.apple.com/swift/" title="Swift">
             <img src='https://github.com/devicons/devicon/blob/master/icons/swift/swift-original.svg' alt='Swift icon' height='32'>
         </a>
+        <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html" title="Objective-C">
+            <img src='https://miro.medium.com/v2/resize:fit:860/1*_vucrvh8U3oDcQcavW1tkg.png' alt='Expo for React Native icon' height='32'>
+        </a>
         <a href="https://www.unity.com/" title="Unity for Spatial Computing">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg' alt='Unity icon' height='32'>
         </a>

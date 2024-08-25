@@ -18,7 +18,7 @@ The best way to reach me is via email or on X.
 
 ## Expertise
 
-I use Python and its ecosystem daily for AI/ML. I use C/C++ and RUST when performance is needed. 
+I use Python and its ecosystem for AI/ML. For apps, Typescript, Javascript and React (+Native). Finally, I use C/C++ and RUST when performance is needed. 
 
 I've used many machine learning models over the years including reinforcement learning, different recurrent neural networks, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
 

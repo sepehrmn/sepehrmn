@@ -104,7 +104,7 @@ I've used many machine learning models over the years including reinforcement le
     <td>DevOps/MLOps</td>
     <td>
         <a href="https://Docker.com" title="Docker">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' alt='Dockerr icon' height='32'>
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' alt='Docker icon' height='32'>
         </a>
         <a href="https://www.rancher.com/" title="Rancher">
             <img src='https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg' alt='Rancher icon' height='32'>

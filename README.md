@@ -108,6 +108,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://github.com/pytorch/pytorch" title="Streamlit">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='Streamlit' height='32'>
         </a>
+        <a href="https://github.com/pytorch/pytorch" title="FastHTML">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='FastHTML' height='32'>
+        </a>
         <a href="https://github.com/pytorch/pytorch" title="CrewAI">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='CrewAI' height='32'>
         </a>

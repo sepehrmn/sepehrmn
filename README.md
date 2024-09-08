@@ -99,6 +99,20 @@ I've used many machine learning models over the years including reinforcement le
     </td>    
 </tr> 
 
+<tr>
+    <td>Software 3.0</td>
+    <td>
+        <a href="https://python.org" title="Python">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
+        </a>
+        <a href="https://github.com/pytorch/pytorch" title="Streamlit">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='Streamlit' height='32'>
+        </a>
+        <a href="https://github.com/pytorch/pytorch" title="CrewAI">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='CrewAI' height='32'>
+        </a>
+    </td>    
+</tr> 
 
 <tr>
     <td>DevOps/MLOps</td>

@@ -100,25 +100,25 @@ I've used many machine learning models over the years including reinforcement le
 </tr> 
 
 <tr>
-    <td>Software 3.0</td>
-    <td>
-        <a href="https://python.org" title="Python">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
-        </a>
-        <a href="https://github.com/pytorch/pytorch" title="Streamlit">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='Streamlit' height='32'>
-        </a>
-        <a href="https://github.com/pytorch/pytorch" title="FastHTML">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='FastHTML' height='32'>
-        </a>
-        <a href="https://github.com/pytorch/pytorch" title="Langflow">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='FastHTML' height='32'>
-        </a>
-        <a href="https://github.com/pytorch/pytorch" title="CrewAI">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' alt='CrewAI' height='32'>
-        </a>
-    </td>    
-</tr> 
+    <td>Software 3.0</td>
+    <td>
+        <a href="https://python.org" title="Python">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
+        </a>
+        <a href="https://github.com/langraph/langraph" title="Langraph">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' alt='Langraph' height='32'>
+        </a>
+        <a href="https://github.com/streamlit/streamlit" title="Streamlit">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg' alt='Streamlit' height='32'>
+        </a>
+        <a href="https://github.com/fastapi/fastapi" title="FastAPI">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg' alt='FastAPI' height='32'>
+        </a>
+        <a href="https://github.com/crewai/crewai" title="CrewAI">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' alt='CrewAI' height='32'>
+        </a>
+    </td>
+</tr>
 
 <tr>
     <td>DevOps/MLOps</td>

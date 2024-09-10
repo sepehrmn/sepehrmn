@@ -102,9 +102,9 @@ I've used many machine learning models over the years including reinforcement le
 <tr>
     <td>Software 3.0</td>
     <td>
-        <a href="https://python.org" title="Python">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
-        </a>
+        <a href="https://python.org" title="Python">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
+        </a>
         <a href="https://github.com/langraph/langraph" title="Langraph">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg' alt='Langraph' height='32'>
         </a>

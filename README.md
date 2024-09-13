@@ -111,6 +111,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.gradio.app/" title="Gradio">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/gradio/gradio-original.svg' alt='Gradio icon' height='32'>
         </a>
+        <a href="https://www.cursor.com/" title="Cursor">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cursor/cursor-original.svg' alt='Cursor icon' height='32'>
+        </a>
     </td>
 </tr>
 

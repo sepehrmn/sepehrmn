@@ -117,6 +117,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.cursor.com/" title="Cursor">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cursor/cursor-original.svg' alt='Cursor icon' height='32'>
         </a>
+        <a href="https://www.langflow.org/" title="Langflow">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/langflow/langflow-original.svg' alt='Langflow icon' height='32'>
+        </a>
     </td>
 </tr>
 

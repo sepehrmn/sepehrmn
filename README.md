@@ -60,6 +60,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://jupyter.org" title="Jupyter">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg' alt='Jupyter Icon' height='32'>
         </a>
+        <a href="https://neovim.io/" title="Neovim">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/neovim/neovim-original.svg' alt='Neovim icon' height='32'>
+        </a>
     </td>
 </tr>
 

@@ -105,7 +105,7 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://python.org" title="Python">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
         </a>
-        <a href="https://python.org" title="Streamlit">
+        <a href="https://streamlit.io/" title="Streamlit">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg' alt='Streamlit icon' height='32'>
         </a>
         <a href="https://www.gradio.app/" title="Gradio">

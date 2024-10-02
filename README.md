@@ -112,7 +112,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg' alt='Streamlit icon' height='32'>
         </a>
         <a href="https://www.gradio.app/" title="Gradio">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/gradio/gradio-original.svg' alt='Gradio icon' height='32'>
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/gradio/gradio-icon.svg' alt='Gradio icon' height='32'>
         </a>
         <a href="https://www.cursor.com/" title="Cursor">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cursor/cursor-icon.png' alt='Cursor icon' height='32'>

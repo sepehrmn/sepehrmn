@@ -121,7 +121,7 @@ I've used many machine learning models over the years including reinforcement le
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png' alt='Langflow icon' height='32'>
         </a>
         <a href="https://www.crewai.com/" title="CrewAI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-icon.png' alt='CrewAI icon' height='32'>
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png' alt='CrewAI icon' height='32'>
         </a>
     </td>
 </tr>

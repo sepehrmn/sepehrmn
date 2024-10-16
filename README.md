@@ -1,8 +1,8 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6B3B97&width=435&lines=AI-Native+builder+in+Healthcare)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6B3B97&width=435&lines=AI-Native+builder)](https://git.io/typing-svg)
 
 ### Hi there 👋 I'm Sepehr. 
 
-Computational neuroscientist now building something cool in AI + Healthcare as the CTO of an early-stage startup.
+Computational neuroscientist now building something cool in AI as the CTO of an early-stage startup.
 
 Personal interests include spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
 

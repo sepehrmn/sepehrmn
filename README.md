@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Sepehr. 
 
-Computational neuroscientist now building something cool in AI as the CTO of an early-stage startup. Nowadays I spend most of my time on multi-agent systems, agentic workflows, and shaping future AI OS engineering plans :)
+Computational neuroscientist. Nowadays I spend most of my time on multi-agent systems, agentic workflows, and shaping future AI OS engineering plans :)
 
 Personal interests include spatial computing, healthcare, computational psychiatry, and applying AI in these areas. 
 

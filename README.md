@@ -114,6 +114,9 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://www.travis-ci.com" title="Travis-CI"> 
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg' alt='Travis-CI icon' height='32'>
         </a>
+        <a href="https://git-scm.org" title="git">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg' alt='git icon' height='32'>
+        </a>
     </td>
 </tr>
 

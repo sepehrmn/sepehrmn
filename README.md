@@ -163,7 +163,7 @@ I've used many machine learning models over the years including reinforcement le
     </td>
 </tr>
 <tr>
-    <td>Visualization</td>
+    <td>Misc</td>
     <td>
         <a href="https://pypi.org/project/matplotlib/" title="Matplotlib">
             <img src='https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg' alt='Matplotlib icon' height='32'>
@@ -171,17 +171,23 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://seaborn.pydata.org/" title="Seaborn">
             <img src='https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg' alt='Seaborn icon' height='32'>
         </a>
-        <a href="https://marimo.io/" title="Marimo">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/marimo-icon.svg' alt='Marimo icon' height='32'>
-        </a>
         <a href="https://threejs.org" title="Three.js">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg' alt='Three.JS icon' height='32'>
         </a>
-        <a href="https://bokeh.org" title="Bokeh">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/bokeh-icon.png' alt='Bokeh icon' height='32'>
-        </a>
         <a href="https://www.latex-project.org" title="LaTeX">
             <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg' alt='LaTeX icon' height='36'>
+        </a>
+                <a href="https://streamlit.io/" title="Streamlit">
+            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg' alt='Streamlit icon' height='32'>
+        </a>
+        <a href="https://www.gradio.app/" title="Gradio">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/gradio-logo.png' alt='Gradio icon' height='32'>
+        </a>
+        <a href="https://www.langflow.org/" title="Langflow">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png' alt='Langflow icon' height='32'>
+        </a>
+        <a href="https://www.crewai.com/" title="CrewAI">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png' alt='CrewAI icon' height='32'>
         </a>
     </td>
 </tr>

@@ -60,30 +60,6 @@ I've used many machine learning models over the years including reinforcement le
 </tr> 
 
 <tr>
-    <td>Software 3.0</td>
-    <td>
-        <a href="https://python.org" title="Python">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' alt='Python icon' height='32'>
-        </a>
-        <a href="https://streamlit.io/" title="Streamlit">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg' alt='Streamlit icon' height='32'>
-        </a>
-        <a href="https://www.gradio.app/" title="Gradio">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/gradio-logo.png' alt='Gradio icon' height='32'>
-        </a>
-        <a href="https://www.cursor.com/" title="Cursor">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/cursor-logo.png' alt='Cursor icon' height='32'>
-        </a>
-        <a href="https://www.langflow.org/" title="Langflow">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png' alt='Langflow icon' height='32'>
-        </a>
-        <a href="https://www.crewai.com/" title="CrewAI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png' alt='CrewAI icon' height='32'>
-        </a>
-    </td>
-</tr>
-
-<tr>
     <td>DevOps/MLOps</td>
     <td>
         <a href="https://Docker.com" title="Docker">

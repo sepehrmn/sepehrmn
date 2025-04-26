@@ -22,32 +22,6 @@ I've used many machine learning models over the years including reinforcement le
 
 <table>
 <tbody>
-<tr>
-    <td>Tools</td>
-    <td>
-        <a href="https://git-scm.org" title="git">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg' alt='git icon' height='32'>
-        </a>
-        <a href="https://github.com" title="GitHub">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg' alt='GitHub icon' height='32'>
-        </a>
-        <a href="https://www.anaconda.org" title="Anaconda">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/anaconda/anaconda-original.svg' alt='Anaconda Icon' height='32'>
-        </a>
-        <a href="https://code.visualstudio.com" title="Visual Studio Code">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg' alt='Visual Studio Code Icon' height='32'>
-        </a>
-        <a href="https://developer.apple.com/xcode/" title="Xcode">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/xcode/xcode-original.svg' alt='Xcode Icon' height='34'>
-        </a>
-        <a href="https://jupyter.org" title="Jupyter">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg' alt='Jupyter Icon' height='32'>
-        </a>
-        <a href="https://neovim.io/" title="Neovim">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/neovim/neovim-original.svg' alt='Neovim icon' height='32'>
-        </a>
-    </td>
-</tr>
 
 <tr>
     <td>AI/ML</td>

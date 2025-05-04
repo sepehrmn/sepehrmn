@@ -47,14 +47,8 @@ I've used many machine learning models over the years including reinforcement le
         <a href="https://huggingface.co" title="Hugging Face Transformers">
             <img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Hugging Face Icon' height='32'>
         </a>   
-        <a href="https://openai.com/blog/openai-api" title="OpenAI APIs">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/openai-logomark.svg' alt='OpenAI icon' height='32'>
-        </a> 
         <a href="https://github.com/langchain-ai/langchain" title="LangChain">
             <img src='https://avatars.githubusercontent.com/u/126733545' alt='LangChain icon' height='32'>
-        </a> 
-        <a href="https://github.com/ml-explore" title="MLX">
-            <img src='https://ml-explore.github.io/mlx/build/html/_static/mlx_logo.png' alt='MLX Icon' height='32'>
         </a> 
     </td>    
 </tr> 

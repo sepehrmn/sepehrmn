@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Sepehr. 
 
-Computational neuroscientist. Nowadays, I spend most of my time building multi-agent systems.
+I spend most of my time building multi-agent systems.
 
 ## Socials
 

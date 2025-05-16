@@ -18,7 +18,7 @@ The best way to reach me is via email or on X.
 
 I mainly use Python and its ecosystem for AI/ML, but nowadays I am using TypeScript more and more.  
 
-I've used many machine learning models over the years including reinforcement learning, different recurrent neural networks, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
+Over the years, I've used many machine learning models, including reinforcement learning, different recurrent neural networks, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
 
 <table>
 <tbody>

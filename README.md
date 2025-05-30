@@ -140,17 +140,6 @@ Over the years, I've used many machine learning models, including reinforcement 
     </td>
 </tr>
 <tr>
-    <td>Testing</td>
-    <td>
-        <a href="https://mochajs.org/" title="Mocha">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mocha/mocha-plain.svg' alt='Mocha icon' height='32'>
-        </a>
-        <a href="https://pytest.org" title="Pytest">
-            <img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/pytest/pytest-original.svg' alt='Pytest icon' height='32'>
-        </a>
-    </td>
-</tr>
-<tr>
     <td>Misc</td>
     <td>
         <a href="https://pypi.org/project/matplotlib/" title="Matplotlib">

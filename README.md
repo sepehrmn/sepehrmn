@@ -50,6 +50,9 @@ Over the years, I've used many machine learning models, including reinforcement 
         <a href="https://github.com/langchain-ai/langchain" title="LangChain">
             <img src='https://avatars.githubusercontent.com/u/126733545' alt='LangChain icon' height='32'>
         </a> 
+        <a href="https://www.crewai.com/" title="CrewAI">
+            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png' alt='CrewAI icon' height='32'>
+        </a>
     </td>    
 </tr> 
 
@@ -162,9 +165,6 @@ Over the years, I've used many machine learning models, including reinforcement 
         </a>
         <a href="https://www.langflow.org/" title="Langflow">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png' alt='Langflow icon' height='32'>
-        </a>
-        <a href="https://www.crewai.com/" title="CrewAI">
-            <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png' alt='CrewAI icon' height='32'>
         </a>
     </td>
 </tr>

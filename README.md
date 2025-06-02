@@ -2,7 +2,9 @@
 
 ### Hi there 👋 I'm Sepehr. 
 
-I spend most of my time building multi-agent systems.
+I spend most of my time building reliable multi-agent systems.
+
+I am passionate about accelerating the pace of scientific R&D with AI.
 
 ## Socials
 

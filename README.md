@@ -46,9 +46,6 @@ Over the years, I've used many machine learning models, including reinforcement 
         <a href="https://docs.pydantic.dev/latest/" title="Pydantic">
             <img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png' alt='Pydantic' height='32'>
         </a> 
-        <a href="https://huggingface.co" title="Hugging Face Transformers">
-            <img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Hugging Face Icon' height='32'>
-        </a>   
         <a href="https://github.com/langchain-ai/langchain" title="LangChain">
             <img src='https://avatars.githubusercontent.com/u/126733545' alt='LangChain icon' height='32'>
         </a> 

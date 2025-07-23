@@ -4,8 +4,6 @@
 
 I spend most of my time building reliable multi-agent systems. I am currently working on a semi-autonomous AI video platform.
 
-I am personally interested and passionate about accelerating the pace of scientific R&D with AI.
-
 ## Socials
 
 The best way to reach me is via email or on X.

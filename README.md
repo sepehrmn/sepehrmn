@@ -82,3 +82,5 @@ Over the years, I've used many machine learning models, including reinforcement 
  My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.
 
 ## Life philosophy
+
+In a World that is constantly changing, not taking any risk is the biggest risk of all.

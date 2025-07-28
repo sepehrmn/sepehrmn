@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Sepehr. 
 
-I spend most of my time building reliable multi-agent systems. I am currently working on a semi-autonomous AI video platform.
+I spend most of my time building reliable multi-agent systems. I am currently working on user-owned AI, and AI content (vids and worlds) generation.
 
 ## Socials
 

@@ -109,7 +109,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td rowspan="1" align="center"><strong>🖥️ Compute Providers</strong></td>
 <td align="center"><a href="https://fal.ai/" title="FalAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fal-icon.png" alt="FalAI" height="40"/><br/>FalAI</a></td>
 <td align="center"><a href="https://runware.ai/" title="Runware"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/runware-icon.png" alt="Runware" height="40"/><br/>Runware</a></td>
-<td align="center"><a href="https://elevenlabs.io/" title="ElevenLabs"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/elevenlabs-icon.png" alt="ElevenLabs" height="40"/><br/>ElevenLabs</a></td>
+<td align="center"><a href="https://elevenlabs.io/" title="ElevenLabs"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/elevenlabs-icon.svg" alt="ElevenLabs" height="40"/><br/>ElevenLabs</a></td>
 <td></td>
 <td></td>
 <td></td>

@@ -6,6 +6,8 @@ Software engineer specializing in artificial intelligence, machine learning, and
 
 I'm currently building [Torus Automations](https://torus-automations.xyz). I work on user-owned AI and collaborative generative media content creation (vids and worlds).
 
+Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools—all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
+
 ## Socials
 
 The best way to reach me is via email or on X. Check out my work at [Torus Automations](https://torus-automations.xyz)

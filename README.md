@@ -4,7 +4,7 @@
 
 Software engineer specializing in artificial intelligence, machine learning, and production-grade multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, multi-cloud infrastructure (Cloudflare, AWS, GCP, Azure), and edge computing architectures. Expert in designing and implementing strategic multi-cloud architectures that optimize performance, minimize vendor lock-in, and maintain lean operations with cost efficiency and minimal latency overhead. 
 
-I'm currently building [Torus Automations](https://torus-automations.xyz), Which is a first-of-its-kind Web3 product with AI-powered content generation tools and sovereign AI for data and content ownership and privacy.
+I'm currently building [Torus Automations](https://torus-automations.xyz), which is a first-of-its-kind Web3 product with AI-powered content generation tools and sovereign AI for data and content ownership and privacy.
 
 
 Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools, all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.

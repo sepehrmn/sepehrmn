@@ -70,7 +70,7 @@ Production-hardened edge architecture with Cloudflare Workers for blazing-fast p
 <a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="32"/></a>
 <span style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 4px;">
 <a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="32"/></a>
-<span style="font-size: 9px; margin-top: 2px; color: #666;">Start/Router/Query</span>
+<span style="font-size: 9px; margin-top: 2px; color: #666;">Start/Router/Query/<br/>Server Functions</span>
 </span>
 <a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="32"/></a>
 <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>

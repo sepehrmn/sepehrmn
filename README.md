@@ -29,8 +29,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="32"/></a>
 <a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="32"/></a>
 <a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="32"/></a>
-<a href="https://github.com/langchain-ai/langchain" title="LangChain"><img src="https://avatars.githubusercontent.com/u/126733545" alt="LangChain" height="32"/></a>
-<a href="https://www.crewai.com/" title="CrewAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png" alt="CrewAI" height="32"/></a>
 </div>
 
 ### ⚙️ DevOps/MLOps
@@ -95,7 +93,6 @@ Cross-platform mobile development with React Native and Expo for native iOS and 
 <a href="https://www.latex-project.org" title="LaTeX"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg" alt="LaTeX" height="36"/></a>
 <a href="https://streamlit.io/" title="Streamlit"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" alt="Streamlit" height="32"/></a>
 <a href="https://www.gradio.app/" title="Gradio"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gradio-logo.png" alt="Gradio" height="32"/></a>
-<a href="https://www.langflow.org/" title="Langflow"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png" alt="Langflow" height="32"/></a>
 </div>
 
  My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.

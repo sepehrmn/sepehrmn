@@ -1,4 +1,4 @@
-# Sepehr Mahmoudian - AI Engineer | Systems Architect | Generative Media Aficionado
+# Sepehr Mahmoudian - AI Engineer | Systems Architect | Generative Media Tinkerer
 
 ### Hi there 👋 I'm Sepehr.
 

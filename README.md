@@ -6,7 +6,7 @@ Software engineer specializing in artificial intelligence, machine learning, and
 
 I'm currently building [Torus Automations](https://torus-automations.xyz). I work on user-owned AI and collaborative generative media content creation (vids and worlds).
 
-Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools—all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
+Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools, all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
 
 ## Socials
 
@@ -49,15 +49,24 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="40"/><br/>Docker</a></td>
 <td align="center"><a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="40"/><br/>Kubernetes</a></td>
 <td align="center"><a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="40"/><br/>Terraform</a></td>
-<td align="center"><a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="40"/><br/>Azure</a></td>
-<td align="center"><a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="40"/><br/>GCP</a></td>
 <td align="center"><a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="40"/><br/>Poetry</a></td>
-</tr>
-<tr>
 <td align="center"><a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="40"/><br/>Jenkins</a></td>
 <td align="center"><a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="40"/><br/>Travis-CI</a></td>
+</tr>
+<tr>
 <td align="center"><a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="40"/><br/>Git</a></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>☁️ Cloud Platforms</strong></td>
+<td align="center"><a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="40"/><br/>Cloudflare</a></td>
+<td align="center"><a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="40"/><br/>GCP</a></td>
+<td align="center"><a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="40"/><br/>AWS</a></td>
+<td align="center"><a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="40"/><br/>Azure</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -67,7 +76,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="40"/><br/>C++</a></td>
 <td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
 <td align="center"><a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="40"/><br/>FastAPI</a></td>
-<td align="center"><a href="https://workers.cloudflare.com/" title="Cloudflare Workers"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare Workers" height="40"/><br/>Cloudflare</a></td>
+<td align="center"><a href="https://spark.apache.org/" title="Apache Spark"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sparkjs-icon.svg" alt="Apache Spark" height="40"/><br/>Spark</a></td>
 <td align="center"><a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="40"/><br/>Drizzle</a></td>
 </tr>
 <tr>
@@ -92,6 +101,15 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="40"/><br/>React Native</a></td>
 <td align="center"><a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="40"/><br/>Expo</a></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>🖥️ Compute Providers</strong></td>
+<td align="center"><a href="https://fal.ai/" title="FalAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fal-icon.png" alt="FalAI" height="40"/><br/>FalAI</a></td>
+<td align="center"><a href="https://runware.ai/" title="Runware"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/runware-icon.png" alt="Runware" height="40"/><br/>Runware</a></td>
+<td align="center"><a href="https://elevenlabs.io/" title="ElevenLabs"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/elevenlabs-icon.png" alt="ElevenLabs" height="40"/><br/>ElevenLabs</a></td>
 <td></td>
 <td></td>
 <td></td>

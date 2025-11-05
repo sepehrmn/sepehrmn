@@ -17,8 +17,11 @@ The best way to reach me is via email or on X. Check out my work at [Torus Autom
 <a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
 <a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
 <a href="https://twitter.com/SepehrMN">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg#gh-light-mode-only" alt="X (Twitter)" height="40"/>
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg#gh-dark-mode-only" alt="X (Twitter)" height="40"/>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
+</picture>
 </a>&nbsp;&nbsp;
 <a href="https://huggingface.co/TheTorus"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
 </p>
@@ -98,15 +101,21 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="40"/><br/>Matplotlib</a></td>
 <td align="center">
 <a href="https://threejs.org" title="Three.js">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png#gh-light-mode-only" alt="Three.js" height="40"/>
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-dark.svg#gh-dark-mode-only" alt="Three.js" height="40"/>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-dark.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" alt="Three.js" height="40"/>
+</picture>
 <br/>Three.js
 </a>
 </td>
 <td align="center">
 <a href="https://www.latex-project.org" title="LaTeX">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg#gh-light-mode-only" alt="LaTeX" height="40"/>
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-dark.svg#gh-dark-mode-only" alt="LaTeX" height="40"/>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-dark.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" alt="LaTeX" height="40"/>
+</picture>
 <br/>LaTeX
 </a>
 </td>

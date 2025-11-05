@@ -6,39 +6,15 @@ I spend most of my time building reliable multi-agent systems. I am currently wo
 
 ## Socials
 
-The best way to reach me is via email or on X.
+The best way to reach me is via email or on X. Check out my work at [torus-automations.xyz](https://torus-automations.xyz)
 
-<div align="center">
-<table style="border: none; border-collapse: collapse;">
-<tr style="border: none;">
-<td align="center" style="border: none;">
-<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/>
-</a>
-</td>
-<td align="center" style="border: none;">
-<a href="https://substack.com/@thetorus">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/>
-</a>
-</td>
-<td align="center" style="border: none;">
-<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/>
-</a>
-</td>
-<td align="center" style="border: none;">
-<a href="https://twitter.com/SepehrMN">
-<img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="X (Twitter)" height="40"/>
-</a>
-</td>
-<td align="center" style="border: none;">
-<a href="https://huggingface.co/TheTorus">
-<img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/>
-</a>
-</td>
-</tr>
-</table>
-</div>
+<p align="center">
+<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
+<a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
+<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
+<a href="https://twitter.com/SepehrMN"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="X (Twitter)" height="40"/></a>&nbsp;&nbsp;
+<a href="https://huggingface.co/TheTorus"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
+</p>
 
 ## Expertise
 

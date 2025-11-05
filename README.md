@@ -69,9 +69,9 @@ Production-hardened edge architecture with Cloudflare Workers for blazing-fast p
 <a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="32"/></a>
 <a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="32"/></a>
 <a href="https://tanstack.com/start" title="TanStack Start"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack Start" height="32"/></a>
-<a href="https://tanstack.com/router" title="TanStack Router"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-router-icon.png" alt="TanStack Router" height="32"/></a>
-<a href="https://tanstack.com/query" title="TanStack Query"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-query-icon.png" alt="TanStack Query" height="32"/></a>
-<a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.png" alt="Zustand" height="32"/></a>
+<a href="https://tanstack.com/router" title="TanStack Router"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack Router" height="32"/></a>
+<a href="https://tanstack.com/query" title="TanStack Query"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack Query" height="32"/></a>
+<a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="32"/></a>
 <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>
 <a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="32"/></a>
 </p>

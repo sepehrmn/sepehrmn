@@ -1,10 +1,10 @@
-# Sepehr Mahmoudian - AI Engineer | Multi-Agent Systems | Full-Stack Developer
+# Sepehr Mahmoudian - AI Engineer | Systems Architect | Generative Media Aficionado
 
 ### Hi there 👋 I'm Sepehr.
 
-Software engineer specializing in artificial intelligence, machine learning, and production-grade multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, cloud infrastructure (AWS, GCP, Azure), and edge computing architectures. Building user-owned AI systems and AI-powered content generation tools.
+Software engineer specializing in artificial intelligence, machine learning, and production-grade multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, multi-cloud infrastructure (AWS, GCP, Azure, Cloudflare), and edge computing architectures. Expert in designing and implementing strategic multi-cloud architectures that optimize performance, eliminate vendor lock-in, and maintain lean operations with cost efficiency and minimal latency overhead. Building user-owned AI systems and AI-powered content generation tools.
 
-I'm currently building torus-automations.xyz. I work on user-owned AI and AI content (vids and worlds) generation.
+I'm currently building [Torus Automations](https://torus-automations.xyz). I work on user-owned AI and collaborative generative media content creation (vids and worlds).
 
 ## Socials
 

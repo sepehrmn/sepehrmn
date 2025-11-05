@@ -46,27 +46,45 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="32"/></a>
 </p>
 
-### 🔧 Backend
+### 🔧 Backend & Infrastructure
 <p align="left">
 <a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-plain.svg" alt="C" height="32"/></a>
 <a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="32"/></a>
 <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>
 <a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="32"/></a>
-<a href="https://sqlmodel.tiangolo.com" title="SQLModel"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sqlmodel-icon.svg" alt="SQLModel" height="32"/></a>
-<a href="https://www.postgresql.org/" title="PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="32"/></a>
+<a href="https://workers.cloudflare.com/" title="Cloudflare Workers"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare Workers" height="32"/></a>
+<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="32"/></a>
+<a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="32"/></a>
+<a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="32"/></a>
 </p>
 
-### 🎨 Frontend
+Production-hardened edge architecture with Cloudflare Workers for blazing-fast performance, Neon PostgreSQL with pgvector, Cloudflare R2 for storage, and Google Cloud Run & Cloud Batch for intensive computations. Optimized for scale with minimal maintenance and operating costs.
+
+### 🎨 Frontend & Web
 <p align="left">
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML5"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="HTML5" height="32"/></a>
 <a href="https://www.w3.org/Style/CSS/" title="CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="32"/></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="32"/></a>
-<a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>
-<a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="32"/></a>
 <a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="32"/></a>
 <a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="32"/></a>
-<a href="https://nextjs.org" title="Next.js"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/nextjs-icon.jpg" alt="Next.js" height="32"/></a>
+<a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="32"/></a>
+<a href="https://tanstack.com/start" title="TanStack Start"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack Start" height="32"/></a>
+<a href="https://tanstack.com/router" title="TanStack Router"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-router-icon.png" alt="TanStack Router" height="32"/></a>
+<a href="https://tanstack.com/query" title="TanStack Query"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-query-icon.png" alt="TanStack Query" height="32"/></a>
+<a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.png" alt="Zustand" height="32"/></a>
+<a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>
+<a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="32"/></a>
 </p>
+
+Modern web architecture with Vite, TanStack Start, TanStack Router, TanStack Query, Server Functions, and Zustand. Code-split 3D rendering and lazy-loaded modules for optimal performance.
+
+### 📱 Mobile
+<p align="left">
+<a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="32"/></a>
+<a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="32"/></a>
+</p>
+
+Cross-platform mobile development with React Native and Expo for native iOS and Android experiences.
 
 ### 📊 Misc
 <p align="left">

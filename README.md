@@ -77,8 +77,8 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="40"/><br/>C++</a></td>
 <td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
 <td align="center"><a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="40"/><br/>FastAPI</a></td>
-<td align="center"><a href="https://spark.apache.org/" title="Apache Spark"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sparkjs-icon.svg" alt="Apache Spark" height="40"/><br/>Spark</a></td>
 <td align="center"><a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="40"/><br/>Drizzle</a></td>
+<td></td>
 </tr>
 <tr>
 <td align="center"><a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="40"/><br/>Better Auth</a></td>
@@ -89,13 +89,21 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td></td>
 </tr>
 <tr>
-<td rowspan="1" align="center"><strong>🎨 Frontend & Web</strong></td>
+<td rowspan="2" align="center"><strong>🎨 Frontend & Web</strong></td>
 <td align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="40"/><br/>JavaScript</a></td>
 <td align="center"><a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="40"/><br/>TypeScript</a></td>
 <td align="center"><a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="40"/><br/>React</a></td>
 <td align="center"><a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="40"/><br/>Vite</a></td>
 <td align="center"><a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="40"/><br/>TanStack</a></td>
 <td align="center"><a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://sparkjs.dev/" title="SparkJS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sparkjs-icon.svg" alt="SparkJS" height="40"/><br/>SparkJS</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td rowspan="1" align="center"><strong>📱 Mobile</strong></td>

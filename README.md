@@ -4,7 +4,7 @@
 
 Software engineer specializing in artificial intelligence, machine learning, and production-grade multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, cloud infrastructure (AWS, GCP, Azure), and edge computing architectures. Building user-owned AI systems and AI-powered content generation tools.
 
-I spend most of my time building reliable multi-agent systems. I am currently working on user-owned AI, and AI content (vids and worlds) generation.
+I'm currently building [Torus Automations](https://torus-automations.xyz). I work on user-owned AI and AI content (vids and worlds) generation.
 
 ## Socials
 

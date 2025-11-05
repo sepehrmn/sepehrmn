@@ -22,78 +22,58 @@ Over the years, I've used many machine learning models, including reinforcement 
 # Skills & Technologies
 
 ### 🤖 AI/ML
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>
-<a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="32"/></a>
-<a href="https://numpy.org" title="Numpy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="Numpy" height="32"/></a>
-<a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="32"/></a>
-<a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="32"/></a>
-<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="32"/></a>
-</div>
+
+| | | | | | |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a> | <a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="40"/><br/>PyTorch</a> | <a href="https://numpy.org" title="Numpy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="Numpy" height="40"/><br/>Numpy</a> | <a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="40"/><br/>Pandas</a> | <a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="40"/><br/>SciPy</a> | <a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="40"/><br/>Pydantic</a> |
 
 ### ⚙️ DevOps/MLOps
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="32"/></a>
-<a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="32"/></a>
-<a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="32"/></a>
-<a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="32"/></a>
-<a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>
-<a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="32"/></a>
-<a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="32"/></a>
-<a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="32"/></a>
-<a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="32"/></a>
-</div>
+
+| | | | | | |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| <a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="40"/><br/>Docker</a> | <a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="40"/><br/>Kubernetes</a> | <a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="40"/><br/>Terraform</a> | <a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="40"/><br/>Azure</a> | <a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="40"/><br/>GCP</a> | <a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="40"/><br/>Poetry</a> |
+
+| | | |
+|:-:|:-:|:-:|
+| <a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="40"/><br/>Jenkins</a> | <a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="40"/><br/>Travis-CI</a> | <a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="40"/><br/>Git</a> |
 
 ### 🔧 Backend & Infrastructure
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="32"/></a>
-<a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="32"/></a>
-<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>
-<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="32"/></a>
-<a href="https://workers.cloudflare.com/" title="Cloudflare Workers"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare Workers" height="32"/></a>
-<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="32"/></a>
-<a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="32"/></a>
-<a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="32"/></a>
-</div>
+
+| | | | | | |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| <a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="40"/><br/>C</a> | <a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="40"/><br/>C++</a> | <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a> | <a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="40"/><br/>FastAPI</a> | <a href="https://workers.cloudflare.com/" title="Cloudflare Workers"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare Workers" height="40"/><br/>Cloudflare</a> | <a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="40"/><br/>Drizzle</a> |
+
+| | |
+|:-:|:-:|
+| <a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="40"/><br/>Better Auth</a> | <a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="40"/><br/>PostgreSQL</a> |
 
 Production-hardened edge architecture with Cloudflare Workers for blazing-fast performance, Neon PostgreSQL with pgvector, Cloudflare R2 for storage, and Google Cloud Run & Cloud Batch for intensive computations. Optimized for scale with minimal maintenance and operating costs.
 
 ### 🎨 Frontend & Web
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML5"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="HTML5" height="32"/></a>
-<a href="https://www.w3.org/Style/CSS/" title="CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="32"/></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="32"/></a>
-<a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="32"/></a>
-<a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="32"/></a>
-<a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="32"/></a>
-<span style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 4px;">
-<a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="32"/></a>
-<span style="font-size: 9px; margin-top: 2px; color: #666;">Start/Router/Query/<br/>Server Functions</span>
-</span>
-<a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="32"/></a>
-<a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>
-<a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="32"/></a>
-</div>
+
+| | | | | | |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="40"/><br/>JavaScript</a> | <a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="40"/><br/>TypeScript</a> | <a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="40"/><br/>React</a> | <a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="40"/><br/>Vite</a> | <a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="40"/><br/>TanStack</a> | <a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a> |
+
+| | |
+|:-:|:-:|
+| <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="40"/><br/>Tailwind</a> | <a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="40"/><br/>shadcn/ui</a> |
 
 Modern web architecture with Vite, TanStack Start, TanStack Router, TanStack Query, Server Functions, and Zustand. Code-split 3D rendering and lazy-loaded modules for optimal performance.
 
 ### 📱 Mobile
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="32"/></a>
-<a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="32"/></a>
-</div>
+
+| | |
+|:-:|:-:|
+| <a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="40"/><br/>React Native</a> | <a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="40"/><br/>Expo</a> |
 
 Cross-platform mobile development with React Native and Expo for native iOS and Android experiences.
 
 ### 📊 Misc
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-<a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="32"/></a>
-<a href="https://seaborn.pydata.org/" title="Seaborn"><img src="https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg" alt="Seaborn" height="32"/></a>
-<a href="https://threejs.org" title="Three.js"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg" alt="Three.js" height="32"/></a>
-<a href="https://www.latex-project.org" title="LaTeX"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg" alt="LaTeX" height="36"/></a>
-<a href="https://streamlit.io/" title="Streamlit"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" alt="Streamlit" height="32"/></a>
-<a href="https://www.gradio.app/" title="Gradio"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gradio-logo.png" alt="Gradio" height="32"/></a>
-</div>
+
+| | | |
+|:-:|:-:|:-:|
+| <a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="40"/><br/>Matplotlib</a> | <a href="https://threejs.org" title="Three.js"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg" alt="Three.js" height="40"/><br/>Three.js</a> | <a href="https://www.latex-project.org" title="LaTeX"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg" alt="LaTeX" height="40"/><br/>LaTeX</a> |
 
  My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.
 

@@ -6,6 +6,8 @@ Software engineer specializing in artificial intelligence, machine learning, and
 
 I'm currently building [Torus Automations](https://torus-automations.xyz). I work on user-owned AI and collaborative generative media content creation (vids and worlds).
 
+Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools—all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
+
 ## Socials
 
 The best way to reach me is via email or on X. Check out my work at [Torus Automations](https://torus-automations.xyz)
@@ -71,21 +73,13 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td></td>
 </tr>
 <tr>
-<td rowspan="2" align="center"><strong>🎨 Frontend & Web</strong></td>
+<td rowspan="1" align="center"><strong>🎨 Frontend & Web</strong></td>
 <td align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="40"/><br/>JavaScript</a></td>
 <td align="center"><a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="40"/><br/>TypeScript</a></td>
 <td align="center"><a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="40"/><br/>React</a></td>
 <td align="center"><a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="40"/><br/>Vite</a></td>
 <td align="center"><a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="40"/><br/>TanStack</a></td>
 <td align="center"><a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a></td>
-</tr>
-<tr>
-<td align="center"><a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="40"/><br/>Tailwind</a></td>
-<td align="center"><a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="40"/><br/>shadcn/ui</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td rowspan="1" align="center"><strong>📱 Mobile</strong></td>

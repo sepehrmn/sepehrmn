@@ -31,6 +31,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="32"/></a>
 <a href="https://github.com/langchain-ai/langchain" title="LangChain"><img src="https://avatars.githubusercontent.com/u/126733545" alt="LangChain" height="32"/></a>
 <a href="https://www.crewai.com/" title="CrewAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png" alt="CrewAI" height="32"/></a>
+<a href="https://cartesia.ai/" title="Cartesia"><img src="https://avatars.githubusercontent.com/u/153537374" alt="Cartesia" height="32"/></a>
 </p>
 
 ### ⚙️ DevOps/MLOps
@@ -40,6 +41,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="32"/></a>
 <a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="32"/></a>
 <a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>
+<a href="https://www.runpod.io/" title="RunPod"><img src="https://avatars.githubusercontent.com/u/95939477" alt="RunPod" height="32"/></a>
 <a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="32"/></a>
 <a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="32"/></a>
 <a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="32"/></a>
@@ -54,6 +56,8 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="32"/></a>
 <a href="https://sqlmodel.tiangolo.com" title="SQLModel"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sqlmodel-icon.svg" alt="SQLModel" height="32"/></a>
 <a href="https://www.postgresql.org/" title="PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="32"/></a>
+<a href="https://www.sqlite.org/" title="SQLite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="32"/></a>
+<a href="https://planetscale.com/" title="PlanetScale"><img src="https://avatars.githubusercontent.com/u/35612527" alt="PlanetScale" height="32"/></a>
 </p>
 
 ### 🎨 Frontend

@@ -50,9 +50,9 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="40"/><br/>Docker</a></td>
 <td align="center"><a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="40"/><br/>Kubernetes</a></td>
 <td align="center"><a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="40"/><br/>Terraform</a></td>
-<td align="center"><a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="40"/><br/>Poetry</a></td>
-<td align="center"><a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="40"/><br/>Jenkins</a></td>
-<td align="center"><a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="40"/><br/>Travis-CI</a></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td align="center"><a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="40"/><br/>Git</a></td>

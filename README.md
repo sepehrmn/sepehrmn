@@ -37,13 +37,21 @@ Over the years, I've used many machine learning models, including reinforcement 
 
 <table>
 <tr>
-<td rowspan="1" align="center"><strong>🤖 AI/ML</strong></td>
+<td rowspan="2" align="center"><strong>🤖 AI/ML</strong></td>
 <td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
 <td align="center"><a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="40"/><br/>PyTorch</a></td>
 <td align="center"><a href="https://numpy.org" title="Numpy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="Numpy" height="40"/><br/>Numpy</a></td>
 <td align="center"><a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="40"/><br/>Pandas</a></td>
 <td align="center"><a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="40"/><br/>SciPy</a></td>
 <td align="center"><a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="40"/><br/>Pydantic</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://unsloth.ai/" title="Unsloth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/unsloth-icon.png" alt="Unsloth" height="40"/><br/>Unsloth</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td rowspan="2" align="center"><strong>⚙️ DevOps/MLOps</strong></td>
@@ -55,7 +63,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td></td>
 </tr>
 <tr>
-<td align="center"><a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="40"/><br/>Git</a></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -83,7 +91,7 @@ Over the years, I've used many machine learning models, including reinforcement 
 <tr>
 <td align="center"><a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="40"/><br/>Better Auth</a></td>
 <td align="center"><a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="40"/><br/>PostgreSQL</a></td>
-<td></td>
+<td align="center"><a href="https://www.sqlite.org/" title="SQLite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="40"/><br/>SQLite</a></td>
 <td></td>
 <td></td>
 <td></td>

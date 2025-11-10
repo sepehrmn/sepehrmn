@@ -43,8 +43,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>
 <a href="https://www.runpod.io/" title="RunPod"><img src="https://avatars.githubusercontent.com/u/95939477" alt="RunPod" height="32"/></a>
 <a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="32"/></a>
-<a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="32"/></a>
-<a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="32"/></a>
 <a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="32"/></a>
 </p>
 

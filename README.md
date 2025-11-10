@@ -1,85 +1,156 @@
+# Sepehr Mahmoudian - AI Systems Architect | Generative Media Tinkerer
+
+### Hi there 👋 I'm Sepehr.
+
+Software engineer specializing in artificial intelligence, machine learning, and production-grade multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, multi-cloud infrastructure (Cloudflare, AWS, GCP, Azure), and edge computing architectures. Expert in designing and implementing strategic multi-cloud architectures that optimize performance, minimize vendor lock-in, and maintain lean operations with cost efficiency and minimal latency overhead. 
+
+I'm currently building [Torus Automations](https://torus-automations.xyz), which is a first-of-its-kind Web3 product with AI-powered content generation tools and sovereign AI for data and content ownership and privacy.
 
 
-### Hi there 👋 I'm Sepehr. 
-
-I'm currently building torus-automations.xyz. I work on user-owned AI and AI content (vids and worlds) generation.
+Highly experienced with AI-powered development tools as an integral part of my daily workflow, achieving productivity and output quality that far exceeds what any single developer could accomplish without these tools, all while maintaining exceptional code quality and architectural standards. I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
 
 ## Socials
 
-The best way to reach me is via email or on X.
+The best way to reach me is via email or on X. Check out my work at [Torus Automations](https://torus-automations.xyz)
 
-[<img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg' alt='Sepehr Mahmoudian on LinkedIn' height='40'>](https://www.linkedin.com/in/sepehr-mahmoudian-99367516/)
-[<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png' alt='Sepehr Mahmoudian on Substack' width='45' height='45'>](https://substack.com/@thetorus)
-[<img src='https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png' alt='Sepehr Mahmoudian on Google Scholar' height='40'>](https://scholar.google.com/citations?user=t3PSg8kAAAAJ)
-[<img src='https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png' alt='Sepehr Mahmoudian on X (Twitter)' height='37' width='37'>](https://twitter.com/SepehrMN) 
-[<img src='https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg' alt='Sepehr Mahmoudian on Hugging Face' width='45' height='45'>](https://huggingface.co/TheTorus)
+<p align="center">
+<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
+<a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
+<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
+<a href="https://twitter.com/SepehrMN">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
+</picture>
+</a>&nbsp;&nbsp;
+<a href="https://huggingface.co/TheTorus"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
+</p>
 
 ## Expertise
 
 I mainly use Python and its ecosystem for AI/ML, but nowadays I am using TypeScript more and more.  
 
 Over the years, I've used many machine learning models, including reinforcement learning, different recurrent neural networks, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
-# Skills & Technologies
 
-### 🤖 AI/ML
-<p align="left">
-<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>
-<a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="32"/></a>
-<a href="https://numpy.org" title="Numpy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="Numpy" height="32"/></a>
-<a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="32"/></a>
-<a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="32"/></a>
-<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="32"/></a>
-<a href="https://github.com/langchain-ai/langchain" title="LangChain"><img src="https://avatars.githubusercontent.com/u/126733545" alt="LangChain" height="32"/></a>
-<a href="https://www.crewai.com/" title="CrewAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/crewai-logo.png" alt="CrewAI" height="32"/></a>
-<a href="https://cartesia.ai/" title="Cartesia"><img src="https://avatars.githubusercontent.com/u/153537374" alt="Cartesia" height="32"/></a>
-</p>
+## Skills & Technologies
 
-### ⚙️ DevOps/MLOps
-<p align="left">
-<a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="32"/></a>
-<a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="32"/></a>
-<a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="32"/></a>
-<a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="32"/></a>
-<a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>
-<a href="https://www.runpod.io/" title="RunPod"><img src="https://avatars.githubusercontent.com/u/95939477" alt="RunPod" height="32"/></a>
-<a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="32"/></a>
-<a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="32"/></a>
-</p>
-
-### 🔧 Backend
-<p align="left">
-<a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-plain.svg" alt="C" height="32"/></a>
-<a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="32"/></a>
-<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>
-<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="32"/></a>
-<a href="https://sqlmodel.tiangolo.com" title="SQLModel"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sqlmodel-icon.svg" alt="SQLModel" height="32"/></a>
-<a href="https://www.postgresql.org/" title="PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="32"/></a>
-<a href="https://www.sqlite.org/" title="SQLite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="32"/></a>
-<a href="https://planetscale.com/" title="PlanetScale"><img src="https://avatars.githubusercontent.com/u/35612527" alt="PlanetScale" height="32"/></a>
-</p>
-
-### 🎨 Frontend
-<p align="left">
-<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" title="HTML5"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="HTML5" height="32"/></a>
-<a href="https://www.w3.org/Style/CSS/" title="CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="32"/></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="32"/></a>
-<a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tailwindcss-icon.svg" alt="Tailwind CSS" height="32"/></a>
-<a href="https://ui.shadcn.com" title="shadcn/ui"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/shadcn-icon.png" alt="shadcn/ui" height="32"/></a>
-<a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="32"/></a>
-<a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="32"/></a>
-<a href="https://nextjs.org" title="Next.js"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/nextjs-icon.jpg" alt="Next.js" height="32"/></a>
-</p>
-
-### 📊 Misc
-<p align="left">
-<a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="32"/></a>
-<a href="https://seaborn.pydata.org/" title="Seaborn"><img src="https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-darkbg.svg" alt="Seaborn" height="32"/></a>
-<a href="https://threejs.org" title="Three.js"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg" alt="Three.js" height="32"/></a>
-<a href="https://www.latex-project.org" title="LaTeX"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/latex/latex-original.svg" alt="LaTeX" height="36"/></a>
-<a href="https://streamlit.io/" title="Streamlit"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" alt="Streamlit" height="32"/></a>
-<a href="https://www.gradio.app/" title="Gradio"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gradio-logo.png" alt="Gradio" height="32"/></a>
-<a href="https://www.langflow.org/" title="Langflow"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/langflow-logo.png" alt="Langflow" height="32"/></a>
-</p>
+<table>
+<tr>
+<td rowspan="1" align="center"><strong>🤖 AI/ML</strong></td>
+<td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
+<td align="center"><a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="40"/><br/>PyTorch</a></td>
+<td align="center"><a href="https://numpy.org" title="Numpy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="Numpy" height="40"/><br/>Numpy</a></td>
+<td align="center"><a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="40"/><br/>Pandas</a></td>
+<td align="center"><a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="40"/><br/>SciPy</a></td>
+<td align="center"><a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="40"/><br/>Pydantic</a></td>
+</tr>
+<tr>
+<td rowspan="2" align="center"><strong>⚙️ DevOps/MLOps</strong></td>
+<td align="center"><a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="40"/><br/>Docker</a></td>
+<td align="center"><a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="40"/><br/>Kubernetes</a></td>
+<td align="center"><a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="40"/><br/>Terraform</a></td>
+<td align="center"><a href="https://python-poetry.org/" title="Poetry"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/poetry-icon.png" alt="Poetry" height="40"/><br/>Poetry</a></td>
+<td align="center"><a href="https://www.jenkins.io" title="Jenkins"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" height="40"/><br/>Jenkins</a></td>
+<td align="center"><a href="https://www.travis-ci.com" title="Travis-CI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/travis-ci-icon.svg" alt="Travis-CI" height="40"/><br/>Travis-CI</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://git-scm.org" title="git"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" height="40"/><br/>Git</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>☁️ Cloud Platforms</strong></td>
+<td align="center"><a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="40"/><br/>Cloudflare</a></td>
+<td align="center"><a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="40"/><br/>GCP</a></td>
+<td align="center"><a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="40"/><br/>AWS</a></td>
+<td align="center"><a href="https://azure.microsoft.com/" title="Azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" height="40"/><br/>Azure</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" align="center"><strong>🔧 Backend & Infrastructure</strong></td>
+<td align="center"><a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="40"/><br/>C</a></td>
+<td align="center"><a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="40"/><br/>C++</a></td>
+<td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
+<td align="center"><a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="40"/><br/>FastAPI</a></td>
+<td align="center"><a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="40"/><br/>Drizzle</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="40"/><br/>Better Auth</a></td>
+<td align="center"><a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="40"/><br/>PostgreSQL</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" align="center"><strong>🎨 Frontend & Web</strong></td>
+<td align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="40"/><br/>JavaScript</a></td>
+<td align="center"><a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="40"/><br/>TypeScript</a></td>
+<td align="center"><a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="40"/><br/>React</a></td>
+<td align="center"><a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="40"/><br/>Vite</a></td>
+<td align="center"><a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="40"/><br/>TanStack</a></td>
+<td align="center"><a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://sparkjs.dev/" title="SparkJS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sparkjs-icon.svg" alt="SparkJS" height="40"/><br/>SparkJS</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>📱 Mobile</strong></td>
+<td align="center"><a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="40"/><br/>React Native</a></td>
+<td align="center"><a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="40"/><br/>Expo</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>🖥️ Compute Providers</strong></td>
+<td align="center"><a href="https://fal.ai/" title="FalAI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fal-icon.png" alt="FalAI" height="40"/><br/>FalAI</a></td>
+<td align="center"><a href="https://runware.ai/" title="Runware"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/runware-icon.png" alt="Runware" height="40"/><br/>Runware</a></td>
+<td align="center"><a href="https://elevenlabs.io/" title="ElevenLabs"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/elevenlabs-icon.svg" alt="ElevenLabs" height="40"/><br/>ElevenLabs</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="1" align="center"><strong>📊 Misc</strong></td>
+<td align="center"><a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="40"/><br/>Matplotlib</a></td>
+<td align="center">
+<a href="https://threejs.org" title="Three.js">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-dark.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" alt="Three.js" height="40"/>
+</picture>
+<br/>Three.js
+</a>
+</td>
+<td align="center">
+<a href="https://www.latex-project.org" title="LaTeX">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-dark.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" alt="LaTeX" height="40"/>
+</picture>
+<br/>LaTeX
+</a>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
 
  My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.
 

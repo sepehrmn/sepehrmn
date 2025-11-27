@@ -1,4 +1,4 @@
-# Sepehr Mahmoudian - AI Systems Architect | Generative Media Tinkerer
+# Sepehr Mahmoudian - AI Systems Architect | Tinkerer
 
 ### Hi there 👋 I'm Sepehr.
 

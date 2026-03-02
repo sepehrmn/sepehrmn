@@ -8,7 +8,7 @@ Highly experienced with AI-powered development tools as an integral part of my d
 
 ## Socials
 
-The best way to reach me is via email or on X. Check out my work at [Torus Automations](https://torus-automations.xyz)
+The best way to reach me is via email or on X. 
 
 <p align="center">
 <a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;

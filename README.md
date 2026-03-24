@@ -15,6 +15,7 @@ The best way to reach me is via email or on X.
 <a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
 <a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
 <a href="https://twitter.com/SepehrMN">
+<a href="https://twitter.com/SepAhead">
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
 <source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">

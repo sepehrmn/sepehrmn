@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Sepehr.
 
-AI engineer and systems architect specializing in multi-agent systems. Experienced in full-stack development with TypeScript/React, Python/PyTorch, multi-cloud infrastructure (Cloudflare, AWS, GCP, Azure), and edge computing architectures. Expert in designing and implementing strategic multi-cloud architectures that optimize performance, minimize vendor lock-in, and maintain lean operations with cost efficiency and minimal latency overhead. 
+AI engineer and systems architect specializing in multi-agent systems and physical intelligence. Experienced in full-stack development with TypeScript/React, Python/PyTorch, multi-cloud infrastructure (Cloudflare, AWS, GCP, Azure), and edge computing architectures. Expert in designing and implementing strategic multi-cloud architectures that optimize performance, minimize vendor lock-in, and maintain lean operations with cost efficiency and minimal latency overhead. 
 
 I continuously evaluate and integrate cutting-edge AI development tools, typically adopting new tools into my workflow on a monthly basis to stay at the forefront of developer productivity.
 

@@ -2,7 +2,7 @@
 
 ### Hi there 👋 I'm Sepehr.
 
-AI engineer and systems architect specializing in multi-agent systems and physical intelligence. 
+I'm currently working on agentic orchestration, multi-agent systems and physical intelligence. 
 
 ## Socials
 

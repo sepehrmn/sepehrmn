@@ -1,7 +1,5 @@
 # Sepehr Mahmoudian - AI Systems Architect | Tinkerer
 
-### Hi there 👋 I'm Sepehr.
-
 I'm currently working on agentic orchestration, multi-agent systems and physical intelligence. 
 
 ## Socials

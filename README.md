@@ -4,7 +4,7 @@ I'm currently working on agentic orchestration, multi-agent systems and physical
 
 ## Socials
 
-The best way to reach me is via email, first name dot last name @ gmail.com. 
+The best way to reach me is via email: sepmhn @ gmail.com. 
 
 <p align="center">
 <a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;

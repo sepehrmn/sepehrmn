@@ -99,18 +99,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td rowspan="1" align="center"><strong>📱 Mobile</strong></td>
-<td align="center"><a href="https://reactnative.dev/" title="React Native"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React Native" height="40"/><br/>React Native</a></td>
-<td align="center"><a href="https://expo.dev/" title="Expo"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/expo-icon.png" alt="Expo" height="40"/><br/>Expo</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td rowspan="1" align="center"><strong>📊 Misc</strong></td>

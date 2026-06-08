@@ -92,40 +92,12 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a></td>
 </tr>
 <tr>
-<td align="center"><a href="https://sparkjs.dev/" title="SparkJS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/sparkjs-icon.svg" alt="SparkJS" height="40"/><br/>SparkJS</a></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-</tr>
-<tr>
-<td rowspan="1" align="center"><strong>📊 Misc</strong></td>
-<td align="center"><a href="https://pypi.org/project/matplotlib/" title="Matplotlib"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib" height="40"/><br/>Matplotlib</a></td>
-<td align="center">
-<a href="https://threejs.org" title="Three.js">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-dark.svg" height="40">
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" height="40">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/threejs-light.png" alt="Three.js" height="40"/>
-</picture>
-<br/>Three.js
-</a>
-</td>
-<td align="center">
-<a href="https://www.latex-project.org" title="LaTeX">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-dark.svg" height="40">
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" height="40">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/latex-light.svg" alt="LaTeX" height="40"/>
-</picture>
-<br/>LaTeX
-</a>
-</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </table>
 

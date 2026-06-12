@@ -18,7 +18,7 @@ The best way to reach me is via email: sepmhn @ gmail.com.
 <img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
 </picture>
 </a>&nbsp;&nbsp;
-<a href="https://huggingface.co/TheTorus"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
+<a href="https://huggingface.co/torusprime"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
 </p>
 
 ## Expertise

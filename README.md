@@ -81,13 +81,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="40"/><br/>TanStack</a></td>
 <td align="center"><a href="https://zustand-demo.pmnd.rs/" title="Zustand"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/zustand-icon.jpg" alt="Zustand" height="40"/><br/>Zustand</a></td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tr>
 </table>
 

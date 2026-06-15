@@ -71,15 +71,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="40"/><br/>Python</a></td>
 <td align="center"><a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="40"/><br/>FastAPI</a></td>
 <td align="center"><a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle ORM" height="40"/><br/>Drizzle</a></td>
-<td></td>
-</tr>
-<tr>
-<td align="center"><a href="https://www.better-auth.com/" title="Better Auth"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/better-auth-icon.png" alt="Better Auth" height="40"/><br/>Better Auth</a></td>
-<td align="center"><a href="https://neon.tech/" title="Neon PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Neon PostgreSQL" height="40"/><br/>PostgreSQL</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td rowspan="2" align="center"><strong>🎨 Frontend & Web</strong></td>

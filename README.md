@@ -1,35 +1,25 @@
-# Sepehr Mahmoudian - AI Systems Architect | Tinkerer
+### Hi there 👋 I'm Sepehr
 
-Bringing 10+ years of experience in classical software engineering and R&D to agentic engineering. 
+I build AI systems that work in the real world — from neural modeling and robot autonomy to confidential decentralized compute. 10+ years spanning R&D and production engineering.
 
-Check my pinned repos for more information.
+📍 Berlin · 🧠 AI/ML · 🦀 Rust · 🔐 Distributed Systems
 
-## Socials
+---
 
-The best way to reach me is via email: sepmhn @ gmail.com. 
+### 🔭 What I'm building
 
-<p align="center">
-<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
-<a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
-<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
-<a href="https://twitter.com/SepehrMN">
-<a href="https://twitter.com/SepAhead">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
-</picture>
-</a>&nbsp;&nbsp;
-<a href="https://huggingface.co/torusprime"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
-</p>
+| Project | Area |
+|---|---|
+| **[engram](https://github.com/sepehrmn/engram)** | Neural modeling & agentic memory architectures |
+| **[crebain](https://github.com/sepehrmn/crebain)** | Tactical autonomy — sensor fusion, ML detection, drone simulation (ROS/Gazebo, Rust, React) |
+| **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** | 2,023 3D meshes for robot simulation; [HF dataset](https://huggingface.co/datasets/torusprime/cobot-atlas) |
+| **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
+| **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |
+| **[groupweave](https://github.com/torus-automations/groupweave)** | Confidential on-chain voting — Rust, decentralized tallying |
 
-## Expertise
+---
 
-I mainly use Python and its ecosystem for AI/ML, sometimes using Rust and Typescript.  
-
-Over the years, I've used many machine learning models, including reinforcement learning, different recurrent neural networks, Bayesian modeling, and various methods for clustering, classification, regression, and dimensionality reduction.
-
-## Skills & Technologies
+### ⚡ Core stack
 
 <table>
 <tr>
@@ -77,8 +67,22 @@ Over the years, I've used many machine learning models, including reinforcement 
 </tr>
 </table>
 
- My most important skills are adapting quickly, picking up new tech fast, and executing relentlessly with perseverance. I think these will be more important than ever with how fast technology will be advancing.
+---
 
-## Life philosophy
+### 📡 Find me
 
-In a World that is constantly changing, not taking any risk is the biggest risk of all.
+<p align="center">
+<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
+<a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
+<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
+<a href="https://twitter.com/SepAhead">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">
+<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
+</picture>
+</a>&nbsp;&nbsp;
+<a href="https://huggingface.co/torusprime"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
+</p>
+
+📬 **sepmhn @ gmail.com** — I'm always open to interesting problems.

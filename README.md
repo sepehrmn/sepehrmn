@@ -63,8 +63,6 @@ Over the years, I've used many machine learning models, including reinforcement 
 <td align="center"><a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="40"/><br/>Cloudflare</a></td>
 <td align="center"><a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="40"/><br/>GCP</a></td>
 <td align="center"><a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="40"/><br/>AWS</a></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td rowspan="2" align="center"><strong>🔧 Backend & Infrastructure</strong></td>

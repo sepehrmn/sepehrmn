@@ -2,6 +2,8 @@
 
 Bringing 10+ years of experience in classical software engineering and R&D to agentic engineering. 
 
+Check my pinned repos for more information.
+
 ## Socials
 
 The best way to reach me is via email: sepmhn @ gmail.com. 

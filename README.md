@@ -12,6 +12,7 @@ I build AI systems that work in the real world — from neural modeling and robo
 |---|---|
 | **[engram](https://github.com/sepehrmn/engram)** | Neural modeling, domain-specific agentic orchestration, self-hjealing and memory architectures |
 | **[crebain](https://github.com/sepehrmn/crebain)** | Tactical autonomy — sensor fusion, ML detection, drone simulation (ROS/Gazebo, Rust, React) |
+| **[neuro-cybernetic protocol](https://github.com/sepehrmn/ncp)** | private repo |
 | **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** | 2,023 3D meshes for robot simulation; [HF dataset](https://huggingface.co/datasets/torusprime/cobot-atlas) |
 | **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
 | **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |

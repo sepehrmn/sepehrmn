@@ -13,7 +13,7 @@ I build AI systems that work in the real world — from neural modeling and robo
 | **[engram](https://github.com/sepehrmn/engram)** | Neural modeling, domain-specific agentic orchestration, self-healing and memory architectures |
 | **[crebain](https://github.com/sepehrmn/crebain)** | Tactical autonomy — sensor fusion, ML detection, drone simulation (ROS/Gazebo, Rust, React) |
 | **[NCP](https://github.com/sepehrmn/ncp)** | Neuro-Cybernetic Protocol |
-| **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** | 2,023 3D meshes for robot simulation; [HF dataset](https://huggingface.co/datasets/torusprime/cobot-atlas) |
+| **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** | 2,023 3D meshes for robot simulation — [HF](https://huggingface.co/datasets/torusprime/cobot-atlas) · [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20697491.svg)](https://doi.org/10.5281/zenodo.20697491) |
 | **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
 | **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |
 | **[groupweave](https://github.com/torus-automations/groupweave)** | Confidential on-chain voting — Rust, decentralized tallying |

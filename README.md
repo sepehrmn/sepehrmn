@@ -2,7 +2,7 @@
 
 I build AI systems that work in the real world — from neural modeling and robot autonomy to confidential decentralized compute. 10+ years spanning R&D and production engineering.
 
-📍 Berlin · 🧠 AI/ML · 🦀 Rust · 🔐 Distributed Systems
+📍 Berlin · 🧠 AI/ML · 🦀 Rust · 🔐 Distributed Systems · ⚡ High agency · Takes initiative
 
 ---
 

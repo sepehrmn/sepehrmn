@@ -17,6 +17,7 @@ I build AI systems that work in the real world — from neural modeling and robo
 | **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
 | **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |
 | **[groupweave](https://github.com/torus-automations/groupweave)** | Confidential on-chain voting — Rust, decentralized tallying |
+| **[pid-rs](https://github.com/sepehrmn/pid-rs)** | Partial Information Decomposition & mutual-information (KSG) estimators in Rust |
 
 ---
 

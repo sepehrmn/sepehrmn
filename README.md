@@ -79,18 +79,10 @@ I build AI systems that work in the real world — from neural modeling and robo
 </p>
 
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sepehrmn&layout=compact&theme=transparent&hide_border=true" height="130"/>
-</p>
-
-<p align="center">
-<img src="https://ghchart.rshah.org/2b813d/sepehrmn" width="95%" alt="Contribution heatmap"/>
-</p>
-
-<p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github" width="95%">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%" alt="Contribution trajectory"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&v=2026-06-18">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=default&size=medium&v=2026-06-18">
+  <img src="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&v=2026-06-18" width="95%" alt="Cumulative contribution growth"/>
 </picture>
 </p>
 

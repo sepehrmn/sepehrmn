@@ -94,6 +94,12 @@ I build AI systems that work in the real world — from neural modeling and robo
 </picture>
 </p>
 
+<h4 align="center">Per-day commits</h4>
+<p align="center">
+<!-- Per-day commit-dominance heatmap: regenerated daily by .github/workflows/heatmap.yml. Cells where commits dominate render as bright neon cyan with a subtle SMIL pulse on top-quartile days; PR/issue-only days render muted gray. Lives in-repo so it works regardless of where the line charts above are hosted. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/heatmap.svg" width="95%" alt="Activity heatmap — commit-dominant days glow cyan, PR/issue-heavy days render muted gray" loading="lazy"/>
+</p>
+
 ---
 
 ### 📡 Find me

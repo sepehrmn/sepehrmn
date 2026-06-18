@@ -1,0 +1,58 @@
+name: Generate activity heatmap
+
+on:
+  schedule:
+    # Run once per day at 04:00 UTC so the heatmap is fresh by morning US/EU.
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/heatmap.mjs"
+      - ".github/workflows/heatmap.yml"
+    paths-ignore:
+      - "assets/**"
+
+# Serialize heatmap runs so concurrent pipeline triggers never race on the
+# `git push` for assets/heatmap.svg. A queued run will wait for the
+# in-flight one to finish pushing.
+concurrency:
+  group: heatmap
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  heatmap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # We commit SVG back to main; fetch full history so git can compute
+          # the diff at the end (cheap — repo is single-purpose).
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate heatmap SVG
+        env:
+          GH_USERNAME: sepehrmn
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/heatmap.mjs
+
+      - name: Commit updated heatmap SVG
+        run: |
+          if ! git diff --quiet assets/heatmap.svg; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add assets/heatmap.svg
+            git commit -m "chore(heatmap): regenerate activity heatmap"
+            git push
+          else
+            echo "No changes to heatmap.svg — skipping commit."
+          fi

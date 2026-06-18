@@ -74,8 +74,8 @@ I build AI systems that work in the real world — from neural modeling and robo
 ### 📊 Activity
 
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage" height="240"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&mode=weekly" height="240"/>
+<img src="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage" height="260"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true" height="260"/>
 </p>
 
 <p align="center">

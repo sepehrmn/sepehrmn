@@ -74,12 +74,20 @@ I build AI systems that work in the real world — from neural modeling and robo
 ### 📊 Activity
 
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&rank_icon=github" height="165"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&include_all_commits=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage" height="190"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&mode=weekly" height="190"/>
 </p>
 
 <p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=sepehrmn&theme=react-dark&hide_border=true&area=true&radius=8" width="95%"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github" width="95%">
+  <img alt="Contribution timeline" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%"/>
+</picture>
+</p>
+
+<p align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=sepehrmn&theme=react-dark&hide_border=true&area=true&radius=8&custom_title=Contribution+Velocity" width="95%"/>
 </p>
 
 ---

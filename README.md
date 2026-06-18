@@ -86,6 +86,14 @@ I build AI systems that work in the real world — from neural modeling and robo
 </picture>
 </p>
 
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&from=2020-01-01">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=default&size=medium&from=2020-01-01">
+  <img src="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&from=2020-01-01" width="95%" alt="Cumulative contribution growth"/>
+</picture>
+</p>
+
 ---
 
 ### 📡 Find me

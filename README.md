@@ -83,7 +83,15 @@ I build AI systems that work in the real world — from neural modeling and robo
 </p>
 
 <p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=sepehrmn&theme=react-dark&hide_border=true&area=true&radius=8&custom_title=Contribution+Velocity" width="95%"/>
+<img src="https://ghchart.rshah.org/2b813d/sepehrmn" width="95%" alt="Contribution heatmap"/>
+</p>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github" width="95%">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sepehrmn&theme=github_dark" width="95%" alt="Contribution trajectory"/>
+</picture>
 </p>
 
 ---

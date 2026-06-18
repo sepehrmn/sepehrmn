@@ -317,7 +317,7 @@ function renderSVG(metrics, warning) {
           const stroke = day.total === 0 ? "#1f2937" : "none";
           const pulse = shouldPulse(day, metrics);
           const tip = `${day.date} · ${day.commits} commits / ${day.total} contributions`;
-          return `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" ry="2" class="${escapeXML(cls)}" stroke="${escapeXML(stroke)}"      data-date="${escapeXML(day.date)}" data-commits="${escapeXML(String(day.commits))}" data-total="${escapeXML(String(day.total))}""><title>${escapeXML(tip)}</title>${
+          return `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" ry="2" class="${escapeXML(cls)}" stroke="${escapeXML(stroke)}"      data-date="${escapeXML(day.date)}" data-commits="${escapeXML(String(day.commits))}" data-total="${escapeXML(String(day.total))}"><title>${escapeXML(tip)}</title>${
             pulse
               ? `<animate attributeName="opacity" values="1;0.55;1" dur="2.4s" repeatCount="indefinite" begin="${(wi * 0.03 + di * 0.05).toFixed(2)}s"/>`
               : ""

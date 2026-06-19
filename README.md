@@ -149,7 +149,6 @@
 <img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/cumulative.svg" width="780" alt="Annual contributions 2020–present with cumulative total" loading="lazy"/>
 </p>
 
-<h4 align="center">Where the week goes</h4>
 <p align="center">
 <!-- Each weekday's % share of contributions over the last ~13 weeks, as a
      donut. A week is a cycle, so a ring reads more naturally than bars, and
@@ -157,7 +156,9 @@
      Regenerated daily by .github/workflows/weekdays.yml, which scrapes the
      server-rendered contributions fragment at github.com/users/sepehrmn/
      contributions (not the rate-limited API). The glowing slice marks the
-     peak day. Lives in-repo so it works regardless of external card services. -->
+     peak day. The SVG carries its own "Where the week goes" title, so no
+     separate heading is needed above it. Lives in-repo so it works
+     regardless of external card services. -->
 <img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Weekday contribution share — a donut of each weekday's percentage of the last ~13 weeks of contributions; the glowing slice marks the peak day" loading="lazy"/>
 </p>
 

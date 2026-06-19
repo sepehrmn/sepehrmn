@@ -56,19 +56,29 @@ const XML_ENTITIES = {
 const escapeXML = (s) => String(s).replace(/[&<>"']/g, (c) => XML_ENTITIES[c]);
 
 const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const WINDOW_DAYS = 91; // ~13 weeks; one quarter of activity.
+const WINDOW_DAYS = 500; // ~16 months — long enough to smooth out one-off weeks.
 
 // GitHub's calendar week starts on Sunday. We want Monday-first bars, so a
 // JS Date.getUTCDay() of 0 (Sun) maps to index 6, 1 (Mon)→0, … 6 (Sat)→5.
 const toMonFirst = (jsDow) => (Number(jsDow) + 6) % 7;
 
 // ---------------------------------------------------------------------------
-// 1. Fetch the server-rendered contribution fragment and parse per-day counts.
+// 1. Fetch the server-rendered contribution fragment(s) and parse per-day counts.
 //    Returns [{date, count, weekday}], in DOCUMENT order (NOT chronological —
 //    see note below). count is 0 for empty days; weekday is Mon-first 0..6.
+//
+//    The default fragment only covers the last ~365 days, but WINDOW_DAYS may
+//    exceed that (e.g. 500). So we fetch per-calendar-year fragments via the
+//    ?from=YYYY-01-01 param (same mechanism scripts/cumulative.mjs uses) for
+//    every year the window touches, and concatenate. aggregate() then filters
+//    by exact date, so any overlap/excess is trimmed cleanly.
 // ---------------------------------------------------------------------------
-const FRAGMENT_URL = (login) =>
-  `https://github.com/users/${encodeURIComponent(login)}/contributions`;
+const FRAGMENT_URL = (login, year) =>
+  year === undefined
+    ? `https://github.com/users/${encodeURIComponent(login)}/contributions`
+    : `https://github.com/users/${encodeURIComponent(
+        login
+      )}/contributions?from=${year}-01-01`;
 
 // Parse "<N> contributions on <Month> <day>." or "No contributions on …"
 // out of a <tool-tip> body. Returns 0 for "No contributions" / unparseable.
@@ -84,23 +94,7 @@ const parseTipCount = (tipText) => {
 // dates[i] ↔ tips[i] IS valid because the two appear interleaved 1:1 in
 // document order (verified: every data-date is immediately followed by its
 // own tool-tip). Both regexes preserve that order.
-async function fetchDailyCounts(login) {
-  const res = await fetch(FRAGMENT_URL(login), {
-    headers: {
-      // A real browser UA: github.com sometimes varies markup for bots, and a
-      // UA also avoids any bot-throttle heuristics. No auth needed — this is a
-      // public, server-rendered page.
-      "User-Agent":
-        "Mozilla/5.0 (compatible; sepehrmn-profile-weekdays-chart/1.0)",
-      Accept: "text/html,application/xhtml+xml",
-    },
-  });
-  if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    throw new Error(`contributions fragment ${res.status}: ${body.slice(0, 160)}`);
-  }
-  const html = await res.text();
-
+async function parseFragment(html) {
   const dates = [...html.matchAll(/data-date="(\d{4}-\d{2}-\d{2})"/g)].map(
     (m) => m[1]
   );
@@ -135,6 +129,56 @@ async function fetchDailyCounts(login) {
       precise: useTips,
     };
   });
+}
+
+async function fetchFragmentHtml(login, year) {
+  const res = await fetch(FRAGMENT_URL(login, year), {
+    headers: {
+      // A real browser UA: github.com sometimes varies markup for bots, and a
+      // UA also avoids any bot-throttle heuristics. No auth needed — this is a
+      // public, server-rendered page.
+      "User-Agent":
+        "Mozilla/5.0 (compatible; sepehrmn-profile-weekdays-chart/1.0)",
+      Accept: "text/html,application/xhtml+xml",
+    },
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`contributions fragment ${res.status}: ${body.slice(0, 160)}`);
+  }
+  return res.text();
+}
+
+// Fetch enough year-fragments to cover the last WINDOW_DAYS from today. The
+// default (no-param) fragment ends at "today", so the current year always uses
+// it; if the window reaches into a prior calendar year we also fetch that
+// year's ?from=YYYY-01-01 fragment to extend coverage backwards. Each fragment
+// covers a distinct date span, so concatenation never double-counts; aggregate()
+// trims anything outside the window by exact date.
+async function fetchDailyCounts(login) {
+  const now = new Date();
+  const currentYear = now.getUTCFullYear();
+  // Earliest date the window could touch (UTC, midnight).
+  const earliest = new Date(
+    Date.UTC(currentYear, now.getUTCMonth(), now.getUTCDate()) -
+      WINDOW_DAYS * 24 * 60 * 60 * 1000
+  );
+  const years = new Set([currentYear]);
+  for (let y = earliest.getUTCFullYear(); y < currentYear; y += 1) {
+    years.add(y);
+  }
+  const ordered = [...years].sort((a, b) => a - b);
+  console.log(
+    `[weekdays] fetching ${ordered.length} fragment(s) for year(s): ${ordered.join(", ")}`
+  );
+  const parts = [];
+  for (const y of ordered) {
+    // Current year → default fragment (rolling window ending today); prior
+    // years → ?from=YYYY-01-01 (full calendar year).
+    const html = await fetchFragmentHtml(login, y === currentYear ? undefined : y);
+    parts.push(...(await parseFragment(html)));
+  }
+  return parts;
 }
 
 // ---------------------------------------------------------------------------

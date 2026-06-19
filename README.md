@@ -142,14 +142,9 @@
 
 <p align="center">
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=github_dark&hide_border=true&count_private=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage">
-<img src="https://github-readme-stats.vercel.app/api?username=sepehrmn&show_icons=true&theme=transparent&hide_border=true&count_private=true&rank_icon=github&show=reviews,discussions_started,prs_merged,prs_merged_percentage" height="260"/>
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=github-dark-blue&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true" height="260"/>
+<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=github-dark-blue&hide_border=true&hide_total_contributions=true">
+<source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&hide_total_contributions=true">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&hide_total_contributions=true" height="220"/>
 </picture>
 </p>
 

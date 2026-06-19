@@ -214,10 +214,36 @@ function aggregate(daily) {
   }));
   const peakTotal = perDay.reduce((m, d) => Math.max(m, d.total), 0);
   const grandTotal = perDay.reduce((s, d) => s + d.total, 0);
+
+  // Current streak: consecutive days with ≥1 contribution, counting back from
+  // the newest day. Grace for "today not done yet": if the newest day is 0,
+  // start counting from the day before so an in-progress day doesn't snap a
+  // real streak to 0 (matches GitHub's own streak semantics).
+  const byDate = new Map();
+  for (const cell of daily) {
+    const t = cell.date ? Date.parse(cell.date + "T00:00:00Z") : NaN;
+    if (Number.isNaN(t) || t > newestMs) continue;
+    byDate.set(cell.date, (byDate.get(cell.date) ?? 0) + cell.count);
+  }
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  let streak = 0;
+  let cursor = newestMs;
+  // If the newest day is empty, begin from the previous day.
+  if (newest && (byDate.get(newest) ?? 0) === 0) cursor -= DAY_MS;
+  while (true) {
+    const ds = new Date(cursor);
+    const key = `${ds.getUTCFullYear()}-${String(ds.getUTCMonth() + 1).padStart(2, "0")}-${String(ds.getUTCDate()).padStart(2, "0")}`;
+    if ((byDate.get(key) ?? 0) > 0) {
+      streak += 1;
+      cursor -= DAY_MS;
+    } else break;
+  }
+
   return {
     perDay,
     peakTotal,
     grandTotal,
+    streak,
     windowDays: WINDOW_DAYS,
     cellsUsed: used,
   };
@@ -236,6 +262,7 @@ function placeholder(errorMessage) {
     perDay: DAY_LABELS.map((label) => ({ label, total: 0 })),
     peakTotal: 0,
     grandTotal: 0,
+    streak: 0,
     windowDays: WINDOW_DAYS,
     cellsUsed: 0,
     warning,
@@ -292,7 +319,7 @@ const describeSlice = (pct0, pct1) => {
 };
 
 function renderSVG(model) {
-  const { perDay, peakTotal, grandTotal, warning, windowDays } = model;
+  const { perDay, peakTotal, grandTotal, streak, warning, windowDays } = model;
 
   // Per-slice percentages. If grandTotal is 0 (no data) the placeholder ring
   // is drawn instead — handled below.
@@ -362,11 +389,18 @@ function renderSVG(model) {
     })
     .join("\n    ");
 
-  // Center headline: total contributions over the window.
+  // Center headline: total contributions over the window + the live streak.
   const centerNum = grandTotal > 0 ? escapeXML(String(grandTotal)) : "—";
   const centerSub = grandTotal > 0 ? `${windowDays} days` : "no data";
-  const centerLabel = `<text x="${CX}" y="${CY - 4}" text-anchor="middle" class="center-num">${centerNum}</text>
-    <text x="${CX}" y="${CY + 18}" text-anchor="middle" class="center-sub">${escapeXML(centerSub)}</text>`;
+  // Streak line: the consecutive-day run ending today. Highlighted in cyan as
+  // a focal "live" stat; hidden when there's no streak (no data).
+  const streakLine =
+    streak > 0
+      ? `<text x="${CX}" y="${CY + 40}" text-anchor="middle" class="center-streak">${streak}-day streak</text>`
+      : "";
+  const centerLabel = `<text x="${CX}" y="${CY - 14}" text-anchor="middle" class="center-num">${centerNum}</text>
+    <text x="${CX}" y="${CY + 8}" text-anchor="middle" class="center-sub">${escapeXML(centerSub)}</text>
+    ${streakLine}`;
 
   // Legend: 7 rows, swatch + "Day XX.X%".
   const legendRows = slices
@@ -413,8 +447,9 @@ function renderSVG(model) {
   <style>
     .title { font: 600 15px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
-    .center-num { font: 700 34px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
-    .center-sub { font: 500 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .center-num { font: 700 32px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
+    .center-sub { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .center-streak { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .legend-label { font: 500 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .legend-peak { font-weight: 700; fill: #22d3ee; }
     .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
@@ -428,6 +463,7 @@ function renderSVG(model) {
       .subtitle { fill: #57606a; }
       .center-num { fill: #0891b2; }
       .center-sub { fill: #57606a; }
+      .center-streak { fill: #b45309; }
       .legend-label { fill: #1f2328; }
       .legend-peak { fill: #0891b2; }
       .slice-label { fill: #ffffff; }

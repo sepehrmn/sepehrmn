@@ -397,34 +397,52 @@ async function main() {
     );
   } catch (err) {
     const msg = String(err?.message ?? err);
-    // Auth-class errors (401/403) are configuration problems and must NOT be
-    // silently papered over — fail the action so the user gets a CI
-    // notification instead of a mysteriously-empty SVG in their profile.
-    if (/\b(401|403):/.test(msg)) {
+    // Fail-fast semantics are token-gated, not pattern-gated:
+    //
+    //   • TOKEN set + 4xx  → real config bug. The token's scope is wrong
+    //     (e.g. ${{ secrets.GITHUB_TOKEN }} is repo-only and cannot query
+    //     user(login:).contributionsCollection). Burning CI on this would
+    //     hide the actionable clue, so we exit 1.
+    //
+    //   • TOKEN unset (i.e. unauth public GraphQL from CI, post-fix) +
+    //     4xx  → almost certainly the 60/hr unauth rate limit. Transient,
+    //     recovers naturally on the next daily cron. Failing would burn
+    //     CI minutes and produce no better info than the inline SVG
+    //     warning banner.
+    if (TOKEN && /\b(401|403):/.test(msg)) {
       console.error(`[weekdays] FATAL auth failure: ${msg}`);
       console.error(
-        "[weekdays]   GH_TOKEN is missing, expired, or has insufficient scope."
+        "[weekdays]   GH_TOKEN env var was passed but its scope is wrong."
       );
       console.error(
-        "[weekdays]   GraphQL user(login).contributionsCollection requires"
-      );
-      console.error("[weekdays]   `read:user` scope on the token.");
-      console.error(
-        "[weekdays]   In CI: ${{ secrets.GITHUB_TOKEN }} works for public"
+        "[weekdays]   GitHub App installation tokens (e.g."
       );
       console.error(
-        "[weekdays]   contributions of the actor. For other accounts or"
+        "[weekdays]   ${{ secrets.GITHUB_TOKEN }}) are REPO-ONLY — they"
       );
       console.error(
-        "[weekdays]   private activity, supply a PAT with `read:user`."
+        "[weekdays]   cannot query user(login).contributionsCollection."
+      );
+      console.error("[weekdays]   Two valid fixes:");
+      console.error(
+        "[weekdays]     1. Drop GH_TOKEN entirely — public-profile queries"
+      );
+      console.error(
+        "[weekdays]        are answered unauth (this script's CI default)."
+      );
+      console.error(
+        "[weekdays]     2. Or supply a PAT with `read:user` scope and"
+      );
+      console.error(
+        "[weekdays]        pass it as GH_TOKEN instead."
       );
       process.exit(1);
     }
-    // Transient (rate limit, network, 5xx): graceful path — still emit a
-    // valid fallback SVG so the workflow artefact commits, but surface
-    // the actual error message inline so the cause is visible without
-    // digging through CI logs.
-    console.warn(`[weekdays] transient failure, falling back to placeholder: ${msg}`);
+    // Unauth path / transient / network / 5xx: graceful fallback. The
+    // placeholder SVG still commits so the workflow artefact isn't empty
+    // and the actual error is visible in the chart caption without diving
+    // into CI logs.
+    console.warn(`[weekdays] failed (reason below); using placeholder: ${msg}`);
     model = placeholder(msg);
   }
 

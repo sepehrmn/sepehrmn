@@ -45,7 +45,26 @@ jobs:
       - name: Generate weekday chart SVG
         env:
           GH_USERNAME: sepehrmn
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Intentionally NOT setting GH_TOKEN here. The workflow's default
+          # ${{ secrets.GITHUB_TOKEN }} is a GitHub App installation token
+          # with REPO-ONLY scope; it cannot satisfy the GraphQL
+          # `user(login:).contributionsCollection` endpoint because that's
+          # USER-SCOPED (OAuth-equivalent `read:user`). When passed, the
+          # script gets 401/403 → fail-fasts → no SVG committed → broken
+          # chart on the profile (this is the GH_token-invalid failure
+          # mode this comment is here to prevent).
+          #
+          # Unauthenticated public-GraphQL requests DO work for any public
+          # profile (this repo's owner has a public contribution history),
+          # and the daily cron rate (1/day) is well below the 60/hour
+          # unauthenticated rate limit, so we intentionally run unauthed.
+          #
+          # For private contribution data, supply a PAT secret with
+          # `read:user` scope here instead (e.g. `GH_TOKEN: ${{ secrets.GH_PAT }}`).
+          #
+          # NOTE: The git push step below still uses GITHUB_TOKEN
+          # automatically — that one only needs repo:write, which the
+          # installation token has, so no env override is needed there.
         run: node scripts/weekdays.mjs
 
       - name: Commit updated weekday chart SVG

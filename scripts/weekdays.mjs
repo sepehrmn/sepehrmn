@@ -204,16 +204,21 @@ function placeholder(errorMessage) {
 //    Each weekday is an annular slice ∝ its % share of the 91-day total.
 // ---------------------------------------------------------------------------
 const W = 760;
-const H = 320;
-// Donut geometry. Centered-left so the legend has room on the right.
+const H = 340;
+// Donut geometry. Centered-left so the legend has room on the right. CY sits
+// ~24px below the title baseline to give the ring clear breathing room from
+// the header (the prior value left only ~8px and read as cramped). H grew to
+// 340 to keep the bottom edge comfortably inside the viewBox.
 const CX = 188;
-const CY = 176;
+const CY = 192;
 const R_OUT = 132; // outer radius
 const R_IN = 86; // inner radius (donut hole)
 // Gap between slices, expressed as a fraction of the full circle. ~1.4°.
 const GAP_FRAC = 0.004;
 const LEGEND_X = 388;
-const LEGEND_TOP = 92;
+// Vertically center the 7-row legend block on the donut center.
+// 7 rows × 24px = 168px tall; centered on CY means top = CY - 84 + 12.
+const LEGEND_TOP = 120;
 const LEGEND_ROW_H = 24;
 
 // Convert a % position around the ring (0..1, 0 = 12 o'clock, clockwise) to

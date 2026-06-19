@@ -53,6 +53,19 @@ const XML_ENTITIES = {
 };
 const escapeXML = (s) => String(s).replace(/[&<>"']/g, (c) => XML_ENTITIES[c]);
 
+// Pull the user-friendly `message` field out of GitHub error JSON bodies,
+// e.g. {"message":"Bad credentials","documentation_url":"..."}. Falls back
+// to the raw body if the response isn't JSON or has no `message` field.
+const extractMessage = (body) => {
+  if (!body) return "(empty response body)";
+  try {
+    const parsed = JSON.parse(body);
+    return parsed?.message ?? body.slice(0, 200);
+  } catch {
+    return body.slice(0, 200);
+  }
+};
+
 const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const WINDOW_DAYS = 91; // ~13 weeks; matches REST events ~90-day ceiling.
 
@@ -94,7 +107,10 @@ async function fetchCollection(login) {
   });
   if (!res.ok) {
     const body = await res.text().catch(() => "");
-    throw new Error(`GraphQL ${res.status}: ${body.slice(0, 200)}`);
+    // GitHub error bodies are JSON like {"message":"Bad credentials",...}.
+    // Extract `message` so the user-visible warning text is human-friendly
+    // (avoids the raw "GH_token invalid" style that confused the user).
+    throw new Error(`GraphQL ${res.status}: ${extractMessage(body)}`);
   }
   const json = await res.json();
   if (json.errors?.length) {
@@ -135,11 +151,16 @@ async function fetchWeekdayEventCounts(login) {
       return counts;
     }
     if (!res.ok) {
-      if (res.status === 401 || res.status === 403 || res.status === 429) {
-        console.warn(
-          `[weekdays] REST events ${res.status} — falling back to GraphQL macro ratio.`
-        );
+      const body = await res.text().catch(() => "");
+      const detail = extractMessage(body);
+      // Auth/class errors (401/403): bubble up so main() can fail-fast —
+      // these are configuration problems that the daily cron won't fix.
+      // Rate-limited (429) and any 5xx: transient. Log + let the macro
+      // GraphQL ratio fill the bar split.
+      if (res.status === 401 || res.status === 403) {
+        throw new Error(`REST events ${res.status}: ${detail}`);
       }
+      console.warn(`[weekdays] REST events ${res.status}: ${detail}`);
       return counts;
     }
     const events = await res.json().catch(() => []);
@@ -213,7 +234,12 @@ function aggregate(days, eventCounts, totals) {
 // ---------------------------------------------------------------------------
 // 4. No-data placeholder (still valid SVG so workflow artifact commits).
 // ---------------------------------------------------------------------------
-function placeholder() {
+function placeholder(errorMessage) {
+  const fallback =
+    "Live contribution data could not be fetched — both GraphQL and REST endpoints failed. Check GH_TOKEN scope (read:user needed for user contribution data).";
+  const warning = errorMessage
+    ? `Live contribution data could not be fetched: ${errorMessage}. Check GH_TOKEN scope (read:user needed for user contribution data).`
+    : fallback;
   return {
     perDay: DAY_LABELS.map((label) => ({
       label,
@@ -225,8 +251,7 @@ function placeholder() {
     peakTotal: 0,
     windowDays: WINDOW_DAYS,
     sampleEvents: 0,
-    warning:
-      "Live contribution data could not be fetched — both GraphQL and REST endpoints failed. Run the action with a valid GH_TOKEN to populate.",
+    warning,
   };
 }
 
@@ -371,8 +396,36 @@ async function main() {
       `[weekdays] built ${model.perDay.length}-bar model across ${model.windowDays} days; peak=${model.peakTotal}; ${model.sampleEvents} events sampled.`
     );
   } catch (err) {
-    console.warn(`[weekdays] falling back to no-data placeholder: ${err.message}`);
-    model = placeholder();
+    const msg = String(err?.message ?? err);
+    // Auth-class errors (401/403) are configuration problems and must NOT be
+    // silently papered over — fail the action so the user gets a CI
+    // notification instead of a mysteriously-empty SVG in their profile.
+    if (/\b(401|403):/.test(msg)) {
+      console.error(`[weekdays] FATAL auth failure: ${msg}`);
+      console.error(
+        "[weekdays]   GH_TOKEN is missing, expired, or has insufficient scope."
+      );
+      console.error(
+        "[weekdays]   GraphQL user(login).contributionsCollection requires"
+      );
+      console.error("[weekdays]   `read:user` scope on the token.");
+      console.error(
+        "[weekdays]   In CI: ${{ secrets.GITHUB_TOKEN }} works for public"
+      );
+      console.error(
+        "[weekdays]   contributions of the actor. For other accounts or"
+      );
+      console.error(
+        "[weekdays]   private activity, supply a PAT with `read:user`."
+      );
+      process.exit(1);
+    }
+    // Transient (rate limit, network, 5xx): graceful path — still emit a
+    // valid fallback SVG so the workflow artefact commits, but surface
+    // the actual error message inline so the cause is visible without
+    // digging through CI logs.
+    console.warn(`[weekdays] transient failure, falling back to placeholder: ${msg}`);
+    model = placeholder(msg);
   }
 
   const svg = renderSVG(model);

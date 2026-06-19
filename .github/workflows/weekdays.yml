@@ -9,8 +9,11 @@ on:
     paths:
       - "scripts/weekdays.mjs"
       - ".github/workflows/weekdays.yml"
-    paths-ignore:
-      - "assets/**"
+    # NOTE: GitHub rejects combining `paths` + `paths-ignore` on the same
+    # event with HTTP 422 ("you may only define one of paths and paths-ignore
+    # for a single event"). The "regen commits the SVG, regen re-triggers"
+    # loop is already broken by the `git diff --quiet assets/weekdays.svg`
+    # guard in the commit step, so we don't need a filter here.
 
 # Serialize weekday runs so concurrent triggers never race on the
 # `git push` for assets/weekdays.svg. A queued run will wait for the

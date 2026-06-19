@@ -69,10 +69,17 @@ jobs:
 
       - name: Commit updated weekday chart SVG
         run: |
-          if ! git diff --quiet assets/weekdays.svg; then
+          # Stage FIRST, then diff against HEAD. A bare `git diff <path>` only
+          # sees modifications to TRACKED files — it ignores untracked files, so
+          # a freshly-generated-but-never-committed assets/weekdays.svg would
+          # always read "no changes" and never get pushed (this was the bug that
+          # left the chart broken on the live profile: the file was never
+          # tracked, so the guard always short-circuited). Staging then diffing
+          # the INDEX against HEAD catches both new and modified files.
+          git add assets/weekdays.svg
+          if ! git diff --cached --quiet HEAD -- assets/weekdays.svg; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add assets/weekdays.svg
             git commit -m "chore(weekdays): regenerate weekday activity chart"
             git push
           else

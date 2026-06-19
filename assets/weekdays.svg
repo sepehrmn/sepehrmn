@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img" aria-label="Activity by weekday — chart regenerating from live data">
+  <style>
+    .title { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
+    .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .baseline { stroke: #30363d; stroke-width: 1; }
+    .skeleton { fill: #21262d; }
+    @media (prefers-color-scheme: light) {
+      .title { fill: #0891b2; }
+      .subtitle { fill: #57606a; }
+      .caption { fill: #6e7681; }
+      .baseline { stroke: #d0d7de; }
+      .skeleton { fill: #eaeef2; }
+    }
+  </style>
+  <rect width="760" height="200" fill="transparent"/>
+  <text x="40" y="20" class="title">Activity by weekday</text>
+  <text x="720" y="20" text-anchor="end" class="subtitle">regenerating from live data…</text>
+  <line x1="40" y1="150" x2="720" y2="150" class="baseline"/>
+  <!-- Skeleton bars: 7 placeholder slots (Mon..Sun). The CI workflow overwrites
+       this whole file with real data on its first run now that the commit-guard
+       bug is fixed, so these are just a non-broken placeholder in the meantime. -->
+  <rect x="40"  y="118" width="56" height="32" rx="3" class="skeleton"/>
+  <rect x="144" y="98"  width="56" height="52" rx="3" class="skeleton"/>
+  <rect x="248" y="108" width="56" height="42" rx="3" class="skeleton"/>
+  <rect x="352" y="88"  width="56" height="62" rx="3" class="skeleton"/>
+  <rect x="456" y="112" width="56" height="38" rx="3" class="skeleton"/>
+  <rect x="560" y="128" width="56" height="22" rx="3" class="skeleton"/>
+  <rect x="664" y="132" width="56" height="18" rx="3" class="skeleton"/>
+  <text x="40" y="192" class="caption">cyan = commits · gray = open PR + issue + review · chart refreshes daily via CI</text>
+</svg>

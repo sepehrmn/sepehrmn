@@ -7,26 +7,26 @@
 
 ---
 
-### 🧭 Focus
+### What I do
 
 <table>
 <tr>
 <td align="center" width="33%">
 
-🧠 **AI/ML systems**<br/>
-<sub>Deep learning, computer vision, RL — from research to production</sub>
+**Intelligence, in production**<br/>
+<sub>Deep learning, computer vision, reinforcement learning — research shipped, not shelved</sub>
 
 </td>
 <td align="center" width="33%">
 
-🔐 **Distributed & confidential compute**<br/>
+**Distributed & confidential compute**<br/>
 <sub>Cryptography, decentralized tallying, provenance-first protocols</sub>
 
 </td>
 <td align="center" width="33%">
 
-🤖 **Robot autonomy**<br/>
-<sub>Sensor fusion, ML detection, sim (ROS / Gazebo)</sub>
+**Machines that move**<br/>
+<sub>Sensor fusion, ML detection, simulation — ROS / Gazebo</sub>
 
 </td>
 </tr>
@@ -34,7 +34,7 @@
 
 ---
 
-### 🚀 Featured projects
+### Selected work
 
 <!-- Live pin cards via github-readme-stats — they pull stars, language + color,
      forks and the repo description dynamically, so they stay accurate with no
@@ -76,9 +76,9 @@
 </p>
 
 <details>
-<summary><strong>📦 More projects</strong></summary>
+<summary><strong>More repositories</strong></summary>
 
-| Project | Area |
+| Repository | Area |
 |---|---|
 | **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
 | **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |
@@ -89,11 +89,11 @@
 
 ---
 
-### ⚡ Core stack
+### The toolbox
 
 <table>
 <tr>
-<td align="left"><strong>🤖 AI / ML</strong></td>
+<td align="left"><strong>AI / ML</strong></td>
 <td>
 <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>&nbsp;
 <a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="32"/></a>&nbsp;
@@ -104,7 +104,7 @@
 </td>
 </tr>
 <tr>
-<td align="left"><strong>⚙️ Backend & Systems</strong></td>
+<td align="left"><strong>Backend & Systems</strong></td>
 <td>
 <a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="32"/></a>&nbsp;
 <a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="32"/></a>&nbsp;
@@ -114,7 +114,7 @@
 </td>
 </tr>
 <tr>
-<td align="left"><strong>☁️ Cloud & DevOps</strong></td>
+<td align="left"><strong>Cloud & DevOps</strong></td>
 <td>
 <a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="32"/></a>&nbsp;
 <a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>&nbsp;
@@ -125,7 +125,7 @@
 </td>
 </tr>
 <tr>
-<td align="left"><strong>🎨 Frontend & Web</strong></td>
+<td align="left"><strong>Frontend & Web</strong></td>
 <td>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="32"/></a>&nbsp;
 <a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="32"/></a>&nbsp;
@@ -138,7 +138,7 @@
 
 ---
 
-### 📊 Activity
+### The pulse
 
 <p align="center">
 <picture>
@@ -161,15 +161,21 @@
 </picture>
 </p>
 
-<h4 align="center">Activity by weekday</h4>
+<h4 align="center">Where the week goes</h4>
 <p align="center">
-<!-- Weekly cadence (last ~13 weeks). Regenerated daily by .github/workflows/weekdays.yml. Stacked bars Mon → Sun: cyan segment = commits, gray segment = open PR + issue + review. Sits below GitHub's native 365-day contribution heatmap above to surface weekday rhythm the year-long grid hides — e.g. weekend-warrior pattern, weekday-heavy PR mix. Lives in-repo so it works regardless of external card services. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Activity by weekday — stacked bars Mon–Sun over the last ~13 weeks; cyan = commits, gray = open PR + issue + review" loading="lazy"/>
+<!-- Per-weekday contribution totals (Mon→Sun) over the last ~13 weeks.
+     Regenerated daily by .github/workflows/weekdays.yml, which scrapes the
+     server-rendered contributions fragment at github.com/users/sepehrmn/
+     contributions (not the rate-limited API). The animated bar marks the peak
+     weekday. Sits below GitHub's native 365-day heatmap to surface the weekly
+     rhythm the year-long grid hides. Lives in-repo so it works regardless of
+     external card services. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Activity by weekday — per-weekday contribution totals, Mon–Sun, over the last ~13 weeks; the animated bar marks the peak day" loading="lazy"/>
 </p>
 
 ---
 
-### 📡 Find me
+### Elsewhere
 
 <p align="center">
 <a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
@@ -185,4 +191,4 @@
 <a href="https://huggingface.co/torusprime"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
 </p>
 
-📬 **sepmhn @ gmail.com** — I'm always open to interesting problems.
+**sepmhn @ gmail.com** — always open to interesting problems.

@@ -3,12 +3,14 @@
 // Generates assets/weekdays.svg from live GitHub contribution data.
 // Zero npm dependencies; uses the global `fetch` (Node 20+).
 //
-// Why this exists instead of a 365-day grid: GitHub already renders the
-// native year-long contribution heatmap on github.com/<user>, so copying
-// it on the README is redundant. This chart answers a *different* question:
-// "what's my weekday rhythm?" — a stat the year-long grid cannot surface.
-// 7 bars (Mon→Sun) showing per-weekday contribution totals over the last
-// ~13 weeks (91 days), with the peak weekday highlighted and animated.
+// What this renders: a DONUT chart of each weekday's % share of contributions
+// over the last ~13 weeks (91 days). A week is a cycle, so a ring reads more
+// naturally than bars — and because the slices are shares of the whole, the
+// weekend-heavy / midweek-dip pattern is obvious at a glance. The center
+// holds the 91-day total; the legend (right) gives the exact % per day; the
+// peak slice (the biggest weekday) glows and pulses. GitHub already renders a
+// native 365-day heatmap on github.com/<user>, so we don't duplicate it —
+// this surfaces the weekly rhythm that grid cannot.
 //
 // DATA SOURCE — server-rendered HTML fragment, NOT the API:
 //   https://github.com/users/{login}/contributions
@@ -30,8 +32,8 @@
 // no JSON blob to hunt for.
 //
 // TRADEOFF: the fragment has no per-type breakdown (commits vs PR vs issue),
-// so this chart shows per-weekday TOTAL contributions (no cyan/gray split).
-// That's the honest representation of what this data source can support.
+// so each slice is the per-weekday TOTAL contribution count, expressed as a
+// % of the 91-day total. That's the honest representation of this source.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -197,96 +199,192 @@ function placeholder(errorMessage) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Render SVG.
+// 4. Render SVG — a percentage DONUT chart.
+//    Layout: title/subtitle top; donut centered-left; legend right; caption.
+//    Each weekday is an annular slice ∝ its % share of the 91-day total.
 // ---------------------------------------------------------------------------
 const W = 760;
-const H = 200;
-const PAD_LEFT = 40;
-const PAD_RIGHT = 40;
-const PLOT_TOP = 36;
-const PLOT_BOTTOM = 150;
-const PLOT_HEIGHT = PLOT_BOTTOM - PLOT_TOP;
-const PLOT_LEFT = PAD_LEFT;
-const PLOT_RIGHT = W - PAD_RIGHT;
-const PLOT_WIDTH = PLOT_RIGHT - PLOT_LEFT;
-const BAR_W = 56;
-const BAR_GAP = (PLOT_WIDTH - 7 * BAR_W) / 6; // ≈48
+const H = 320;
+// Donut geometry. Centered-left so the legend has room on the right.
+const CX = 188;
+const CY = 176;
+const R_OUT = 132; // outer radius
+const R_IN = 86; // inner radius (donut hole)
+// Gap between slices, expressed as a fraction of the full circle. ~1.4°.
+const GAP_FRAC = 0.004;
+const LEGEND_X = 388;
+const LEGEND_TOP = 92;
+const LEGEND_ROW_H = 24;
+
+// Convert a % position around the ring (0..1, 0 = 12 o'clock, clockwise) to
+// a point on the circle of radius `rad` centered at (CX, CY).
+const ringPoint = (frac, rad) => {
+  const ang = -Math.PI / 2 + frac * 2 * Math.PI; // start at top, clockwise
+  return { x: CX + rad * Math.cos(ang), y: CY + rad * Math.sin(ang) };
+};
+
+// Build an annular-segment <path d> for a slice spanning [pct0, pct1] (both
+// 0..1 fractions of the circle). Two arcs (outer CW, inner CCW) joined into
+// a ring segment. largeArc flag set when the slice exceeds half the circle.
+const describeSlice = (pct0, pct1) => {
+  const sweep = pct1 - pct0;
+  const large = sweep > 0.5 ? 1 : 0;
+  const o0 = ringPoint(pct0, R_OUT);
+  const o1 = ringPoint(pct1, R_OUT);
+  const i1 = ringPoint(pct1, R_IN);
+  const i0 = ringPoint(pct0, R_IN);
+  return [
+    `M ${o0.x.toFixed(2)} ${o0.y.toFixed(2)}`,
+    `A ${R_OUT} ${R_OUT} 0 ${large} 1 ${o1.x.toFixed(2)} ${o1.y.toFixed(2)}`,
+    `L ${i1.x.toFixed(2)} ${i1.y.toFixed(2)}`,
+    `A ${R_IN} ${R_IN} 0 ${large} 0 ${i0.x.toFixed(2)} ${i0.y.toFixed(2)}`,
+    "Z",
+  ].join(" ");
+};
 
 function renderSVG(model) {
   const { perDay, peakTotal, grandTotal, warning, windowDays } = model;
-  // Avoid divide-by-zero when the window is entirely empty.
-  const yMax = Math.max(peakTotal, 1);
 
-  const bars = perDay
-    .map((day, i) => {
-      const x = PLOT_LEFT + i * (BAR_W + BAR_GAP);
-      const cx = x + BAR_W / 2;
-      const totalH = (day.total / yMax) * PLOT_HEIGHT;
-      const baseY = PLOT_BOTTOM - totalH;
-      const isPeak = day.total > 0 && day.total === peakTotal;
-      const tip = `${day.label}: ${day.total} contributions over the last ${windowDays} days`;
-      const tipEsc = escapeXML(tip);
-      return [
-        totalH > 0
-          ? `<rect x="${x}" y="${baseY}" width="${BAR_W}" height="${totalH}" rx="3" ry="3" class="bar"><title>${tipEsc}</title>${
-              isPeak
-                ? `<animate attributeName="opacity" values="1;0.6;1" dur="2.4s" repeatCount="indefinite"/>`
-                : ""
-            }</rect>`
-          : "",
-        `<text x="${cx}" y="${baseY - 6}" text-anchor="middle" class="value">${day.total}</text>`,
-        `<text x="${cx}" y="${PLOT_BOTTOM + 18}" text-anchor="middle" class="day">${escapeXML(
-          day.label
-        )}</text>`,
-      ].join("");
+  // Per-slice percentages. If grandTotal is 0 (no data) the placeholder ring
+  // is drawn instead — handled below.
+  const slices = perDay.map((day, i) => {
+    const pct = grandTotal > 0 ? day.total / grandTotal : 0;
+    return {
+      ...day,
+      pct,
+      // Always 1 decimal: every weekday is a single/double-digit %, and 1dp
+      // reads cleanly while matching the data exactly (e.g. 8.7%, 9.2%).
+      pctLabel: (pct * 100).toFixed(1),
+      isPeak: day.total > 0 && day.total === peakTotal,
+      index: i,
+    };
+  });
+
+  // Cumulative sweep boundaries with a symmetric gap shrunken from each slice.
+  let acc = 0;
+  const arcs = slices.map((s) => {
+    const start = acc;
+    acc += s.pct;
+    const end = acc;
+    // Inset both edges by half the gap (clamped so a 0%-slice vanishes).
+    const g = s.pct > 0 ? GAP_FRAC / 2 : 0;
+    return { ...s, start: start + g, end: Math.max(start + g, end - g) };
+  });
+
+  const slicePaths = arcs
+    .map((s, i) => {
+      const d = describeSlice(s.start, s.end);
+      // Base <path d> holds the FINAL arc so a non-SMIL renderer (image
+      // proxy, RSS reader) still shows the complete donut. SMIL animates a
+      // staggered fade+scale reveal (grow-in from the hole outward), which
+      // reads as the ring assembling clockwise without risking malformed
+      // morphing of the path's `d`.
+      const begin = `${(0.15 + i * 0.1).toFixed(2)}s`;
+      const title = `${s.label}: ${s.total} contributions · ${(s.pct * 100).toFixed(1)}% of the last ${windowDays} days`;
+      const titleEsc = escapeXML(title);
+      const cls = `slice${s.isPeak ? " slice-peak" : ""}`;
+      const transformOrigin = `${CX} ${CY}`;
+      return `<path d="${d}" class="${cls}" style="transform-origin:${transformOrigin};opacity:1" transform="scale(1)"><title>${titleEsc}</title>${
+        s.isPeak
+          ? `<animate attributeName="opacity" values="1;0.68;1" dur="2.6s" begin="1.3s" repeatCount="indefinite"/>`
+          : ""
+      }<animateTransform attributeName="transform" type="scale" values="0.82;1" begin="${begin}" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>${
+        !s.isPeak
+          ? `<animate attributeName="opacity" values="0;1" begin="${begin}" dur="0.6s" fill="freeze"/>`
+          : ""
+      }</path>`;
     })
-    .join("");
+    .join("\n    ");
 
-  const baseline = `<line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>`;
+  // Center headline: total contributions over the window.
+  const centerNum = grandTotal > 0 ? escapeXML(String(grandTotal)) : "—";
+  const centerSub = grandTotal > 0 ? `${windowDays} days` : "no data";
+  const centerLabel = `<text x="${CX}" y="${CY - 4}" text-anchor="middle" class="center-num">${centerNum}</text>
+    <text x="${CX}" y="${CY + 18}" text-anchor="middle" class="center-sub">${escapeXML(centerSub)}</text>`;
 
-  const title = `<text x="${PLOT_LEFT}" y="20" class="title">Activity by weekday</text>`;
-  const subtitle = grandTotal > 0
-    ? `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">${grandTotal} contributions · last ${windowDays} days</text>`
-    : `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">last ${windowDays} days</text>`;
-  const caption = `<text x="${PLOT_LEFT}" y="${
-    H - 8
-  }" class="caption">total contributions per weekday (Mon→Sun) · animated bar marks the peak day · complements GitHub's native 365-day heatmap</text>`;
+  // Legend: 7 rows, swatch + "Day XX.X%".
+  const legendRows = slices
+    .map((s, i) => {
+      const y = LEGEND_TOP + i * LEGEND_ROW_H;
+      const cls = `legend-label${s.isPeak ? " legend-peak" : ""}`;
+      return `<rect x="${LEGEND_X}" y="${y - 9}" width="12" height="12" rx="2" class="legend-swatch${s.isPeak ? " swatch-peak" : ""}"/>
+      <text x="${LEGEND_X + 22}" y="${y}" class="${cls}">${escapeXML(s.label)}</text>
+      <text x="${LEGEND_X + 196}" y="${y}" text-anchor="end" class="${cls}">${s.pctLabel}%</text>`;
+    })
+    .join("\n    ");
+
+  // When there's no real data, draw a faint full ring outline so the donut
+  // shape still reads, and the warning banner (below) explains why.
+  const placeholderRing =
+    grandTotal === 0
+      ? `<circle cx="${CX}" cy="${CY}" r="${(R_OUT + R_IN) / 2}" fill="none" stroke="#30363d" stroke-width="${R_OUT - R_IN}" stroke-opacity="0.5"/>`
+      : "";
+
+  const title = `<text x="40" y="36" class="title">Where the week goes</text>`;
+  const subtitle =
+    grandTotal > 0
+      ? `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">share of ${grandTotal} contributions · last ${windowDays} days</text>`
+      : `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">last ${windowDays} days</text>`;
+  const caption = `<text x="40" y="${H - 16}" class="caption">each slice = a weekday's % share of the ${windowDays}-day total · glowing slice = peak day · complements GitHub's native 365-day heatmap</text>`;
   const warningBanner = warning
-    ? `<text x="${W / 2}" y="${H - 8}" text-anchor="middle" class="warning">${escapeXML(
+    ? `<text x="${W / 2}" y="${H - 16}" text-anchor="middle" class="warning">${escapeXML(
         warning
       )}</text>`
     : "";
 
-  const aria = peakTotal > 0
-    ? `Activity by weekday — ${grandTotal} contributions over the last ${windowDays} days, peak ${peakTotal} on a single weekday`
-    : `Activity by weekday — no data over the last ${windowDays} days`;
+  const peakLabel = peakTotal > 0 ? slices.find((s) => s.isPeak)?.label : null;
+  const aria =
+    grandTotal > 0
+      ? `Weekday contribution share over the last ${windowDays} days — ${grandTotal} total, peak ${peakLabel} at ${(slices.find((s) => s.isPeak)?.pct * 100).toFixed(1)}%`
+      : `Weekday contribution share over the last ${windowDays} days — no data`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
   <style>
-    .title { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
+    .title { font: 600 15px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
-    .value { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
-    .day { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .center-num { font: 700 34px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
+    .center-sub { font: 500 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .legend-label { font: 500 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .legend-peak { font-weight: 700; fill: #22d3ee; }
+    .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
+    .swatch-peak { fill-opacity: 1; }
     .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
-    .baseline { stroke: #30363d; stroke-width: 1; }
-    .bar { fill: #22d3ee; }
+    .slice { fill: #22d3ee; fill-opacity: 0.82; }
+    .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
     @media (prefers-color-scheme: light) {
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }
-      .value { fill: #1f2328; }
-      .day { fill: #57606a; }
+      .center-num { fill: #0891b2; }
+      .center-sub { fill: #57606a; }
+      .legend-label { fill: #1f2328; }
+      .legend-peak { fill: #0891b2; }
       .caption { fill: #6e7681; }
       .warning { fill: #b45309; }
-      .baseline { stroke: #d0d7de; }
-      .bar { fill: #0891b2; }
+      .slice { fill: #0891b2; }
+      .slice-peak { fill: #0891b2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      animate, animateTransform { display: none; }
     }
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>
   ${title}
   ${subtitle}
-  ${baseline}
-  ${bars}
+  <g class="donut">
+    ${placeholderRing}
+    ${slicePaths}
+    ${centerLabel}
+  </g>
+  <g class="legend">
+    ${legendRows}
+  </g>
   ${caption}
   ${warningBanner}
 </svg>`;

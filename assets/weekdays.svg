@@ -1,29 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img" aria-label="Activity by weekday — 809 contributions over the last 91 days, peak 157 on a single weekday">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Weekday contribution share over the last 91 days — 817 total, peak Sun at 19.2%">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
   <style>
-    .title { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
+    .title { font: 600 15px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
-    .value { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
-    .day { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .center-num { font: 700 34px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
+    .center-sub { font: 500 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .legend-label { font: 500 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .legend-peak { font-weight: 700; fill: #22d3ee; }
+    .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
+    .swatch-peak { fill-opacity: 1; }
     .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
-    .baseline { stroke: #30363d; stroke-width: 1; }
-    .bar { fill: #22d3ee; }
+    .slice { fill: #22d3ee; fill-opacity: 0.82; }
+    .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
     @media (prefers-color-scheme: light) {
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }
-      .value { fill: #1f2328; }
-      .day { fill: #57606a; }
+      .center-num { fill: #0891b2; }
+      .center-sub { fill: #57606a; }
+      .legend-label { fill: #1f2328; }
+      .legend-peak { fill: #0891b2; }
       .caption { fill: #6e7681; }
       .warning { fill: #b45309; }
-      .baseline { stroke: #d0d7de; }
-      .bar { fill: #0891b2; }
+      .slice { fill: #0891b2; }
+      .slice-peak { fill: #0891b2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      animate, animateTransform { display: none; }
     }
   </style>
-  <rect width="760" height="200" fill="transparent"/>
-  <text x="40" y="20" class="title">Activity by weekday</text>
-  <text x="720" y="20" text-anchor="end" class="subtitle">809 contributions · last 91 days</text>
-  <line x1="40" y1="150" x2="720" y2="150" class="baseline"/>
-  <rect x="40" y="65.77070063694268" width="56" height="84.22929936305732" rx="3" ry="3" class="bar"><title>Mon: 116 contributions over the last 91 days</title></rect><text x="68" y="59.77070063694268" text-anchor="middle" class="value">116</text><text x="68" y="168" text-anchor="middle" class="day">Mon</text><rect x="144" y="45.439490445859875" width="56" height="104.56050955414013" rx="3" ry="3" class="bar"><title>Tue: 144 contributions over the last 91 days</title></rect><text x="172" y="39.439490445859875" text-anchor="middle" class="value">144</text><text x="172" y="168" text-anchor="middle" class="day">Tue</text><rect x="248" y="67.22292993630573" width="56" height="82.77707006369427" rx="3" ry="3" class="bar"><title>Wed: 114 contributions over the last 91 days</title></rect><text x="276" y="61.22292993630573" text-anchor="middle" class="value">114</text><text x="276" y="168" text-anchor="middle" class="day">Wed</text><rect x="352" y="95.54140127388536" width="56" height="54.45859872611465" rx="3" ry="3" class="bar"><title>Thu: 75 contributions over the last 91 days</title></rect><text x="380" y="89.54140127388536" text-anchor="middle" class="value">75</text><text x="380" y="168" text-anchor="middle" class="day">Thu</text><rect x="456" y="104.25477707006368" width="56" height="45.74522292993631" rx="3" ry="3" class="bar"><title>Fri: 63 contributions over the last 91 days</title></rect><text x="484" y="98.25477707006368" text-anchor="middle" class="value">63</text><text x="484" y="168" text-anchor="middle" class="day">Fri</text><rect x="560" y="48.34394904458598" width="56" height="101.65605095541402" rx="3" ry="3" class="bar"><title>Sat: 140 contributions over the last 91 days</title></rect><text x="588" y="42.34394904458598" text-anchor="middle" class="value">140</text><text x="588" y="168" text-anchor="middle" class="day">Sat</text><rect x="664" y="36" width="56" height="114" rx="3" ry="3" class="bar"><title>Sun: 157 contributions over the last 91 days</title><animate attributeName="opacity" values="1;0.6;1" dur="2.4s" repeatCount="indefinite"/></rect><text x="692" y="30" text-anchor="middle" class="value">157</text><text x="692" y="168" text-anchor="middle" class="day">Sun</text>
-  <text x="40" y="192" class="caption">total contributions per weekday (Mon→Sun) · animated bar marks the peak day · complements GitHub's native 365-day heatmap</text>
+  <rect width="760" height="320" fill="transparent"/>
+  <text x="40" y="36" class="title">Where the week goes</text>
+  <text x="720" y="36" text-anchor="end" class="subtitle">share of 817 contributions · last 91 days</text>
+  <g class="donut">
+    
+    <path d="M 189.66 44.01 A 132 132 0 0 1 289.70 91.85 L 254.26 121.17 A 86 86 0 0 0 189.08 90.01 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Mon: 116 contributions · 14.2% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.15s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.15s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 291.78 94.43 A 132 132 0 0 1 308.73 229.36 L 266.66 210.77 A 86 86 0 0 0 255.62 122.86 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Tue: 144 contributions · 17.6% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.25s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.25s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 307.35 232.38 A 132 132 0 0 1 224.21 302.94 L 211.59 258.70 A 86 86 0 0 0 265.76 212.73 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Wed: 114 contributions · 14.0% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.35s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.35s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 221.01 303.81 A 132 132 0 0 1 149.13 302.15 L 162.68 258.19 A 86 86 0 0 0 209.51 259.27 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Thu: 75 contributions · 9.2% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.45s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.45s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 145.97 301.13 A 132 132 0 0 1 89.27 263.62 L 123.68 233.09 A 86 86 0 0 0 160.62 257.52 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Fri: 71 contributions · 8.7% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.55s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.55s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 87.10 261.11 A 132 132 0 0 1 64.04 130.64 L 107.24 146.45 A 86 86 0 0 0 122.26 231.45 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Sat: 140 contributions · 17.1% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.65s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.65s" dur="0.6s" fill="freeze"/></path>
+    <path d="M 65.22 127.54 A 132 132 0 0 1 186.34 44.01 L 186.92 90.01 A 86 86 0 0 0 108.01 144.42 Z" class="slice slice-peak" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Sun: 157 contributions · 19.2% of the last 91 days</title><animate attributeName="opacity" values="1;0.68;1" dur="2.6s" begin="1.3s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.75s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></path>
+    <text x="188" y="172" text-anchor="middle" class="center-num">817</text>
+    <text x="188" y="194" text-anchor="middle" class="center-sub">91 days</text>
+  </g>
+  <g class="legend">
+    <rect x="388" y="83" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="92" class="legend-label">Mon</text>
+      <text x="584" y="92" text-anchor="end" class="legend-label">14.2%</text>
+    <rect x="388" y="107" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="116" class="legend-label">Tue</text>
+      <text x="584" y="116" text-anchor="end" class="legend-label">17.6%</text>
+    <rect x="388" y="131" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="140" class="legend-label">Wed</text>
+      <text x="584" y="140" text-anchor="end" class="legend-label">14.0%</text>
+    <rect x="388" y="155" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="164" class="legend-label">Thu</text>
+      <text x="584" y="164" text-anchor="end" class="legend-label">9.2%</text>
+    <rect x="388" y="179" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="188" class="legend-label">Fri</text>
+      <text x="584" y="188" text-anchor="end" class="legend-label">8.7%</text>
+    <rect x="388" y="203" width="12" height="12" rx="2" class="legend-swatch"/>
+      <text x="410" y="212" class="legend-label">Sat</text>
+      <text x="584" y="212" text-anchor="end" class="legend-label">17.1%</text>
+    <rect x="388" y="227" width="12" height="12" rx="2" class="legend-swatch swatch-peak"/>
+      <text x="410" y="236" class="legend-label legend-peak">Sun</text>
+      <text x="584" y="236" text-anchor="end" class="legend-label legend-peak">19.2%</text>
+  </g>
+  <text x="40" y="304" class="caption">each slice = a weekday's % share of the 91-day total · glowing slice = peak day · complements GitHub's native 365-day heatmap</text>
   
 </svg>

@@ -1,31 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img" aria-label="Activity by weekday — chart regenerating from live data">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img" aria-label="Activity by weekday — no data over the last 91 days">
   <style>
     .title { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
+    .value { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .day { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
     .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .baseline { stroke: #30363d; stroke-width: 1; }
-    .skeleton { fill: #21262d; }
+    .bar-commits { fill: #22d3ee; }
+    .bar-others { fill: #6e6e78; }
     @media (prefers-color-scheme: light) {
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }
+      .value { fill: #1f2328; }
+      .day { fill: #57606a; }
       .caption { fill: #6e7681; }
+      .warning { fill: #b45309; }
       .baseline { stroke: #d0d7de; }
-      .skeleton { fill: #eaeef2; }
+      .bar-commits { fill: #0c4a6e; }
+      .bar-others { fill: #d4d4dc; }
     }
   </style>
   <rect width="760" height="200" fill="transparent"/>
   <text x="40" y="20" class="title">Activity by weekday</text>
-  <text x="720" y="20" text-anchor="end" class="subtitle">regenerating from live data…</text>
+  <text x="720" y="20" text-anchor="end" class="subtitle">Last 91 days · no public events — split uses yearly ratio</text>
   <line x1="40" y1="150" x2="720" y2="150" class="baseline"/>
-  <!-- Skeleton bars: 7 placeholder slots (Mon..Sun). The CI workflow overwrites
-       this whole file with real data on its first run now that the commit-guard
-       bug is fixed, so these are just a non-broken placeholder in the meantime. -->
-  <rect x="40"  y="118" width="56" height="32" rx="3" class="skeleton"/>
-  <rect x="144" y="98"  width="56" height="52" rx="3" class="skeleton"/>
-  <rect x="248" y="108" width="56" height="42" rx="3" class="skeleton"/>
-  <rect x="352" y="88"  width="56" height="62" rx="3" class="skeleton"/>
-  <rect x="456" y="112" width="56" height="38" rx="3" class="skeleton"/>
-  <rect x="560" y="128" width="56" height="22" rx="3" class="skeleton"/>
-  <rect x="664" y="132" width="56" height="18" rx="3" class="skeleton"/>
-  <text x="40" y="192" class="caption">cyan = commits · gray = open PR + issue + review · chart refreshes daily via CI</text>
+  <text x="68" y="144" text-anchor="middle" class="value">0</text><text x="68" y="168" text-anchor="middle" class="day">Mon</text><text x="172" y="144" text-anchor="middle" class="value">0</text><text x="172" y="168" text-anchor="middle" class="day">Tue</text><text x="276" y="144" text-anchor="middle" class="value">0</text><text x="276" y="168" text-anchor="middle" class="day">Wed</text><text x="380" y="144" text-anchor="middle" class="value">0</text><text x="380" y="168" text-anchor="middle" class="day">Thu</text><text x="484" y="144" text-anchor="middle" class="value">0</text><text x="484" y="168" text-anchor="middle" class="day">Fri</text><text x="588" y="144" text-anchor="middle" class="value">0</text><text x="588" y="168" text-anchor="middle" class="day">Sat</text><text x="692" y="144" text-anchor="middle" class="value">0</text><text x="692" y="168" text-anchor="middle" class="day">Sun</text>
+  <text x="40" y="192" class="caption">cyan = commits · gray = open PR + issue + review · split ratio sampled from up to 300 recent events · complements GitHub's native 365-day heatmap</text>
+  <text x="380" y="192" text-anchor="middle" class="warning">Live contribution data could not be fetched: GraphQL 403: API rate limit exceeded for 20.57.77.198. (But here&apos;s the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.). Check GH_TOKEN scope (read:user needed for user contribution data).</text>
 </svg>

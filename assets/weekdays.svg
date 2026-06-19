@@ -14,7 +14,7 @@
     .legend-peak { font-weight: 700; fill: #22d3ee; }
     .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
     .swatch-peak { fill-opacity: 1; }
-    .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .slice-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #0b1f24; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .slice { fill: #22d3ee; fill-opacity: 0.82; }
     .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
@@ -25,7 +25,7 @@
       .center-sub { fill: #57606a; }
       .legend-label { fill: #1f2328; }
       .legend-peak { fill: #0891b2; }
-      .caption { fill: #6e7681; }
+      .slice-label { fill: #ffffff; }
       .warning { fill: #b45309; }
       .slice { fill: #0891b2; }
       .slice-peak { fill: #0891b2; }
@@ -46,6 +46,13 @@
     <path d="M 146.50 301.31 A 132 132 0 0 1 89.03 263.34 L 123.52 232.91 A 86 86 0 0 0 160.96 257.64 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Fri: 72 contributions · 8.8% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.55s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.55s" dur="0.6s" fill="freeze"/></path>
     <path d="M 86.87 260.83 A 132 132 0 0 1 64.11 130.45 L 107.28 146.33 A 86 86 0 0 0 122.11 231.27 Z" class="slice" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Sat: 140 contributions · 17.1% of the last 91 days</title><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.65s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/><animate attributeName="opacity" values="0;1" begin="0.65s" dur="0.6s" fill="freeze"/></path>
     <path d="M 65.29 127.35 A 132 132 0 0 1 186.34 44.01 L 186.92 90.01 A 86 86 0 0 0 108.05 144.31 Z" class="slice slice-peak" style="transform-origin:188 176;opacity:1" transform="scale(1)"><title>Sun: 157 contributions · 19.2% of the last 91 days</title><animate attributeName="opacity" values="1;0.68;1" dur="2.6s" begin="1.3s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="scale" values="0.82;1" begin="0.75s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/></path>
+    <text x="234.97" y="81.64" text-anchor="middle" class="slice-label">Mon</text>
+    <text x="296.13" y="166.22" text-anchor="middle" class="slice-label">Tue</text>
+    <text x="258.77" y="262.90" text-anchor="middle" class="slice-label">Wed</text>
+    <text x="185.91" y="288.98" text-anchor="middle" class="slice-label">Thu</text>
+    <text x="127.92" y="270.95" text-anchor="middle" class="slice-label">Fri</text>
+    <text x="80.62" y="198.74" text-anchor="middle" class="slice-label">Sat</text>
+    <text x="126.19" y="90.22" text-anchor="middle" class="slice-label">Sun</text>
     <text x="188" y="172" text-anchor="middle" class="center-num">818</text>
     <text x="188" y="194" text-anchor="middle" class="center-sub">91 days</text>
   </g>
@@ -72,6 +79,5 @@
       <text x="410" y="236" class="legend-label legend-peak">Sun</text>
       <text x="584" y="236" text-anchor="end" class="legend-label legend-peak">19.2%</text>
   </g>
-  <text x="40" y="304" class="caption">each slice = a weekday's % share of the 91-day total · glowing slice = peak day · complements GitHub's native 365-day heatmap</text>
   
 </svg>

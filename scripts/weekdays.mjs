@@ -296,6 +296,23 @@ function renderSVG(model) {
     })
     .join("\n    ");
 
+  // Per-slice 3-letter day labels, placed at each slice's angular midpoint on
+  // the ring's mid-radius. Skipped for slices too small to host a label (the
+  // legend on the right still carries every day + its %).
+  const MID_R = (R_OUT + R_IN) / 2;
+  const sliceLabels = arcs
+    .map((s, i) => {
+      // Only skip slices too small to host a label. Even the smallest weekday
+      // here (~8.7% ≈ 31°) fits a 3-letter code at 12px, so the bar is low;
+      // this guard mainly protects against a near-zero slice. The legend on
+      // the right still carries every day + its % regardless.
+      if (s.end - s.start < 0.05) return "";
+      const mid = (s.start + s.end) / 2;
+      const p = ringPoint(mid, MID_R);
+      return `<text x="${p.x.toFixed(2)}" y="${(p.y + 4).toFixed(2)}" text-anchor="middle" class="slice-label">${escapeXML(s.label)}</text>`;
+    })
+    .join("\n    ");
+
   // Center headline: total contributions over the window.
   const centerNum = grandTotal > 0 ? escapeXML(String(grandTotal)) : "—";
   const centerSub = grandTotal > 0 ? `${windowDays} days` : "no data";
@@ -325,7 +342,6 @@ function renderSVG(model) {
     grandTotal > 0
       ? `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">share of ${grandTotal} contributions · last ${windowDays} days</text>`
       : `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">last ${windowDays} days</text>`;
-  const caption = `<text x="40" y="${H - 16}" class="caption">each slice = a weekday's % share of the ${windowDays}-day total · glowing slice = peak day · complements GitHub's native 365-day heatmap</text>`;
   const warningBanner = warning
     ? `<text x="${W / 2}" y="${H - 16}" text-anchor="middle" class="warning">${escapeXML(
         warning
@@ -354,7 +370,7 @@ function renderSVG(model) {
     .legend-peak { font-weight: 700; fill: #22d3ee; }
     .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
     .swatch-peak { fill-opacity: 1; }
-    .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .slice-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #0b1f24; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .slice { fill: #22d3ee; fill-opacity: 0.82; }
     .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
@@ -365,7 +381,7 @@ function renderSVG(model) {
       .center-sub { fill: #57606a; }
       .legend-label { fill: #1f2328; }
       .legend-peak { fill: #0891b2; }
-      .caption { fill: #6e7681; }
+      .slice-label { fill: #ffffff; }
       .warning { fill: #b45309; }
       .slice { fill: #0891b2; }
       .slice-peak { fill: #0891b2; }
@@ -380,12 +396,12 @@ function renderSVG(model) {
   <g class="donut">
     ${placeholderRing}
     ${slicePaths}
+    ${sliceLabels}
     ${centerLabel}
   </g>
   <g class="legend">
     ${legendRows}
   </g>
-  ${caption}
   ${warningBanner}
 </svg>`;
 }

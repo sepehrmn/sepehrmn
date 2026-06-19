@@ -91,62 +91,52 @@
 
 ### The toolbox
 
-<table>
-<tr>
-<td align="left"><strong>AI / ML</strong></td>
-<td>
-<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="32"/></a>&nbsp;
-<a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="32"/></a>&nbsp;
-<a href="https://numpy.org" title="NumPy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" height="32"/></a>&nbsp;
-<a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="32"/></a>&nbsp;
-<a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="32"/></a>&nbsp;
-<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="32"/></a>
-</td>
-</tr>
-<tr>
-<td align="left"><strong>Backend & Systems</strong></td>
-<td>
-<a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="32"/></a>&nbsp;
-<a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="32"/></a>&nbsp;
-<a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="32"/></a>&nbsp;
-<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="32"/></a>&nbsp;
-<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle" height="32"/></a>
-</td>
-</tr>
-<tr>
-<td align="left"><strong>Cloud & DevOps</strong></td>
-<td>
-<a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="32"/></a>&nbsp;
-<a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="32"/></a>&nbsp;
-<a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="32"/></a>&nbsp;
-<a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="32"/></a>&nbsp;
-<a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="32"/></a>&nbsp;
-<a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="32"/></a>
-</td>
-</tr>
-<tr>
-<td align="left"><strong>Frontend & Web</strong></td>
-<td>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="32"/></a>&nbsp;
-<a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="32"/></a>&nbsp;
-<a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="32"/></a>&nbsp;
-<a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="32"/></a>&nbsp;
-<a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="32"/></a>
-</td>
-</tr>
-</table>
+<details>
+<summary><strong>The full stack — click to expand</strong></summary>
+
+<!-- Each category is a full-width block: a header line, then the icons at 44px
+     (larger than the old 32px table) spaced out for a magazine-like, breathable
+     layout. Same devicon/in-repo icon set as before, just more prominent. -->
+
+**AI / ML**
+
+<a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="44"/></a>&nbsp;&nbsp;
+<a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="44"/></a>&nbsp;&nbsp;
+<a href="https://numpy.org" title="NumPy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" height="44"/></a>&nbsp;&nbsp;
+<a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="44"/></a>&nbsp;&nbsp;
+<a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="44"/></a>&nbsp;&nbsp;
+<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="44"/></a>
+
+**Backend & Systems**
+
+<a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="44"/></a>&nbsp;&nbsp;
+<a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="44"/></a>&nbsp;&nbsp;
+<a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="44"/></a>&nbsp;&nbsp;
+<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="44"/></a>&nbsp;&nbsp;
+<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle" height="44"/></a>
+
+**Cloud & DevOps**
+
+<a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="44"/></a>&nbsp;&nbsp;
+<a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="44"/></a>&nbsp;&nbsp;
+<a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="44"/></a>&nbsp;&nbsp;
+<a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="44"/></a>&nbsp;&nbsp;
+<a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="44"/></a>&nbsp;&nbsp;
+<a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="44"/></a>
+
+**Frontend & Web**
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="44"/></a>&nbsp;&nbsp;
+<a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="44"/></a>&nbsp;&nbsp;
+<a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="44"/></a>&nbsp;&nbsp;
+<a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="44"/></a>&nbsp;&nbsp;
+<a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="44"/></a>
+
+</details>
 
 ---
 
 ### The pulse
-
-<p align="center">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=github-dark-blue&hide_border=true&hide_total_contributions=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&hide_total_contributions=true">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=sepehrmn&theme=transparent&hide_border=true&hide_total_contributions=true" height="220"/>
-</picture>
-</p>
 
 <p align="center">
 <!-- Annual contribution totals (2020→present) as a self-hosted SVG.

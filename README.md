@@ -154,11 +154,14 @@
 </p>
 
 <p align="center">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&from=2020-01-01&v=2026-06-18">
-<source media="(prefers-color-scheme: light)" srcset="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=default&size=medium&from=2020-01-01&v=2026-06-18">
-<img src="https://github-contribution-growth-graph.qkitzero.xyz/graph/contributions?user=sepehrmn&theme=dark&size=medium&from=2020-01-01&v=2026-06-18" width="95%" alt="Cumulative contribution growth"/>
-</picture>
+<!-- Annual contribution totals (2020→present) as a self-hosted SVG.
+     Regenerated daily by .github/workflows/cumulative.yml, which scrapes the
+     per-year contribution fragment at github.com/users/sepehrmn/contributions
+     ?from=YYYY-01-01 (the same unauthenticated host the weekday chart uses).
+     Replaces a flaky third-party growth-graph card with an in-repo asset served
+     from raw.githubusercontent.com. Gradient bars, glowing peak year, animated
+     draw-in; matches the weekday chart's design language. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/cumulative.svg" width="780" alt="Annual contributions 2020–present with cumulative total" loading="lazy"/>
 </p>
 
 <h4 align="center">Where the week goes</h4>

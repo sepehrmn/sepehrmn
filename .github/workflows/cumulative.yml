@@ -1,0 +1,63 @@
+name: Generate cumulative activity chart
+
+on:
+  schedule:
+    # 04:30 UTC — offset 30m from the weekdays chart so the two runs don't
+    # hammer the shared github.com contributions fragment simultaneously.
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/cumulative.mjs"
+      - ".github/workflows/cumulative.yml"
+
+# Serialize runs so concurrent triggers never race on the `git push` for
+# assets/cumulative.svg. A queued run waits for the in-flight one to finish.
+concurrency:
+  group: cumulative
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cumulative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # We commit SVG back to main; fetch full history so git can compute
+          # the diff at the end (cheap — repo is single-purpose).
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate cumulative chart SVG
+        env:
+          GH_USERNAME: sepehrmn
+        # Same data source + no-token rationale as weekdays.yml: the script
+        # scrapes github.com/users/{login}/contributions?from=YYYY-01-01 (a
+        # different host from api.github.com, so not subject to the Actions-
+        # runner API rate limit). Do not add GH_TOKEN here.
+        run: node scripts/cumulative.mjs
+
+      - name: Commit updated cumulative chart SVG
+        run: |
+          # Stage FIRST, then diff the INDEX against HEAD — same guard pattern
+          # as weekdays.yml. A bare `git diff <path>` ignores untracked files,
+          # which is what originally left the weekdays chart broken; staging
+          # first catches both new and modified files.
+          git add assets/cumulative.svg
+          if ! git diff --cached --quiet HEAD -- assets/cumulative.svg; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore(cumulative): regenerate annual activity chart"
+            git push
+          else
+            echo "No changes to cumulative.svg — skipping commit."
+          fi

@@ -1,29 +1,29 @@
-name: Generate activity heatmap
+name: Generate weekday activity chart
 
 on:
   schedule:
-    # Run once per day at 04:00 UTC so the heatmap is fresh by morning US/EU.
+    # Run once per day at 04:00 UTC so the chart is fresh by morning US/EU.
     - cron: "0 4 * * *"
   workflow_dispatch:
   push:
     paths:
-      - "scripts/heatmap.mjs"
-      - ".github/workflows/heatmap.yml"
+      - "scripts/weekdays.mjs"
+      - ".github/workflows/weekdays.yml"
     paths-ignore:
       - "assets/**"
 
-# Serialize heatmap runs so concurrent pipeline triggers never race on the
-# `git push` for assets/heatmap.svg. A queued run will wait for the
+# Serialize weekday runs so concurrent triggers never race on the
+# `git push` for assets/weekdays.svg. A queued run will wait for the
 # in-flight one to finish pushing.
 concurrency:
-  group: heatmap
+  group: weekdays
   cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
-  heatmap:
+  weekdays:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -39,20 +39,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate heatmap SVG
+      - name: Generate weekday chart SVG
         env:
           GH_USERNAME: sepehrmn
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/heatmap.mjs
+        run: node scripts/weekdays.mjs
 
-      - name: Commit updated heatmap SVG
+      - name: Commit updated weekday chart SVG
         run: |
-          if ! git diff --quiet assets/heatmap.svg; then
+          if ! git diff --quiet assets/weekdays.svg; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add assets/heatmap.svg
-            git commit -m "chore(heatmap): regenerate activity heatmap"
+            git add assets/weekdays.svg
+            git commit -m "chore(weekdays): regenerate weekday activity chart"
             git push
           else
-            echo "No changes to heatmap.svg — skipping commit."
+            echo "No changes to weekdays.svg — skipping commit."
           fi

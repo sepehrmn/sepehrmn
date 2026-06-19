@@ -94,10 +94,10 @@ I build AI systems that work in the real world — from neural modeling and robo
 </picture>
 </p>
 
-<h4 align="center">Per-day commits</h4>
+<h4 align="center">Activity by weekday</h4>
 <p align="center">
-<!-- Per-day commit-dominance heatmap: regenerated daily by .github/workflows/heatmap.yml. Cells where commits dominate render as bright neon cyan with a subtle SMIL pulse on top-quartile days; PR/issue-only days render muted gray. Lives in-repo so it works regardless of where the line charts above are hosted. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/heatmap.svg" width="95%" alt="Activity heatmap — commit-dominant days glow cyan, PR/issue-heavy days render muted gray" loading="lazy"/>
+<!-- Weekly cadence (last ~13 weeks). Regenerated daily by .github/workflows/weekdays.yml. Stacked bars Mon → Sun: cyan segment = commits, gray segment = open PR + issue + review. Sits below GitHub's native 365-day contribution heatmap above to surface weekday rhythm the year-long grid hides — e.g. weekend-warrior pattern, weekday-heavy PR mix. Lives in-repo so it works regardless of external card services. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Activity by weekday — stacked bars Mon–Sun over the last ~13 weeks; cyan = commits, gray = open PR + issue + review" loading="lazy"/>
 </p>
 
 ---

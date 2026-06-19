@@ -12,8 +12,8 @@ on:
     # NOTE: GitHub rejects combining `paths` + `paths-ignore` on the same
     # event with HTTP 422 ("you may only define one of paths and paths-ignore
     # for a single event"). The "regen commits the SVG, regen re-triggers"
-    # loop is already broken by the `git diff --quiet assets/weekdays.svg`
-    # guard in the commit step, so we don't need a filter here.
+    # loop is already broken by the `git diff --cached --quiet HEAD` guard in
+    # the commit step, so we don't need a filter here.
 
 # Serialize weekday runs so concurrent triggers never race on the
 # `git push` for assets/weekdays.svg. A queued run will wait for the
@@ -45,37 +45,26 @@ jobs:
       - name: Generate weekday chart SVG
         env:
           GH_USERNAME: sepehrmn
-          # Intentionally NOT setting GH_TOKEN here. The workflow's default
-          # ${{ secrets.GITHUB_TOKEN }} is a GitHub App installation token
-          # with REPO-ONLY scope; it cannot satisfy the GraphQL
-          # `user(login:).contributionsCollection` endpoint because that's
-          # USER-SCOPED (OAuth-equivalent `read:user`). When passed, the
-          # script gets 401/403 → fail-fasts → no SVG committed → broken
-          # chart on the profile (this is the GH_token-invalid failure
-          # mode this comment is here to prevent).
-          #
-          # Unauthenticated public-GraphQL requests DO work for any public
-          # profile (this repo's owner has a public contribution history),
-          # and the daily cron rate (1/day) is well below the 60/hour
-          # unauthenticated rate limit, so we intentionally run unauthed.
-          #
-          # For private contribution data, supply a PAT secret with
-          # `read:user` scope here instead (e.g. `GH_TOKEN: ${{ secrets.GH_PAT }}`).
-          #
-          # NOTE: The git push step below still uses GITHUB_TOKEN
-          # automatically — that one only needs repo:write, which the
-          # installation token has, so no env override is needed there.
+        # The script pulls data from the server-rendered contributions fragment
+        # at github.com/users/{login}/contributions — NOT api.github.com — so
+        # it deliberately needs NO token. That's intentional: GitHub Actions
+        # runners share IP ranges with huge unauthenticated traffic and so the
+        # 60/hr api.github.com limit is permanently exhausted there, and the
+        # default GITHUB_TOKEN is repo-scoped and can't read user-scoped
+        # contribution data anyway. The HTML fragment is public, unauthenticated,
+        # and not subject to the API rate limit. Do not add GH_TOKEN here.
         run: node scripts/weekdays.mjs
 
       - name: Commit updated weekday chart SVG
         run: |
-          # Stage FIRST, then diff against HEAD. A bare `git diff <path>` only
-          # sees modifications to TRACKED files — it ignores untracked files, so
-          # a freshly-generated-but-never-committed assets/weekdays.svg would
-          # always read "no changes" and never get pushed (this was the bug that
-          # left the chart broken on the live profile: the file was never
-          # tracked, so the guard always short-circuited). Staging then diffing
-          # the INDEX against HEAD catches both new and modified files.
+          # Stage FIRST, then diff the INDEX against HEAD. A bare
+          # `git diff <path>` only sees modifications to TRACKED files — it
+          # ignores untracked files, so a freshly-generated-but-never-committed
+          # assets/weekdays.svg would always read "no changes" and never get
+          # pushed. (That was the original bug: the file was never tracked, so
+          # the guard short-circuited and the chart stayed broken on the live
+          # profile.) Staging then diffing the index catches both new and
+          # modified files.
           git add assets/weekdays.svg
           if ! git diff --cached --quiet HEAD -- assets/weekdays.svg; then
             git config user.name "github-actions[bot]"

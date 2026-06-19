@@ -4,26 +4,34 @@
 // Zero npm dependencies; uses the global `fetch` (Node 20+).
 //
 // Why this exists instead of a 365-day grid: GitHub already renders the
-// native year-long contribution heatmap on /github.com/sepehrmn, so copying
+// native year-long contribution heatmap on github.com/<user>, so copying
 // it on the README is redundant. This chart answers a *different* question:
 // "what's my weekday rhythm?" — a stat the year-long grid cannot surface.
-// 7 stacked bars (Mon→Sun) over the last ~13 weeks, where each bar splits
-// into commits (cyan) vs. PR+issue+review (gray).
+// 7 bars (Mon→Sun) showing per-weekday contribution totals over the last
+// ~13 weeks (91 days), with the peak weekday highlighted and animated.
 //
-// Data sources:
-//   1. GraphQL — authoritative bar HEIGHT (per-weekday sum of contributionCount
-//      over the last 91 days, taken from contributionsCollection.contributionCalendar).
-//      Also returns macro per-type totals (commits/PRs/issues/reviews) used as the
-//      fallback ratio when the events API is silent.
-//   2. REST /users/{login}/events/public — drives the bar's INNER split (commits
-//      vs. other) via PushEvent.size and PullRequest/IssuesEvent with action=opened
-//      (matching GitHub's own contribution-graph semantics) plus
-//      PullRequestReviewEvent. Last ~90 days, max 300 events; sampling artifact
-//      is noted in the chart caption.
+// DATA SOURCE — server-rendered HTML fragment, NOT the API:
+//   https://github.com/users/{login}/contributions
+// This is a *different host* (github.com, not api.github.com) that returns a
+// server-rendered HTML fragment of the user's last ~365 contribution days.
+// It is NOT subject to the api.github.com rate limit, which matters because
+// GitHub Actions runners share IP ranges with massive unauthenticated
+// traffic and so the 60/hr unauthenticated API limit is permanently
+// exhausted there (the GraphQL user(login:) query 403s on every CI run).
+// The default GITHUB_TOKEN can't rescue us either — it's repo-scoped and
+// can't satisfy the user-scoped contributionsCollection query.
 //
-// In CI (`.github/workflows/weekdays.yml`) `GITHUB_TOKEN` is auto-injected.
-// Locally, an authenticated run is optional — the script degrades to public
-// data and renders a no-data warning if both APIs fail.
+// The fragment encodes each day as:
+//   <td class="ContributionCalendar-day" data-date="YYYY-MM-DD" data-level="0..4">
+// with a sibling <tool-tip> holding the human-readable count, e.g.
+//   "31 contributions on June 13th."  /  "No contributions on June 14th."
+// We parse date + count out of the tool-tip text (authoritative; data-level
+// is only a 0..4 bucket). The fragment is server-rendered HTML, so no JS,
+// no JSON blob to hunt for.
+//
+// TRADEOFF: the fragment has no per-type breakdown (commits vs PR vs issue),
+// so this chart shows per-weekday TOTAL contributions (no cyan/gray split).
+// That's the honest representation of what this data source can support.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -32,14 +40,6 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "assets", "weekdays.svg");
 const USERNAME = process.env.GH_USERNAME || "sepehrmn";
-const TOKEN = process.env.GH_TOKEN;
-
-if (!TOKEN) {
-  console.warn(
-    "[weekdays] GH_TOKEN not set — using unauthenticated public data. " +
-      "Configure GH_TOKEN in workflow secrets for private contribution coverage."
-  );
-}
 
 // ---------------------------------------------------------------------------
 // 0. Helpers
@@ -53,210 +53,151 @@ const XML_ENTITIES = {
 };
 const escapeXML = (s) => String(s).replace(/[&<>"']/g, (c) => XML_ENTITIES[c]);
 
-// Pull the user-friendly `message` field out of GitHub error JSON bodies,
-// e.g. {"message":"Bad credentials","documentation_url":"..."}. Falls back
-// to the raw body if the response isn't JSON or has no `message` field.
-const extractMessage = (body) => {
-  if (!body) return "(empty response body)";
-  try {
-    const parsed = JSON.parse(body);
-    return parsed?.message ?? body.slice(0, 200);
-  } catch {
-    return body.slice(0, 200);
-  }
+const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const WINDOW_DAYS = 91; // ~13 weeks; one quarter of activity.
+
+// GitHub's calendar week starts on Sunday. We want Monday-first bars, so a
+// JS Date.getUTCDay() of 0 (Sun) maps to index 6, 1 (Mon)→0, … 6 (Sat)→5.
+const toMonFirst = (jsDow) => (Number(jsDow) + 6) % 7;
+
+// ---------------------------------------------------------------------------
+// 1. Fetch the server-rendered contribution fragment and parse per-day counts.
+//    Returns [{date, count, weekday}], in DOCUMENT order (NOT chronological —
+//    see note below). count is 0 for empty days; weekday is Mon-first 0..6.
+// ---------------------------------------------------------------------------
+const FRAGMENT_URL = (login) =>
+  `https://github.com/users/${encodeURIComponent(login)}/contributions`;
+
+// Parse "<N> contributions on <Month> <day>." or "No contributions on …"
+// out of a <tool-tip> body. Returns 0 for "No contributions" / unparseable.
+const parseTipCount = (tipText) => {
+  const m = tipText.match(/(\d+)\s+contributions?\b/i);
+  return m ? Number(m[1]) : 0; // "No contributions …" → 0
 };
 
-const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const WINDOW_DAYS = 91; // ~13 weeks; matches REST events ~90-day ceiling.
-
-// GitHub GraphQL `weekday`: 0=Sun..6=Sat. We want Mon..Sun, so remap:
-//   Sun→6, Mon→0, Tue→1, ..., Sat→5.
-const githubWeekdayToMonFirst = (weekday) => (Number(weekday) + 6) % 7;
-
-// ---------------------------------------------------------------------------
-// 1. GraphQL — full contribution calendar + per-type totals.
-// ---------------------------------------------------------------------------
-const GRAPHQL_URL = "https://api.github.com/graphql";
-const GRAPHQL_QUERY = `
-  query($login: String!) {
-    user(login: $login) {
-      contributionsCollection {
-        contributionCalendar {
-          totalContributions
-          weeks {
-            contributionDays { contributionCount date weekday }
-          }
-        }
-        pullRequestContributions(first: 0) { totalCount }
-        issueContributions(first: 0) { totalCount }
-        pullRequestReviewContributions(first: 0) { totalCount }
-      }
-    }
-  }
-`;
-
-async function fetchCollection(login) {
-  const res = await fetch(GRAPHQL_URL, {
-    method: "POST",
+// IMPORTANT: the fragment lists days in ROW-MAJOR order — all Sundays first
+// (one per week, across columns), then all Mondays, etc. — NOT chronologically.
+// We must therefore NOT rely on entry order for recency; instead each cell
+// carries its own data-date and we filter by date in aggregate(). Pairing
+// dates[i] ↔ tips[i] IS valid because the two appear interleaved 1:1 in
+// document order (verified: every data-date is immediately followed by its
+// own tool-tip). Both regexes preserve that order.
+async function fetchDailyCounts(login) {
+  const res = await fetch(FRAGMENT_URL(login), {
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      ...(TOKEN ? { Authorization: `bearer ${TOKEN}` } : {}),
+      // A real browser UA: github.com sometimes varies markup for bots, and a
+      // UA also avoids any bot-throttle heuristics. No auth needed — this is a
+      // public, server-rendered page.
+      "User-Agent":
+        "Mozilla/5.0 (compatible; sepehrmn-profile-weekdays-chart/1.0)",
+      Accept: "text/html,application/xhtml+xml",
     },
-    body: JSON.stringify({ query: GRAPHQL_QUERY, variables: { login } }),
   });
   if (!res.ok) {
     const body = await res.text().catch(() => "");
-    // GitHub error bodies are JSON like {"message":"Bad credentials",...}.
-    // Extract `message` so the user-visible warning text is human-friendly
-    // (avoids the raw "GH_token invalid" style that confused the user).
-    throw new Error(`GraphQL ${res.status}: ${extractMessage(body)}`);
+    throw new Error(`contributions fragment ${res.status}: ${body.slice(0, 160)}`);
   }
-  const json = await res.json();
-  if (json.errors?.length) {
-    throw new Error(`GraphQL errors: ${JSON.stringify(json.errors)}`);
-  }
-  return json.data?.user?.contributionsCollection ?? null;
-}
+  const html = await res.text();
 
-// ---------------------------------------------------------------------------
-// 2. REST events — per-weekday commit/PR/issue/review counts.
-//    Only count actions that match GitHub's own contribution graph semantics:
-//    - PushEvent: payload.size (commits pushed, not number of pushes).
-//    - IssuesEvent + PullRequestEvent with payload.action === "opened".
-//    - PullRequestReviewEvent (all review events).
-//    Closed/reopened/assigned/etc. would inflate the denominator and crush
-//    the apparent commit ratio, so they're deliberately skipped.
-// ---------------------------------------------------------------------------
-async function fetchWeekdayEventCounts(login) {
-  const counts = {
-    commits: new Array(7).fill(0),
-    others: new Array(7).fill(0),
-    sampleEvents: 0,
-  };
-  for (let page = 1; page <= 3; page += 1) {
-    const url = `https://api.github.com/users/${encodeURIComponent(
-      login
-    )}/events/public?per_page=100&page=${page}`;
-    let res;
-    try {
-      res = await fetch(url, {
-        headers: {
-          Accept: "application/vnd.github+json",
-          ...(TOKEN ? { Authorization: `bearer ${TOKEN}` } : {}),
-        },
-      });
-    } catch (err) {
-      console.warn(`[weekdays] REST events fetch network error: ${err.message}`);
-      return counts;
-    }
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      const detail = extractMessage(body);
-      // Auth/class errors (401/403): bubble up so main() can fail-fast —
-      // these are configuration problems that the daily cron won't fix.
-      // Rate-limited (429) and any 5xx: transient. Log + let the macro
-      // GraphQL ratio fill the bar split.
-      if (res.status === 401 || res.status === 403) {
-        throw new Error(`REST events ${res.status}: ${detail}`);
-      }
-      console.warn(`[weekdays] REST events ${res.status}: ${detail}`);
-      return counts;
-    }
-    const events = await res.json().catch(() => []);
-    if (!Array.isArray(events) || events.length === 0) break;
-    counts.sampleEvents += events.length;
-    for (const ev of events) {
-      const ts = String(ev.created_at ?? "");
-      const d = new Date(ts);
-      if (Number.isNaN(d.getTime())) continue;
-      const dow = githubWeekdayToMonFirst(d.getUTCDay());
-      if (ev?.type === "PushEvent") {
-        counts.commits[dow] += Number(ev.payload?.size ?? 0);
-      } else if (ev?.type === "IssuesEvent") {
-        if (ev.payload?.action === "opened") counts.others[dow] += 1;
-      } else if (ev?.type === "PullRequestEvent") {
-        if (ev.payload?.action === "opened") counts.others[dow] += 1;
-      } else if (ev?.type === "PullRequestReviewEvent") {
-        counts.others[dow] += 1;
-      }
-    }
-  }
-  return counts;
-}
+  const dates = [...html.matchAll(/data-date="(\d{4}-\d{2}-\d{2})"/g)].map(
+    (m) => m[1]
+  );
+  const tipBlocks = [...html.matchAll(/<tool-tip[^>]*>([\s\S]*?)<\/tool-tip>/g)].map(
+    (m) => m[1].trim()
+  );
 
-// ---------------------------------------------------------------------------
-// 3. Combine: per-weekday total (from GraphQL) + per-weekday split (events).
-//    Fallback split comes from the user's macro annual GraphQL totals, NOT a
-//    hardcoded constant — so the chart still reads sensibly when the events
-//    API is silent.
-// ---------------------------------------------------------------------------
-function aggregate(days, eventCounts, totals) {
-  const macro = totals ?? { commits: 0, prs: 0, issues: 0, reviews: 0 };
-  const macroAll = macro.commits + macro.prs + macro.issues + macro.reviews;
-  const macroCommitRatio = macroAll > 0 ? macro.commits / macroAll : null;
-
-  const recent =
-    days.length > WINDOW_DAYS ? days.slice(-WINDOW_DAYS) : days.slice();
-
-  const weekdayTotal = new Array(7).fill(0);
-  for (const day of recent) {
-    const idx = githubWeekdayToMonFirst(day.weekday);
-    weekdayTotal[idx] += Number(day.contributionCount ?? 0);
+  if (dates.length === 0) {
+    throw new Error("no data-date cells found in contributions fragment");
   }
 
-  const perDay = DAY_LABELS.map((label, i) => {
-    const total = weekdayTotal[i];
-    const evCommits = eventCounts.commits[i];
-    const evOthers = eventCounts.others[i];
-    const evSum = evCommits + evOthers;
-    // Per-weekday REST ratio if we have signal; otherwise annual macro ratio.
-    const ratio = evSum > 0 ? evCommits / evSum : macroCommitRatio;
-    const commits = ratio == null ? 0 : Math.round(total * ratio);
+  // Defensive: if the counts and dates don't line up 1:1 (GitHub changes
+  // markup), fall back to data-level buckets so the chart still renders.
+  const useTips = tipBlocks.length === dates.length;
+  if (!useTips) {
+    console.warn(
+      `[weekdays] tool-tip count (${tipBlocks.length}) != date count (${dates.length}) — ` +
+        `markup may have changed; falling back to data-level buckets (0..4 only, less precise).`
+    );
+  }
+  const LEVEL_MIDPOINTS = [0, 1, 3, 7, 12];
+  const levels = [...html.matchAll(/data-level="(\d)"/g)].map((m) => Number(m[1]));
+
+  return dates.map((date, i) => {
+    const d = new Date(date + "T00:00:00Z");
     return {
-      label,
-      total,
-      commits,
-      others: Math.max(0, total - commits),
-      commitsRatio: ratio ?? 0,
+      date,
+      count: useTips
+        ? parseTipCount(tipBlocks[i] ?? "")
+        : LEVEL_MIDPOINTS[levels[i]] ?? 0,
+      weekday: Number.isNaN(d.getTime()) ? -1 : toMonFirst(d.getUTCDay()),
+      precise: useTips,
     };
   });
+}
 
+// ---------------------------------------------------------------------------
+// 2. Aggregate → per-weekday totals over the last WINDOW_DAYS.
+//    Filters by DATE (not array position): the fragment is row-major, so the
+//    "last N entries" are NOT the most recent N days. Each cell carries its own
+//    precomputed weekday, so we avoid re-parsing dates here too.
+// ---------------------------------------------------------------------------
+function aggregate(daily) {
+  // "Today" = newest date present in the fragment (robust to the fragment
+  // lagging a day or two behind real-time, and to CI timezone quirks).
+  const allDates = daily
+    .map((d) => d.date)
+    .filter(Boolean)
+    .sort();
+  const newest = allDates[allDates.length - 1];
+  const newestMs = newest ? Date.parse(newest + "T00:00:00Z") : Date.now();
+  const cutoffMs = newestMs - WINDOW_DAYS * 24 * 60 * 60 * 1000;
+
+  const weekdayTotal = new Array(7).fill(0);
+  let used = 0;
+  for (const cell of daily) {
+    const t = cell.date ? Date.parse(cell.date + "T00:00:00Z") : NaN;
+    if (Number.isNaN(t) || t < cutoffMs || t > newestMs) continue;
+    if (cell.weekday >= 0 && cell.weekday < 7) {
+      weekdayTotal[cell.weekday] += cell.count;
+      used += 1;
+    }
+  }
+  const perDay = DAY_LABELS.map((label, i) => ({
+    label,
+    total: weekdayTotal[i],
+  }));
   const peakTotal = perDay.reduce((m, d) => Math.max(m, d.total), 0);
+  const grandTotal = perDay.reduce((s, d) => s + d.total, 0);
   return {
     perDay,
     peakTotal,
-    windowDays: recent.length,
-    sampleEvents: eventCounts.sampleEvents,
+    grandTotal,
+    windowDays: WINDOW_DAYS,
+    cellsUsed: used,
   };
 }
 
 // ---------------------------------------------------------------------------
-// 4. No-data placeholder (still valid SVG so workflow artifact commits).
+// 3. No-data placeholder (still valid SVG so the workflow artifact commits).
 // ---------------------------------------------------------------------------
 function placeholder(errorMessage) {
   const fallback =
-    "Live contribution data could not be fetched — both GraphQL and REST endpoints failed. Check GH_TOKEN scope (read:user needed for user contribution data).";
+    "Live contribution data could not be fetched — the github.com contributions fragment failed. Retry on the next daily cron.";
   const warning = errorMessage
-    ? `Live contribution data could not be fetched: ${errorMessage}. Check GH_TOKEN scope (read:user needed for user contribution data).`
+    ? `Live contribution data could not be fetched: ${errorMessage}`
     : fallback;
   return {
-    perDay: DAY_LABELS.map((label) => ({
-      label,
-      total: 0,
-      commits: 0,
-      others: 0,
-      commitsRatio: 0,
-    })),
+    perDay: DAY_LABELS.map((label) => ({ label, total: 0 })),
     peakTotal: 0,
+    grandTotal: 0,
     windowDays: WINDOW_DAYS,
-    sampleEvents: 0,
+    cellsUsed: 0,
     warning,
   };
 }
 
 // ---------------------------------------------------------------------------
-// 5. Render SVG.
+// 4. Render SVG.
 // ---------------------------------------------------------------------------
 const W = 760;
 const H = 200;
@@ -272,7 +213,7 @@ const BAR_W = 56;
 const BAR_GAP = (PLOT_WIDTH - 7 * BAR_W) / 6; // ≈48
 
 function renderSVG(model) {
-  const { perDay, peakTotal, warning, windowDays, sampleEvents } = model;
+  const { perDay, peakTotal, grandTotal, warning, windowDays } = model;
   // Avoid divide-by-zero when the window is entirely empty.
   const yMax = Math.max(peakTotal, 1);
 
@@ -281,30 +222,19 @@ function renderSVG(model) {
       const x = PLOT_LEFT + i * (BAR_W + BAR_GAP);
       const cx = x + BAR_W / 2;
       const totalH = (day.total / yMax) * PLOT_HEIGHT;
-      const commitsH = day.commits > 0 ? (day.commits / yMax) * PLOT_HEIGHT : 0;
-      const othersH = Math.max(0, totalH - commitsH);
       const baseY = PLOT_BOTTOM - totalH;
-      const commitsY = PLOT_BOTTOM - commitsH;
-      const othersY = commitsY - othersH;
       const isPeak = day.total > 0 && day.total === peakTotal;
-      const tip = `${day.label}: ${day.total} contributions · ${day.commits} commits / ${day.others} PR+issue+review across ${windowDays} days${sampleEvents ? ` (${sampleEvents} events sampled)` : ""}`;
+      const tip = `${day.label}: ${day.total} contributions over the last ${windowDays} days`;
       const tipEsc = escapeXML(tip);
       return [
-        // Bottom segment = commits (cyan brand accent).
-        commitsH > 0
-          ? `<rect x="${x}" y="${commitsY}" width="${BAR_W}" height="${commitsH}" rx="3" ry="3" class="bar-commits"><title>${tipEsc}</title>${
+        totalH > 0
+          ? `<rect x="${x}" y="${baseY}" width="${BAR_W}" height="${totalH}" rx="3" ry="3" class="bar"><title>${tipEsc}</title>${
               isPeak
                 ? `<animate attributeName="opacity" values="1;0.6;1" dur="2.4s" repeatCount="indefinite"/>`
                 : ""
             }</rect>`
           : "",
-        // Top segment = others (muted gray).
-        othersH > 0
-          ? `<rect x="${x}" y="${othersY}" width="${BAR_W}" height="${othersH}" rx="3" ry="3" class="bar-others"><title>${tipEsc}</title></rect>`
-          : "",
-        // Value above bar.
         `<text x="${cx}" y="${baseY - 6}" text-anchor="middle" class="value">${day.total}</text>`,
-        // Day label below baseline.
         `<text x="${cx}" y="${PLOT_BOTTOM + 18}" text-anchor="middle" class="day">${escapeXML(
           day.label
         )}</text>`,
@@ -315,14 +245,12 @@ function renderSVG(model) {
   const baseline = `<line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>`;
 
   const title = `<text x="${PLOT_LEFT}" y="20" class="title">Activity by weekday</text>`;
-  // When events API is silent, signal that to the reader so the cyan/gray split
-  // isn't mistaken for empirical data — it falls back to annual macro totals.
-  const subtitle = sampleEvents > 0
-    ? `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">Last ${windowDays} days · ${sampleEvents} events sampled</text>`
-    : `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">Last ${windowDays} days · no public events — split uses yearly ratio</text>`;
+  const subtitle = grandTotal > 0
+    ? `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">${grandTotal} contributions · last ${windowDays} days</text>`
+    : `<text x="${PLOT_RIGHT}" y="20" text-anchor="end" class="subtitle">last ${windowDays} days</text>`;
   const caption = `<text x="${PLOT_LEFT}" y="${
     H - 8
-  }" class="caption">cyan = commits · gray = open PR + issue + review · split ratio sampled from up to 300 recent events · complements GitHub's native 365-day heatmap</text>`;
+  }" class="caption">total contributions per weekday (Mon→Sun) · animated bar marks the peak day · complements GitHub's native 365-day heatmap</text>`;
   const warningBanner = warning
     ? `<text x="${W / 2}" y="${H - 8}" text-anchor="middle" class="warning">${escapeXML(
         warning
@@ -330,7 +258,7 @@ function renderSVG(model) {
     : "";
 
   const aria = peakTotal > 0
-    ? `Activity by weekday — peak ${peakTotal} contributions in a single weekday over the last ${windowDays} days across ${sampleEvents} sampled events`
+    ? `Activity by weekday — ${grandTotal} contributions over the last ${windowDays} days, peak ${peakTotal} on a single weekday`
     : `Activity by weekday — no data over the last ${windowDays} days`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
@@ -342,8 +270,7 @@ function renderSVG(model) {
     .caption { font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .baseline { stroke: #30363d; stroke-width: 1; }
-    .bar-commits { fill: #22d3ee; }
-    .bar-others { fill: #6e6e78; }
+    .bar { fill: #22d3ee; }
     @media (prefers-color-scheme: light) {
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }
@@ -352,8 +279,7 @@ function renderSVG(model) {
       .caption { fill: #6e7681; }
       .warning { fill: #b45309; }
       .baseline { stroke: #d0d7de; }
-      .bar-commits { fill: #0c4a6e; }
-      .bar-others { fill: #d4d4dc; }
+      .bar { fill: #0891b2; }
     }
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>
@@ -367,81 +293,25 @@ function renderSVG(model) {
 }
 
 // ---------------------------------------------------------------------------
-// 6. Pipeline.
+// 5. Pipeline.
 // ---------------------------------------------------------------------------
 async function main() {
-  console.log(`[weekdays] fetching data for ${USERNAME}…`);
+  console.log(`[weekdays] fetching contributions fragment for ${USERNAME}…`);
   let model;
   try {
-    const collection = await fetchCollection(USERNAME);
-    if (!collection) throw new Error("empty contributionsCollection");
-    const flatDays = (collection.contributionCalendar?.weeks ?? []).flatMap(
-      (w) => w.contributionDays ?? []
-    );
-    const prs = collection.pullRequestContributions?.totalCount ?? 0;
-    const issues = collection.issueContributions?.totalCount ?? 0;
-    const reviews = collection.pullRequestReviewContributions?.totalCount ?? 0;
-    const macroTotals = {
-      prs,
-      issues,
-      reviews,
-      commits: Math.max(
-        0,
-        collection.contributionCalendar.totalContributions - prs - issues - reviews
-      ),
-    };
-    const eventCounts = await fetchWeekdayEventCounts(USERNAME);
-    model = aggregate(flatDays, eventCounts, macroTotals);
+    const daily = await fetchDailyCounts(USERNAME);
+    const oldest = daily[0]?.date;
+    const newest = daily[daily.length - 1]?.date;
     console.log(
-      `[weekdays] built ${model.perDay.length}-bar model across ${model.windowDays} days; peak=${model.peakTotal}; ${model.sampleEvents} events sampled.`
+      `[weekdays] parsed ${daily.length} day cells. precise=${daily.every((d) => d.precise)}`
+    );
+    model = aggregate(daily);
+    console.log(
+      `[weekdays] built ${model.perDay.length}-bar model over last ${model.windowDays} days ` +
+        `(${model.cellsUsed} cells summed); total=${model.grandTotal}; peak=${model.peakTotal}.`
     );
   } catch (err) {
     const msg = String(err?.message ?? err);
-    // Fail-fast semantics are token-gated, not pattern-gated:
-    //
-    //   • TOKEN set + 4xx  → real config bug. The token's scope is wrong
-    //     (e.g. ${{ secrets.GITHUB_TOKEN }} is repo-only and cannot query
-    //     user(login:).contributionsCollection). Burning CI on this would
-    //     hide the actionable clue, so we exit 1.
-    //
-    //   • TOKEN unset (i.e. unauth public GraphQL from CI, post-fix) +
-    //     4xx  → almost certainly the 60/hr unauth rate limit. Transient,
-    //     recovers naturally on the next daily cron. Failing would burn
-    //     CI minutes and produce no better info than the inline SVG
-    //     warning banner.
-    if (TOKEN && /\b(401|403):/.test(msg)) {
-      console.error(`[weekdays] FATAL auth failure: ${msg}`);
-      console.error(
-        "[weekdays]   GH_TOKEN env var was passed but its scope is wrong."
-      );
-      console.error(
-        "[weekdays]   GitHub App installation tokens (e.g."
-      );
-      console.error(
-        "[weekdays]   ${{ secrets.GITHUB_TOKEN }}) are REPO-ONLY — they"
-      );
-      console.error(
-        "[weekdays]   cannot query user(login).contributionsCollection."
-      );
-      console.error("[weekdays]   Two valid fixes:");
-      console.error(
-        "[weekdays]     1. Drop GH_TOKEN entirely — public-profile queries"
-      );
-      console.error(
-        "[weekdays]        are answered unauth (this script's CI default)."
-      );
-      console.error(
-        "[weekdays]     2. Or supply a PAT with `read:user` scope and"
-      );
-      console.error(
-        "[weekdays]        pass it as GH_TOKEN instead."
-      );
-      process.exit(1);
-    }
-    // Unauth path / transient / network / 5xx: graceful fallback. The
-    // placeholder SVG still commits so the workflow artefact isn't empty
-    // and the actual error is visible in the chart caption without diving
-    // into CI logs.
     console.warn(`[weekdays] failed (reason below); using placeholder: ${msg}`);
     model = placeholder(msg);
   }

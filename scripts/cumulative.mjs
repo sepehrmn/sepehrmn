@@ -342,9 +342,7 @@ function renderSVG(model) {
     }
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>
-  <text x="${PAD_LEFT}" y="${HEAD_TOP}" class="sub">CONTRIBUTIONS SINCE ${startYear}</text>
-  <text x="${PAD_LEFT}" y="${HEAD_TOP + 40}" class="headline">${headlineNum}</text>
-  <text x="${PAD_LEFT}" y="${HEAD_TOP + 62}" class="sub">${rangeLabel} · peak ${fmt(peak)} in a single year</text>
+  <text x="${PAD_LEFT}" y="${HEAD_TOP + 36}" class="headline">${headlineNum}</text>
   ${gridlines}
   <line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>
   ${bars}

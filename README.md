@@ -9,25 +9,25 @@
 ---
 
 <details open>
-<summary><h3>What I build</h3></summary>
+<summary><h3>The pulse</h3></summary>
 
 <p align="center">
-I turn research into running systems for robots, UAVs and vision &mdash; and ship the code.
+<!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
+     regenerated daily by .github/workflows/cumulative.yml from the per-year
+     contribution fragment at github.com/users/sepahead/contributions (the
+     unauthenticated host, not the rate-limited API). Served from
+     raw.githubusercontent.com so it never depends on a third-party card. -->
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
 </p>
 
 <p align="center">
-<strong>Neural computation</strong><br/>
-<sub>Partial Information Decomposition, spiking networks, information theory &mdash; published in ReScience&nbsp;C, contributor to NEST.</sub>
-</p>
-
-<p align="center">
-<strong>Machines that move</strong><br/>
-<sub>UAV autonomy, sensor fusion, ML detection, ROS&nbsp;/&nbsp;Gazebo simulation &mdash; the crebain&nbsp;/&nbsp;NCP stack.</sub>
-</p>
-
-<p align="center">
-<strong>3D vision &amp; Rust systems</strong><br/>
-<sub>Gaussian splatting and depth pipelines; safe-Rust estimators and a safety-gated, provenance-first robotics protocol.</sub>
+<!-- Each weekday's share of contributions over the last 500 days (~16 months) as
+     a donut &mdash; a week is a cycle, so a ring reads more naturally than bars,
+     and shares make the rhythm obvious at a glance. Regenerated daily by
+     .github/workflows/weekdays.yml from the same server-rendered fragment. The
+     glowing slice marks the peak day. Lives in-repo, so it works regardless of
+     external card services. -->
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
 </p>
 
 </details>
@@ -71,32 +71,6 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 <sub>Repo names borrow from Tolkien &mdash; <em>crebain</em> were Saruman's spy-crows.</sub>
 
 </details>
-
-</details>
-
----
-
-<details open>
-<summary><h3>The pulse</h3></summary>
-
-<p align="center">
-<!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
-     regenerated daily by .github/workflows/cumulative.yml from the per-year
-     contribution fragment at github.com/users/sepahead/contributions (the
-     unauthenticated host, not the rate-limited API). Served from
-     raw.githubusercontent.com so it never depends on a third-party card. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
-</p>
-
-<p align="center">
-<!-- Each weekday's share of contributions over the last 500 days (~16 months) as
-     a donut &mdash; a week is a cycle, so a ring reads more naturally than bars,
-     and shares make the rhythm obvious at a glance. Regenerated daily by
-     .github/workflows/weekdays.yml from the same server-rendered fragment. The
-     glowing slice marks the peak day. Lives in-repo, so it works regardless of
-     external card services. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
-</p>
 
 </details>
 

@@ -38,15 +38,6 @@
 <summary><h3>Selected work</h3></summary>
 
 
-<!-- Self-hosted SVG knowledge-graph of how the projects connect (engram at the
-     centre speaks the NCP protocol out to crebain & pid-rs; pid-rs feeds
-     cobot-atlas). Theme-adaptive, animated NCP data-flow, reduced-motion safe;
-     served from raw.githubusercontent.com so it never depends on a card service.
-     The table below carries the (non-clickable-in-SVG) links + descriptions. -->
-<p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram at the center connects through the NCP protocol to crebain (robotics) and pid-rs (analysis); pid-rs feeds cobot-atlas (meshes); a link out to more repositories." loading="lazy"/>
-</p>
-
 | Project | What it is | Stack |
 |---|---|---|
 | **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; the hub: neural-network and neural-modeling experiments that drive the rest of the stack. | Python |
@@ -54,6 +45,15 @@
 | **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship robotics client. | TS &middot; Rust &middot; Nix |
 | **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust &mdash; the analysis client. | Rust |
 | **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. Feeds simulation from pid-rs analysis. | Python |
+
+<!-- Self-hosted SVG knowledge-graph of how the projects connect (engram at the
+     centre speaks the NCP protocol out to crebain & pid-rs; pid-rs feeds
+     cobot-atlas). Theme-adaptive, animated NCP data-flow, reduced-motion safe;
+     served from raw.githubusercontent.com so it never depends on a card service.
+     Sits below the table, which carries the clickable links + descriptions. -->
+<p align="center">
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram at the center connects through the NCP protocol to crebain (robotics) and pid-rs (analysis); pid-rs feeds cobot-atlas (meshes); a link out to more repositories." loading="lazy"/>
+</p>
 
 <details>
 <summary><strong>More repositories</strong></summary>

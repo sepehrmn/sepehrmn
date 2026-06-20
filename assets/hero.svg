@@ -6,12 +6,14 @@
     .meta     { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .cursor   { fill: #22d3ee; }
     .underline-base { stroke: #30363d; stroke-width: 2; fill: none; }
+    .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       .wordmark { fill: #0891b2; }
       .role     { fill: #1f2328; }
       .meta     { fill: #57606a; }
       .cursor   { fill: #0891b2; }
       .underline-base { stroke: #d0d7de; }
+      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     /* Respect reduced-motion: stop all animation, show a sensible static state
        (wordmark + cursor solid + the first role visible). Each role's base
@@ -20,6 +22,8 @@
       animate, animateTransform { display: none; }
     }
   </style>
+
+  <rect x="0.5" y="0.5" width="859" height="175" rx="16" class="panel"/>
 
   <!-- Wordmark = the name (searchable, matches the publication byline).
        textLength locks rendered width so cursor + underline are stable

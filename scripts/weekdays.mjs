@@ -504,6 +504,7 @@ function renderSVG(model) {
     </filter>
   </defs>
   <style>
+    .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     .title { font: 600 15px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .subtitle { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
     .center-num { font: 700 32px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
@@ -518,6 +519,7 @@ function renderSVG(model) {
     .slice { fill: #22d3ee; fill-opacity: 0.82; }
     .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
     @media (prefers-color-scheme: light) {
+      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }
       .center-num { fill: #0891b2; }
@@ -534,7 +536,7 @@ function renderSVG(model) {
       animate, animateTransform { display: none; }
     }
   </style>
-  <rect width="${W}" height="${H}" fill="transparent"/>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
   ${title}
   ${subtitle}
   <g class="donut">

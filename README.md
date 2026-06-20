@@ -38,21 +38,22 @@
 <summary><h3>Selected work</h3></summary>
 
 
-<!-- A hand-authored table, deliberately not github-readme-stats pin cards: the
-     public card service (github-readme-stats.vercel.app) is rate-limited (~100
-     req/hr per IP) and frequently returns 503 / DEPLOYMENT_PAUSED, so this &mdash;
-     the highest-stakes section &mdash; would fail hardest as broken images. A
-     static table never breaks, matches the self-hosted ethos of the charts
-     below, and stays accurate (these star counts are slow-moving). -->
+<!-- Self-hosted SVG knowledge-graph of how the projects connect (engram at the
+     centre speaks the NCP protocol out to crebain & pid-rs; pid-rs feeds
+     cobot-atlas). Theme-adaptive, animated NCP data-flow, reduced-motion safe;
+     served from raw.githubusercontent.com so it never depends on a card service.
+     The table below carries the (non-clickable-in-SVG) links + descriptions. -->
+<p align="center">
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram at the center connects through the NCP protocol to crebain (robotics) and pid-rs (analysis); pid-rs feeds cobot-atlas (meshes); a link out to more repositories." loading="lazy"/>
+</p>
 
 | Project | What it is | Stack |
 |---|---|---|
-| **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship. | TS &middot; Rust &middot; Nix |
-| **[brojapid-activationfunctions](https://github.com/sepahead/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). | Python |
-| **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. | Python |
-| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; neural-network and neural-modeling experiments. | Python |
-| **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust. | Rust |
-| **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a neural-network simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
+| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; the hub: neural-network and neural-modeling experiments that drive the rest of the stack. | Python |
+| **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) &mdash; the connective tissue letting a neural-network simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
+| **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship robotics client. | TS &middot; Rust &middot; Nix |
+| **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust &mdash; the analysis client. | Rust |
+| **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. Feeds simulation from pid-rs analysis. | Python |
 
 <details>
 <summary><strong>More repositories</strong></summary>
@@ -61,6 +62,7 @@
 
 | Repository | Area |
 |---|---|
+| **[brojapid-activationfunctions](https://github.com/sepahead/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). |
 | **[mahmoudian-2020-rescience](https://github.com/sepahead/mahmoudian-2020-rescience)** | ReScience&nbsp;C publication &mdash; three-way information-theoretic analysis of transfer functions (replication, forked by&nbsp;3). |
 | **[nest-simulator](https://github.com/sepahead/nest-simulator)** | NEST neural-network simulator &mdash; fork carrying original contributions on feature branches. |
 | **[melkor](https://github.com/sepahead/melkor)** | Gaussian splatting pipelines &amp; depth analysis. |

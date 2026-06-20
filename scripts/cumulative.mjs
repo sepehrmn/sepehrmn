@@ -474,6 +474,7 @@ function renderSVG(model) {
     </filter>
   </defs>
   <style>
+    .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     .headline { font: 700 38px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
     .sub { font: 500 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #8b949e; }
     .value { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
@@ -499,6 +500,7 @@ function renderSVG(model) {
       .warning { fill: #b45309; }
       .grid { stroke: #eaeef2; }
       .baseline { stroke: #d0d7de; }
+      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .cum-line { stroke: url(#cumLineGradLight); stroke-opacity: 0.35; }
       .cum-area { fill: url(#cumGradLight); }
       .cum-dot { fill: #0891b2; stroke: #0e7490; }
@@ -511,7 +513,7 @@ function renderSVG(model) {
       .cum-dot { opacity: 1; }
     }
   </style>
-  <rect width="${W}" height="${H}" fill="transparent"/>
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
   <text x="${PAD_LEFT}" y="${HEAD_TOP + 32}" class="headline">${headlineNum}</text>
   <text x="${PAD_LEFT}" y="${HEAD_TOP + 60}" class="sub">total contributions since ${startYear}</text>
   ${avgGrowthPct != null

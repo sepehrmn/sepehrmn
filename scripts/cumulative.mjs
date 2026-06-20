@@ -75,6 +75,21 @@ const parseTipCount = (tipText) => {
   return m ? Number(m[1]) : 0;
 };
 
+// Distinct repositories from the fragment's "Contributed to" highlights. Each
+// is a repository hovercard `data-hovercard-url="/owner/repo/hovercard"`; we
+// drop org-level hovercards (`/orgs/...`) since those are organizations, not
+// repos. Returns a Set of "owner/repo" — a public lower-bound (highlights only,
+// private repos excluded), unioned across years by the caller.
+const parseContributedRepos = (html) => {
+  const repos = new Set();
+  for (const m of html.matchAll(
+    /data-hovercard-url="\/([^/"]+\/[^/"]+)\/hovercard"/g
+  )) {
+    if (!m[1].startsWith("orgs/")) repos.add(m[1]);
+  }
+  return repos;
+};
+
 async function fetchYearTotal(login, year) {
   const res = await fetch(FRAGMENT_URL(login, year), {
     headers: {
@@ -90,11 +105,12 @@ async function fetchYearTotal(login, year) {
     );
   }
   const html = await res.text();
+  const repos = parseContributedRepos(html);
 
   // Primary: the embedded <h2> "... contributions in YYYY" total.
   const h2 = html.match(/([\d,]+)\s+contributions\s+in\s+\d{4}/i);
   if (h2) {
-    return { year, total: Number(h2[1].replace(/,/g, "")), source: "h2" };
+    return { year, total: Number(h2[1].replace(/,/g, "")), source: "h2", repos };
   }
 
   // Fallback: sum per-day <tool-tip> counts (same pair as weekdays.mjs).
@@ -105,7 +121,7 @@ async function fetchYearTotal(login, year) {
   console.warn(
     `[cumulative] <h2> total missing for ${year}; summed ${tipBlocks.length} tool-tips → ${total}.`
   );
-  return { year, total, source: "tooltip-sum" };
+  return { year, total, source: "tooltip-sum", repos };
 }
 
 async function fetchYearTotals(login, startYear, endYear) {
@@ -122,12 +138,20 @@ async function fetchYearTotals(login, startYear, endYear) {
 function buildModel(years) {
   let cumulative = 0;
   let peak = 0;
+  const repos = new Set();
   const rows = years.map((y) => {
     cumulative += y.total;
     if (y.total > peak) peak = y.total;
+    for (const r of y.repos ?? []) repos.add(r);
     return { ...y, cumulative, isCurrent: y.year === currentYear() };
   });
-  return { rows, peak, cumulative, startYear: years[0]?.year ?? START_YEAR };
+  return {
+    rows,
+    peak,
+    cumulative,
+    repoCount: repos.size,
+    startYear: years[0]?.year ?? START_YEAR,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -141,6 +165,7 @@ function placeholder(errorMessage) {
     rows: [],
     peak: 0,
     cumulative: 0,
+    repoCount: 0,
     startYear: START_YEAR,
     warning,
   };
@@ -173,7 +198,7 @@ const niceMax = (v) => {
 };
 
 function renderSVG(model) {
-  const { rows, peak, cumulative, warning, startYear } = model;
+  const { rows, peak, cumulative, repoCount, warning, startYear } = model;
   const yMax = niceMax(peak);
   const n = rows.length || 1;
 
@@ -283,6 +308,10 @@ function renderSVG(model) {
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>
   <text x="${PAD_LEFT}" y="${HEAD_TOP + 36}" class="headline">${headlineNum}</text>
+  <text x="${PAD_LEFT}" y="${HEAD_TOP + 56}" class="sub">total contributions since ${startYear}</text>
+  ${repoCount > 0
+    ? `<text x="${PLOT_RIGHT}" y="${HEAD_TOP}" text-anchor="end" class="sub">${fmt(repoCount)} repos contributed to</text>`
+    : ""}
   ${gridlines}
   <line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>
   ${bars}
@@ -305,7 +334,7 @@ async function main() {
     console.log(`[cumulative] ${summary}`);
     model = buildModel(years);
     console.log(
-      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak} (sources: ${years
+      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak}; repos=${model.repoCount} (sources: ${years
         .map((y) => `${y.year}:${y.source}`)
         .join(", ")}).`
     );

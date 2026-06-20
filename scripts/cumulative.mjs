@@ -30,7 +30,16 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "assets", "cumulative.svg");
-const USERNAME = process.env.GH_USERNAME || "sepehrmn";
+const USERNAME = process.env.GH_USERNAME || "sepahead";
+// Personal access token used to count PRIVATE contributions too. The GraphQL
+// contributionsCollection includes private-repo activity only when the token
+// belongs to the queried user (and the profile's "include private
+// contributions" setting is on). Without a token we fall back to scraping the
+// public HTML fragment (public contributions only — lower numbers). A
+// repo-scoped GITHUB_TOKEN does NOT include private user contributions, so we
+// only accept an explicit user PAT here.
+const CONTRIB_TOKEN =
+  process.env.CONTRIB_TOKEN || process.env.GH_PAT || "";
 // First year of activity on GitHub for this user (created 2014, but
 // contribution tracking is only meaningful from 2020 onward per the chart's
 // scope — matches the prior external chart's from=2020-01-01).
@@ -70,11 +79,67 @@ const parseTipCount = (tipText) => {
   return m ? Number(m[1]) : 0;
 };
 
+// GraphQL: total contributions for one calendar year, INCLUDING private
+// contributions (the token must belong to `login`). contributionsCollection
+// accepts at most a 1-year window; for the in-progress year we cap `to` at
+// "now" (GitHub rejects future `to` dates).
+const GRAPHQL_URL = "https://api.github.com/graphql";
+const CONTRIB_QUERY = `query($login:String!,$from:DateTime!,$to:DateTime!){
+  user(login:$login){
+    contributionsCollection(from:$from,to:$to){
+      contributionCalendar{ totalContributions }
+    }
+  }
+}`;
+
+async function fetchYearTotalGraphQL(login, year, token) {
+  const from = `${year}-01-01T00:00:00Z`;
+  // Cap the in-progress year at now so the DateTime isn't in the future.
+  const yearEnd = `${year}-12-31T23:59:59Z`;
+  const nowIso = new Date().toISOString();
+  const to = year === currentYear() && nowIso < yearEnd ? nowIso : yearEnd;
+  const res = await fetch(GRAPHQL_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `bearer ${token}`,
+      "Content-Type": "application/json",
+      "User-Agent": "sepahead-profile-cumulative-chart/1.0",
+    },
+    body: JSON.stringify({
+      query: CONTRIB_QUERY,
+      variables: { login, from, to },
+    }),
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(
+      `GraphQL ${res.status} for ${year}: ${body.slice(0, 160)}`
+    );
+  }
+  const json = await res.json();
+  if (json.errors?.length) {
+    throw new Error(
+      `GraphQL errors for ${year}: ${JSON.stringify(json.errors).slice(0, 160)}`
+    );
+  }
+  const total =
+    json.data?.user?.contributionsCollection?.contributionCalendar
+      ?.totalContributions;
+  if (typeof total !== "number") {
+    throw new Error(`GraphQL: no total for ${year}`);
+  }
+  return { year, total, source: "graphql" };
+}
+
 async function fetchYearTotal(login, year) {
+  // Authenticated path: counts private contributions too.
+  if (CONTRIB_TOKEN) {
+    return fetchYearTotalGraphQL(login, year, CONTRIB_TOKEN);
+  }
   const res = await fetch(FRAGMENT_URL(login, year), {
     headers: {
       "User-Agent":
-        "Mozilla/5.0 (compatible; sepehrmn-profile-cumulative-chart/1.0)",
+        "Mozilla/5.0 (compatible; sepahead-profile-cumulative-chart/1.0)",
       Accept: "text/html,application/xhtml+xml",
     },
   });

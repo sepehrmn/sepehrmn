@@ -39,11 +39,13 @@ jobs:
 
       - name: Generate cumulative chart SVG
         env:
-          GH_USERNAME: sepehrmn
-        # Same data source + no-token rationale as weekdays.yml: the script
-        # scrapes github.com/users/{login}/contributions?from=YYYY-01-01 (a
-        # different host from api.github.com, so not subject to the Actions-
-        # runner API rate limit). Do not add GH_TOKEN here.
+          GH_USERNAME: sepahead
+          # User PAT (read:user scope) so PRIVATE contributions are counted via
+          # the authenticated GraphQL contributionsCollection. Must belong to
+          # GH_USERNAME. If the secret is unset the script silently falls back
+          # to scraping the public HTML fragment (public-only, lower numbers) —
+          # that host is not subject to the api.github.com rate limit.
+          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
         run: node scripts/cumulative.mjs
 
       - name: Commit updated cumulative chart SVG

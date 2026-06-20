@@ -3,14 +3,14 @@
      the SVG's internal prefers-color-scheme, with a reduced-motion fallback.
      Committed to the repo and served from raw.githubusercontent.com, so it always
      loads with no external card service. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; computational neuroscience, robotics and UAV autonomy, 3D vision, and Rust + ML systems. Berlin, building since 2014."/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; computational neuroscience, robotics and UAV autonomy, 3D vision, and Rust + ML systems. Berlin, building since 2014."/>
 </p>
 
 <p align="center">
 <sub>
 Published in <strong>ReScience&nbsp;C</strong> &mdash; a three-way information-theoretic replication of Smyth, Phillips&nbsp;&amp;&nbsp;Kay&nbsp;(1996)
-&middot; <a href="https://github.com/sepehrmn/mahmoudian-2020-rescience">paper&nbsp;&amp;&nbsp;code</a>
-&middot; contributor to <strong><a href="https://github.com/sepehrmn/nest-simulator">NEST</a></strong>, the open-source spiking-network simulator
+&middot; <a href="https://github.com/sepahead/mahmoudian-2020-rescience">paper&nbsp;&amp;&nbsp;code</a>
+&middot; contributor to <strong><a href="https://github.com/sepahead/nest-simulator">NEST</a></strong>, the open-source spiking-network simulator
 </sub>
 </p>
 
@@ -50,12 +50,12 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 
 | Project | What it is | Stack |
 |---|---|---|
-| **[crebain](https://github.com/sepehrmn/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship. | TS &middot; Rust &middot; Nix |
-| **[brojapid-activationfunctions](https://github.com/sepehrmn/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). | Python |
-| **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. | Python |
-| **[engram](https://github.com/sepehrmn/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; spiking-network and neural-modeling experiments. | Python |
-| **[pid-rs](https://github.com/sepehrmn/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust. | Rust |
-| **[NCP](https://github.com/sepehrmn/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
+| **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship. | TS &middot; Rust &middot; Nix |
+| **[brojapid-activationfunctions](https://github.com/sepahead/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). | Python |
+| **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. | Python |
+| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; spiking-network and neural-modeling experiments. | Python |
+| **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust. | Rust |
+| **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
 
 <details>
 <summary><strong>More repositories</strong></summary>
@@ -64,12 +64,12 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 
 | Repository | Area |
 |---|---|
-| **[mahmoudian-2020-rescience](https://github.com/sepehrmn/mahmoudian-2020-rescience)** | ReScience&nbsp;C publication &mdash; three-way information-theoretic analysis of transfer functions (replication, forked by&nbsp;3). |
-| **[nest-simulator](https://github.com/sepehrmn/nest-simulator)** | NEST spiking-network simulator &mdash; fork carrying original contributions on feature branches. |
-| **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines &amp; depth analysis. |
-| **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D mesh assets for disaster relief &amp; humanitarian aid. |
-| **[manwe](https://github.com/sepehrmn/manwe)** | Real-time UAV detection from vision, in Rust. |
-| **[silmaril-vision-studio](https://github.com/sepehrmn/silmaril-vision-studio)** | Computer-vision studio &amp; testbed for prototyping vision models. |
+| **[mahmoudian-2020-rescience](https://github.com/sepahead/mahmoudian-2020-rescience)** | ReScience&nbsp;C publication &mdash; three-way information-theoretic analysis of transfer functions (replication, forked by&nbsp;3). |
+| **[nest-simulator](https://github.com/sepahead/nest-simulator)** | NEST spiking-network simulator &mdash; fork carrying original contributions on feature branches. |
+| **[melkor](https://github.com/sepahead/melkor)** | Gaussian splatting pipelines &amp; depth analysis. |
+| **[relief-atlas](https://github.com/sepahead/relief-atlas)** | 10K+ AI-generated 3D mesh assets for disaster relief &amp; humanitarian aid. |
+| **[manwe](https://github.com/sepahead/manwe)** | Real-time UAV detection from vision, in Rust. |
+| **[silmaril-vision-studio](https://github.com/sepahead/silmaril-vision-studio)** | Computer-vision studio &amp; testbed for prototyping vision models. |
 
 <sub>Repo names borrow from Tolkien &mdash; <em>crebain</em> were Saruman's spy-crows.</sub>
 
@@ -105,7 +105,7 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 
 <a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="44"/></a>&nbsp;&nbsp;
 <a href="https://cloud.google.com" title="Google Cloud"><img src="pics/gcp-icon.svg" alt="Google Cloud" height="44"/></a>&nbsp;&nbsp;
-<a href="https://aws.amazon.com/" title="AWS"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/aws-white.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/aws-icon.svg"><img src="pics/aws-icon.svg" alt="AWS" height="44"/></picture></a>&nbsp;&nbsp;
+<a href="https://aws.amazon.com/" title="AWS"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/aws-white.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/aws-icon.svg"><img src="pics/aws-icon.svg" alt="AWS" height="44"/></picture></a>&nbsp;&nbsp;
 <a href="https://www.docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="44"/></a>&nbsp;&nbsp;
 <a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="44"/></a>&nbsp;&nbsp;
 <a href="https://www.terraform.io" title="Terraform"><img src="pics/terraform.svg" alt="Terraform" height="44"/></a>
@@ -127,10 +127,10 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 <p align="center">
 <!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
      regenerated daily by .github/workflows/cumulative.yml from the per-year
-     contribution fragment at github.com/users/sepehrmn/contributions (the
+     contribution fragment at github.com/users/sepahead/contributions (the
      unauthenticated host, not the rate-limited API). Served from
      raw.githubusercontent.com so it never depends on a third-party card. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
 </p>
 
 <p align="center">
@@ -140,7 +140,7 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
      .github/workflows/weekdays.yml from the same server-rendered fragment. The
      glowing slice marks the peak day. Lives in-repo, so it works regardless of
      external card services. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
 </p>
 
 ---
@@ -154,8 +154,8 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 <a href="https://huggingface.co/torusprime" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>&nbsp;&nbsp;
 <a href="https://x.com/SepehrMN" title="X (Twitter) &mdash; @SepehrMN">
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/x-logo-white.svg">
-<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/x-logo-black.svg">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/x-logo-white.svg">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/x-logo-black.svg">
 <img src="pics/x-logo-black.svg" alt="X (Twitter) &mdash; @SepehrMN" height="40"/>
 </picture>
 </a>

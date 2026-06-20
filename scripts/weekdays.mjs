@@ -41,7 +41,12 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "assets", "weekdays.svg");
-const USERNAME = process.env.GH_USERNAME || "sepehrmn";
+const USERNAME = process.env.GH_USERNAME || "sepahead";
+// PAT to include PRIVATE contributions via authenticated GraphQL (token must
+// belong to the queried user). Without it we scrape the public HTML fragment
+// (public-only, lower numbers). A repo-scoped GITHUB_TOKEN won't include
+// private user contributions, so only an explicit user PAT is accepted.
+const CONTRIB_TOKEN = process.env.CONTRIB_TOKEN || process.env.GH_PAT || "";
 
 // ---------------------------------------------------------------------------
 // 0. Helpers
@@ -138,7 +143,7 @@ async function fetchFragmentHtml(login, year) {
       // UA also avoids any bot-throttle heuristics. No auth needed — this is a
       // public, server-rendered page.
       "User-Agent":
-        "Mozilla/5.0 (compatible; sepehrmn-profile-weekdays-chart/1.0)",
+        "Mozilla/5.0 (compatible; sepahead-profile-weekdays-chart/1.0)",
       Accept: "text/html,application/xhtml+xml",
     },
   });
@@ -155,7 +160,85 @@ async function fetchFragmentHtml(login, year) {
 // year's ?from=YYYY-01-01 fragment to extend coverage backwards. Each fragment
 // covers a distinct date span, so concatenation never double-counts; aggregate()
 // trims anything outside the window by exact date.
+// GraphQL path: per-day counts INCLUDING private contributions. The token must
+// belong to `login`. contributionsCollection accepts at most a 1-year window,
+// so we tile the [now-WINDOW_DAYS, now] span into ≤1-year sub-ranges and merge
+// (deduping by date). Each day carries the same shape parseFragment produces.
+const GRAPHQL_URL = "https://api.github.com/graphql";
+const DAILY_QUERY = `query($login:String!,$from:DateTime!,$to:DateTime!){
+  user(login:$login){
+    contributionsCollection(from:$from,to:$to){
+      restrictedContributionsCount
+      contributionCalendar{
+        weeks{ contributionDays{ date contributionCount weekday } }
+      }
+    }
+  }
+}`;
+
+async function fetchDailyCountsGraphQL(login, token) {
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const now = new Date();
+  const start = new Date(now.getTime() - WINDOW_DAYS * DAY_MS);
+  // Tile into ≤364-day sub-ranges (stay safely under the 1-year cap).
+  const STEP_MS = 364 * DAY_MS;
+  const ranges = [];
+  for (let from = start.getTime(); from < now.getTime(); from += STEP_MS) {
+    const to = Math.min(from + STEP_MS, now.getTime());
+    ranges.push([new Date(from).toISOString(), new Date(to).toISOString()]);
+  }
+  console.log(
+    `[weekdays] GraphQL (private included): ${ranges.length} sub-range(s).`
+  );
+  const byDate = new Map();
+  // Sum of PRIVATE contributions over the window. restrictedContributionsCount
+  // is just an aggregate number per range — it never names a private repo, so
+  // nothing identifying about private work lands in the committed SVG.
+  let privateTotal = 0;
+  for (const [from, to] of ranges) {
+    const res = await fetch(GRAPHQL_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `bearer ${token}`,
+        "Content-Type": "application/json",
+        "User-Agent": "sepahead-profile-weekdays-chart/1.0",
+      },
+      body: JSON.stringify({
+        query: DAILY_QUERY,
+        variables: { login, from, to },
+      }),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`GraphQL ${res.status}: ${body.slice(0, 160)}`);
+    }
+    const json = await res.json();
+    if (json.errors?.length) {
+      throw new Error(`GraphQL errors: ${JSON.stringify(json.errors).slice(0, 160)}`);
+    }
+    const collection = json.data?.user?.contributionsCollection;
+    privateTotal += collection?.restrictedContributionsCount ?? 0;
+    const weeks = collection?.contributionCalendar?.weeks ?? [];
+    for (const w of weeks) {
+      for (const d of w.contributionDays) {
+        // Disjoint ranges shouldn't overlap, but dedupe defensively by date.
+        byDate.set(d.date, {
+          date: d.date,
+          count: d.contributionCount,
+          // GitHub weekday: 0=Sun..6=Sat — same convention as JS getUTCDay.
+          weekday: toMonFirst(d.weekday),
+          precise: true,
+        });
+      }
+    }
+  }
+  return { days: [...byDate.values()], privateTotal };
+}
+
 async function fetchDailyCounts(login) {
+  if (CONTRIB_TOKEN) {
+    return fetchDailyCountsGraphQL(login, CONTRIB_TOKEN);
+  }
   const now = new Date();
   const currentYear = now.getUTCFullYear();
   // Earliest date the window could touch (UTC, midnight).
@@ -178,7 +261,8 @@ async function fetchDailyCounts(login) {
     const html = await fetchFragmentHtml(login, y === currentYear ? undefined : y);
     parts.push(...(await parseFragment(html)));
   }
-  return parts;
+  // Public scrape can't see private contributions → privateTotal unknown (null).
+  return { days: parts, privateTotal: null };
 }
 
 // ---------------------------------------------------------------------------
@@ -187,7 +271,7 @@ async function fetchDailyCounts(login) {
 //    "last N entries" are NOT the most recent N days. Each cell carries its own
 //    precomputed weekday, so we avoid re-parsing dates here too.
 // ---------------------------------------------------------------------------
-function aggregate(daily) {
+function aggregate(daily, privateTotal = null) {
   // "Today" = newest date present in the fragment (robust to the fragment
   // lagging a day or two behind real-time, and to CI timezone quirks).
   const allDates = daily
@@ -239,10 +323,19 @@ function aggregate(daily) {
     } else break;
   }
 
+  // Public/private split. privateTotal is null when scraping (private invisible);
+  // otherwise public = total − private (clamped ≥0 against any window boundary
+  // skew between the GraphQL range and the date-filtered window).
+  const privateCount =
+    privateTotal == null ? null : Math.max(0, Math.min(privateTotal, grandTotal));
+  const publicCount = privateCount == null ? null : grandTotal - privateCount;
+
   return {
     perDay,
     peakTotal,
     grandTotal,
+    privateCount,
+    publicCount,
     streak,
     windowDays: WINDOW_DAYS,
     cellsUsed: used,
@@ -262,6 +355,8 @@ function placeholder(errorMessage) {
     perDay: DAY_LABELS.map((label) => ({ label, total: 0 })),
     peakTotal: 0,
     grandTotal: 0,
+    privateCount: null,
+    publicCount: null,
     streak: 0,
     windowDays: WINDOW_DAYS,
     cellsUsed: 0,
@@ -319,7 +414,7 @@ const describeSlice = (pct0, pct1) => {
 };
 
 function renderSVG(model) {
-  const { perDay, peakTotal, grandTotal, streak, warning, windowDays } = model;
+  const { perDay, peakTotal, grandTotal, privateCount, publicCount, streak, warning, windowDays } = model;
 
   // Per-slice percentages. If grandTotal is 0 (no data) the placeholder ring
   // is drawn instead — handled below.
@@ -421,10 +516,19 @@ function renderSVG(model) {
       : "";
 
   const title = `<text x="40" y="36" class="title">Where the week goes</text>`;
-  const subtitle =
+  // The donut already conveys "share of total", so the grey subtitle instead
+  // breaks the window total into public vs private contributions. When private
+  // data is unavailable (no PAT → public scrape), we label the total "public".
+  const fmtN = (n) => Number(n).toLocaleString("en-US");
+  const subtitleText =
     grandTotal > 0
-      ? `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">share of ${grandTotal} contributions · last ${windowDays} days</text>`
-      : `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">last ${windowDays} days</text>`;
+      ? privateCount == null
+        ? `${fmtN(grandTotal)} public · last ${windowDays} days`
+        : `${fmtN(publicCount)} public · ${fmtN(privateCount)} private · last ${windowDays} days`
+      : `last ${windowDays} days`;
+  const subtitle = `<text x="${W - 40}" y="36" text-anchor="end" class="subtitle">${escapeXML(
+    subtitleText
+  )}</text>`;
   const warningBanner = warning
     ? `<text x="${W / 2}" y="${H - 16}" text-anchor="middle" class="warning">${escapeXML(
         warning
@@ -498,16 +602,16 @@ async function main() {
   console.log(`[weekdays] fetching contributions fragment for ${USERNAME}…`);
   let model;
   try {
-    const daily = await fetchDailyCounts(USERNAME);
-    const oldest = daily[0]?.date;
-    const newest = daily[daily.length - 1]?.date;
+    const { days, privateTotal } = await fetchDailyCounts(USERNAME);
     console.log(
-      `[weekdays] parsed ${daily.length} day cells. precise=${daily.every((d) => d.precise)}`
+      `[weekdays] parsed ${days.length} day cells. precise=${days.every((d) => d.precise)}; ` +
+        `private=${privateTotal == null ? "n/a (public scrape)" : privateTotal}`
     );
-    model = aggregate(daily);
+    model = aggregate(days, privateTotal);
     console.log(
       `[weekdays] built ${model.perDay.length}-bar model over last ${model.windowDays} days ` +
-        `(${model.cellsUsed} cells summed); total=${model.grandTotal}; peak=${model.peakTotal}.`
+        `(${model.cellsUsed} cells summed); total=${model.grandTotal}; ` +
+        `public=${model.publicCount ?? "n/a"}; private=${model.privateCount ?? "n/a"}; peak=${model.peakTotal}.`
     );
   } catch (err) {
     const msg = String(err?.message ?? err);

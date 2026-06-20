@@ -44,15 +44,20 @@ jobs:
 
       - name: Generate weekday chart SVG
         env:
-          GH_USERNAME: sepehrmn
-        # The script pulls data from the server-rendered contributions fragment
-        # at github.com/users/{login}/contributions — NOT api.github.com — so
-        # it deliberately needs NO token. That's intentional: GitHub Actions
-        # runners share IP ranges with huge unauthenticated traffic and so the
-        # 60/hr api.github.com limit is permanently exhausted there, and the
-        # default GITHUB_TOKEN is repo-scoped and can't read user-scoped
-        # contribution data anyway. The HTML fragment is public, unauthenticated,
-        # and not subject to the API rate limit. Do not add GH_TOKEN here.
+          GH_USERNAME: sepahead
+          # User PAT (read:user scope) so PRIVATE contributions are counted via
+          # the authenticated GraphQL contributionsCollection (token must belong
+          # to GH_USERNAME). With a token, api.github.com gives 5000 req/hr so
+          # the rate-limit concern below does not apply.
+          #
+          # If CONTRIB_TOKEN is unset, the script falls back to scraping the
+          # server-rendered fragment at github.com/users/{login}/contributions —
+          # NOT api.github.com — which needs NO token and is not subject to the
+          # 60/hr unauthenticated api.github.com limit that is permanently
+          # exhausted on shared Actions runner IPs (the default repo-scoped
+          # GITHUB_TOKEN can't read user-scoped contribution data anyway). That
+          # fallback counts PUBLIC contributions only (lower numbers).
+          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
         run: node scripts/weekdays.mjs
 
       - name: Commit updated weekday chart SVG

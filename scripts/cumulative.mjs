@@ -255,14 +255,15 @@ function renderSVG(model) {
   const slot = PLOT_WIDTH / n;
   const barW = Math.min(slot * 0.62, 64);
 
-  // Gridlines: 4 horizontal lines at 0, 25/50/75/100% of yMax.
+  // Faint horizontal gridlines only — NO numeric y-axis. The bars and the
+  // cumulative curve live on different scales, so a single labelled axis would
+  // be correct for one and wrong for the other. The lines stay purely as light
+  // visual guides; values are read from each bar's own label and tooltips.
   const gridSteps = [0, 0.25, 0.5, 0.75, 1];
   const gridlines = gridSteps
     .map((frac) => {
       const y = PLOT_BOTTOM - frac * PLOT_HEIGHT;
-      const val = Math.round(frac * yMax);
-      return `<line x1="${PLOT_LEFT}" y1="${y.toFixed(1)}" x2="${PLOT_RIGHT}" y2="${y.toFixed(1)}" class="grid"/>
-<text x="${PLOT_LEFT - 10}" y="${(y + 3).toFixed(1)}" text-anchor="end" class="axis">${val >= 1000 ? (val / 1000) + "k" : val}</text>`;
+      return `<line x1="${PLOT_LEFT}" y1="${y.toFixed(1)}" x2="${PLOT_RIGHT}" y2="${y.toFixed(1)}" class="grid"/>`;
     })
     .join("\n  ");
 
@@ -418,14 +419,26 @@ function renderSVG(model) {
       <stop offset="100%" stop-color="#0891b2"/>
     </linearGradient>
     <linearGradient id="cumGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.32"/>
-      <stop offset="55%" stop-color="#22d3ee" stop-opacity="0.12"/>
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.16"/>
+      <stop offset="55%" stop-color="#22d3ee" stop-opacity="0.06"/>
       <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="cumLineGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#0891b2"/>
       <stop offset="55%" stop-color="#22d3ee"/>
       <stop offset="100%" stop-color="#a5f3fc"/>
+    </linearGradient>
+    <!-- Light-mode variants: darker, more saturated so the curve, fill and dot
+         keep good contrast on a white background. -->
+    <linearGradient id="cumLineGradLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e7490"/>
+      <stop offset="55%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cumGradLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0891b2" stop-opacity="0.13"/>
+      <stop offset="55%" stop-color="#0891b2" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
     </linearGradient>
     <filter id="lineGlow" x="-20%" y="-40%" width="140%" height="180%">
       <feGaussianBlur stdDeviation="2.6" result="b"/>
@@ -450,8 +463,8 @@ function renderSVG(model) {
     .bar-glow { fill: #22d3ee; filter: url(#glow); opacity: 0.55; }
     .bar-label { opacity: 1; }
     .cum-area { fill: url(#cumGrad); }
-    .cum-line { fill: none; stroke: url(#cumLineGrad); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; filter: url(#lineGlow); }
-    .cum-dot { fill: #a5f3fc; stroke: #22d3ee; stroke-width: 1.5; filter: url(#lineGlow); }
+    .cum-line { fill: none; stroke: url(#cumLineGrad); stroke-width: 2.5; stroke-opacity: 0.4; stroke-linecap: round; stroke-linejoin: round; filter: url(#lineGlow); }
+    .cum-dot { fill: #a5f3fc; fill-opacity: 0.7; stroke: #22d3ee; stroke-width: 1.5; filter: url(#lineGlow); }
     @media (prefers-color-scheme: light) {
       .headline { fill: #0891b2; }
       .sub { fill: #57606a; }
@@ -462,6 +475,9 @@ function renderSVG(model) {
       .warning { fill: #b45309; }
       .grid { stroke: #eaeef2; }
       .baseline { stroke: #d0d7de; }
+      .cum-line { stroke: url(#cumLineGradLight); stroke-opacity: 0.5; }
+      .cum-area { fill: url(#cumGradLight); }
+      .cum-dot { fill: #0891b2; stroke: #0e7490; }
     }
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }

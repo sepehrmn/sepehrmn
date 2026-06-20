@@ -507,10 +507,10 @@ function renderSVG(model) {
       .center-streak { fill: #b45309; }
       .legend-label { fill: #1f2328; }
       .legend-peak { fill: #0891b2; }
-      .slice-label { fill: #ffffff; }
       .warning { fill: #b45309; }
-      .slice { fill: #0891b2; }
-      .slice-peak { fill: #0891b2; }
+      /* Slice/swatch fills come from per-day inline colours (same in both
+         themes), so no fill override here. Keep slice labels dark for contrast
+         on the colourful slices. */
     }
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }

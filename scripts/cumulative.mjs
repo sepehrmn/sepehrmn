@@ -353,24 +353,50 @@ function renderSVG(model) {
     })
     .join("");
 
-  // Cumulative running-total curve, drawn as a faint area+line BEHIND the bars.
-  // It has its own scale (the cumulative total far exceeds any single year, so it
-  // can't share the bars' y-axis); we map 0..finalCumulative across the plot so
-  // the curve rises to near the top by the last bar. Purely decorative context —
-  // very transparent so the bars stay the focus.
+  // Cumulative running-total curve behind the bars: a smooth, glowing,
+  // gradient-stroked spline with a soft gradient fill and a pulsing end dot.
+  // It has its own scale (the cumulative total far exceeds any single year, so
+  // it can't share the bars' y-axis); we map 0..finalCumulative down to a top
+  // margin so the curve crests just below the gridlines at the most recent bar.
   const cumMax = cumulative > 0 ? cumulative : 1;
+  const CUM_TOP = PLOT_TOP + 10; // leave headroom so the crest isn't clipped
   const cumPts = rows.map((row, i) => {
     const cx = PLOT_LEFT + slot * i + slot / 2;
-    const cy = PLOT_BOTTOM - (row.cumulative / cumMax) * PLOT_HEIGHT;
+    const cy =
+      PLOT_BOTTOM - (row.cumulative / cumMax) * (PLOT_BOTTOM - CUM_TOP);
     return [cx, cy];
   });
-  const cumLineD = cumPts
-    .map(([px, py], i) => `${i ? "L" : "M"} ${px.toFixed(1)} ${py.toFixed(1)}`)
-    .join(" ");
+  // Catmull-Rom → cubic-bézier smoothing for a flowing curve through the points.
+  const smoothPath = (pts) => {
+    if (pts.length < 2)
+      return pts.length ? `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}` : "";
+    let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+    for (let i = 0; i < pts.length - 1; i += 1) {
+      const p0 = pts[i - 1] || pts[i];
+      const p1 = pts[i];
+      const p2 = pts[i + 1];
+      const p3 = pts[i + 2] || p2;
+      const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+      const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+      const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+      const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+      d += ` C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    return d;
+  };
+  const cumLineD = smoothPath(cumPts);
+  const [endX, endY] = cumPts[cumPts.length - 1] ?? [0, 0];
   const cumArea = cumPts.length
-    ? `<path d="M ${cumPts[0][0].toFixed(1)} ${PLOT_BOTTOM} ${cumLineD
-        .replace(/^M/, "L")} L ${cumPts[cumPts.length - 1][0].toFixed(1)} ${PLOT_BOTTOM} Z" class="cum-area"/>
-  <path d="${cumLineD}" class="cum-line"/>`
+    ? `<path d="${cumLineD} L ${endX.toFixed(1)} ${PLOT_BOTTOM} L ${cumPts[0][0].toFixed(1)} ${PLOT_BOTTOM} Z" class="cum-area">
+    <animate attributeName="opacity" from="0" to="1" begin="0.4s" dur="1.6s" fill="freeze"/>
+  </path>
+  <path d="${cumLineD}" class="cum-line" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1">
+    <animate attributeName="stroke-dashoffset" from="1" to="0" begin="0.3s" dur="1.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/>
+  </path>
+  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.5" class="cum-dot" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.9s" dur="0.4s" fill="freeze"/>
+    <animate attributeName="r" values="3.5;5;3.5" begin="2.3s" dur="2.4s" repeatCount="indefinite"/>
+  </circle>`
     : "";
 
   const headlineNum = fmt(cumulative);
@@ -392,9 +418,19 @@ function renderSVG(model) {
       <stop offset="100%" stop-color="#0891b2"/>
     </linearGradient>
     <linearGradient id="cumGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/>
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.32"/>
+      <stop offset="55%" stop-color="#22d3ee" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="cumLineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="55%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a5f3fc"/>
+    </linearGradient>
+    <filter id="lineGlow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="2.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="7" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -414,7 +450,8 @@ function renderSVG(model) {
     .bar-glow { fill: #22d3ee; filter: url(#glow); opacity: 0.55; }
     .bar-label { opacity: 1; }
     .cum-area { fill: url(#cumGrad); }
-    .cum-line { fill: none; stroke: #22d3ee; stroke-width: 1.5; stroke-opacity: 0.3; }
+    .cum-line { fill: none; stroke: url(#cumLineGrad); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; filter: url(#lineGlow); }
+    .cum-dot { fill: #a5f3fc; stroke: #22d3ee; stroke-width: 1.5; filter: url(#lineGlow); }
     @media (prefers-color-scheme: light) {
       .headline { fill: #0891b2; }
       .sub { fill: #57606a; }
@@ -428,6 +465,10 @@ function renderSVG(model) {
     }
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }
+      /* With the draw-in animation disabled, force the curve fully drawn and
+         the end dot visible instead of stuck at their hidden start states. */
+      .cum-line { stroke-dasharray: none; }
+      .cum-dot { opacity: 1; }
     }
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>

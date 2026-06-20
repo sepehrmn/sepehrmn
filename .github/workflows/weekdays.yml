@@ -2,7 +2,10 @@ name: Generate weekday activity chart
 
 on:
   schedule:
-    # Run once per day at 04:00 UTC so the chart is fresh by morning US/EU.
+    # Once per day at 04:00 UTC. GitHub cron is UTC-only (no per-user timezone),
+    # so we pick an hour that is reliably early morning in the user's zone
+    # (Europe/Berlin = 05:00 CET / 06:00 CEST) year-round; the chart's "today"
+    # is anchored to Berlin in the script (CHART_TZ), independent of this cron.
     - cron: "0 4 * * *"
   workflow_dispatch:
   push:

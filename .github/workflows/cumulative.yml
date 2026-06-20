@@ -2,8 +2,11 @@ name: Generate cumulative activity chart
 
 on:
   schedule:
-    # 04:30 UTC — offset 30m from the weekdays chart so the two runs don't
-    # hammer the shared github.com contributions fragment simultaneously.
+    # 04:30 UTC — early morning in the user's zone (Europe/Berlin = 05:30 CET /
+    # 06:30 CEST); GitHub cron is UTC-only so we can't set it in local time, but
+    # the chart's current-year boundary is anchored to Berlin in the script
+    # (CHART_TZ). Offset 30m from the weekdays chart so the two runs don't hammer
+    # the shared github.com contributions fragment simultaneously.
     - cron: "30 4 * * *"
   workflow_dispatch:
   push:

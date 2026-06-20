@@ -78,6 +78,23 @@ const DAY_COLORS = [
 ];
 const WINDOW_DAYS = 500; // ~16 months — long enough to smooth out one-off weeks.
 
+// Reference timezone for "today". GitHub Actions runs in UTC with no notion of
+// the viewer's local timezone, so rather than UTC we anchor "today" to the
+// user's zone (Europe/Berlin, DST-aware via Intl). Override with CHART_TZ.
+const TZ = process.env.CHART_TZ || "Europe/Berlin";
+const tzDateParts = () =>
+  Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+      .formatToParts(new Date())
+      .filter((p) => p.type !== "literal")
+      .map((p) => [p.type, Number(p.value)])
+  );
+
 // GitHub's calendar week starts on Sunday. We want Monday-first bars, so a
 // JS Date.getUTCDay() of 0 (Sun) maps to index 6, 1 (Mon)→0, … 6 (Sat)→5.
 const toMonFirst = (jsDow) => (Number(jsDow) + 6) % 7;
@@ -176,11 +193,12 @@ async function fetchFragmentHtml(login, year) {
 // covers a distinct date span, so concatenation never double-counts; aggregate()
 // trims anything outside the window by exact date.
 async function fetchDailyCounts(login) {
-  const now = new Date();
-  const currentYear = now.getUTCFullYear();
-  // Earliest date the window could touch (UTC, midnight).
+  // "Today" in the reference timezone (Europe/Berlin), not UTC.
+  const today = tzDateParts();
+  const currentYear = today.year;
+  // Earliest date the window could touch (anchored to the Berlin calendar day).
   const earliest = new Date(
-    Date.UTC(currentYear, now.getUTCMonth(), now.getUTCDate()) -
+    Date.UTC(today.year, today.month - 1, today.day) -
       WINDOW_DAYS * 24 * 60 * 60 * 1000
   );
   const years = new Set([currentYear]);

@@ -60,8 +60,26 @@ const escapeXML = (s) => String(s).replace(/[&<>"']/g, (c) => XML_ENTITIES[c]);
 // 1,234 -> "1,234" (en-US grouping). Browsers render SVG <text> locale-agnostic.
 const fmt = (n) => Number(n).toLocaleString("en-US");
 
-// Current UTC year — the in-progress year is included as its own bar.
-const currentYear = () => new Date().getUTCFullYear();
+// Reference timezone for "today" / the in-progress year. GitHub Actions runs in
+// UTC and has no notion of the viewer's local timezone, so we can't use "the
+// user's time" directly; instead we anchor to the user's zone (Europe/Berlin),
+// which is DST-aware via Intl. Override with CHART_TZ if ever needed. This makes
+// the current-year boundary flip at Berlin midnight rather than UTC midnight.
+const TZ = process.env.CHART_TZ || "Europe/Berlin";
+const tzDateParts = () =>
+  Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+      .formatToParts(new Date())
+      .filter((p) => p.type !== "literal")
+      .map((p) => [p.type, Number(p.value)])
+  );
+// Current year in the reference timezone — the in-progress year is its own bar.
+const currentYear = () => tzDateParts().year;
 
 // ---------------------------------------------------------------------------
 // 1. Fetch per-year totals from the contribution fragment.

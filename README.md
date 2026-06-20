@@ -40,20 +40,20 @@
 
 | Project | What it is | Stack |
 |---|---|---|
-| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; the hub: neural-network and neural-modeling experiments that drive the rest of the stack. | Python |
+| **engram** &#128274;&nbsp;_private_ | Engram Neural Modeling Labs &mdash; the hub: neural-network and neural-modeling experiments that drive the rest of the stack. | Python |
 | **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) &mdash; the connective tissue letting a neural-network simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
 | **prisoma** &#128274;&nbsp;_private_ | A prism for embodied agents &mdash; PID diagnostics that refract a Vision-Language-Action policy's predictive information into redundant&nbsp;/&nbsp;unique&nbsp;/&nbsp;synergistic atoms across vision, language, dynamics and action. | Rust &middot; Python |
 | **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship robotics client. | TS &middot; Rust &middot; Nix |
 | **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust &mdash; the analysis client. | Rust |
 | **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. Feeds simulation from pid-rs analysis. | Python |
 
-<!-- Self-hosted SVG knowledge-graph of how the projects connect: engram <-> NCP
-     <-> prisoma (private hub); pid-rs, cobot-atlas and cobot-relief each feed
-     one-way into prisoma; cobot-atlas and cobot-relief also connect two-way to
-     crebain. Theme-adaptive, animated NCP data-flow, reduced-motion safe; served
-     from raw.githubusercontent.com so it never depends on a card service. -->
+<!-- Self-hosted SVG knowledge-graph of how the projects connect: NCP links two-way
+     to engram (private), prisoma (private hub) and crebain; pid-rs, cobot-atlas
+     and cobot-relief each feed one-way into prisoma; cobot-atlas and cobot-relief
+     also connect two-way to crebain. Theme-adaptive, animated NCP data-flow,
+     reduced-motion safe; served from raw.githubusercontent.com. -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram connects two-way through the NCP protocol to prisoma (a private hub); pid-rs, cobot-atlas and cobot-relief each feed one-way into prisoma; cobot-atlas and cobot-relief also connect two-way to crebain." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — NCP connects two-way to engram (private), prisoma (private hub) and crebain; pid-rs, cobot-atlas and cobot-relief each feed one-way into prisoma; cobot-atlas and cobot-relief connect two-way to crebain." loading="lazy"/>
 </p>
 
 <details>

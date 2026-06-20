@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" role="img" aria-label="Project graph — engram connects through the NCP protocol to prisoma (private); prisoma links to pid-rs; cobot-atlas and cobot-relief each connect prisoma and crebain.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — NCP connects two-way to engram (private), prisoma (private hub) and crebain; pid-rs, cobot-atlas and cobot-relief each feed one-way into prisoma; cobot-atlas and cobot-relief connect two-way to crebain.">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
       <stop offset="0%" stop-color="#241a44"/>
@@ -11,7 +11,7 @@
   </defs>
   <style>
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
-    .edge       { fill: none; stroke: #30363d; stroke-width: 1.5; }
+    .edge       { fill: none; stroke: #30363d; stroke-width: 1.6; }
     .flow       { fill: none; stroke: #22d3ee; stroke-width: 2; stroke-dasharray: 1 9; stroke-linecap: round; opacity: 0.9; }
     .arrow      { fill: #8b949e; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
@@ -35,103 +35,111 @@
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
   </style>
 
-  <rect x="0.5" y="0.5" width="819" height="419" rx="16" class="panel"/>
+  <rect x="0.5" y="0.5" width="859" height="459" rx="16" class="panel"/>
   <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;&#8212;&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
 
-  <!-- ============================ EDGES ============================ -->
-  <!-- engram -> NCP -> prisoma -->
-  <path d="M110 210 L250 210" class="edge"/>
-  <path d="M250 210 L410 210" class="edge"/>
-  <!-- prisoma -> pid-rs -->
-  <path d="M410 210 L360 350" class="edge"/>
-  <!-- prisoma -> cobot-atlas / cobot-relief -->
-  <path d="M410 210 L575 110" class="edge"/>
-  <path d="M410 210 L575 310" class="edge"/>
-  <!-- crebain -> cobot-atlas / cobot-relief -->
-  <path d="M720 210 L575 110" class="edge"/>
-  <path d="M720 210 L575 310" class="edge"/>
+  <!-- ============================ EDGES (boundary-trimmed) ============================ -->
+  <!-- engram <-> NCP -->
+  <path d="M146 230 L218 230" class="edge"/>
+  <!-- NCP <-> prisoma -->
+  <path d="M278.6 215.7 L405.3 152.4" class="edge"/>
+  <!-- NCP <-> crebain -->
+  <path d="M278.6 244.3 L407.1 308.5" class="edge"/>
+  <!-- pid-rs -> prisoma (one-way) -->
+  <path d="M293.2 98.6 L401 120.2" class="edge"/>
+  <!-- cobot-atlas -> prisoma (one-way) -->
+  <path d="M619.4 166.8 L498.9 140.6" class="edge"/>
+  <!-- cobot-relief -> prisoma (one-way) -->
+  <path d="M626.4 245 L491.9 157.3" class="edge"/>
+  <!-- crebain <-> cobot-atlas -->
+  <path d="M490.2 303.8 L628.1 213.9" class="edge"/>
+  <!-- crebain <-> cobot-relief -->
+  <path d="M496.9 319.8 L617.5 293.6" class="edge"/>
 
-  <!-- Animated NCP data-flow: marching pulses engram -> NCP -> prisoma -->
-  <path d="M110 210 L250 210" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.2s" repeatCount="indefinite"/></path>
-  <path d="M250 210 L410 210" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+  <!-- Animated NCP data-flow: marching pulses along the NCP backbone -->
+  <path d="M146 230 L218 230" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+  <path d="M278.6 215.7 L405.3 152.4" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.3s" repeatCount="indefinite"/></path>
+  <path d="M278.6 244.3 L407.1 308.5" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.3s" repeatCount="indefinite"/></path>
 
-  <!-- ===================== DIRECTION ARROWHEADS =====================
-       Two-way (double heads): engram<->NCP, NCP<->prisoma, crebain<->cobot-atlas,
-       crebain<->cobot-relief. One-way (single head, into prisoma): pid-rs,
-       cobot-atlas, cobot-relief -> prisoma. -->
+  <!-- ===================== DIRECTION ARROWHEADS ===================== -->
   <g>
     <!-- engram <-> NCP -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(189 210) rotate(0)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(171 210) rotate(180)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(146 230) rotate(180)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(218 230) rotate(0)"/>
     <!-- NCP <-> prisoma -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(339 210) rotate(0)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(321 210) rotate(180)"/>
-    <!-- pid-rs -> prisoma (one-way) -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(385 280) rotate(-70.3)"/>
-    <!-- cobot-atlas -> prisoma (one-way) -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(492.5 160) rotate(148.7)"/>
-    <!-- cobot-relief -> prisoma (one-way) -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(492.5 260) rotate(-148.7)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(278.6 215.7) rotate(153.4)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(405.3 152.4) rotate(-26.6)"/>
+    <!-- NCP <-> crebain -->
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(278.6 244.3) rotate(206.6)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(407.1 308.5) rotate(26.6)"/>
+    <!-- pid-rs -> prisoma -->
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(401 120.2) rotate(11.3)"/>
+    <!-- cobot-atlas -> prisoma -->
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(498.9 140.6) rotate(192.3)"/>
+    <!-- cobot-relief -> prisoma -->
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(491.9 157.3) rotate(213.1)"/>
     <!-- crebain <-> cobot-atlas -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(640.1 154.9) rotate(214.6)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(654.9 165.1) rotate(34.6)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(490.2 303.8) rotate(146.9)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(628.1 213.9) rotate(-33.1)"/>
     <!-- crebain <-> cobot-relief -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(640.1 265.1) rotate(145.4)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(654.9 254.9) rotate(-34.6)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(496.9 319.8) rotate(167.7)"/>
+    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(617.5 293.6) rotate(-12.3)"/>
   </g>
 
   <!-- ============================ NODES ============================ -->
-  <!-- engram -->
+  <!-- engram (private) -->
   <g>
-    <rect x="68" y="194" width="84" height="32" rx="8" class="chip" stroke="#22d3ee"/>
-    <circle cx="83" cy="210" r="4" fill="#22d3ee"/>
-    <text x="94" y="215" class="chip-label">engram</text>
-  </g>
-
-  <!-- NCP (protocol) -->
-  <g>
-    <rect x="223" y="194" width="54" height="32" rx="16" class="chip" stroke="#fbbf24"/>
-    <text x="250" y="215" text-anchor="middle" class="chip-label" style="fill:#fbbf24">NCP</text>
+    <rect x="58" y="214" width="84" height="32" rx="8" class="chip" stroke="#22d3ee"/>
+    <g transform="translate(64 222.5)">
+      <path d="M1.6 4.6 V3.5 a2.6 2.6 0 0 1 5.2 0 V4.6" fill="none" stroke="#22d3ee" stroke-width="1.1"/>
+      <rect x="0.5" y="4.6" width="7.8" height="6" rx="1.2" fill="#22d3ee"/>
+    </g>
+    <text x="78" y="235" class="chip-label">engram</text>
   </g>
 
   <!-- pid-rs -->
   <g>
-    <rect x="318" y="334" width="84" height="32" rx="8" class="chip" stroke="#34d399"/>
-    <circle cx="333" cy="350" r="4" fill="#34d399"/>
-    <text x="344" y="355" class="chip-label">pid-rs</text>
+    <rect x="208" y="74" width="84" height="32" rx="8" class="chip" stroke="#34d399"/>
+    <circle cx="223" cy="90" r="4" fill="#34d399"/>
+    <text x="234" y="95" class="chip-label">pid-rs</text>
+  </g>
+
+  <!-- NCP (protocol) -->
+  <g>
+    <rect x="223" y="214" width="54" height="32" rx="16" class="chip" stroke="#fbbf24"/>
+    <text x="250" y="235" text-anchor="middle" class="chip-label" style="fill:#fbbf24">NCP</text>
   </g>
 
   <!-- cobot-atlas -->
   <g>
-    <rect x="515" y="94" width="120" height="32" rx="8" class="chip" stroke="#60a5fa"/>
-    <circle cx="530" cy="110" r="4" fill="#60a5fa"/>
-    <text x="541" y="115" class="chip-label">cobot-atlas</text>
+    <rect x="620" y="164" width="120" height="32" rx="8" class="chip" stroke="#60a5fa"/>
+    <circle cx="635" cy="180" r="4" fill="#60a5fa"/>
+    <text x="646" y="185" class="chip-label">cobot-atlas</text>
   </g>
 
   <!-- cobot-relief -->
   <g>
-    <rect x="513" y="294" width="124" height="32" rx="8" class="chip" stroke="#fb7185"/>
-    <circle cx="528" cy="310" r="4" fill="#fb7185"/>
-    <text x="539" y="315" class="chip-label">cobot-relief</text>
+    <rect x="618" y="264" width="124" height="32" rx="8" class="chip" stroke="#fb7185"/>
+    <circle cx="633" cy="280" r="4" fill="#fb7185"/>
+    <text x="644" y="285" class="chip-label">cobot-relief</text>
   </g>
 
   <!-- crebain -->
   <g>
-    <rect x="674" y="194" width="92" height="32" rx="8" class="chip" stroke="#f472b6"/>
-    <circle cx="689" cy="210" r="4" fill="#f472b6"/>
-    <text x="700" y="215" class="chip-label">crebain</text>
+    <rect x="404" y="314" width="92" height="32" rx="8" class="chip" stroke="#f472b6"/>
+    <circle cx="419" cy="330" r="4" fill="#f472b6"/>
+    <text x="430" y="335" class="chip-label">crebain</text>
   </g>
 
   <!-- prisoma (private hub) -->
   <g>
-    <circle cx="410" cy="210" r="46" class="hub">
+    <circle cx="450" cy="130" r="46" class="hub">
       <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
     </circle>
-    <!-- lock badge: private -->
-    <g transform="translate(404 184)">
+    <g transform="translate(444 100)">
       <path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="lock" stroke-width="1.5"/>
       <rect x="0" y="6" width="12" height="9" rx="1.6" class="lock" stroke="none"/>
     </g>
-    <text x="410" y="222" text-anchor="middle" class="hub-label">prisoma</text>
+    <text x="450" y="142" text-anchor="middle" class="hub-label">prisoma</text>
   </g>
 </svg>

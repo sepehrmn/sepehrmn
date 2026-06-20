@@ -6,14 +6,6 @@
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; computational neuroscience, robotics and UAV autonomy, 3D vision, and Rust + ML systems. Berlin, building since 2014."/>
 </p>
 
-<p align="center">
-<sub>
-Published in <strong>ReScience&nbsp;C</strong> &mdash; a three-way information-theoretic replication of Smyth, Phillips&nbsp;&amp;&nbsp;Kay&nbsp;(1996)
-&middot; <a href="https://github.com/sepahead/mahmoudian-2020-rescience">paper&nbsp;&amp;&nbsp;code</a>
-&middot; contributor to <strong><a href="https://github.com/sepahead/nest-simulator">NEST</a></strong>, the open-source spiking-network simulator
-</sub>
-</p>
-
 ---
 
 ### What I build

@@ -40,12 +40,12 @@ jobs:
       - name: Generate cumulative chart SVG
         env:
           GH_USERNAME: sepahead
-          # User PAT (read:user scope) so PRIVATE contributions are counted via
-          # the authenticated GraphQL contributionsCollection. Must belong to
-          # GH_USERNAME. If the secret is unset the script silently falls back
-          # to scraping the public HTML fragment (public-only, lower numbers) —
-          # that host is not subject to the api.github.com rate limit.
-          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
+        # No token: the script scrapes github.com/users/{login}/contributions
+        # (a different host from api.github.com, so not subject to the Actions-
+        # runner API rate limit). The public per-year <h2> total already
+        # INCLUDES private contributions because the profile has "include
+        # private contributions" enabled, so the numbers are complete without a
+        # PAT. Do not add a token here — see the header note in the script.
         run: node scripts/cumulative.mjs
 
       - name: Commit updated cumulative chart SVG

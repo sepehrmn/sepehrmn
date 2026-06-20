@@ -64,6 +64,18 @@ const XML_ENTITIES = {
 const escapeXML = (s) => String(s).replace(/[&<>"']/g, (c) => XML_ENTITIES[c]);
 
 const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+// One distinct colour per weekday (Mon→Sun). Vivid but harmonious; the peak day
+// still glows. Used for both the donut slices and the legend swatches, and kept
+// readable on light and dark backgrounds.
+const DAY_COLORS = [
+  "#22d3ee", // Mon — cyan
+  "#34d399", // Tue — emerald
+  "#a78bfa", // Wed — violet
+  "#60a5fa", // Thu — blue
+  "#fbbf24", // Fri — amber
+  "#fb7185", // Sat — rose
+  "#f472b6", // Sun — pink
+];
 const WINDOW_DAYS = 500; // ~16 months — long enough to smooth out one-off weeks.
 
 // GitHub's calendar week starts on Sunday. We want Monday-first bars, so a
@@ -379,8 +391,9 @@ function renderSVG(model) {
       const title = `${s.label}: ${s.total} contributions · ${(s.pct * 100).toFixed(1)}% of the last ${windowDays} days`;
       const titleEsc = escapeXML(title);
       const cls = `slice${s.isPeak ? " slice-peak" : ""}`;
+      const color = DAY_COLORS[i % DAY_COLORS.length];
       const transformOrigin = `${CX} ${CY}`;
-      return `<path d="${d}" class="${cls}" style="transform-origin:${transformOrigin};opacity:1" transform="scale(1)"><title>${titleEsc}</title>${
+      return `<path d="${d}" class="${cls}" style="transform-origin:${transformOrigin};opacity:1;fill:${color}" transform="scale(1)"><title>${titleEsc}</title>${
         s.isPeak
           ? `<animate attributeName="opacity" values="1;0.68;1" dur="2.6s" begin="1.3s" repeatCount="indefinite"/>`
           : ""
@@ -427,7 +440,8 @@ function renderSVG(model) {
     .map((s, i) => {
       const y = LEGEND_TOP + i * LEGEND_ROW_H;
       const cls = `legend-label${s.isPeak ? " legend-peak" : ""}`;
-      return `<rect x="${LEGEND_X}" y="${y - 9}" width="12" height="12" rx="2" class="legend-swatch${s.isPeak ? " swatch-peak" : ""}"/>
+      const color = DAY_COLORS[i % DAY_COLORS.length];
+      return `<rect x="${LEGEND_X}" y="${y - 9}" width="12" height="12" rx="2" style="fill:${color}" class="legend-swatch${s.isPeak ? " swatch-peak" : ""}"/>
       <text x="${LEGEND_X + 22}" y="${y}" class="${cls}">${escapeXML(s.label)}</text>
       <text x="${LEGEND_X + 196}" y="${y}" text-anchor="end" class="${cls}">${s.pctLabel}%</text>`;
     })

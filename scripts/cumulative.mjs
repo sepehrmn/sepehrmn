@@ -353,6 +353,26 @@ function renderSVG(model) {
     })
     .join("");
 
+  // Cumulative running-total curve, drawn as a faint area+line BEHIND the bars.
+  // It has its own scale (the cumulative total far exceeds any single year, so it
+  // can't share the bars' y-axis); we map 0..finalCumulative across the plot so
+  // the curve rises to near the top by the last bar. Purely decorative context —
+  // very transparent so the bars stay the focus.
+  const cumMax = cumulative > 0 ? cumulative : 1;
+  const cumPts = rows.map((row, i) => {
+    const cx = PLOT_LEFT + slot * i + slot / 2;
+    const cy = PLOT_BOTTOM - (row.cumulative / cumMax) * PLOT_HEIGHT;
+    return [cx, cy];
+  });
+  const cumLineD = cumPts
+    .map(([px, py], i) => `${i ? "L" : "M"} ${px.toFixed(1)} ${py.toFixed(1)}`)
+    .join(" ");
+  const cumArea = cumPts.length
+    ? `<path d="M ${cumPts[0][0].toFixed(1)} ${PLOT_BOTTOM} ${cumLineD
+        .replace(/^M/, "L")} L ${cumPts[cumPts.length - 1][0].toFixed(1)} ${PLOT_BOTTOM} Z" class="cum-area"/>
+  <path d="${cumLineD}" class="cum-line"/>`
+    : "";
+
   const headlineNum = fmt(cumulative);
   const rangeLabel = `${startYear}–${currentYear()}`;
   const warningBanner = warning
@@ -370,6 +390,10 @@ function renderSVG(model) {
     <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#22d3ee"/>
       <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <linearGradient id="cumGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
     </linearGradient>
     <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="7" result="b"/>
@@ -389,6 +413,8 @@ function renderSVG(model) {
     .bar { fill: url(#barGrad); }
     .bar-glow { fill: #22d3ee; filter: url(#glow); opacity: 0.55; }
     .bar-label { opacity: 1; }
+    .cum-area { fill: url(#cumGrad); }
+    .cum-line { fill: none; stroke: #22d3ee; stroke-width: 1.5; stroke-opacity: 0.3; }
     @media (prefers-color-scheme: light) {
       .headline { fill: #0891b2; }
       .sub { fill: #57606a; }
@@ -412,6 +438,7 @@ function renderSVG(model) {
     : ""}
   ${gridlines}
   <line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>
+  ${cumArea}
   ${bars}
   ${warningBanner}
 </svg>`;

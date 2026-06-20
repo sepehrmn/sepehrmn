@@ -8,7 +8,8 @@
 
 ---
 
-### What I build
+<details open>
+<summary><h3>What I build</h3></summary>
 
 <p align="center">
 I turn research into running systems for robots, UAVs and vision &mdash; and ship the code.
@@ -29,9 +30,13 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 <sub>Gaussian splatting and depth pipelines; safe-Rust estimators and a safety-gated, provenance-first robotics protocol.</sub>
 </p>
 
+</details>
+
 ---
 
-### Selected work
+<details open>
+<summary><h3>Selected work</h3></summary>
+
 
 <!-- A hand-authored table, deliberately not github-readme-stats pin cards: the
      public card service (github-readme-stats.vercel.app) is rate-limited (~100
@@ -67,12 +72,38 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 
 </details>
 
+</details>
+
 ---
 
-### The toolbox
+<details open>
+<summary><h3>The pulse</h3></summary>
 
-<details>
-<summary><strong>The full stack &mdash; click to expand</strong></summary>
+<p align="center">
+<!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
+     regenerated daily by .github/workflows/cumulative.yml from the per-year
+     contribution fragment at github.com/users/sepahead/contributions (the
+     unauthenticated host, not the rate-limited API). Served from
+     raw.githubusercontent.com so it never depends on a third-party card. -->
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
+</p>
+
+<p align="center">
+<!-- Each weekday's share of contributions over the last 500 days (~16 months) as
+     a donut &mdash; a week is a cycle, so a ring reads more naturally than bars,
+     and shares make the rhythm obvious at a glance. Regenerated daily by
+     .github/workflows/weekdays.yml from the same server-rendered fragment. The
+     glowing slice marks the peak day. Lives in-repo, so it works regardless of
+     external card services. -->
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
+</p>
+
+</details>
+
+---
+
+<details open>
+<summary><h3>The toolbox</h3></summary>
 
 <br/>
 
@@ -114,30 +145,8 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 
 ---
 
-### The pulse
-
-<p align="center">
-<!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
-     regenerated daily by .github/workflows/cumulative.yml from the per-year
-     contribution fragment at github.com/users/sepahead/contributions (the
-     unauthenticated host, not the rate-limited API). Served from
-     raw.githubusercontent.com so it never depends on a third-party card. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
-</p>
-
-<p align="center">
-<!-- Each weekday's share of contributions over the last 500 days (~16 months) as
-     a donut &mdash; a week is a cycle, so a ring reads more naturally than bars,
-     and shares make the rhythm obvious at a glance. Regenerated daily by
-     .github/workflows/weekdays.yml from the same server-rendered fragment. The
-     glowing slice marks the peak day. Lives in-repo, so it works regardless of
-     external card services. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
-</p>
-
----
-
-### Elsewhere
+<details open>
+<summary><h3>Elsewhere</h3></summary>
 
 <p align="center">
 <a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/" title="LinkedIn"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
@@ -156,3 +165,5 @@ I turn research into running systems for robots, UAVs and vision &mdash; and shi
 <p align="center">
 <strong><a href="mailto:sepehr.mahmoudian@gmail.com">sepehr.mahmoudian@gmail.com</a></strong> &mdash; always open to interesting problems.
 </p>
+
+</details>

@@ -38,9 +38,9 @@
     }
   </style>
   <rect width="820" height="280" fill="transparent"/>
-  <text x="56" y="62" class="headline">6,239</text>
-  <text x="56" y="82" class="sub">total contributions since 2020</text>
-  <text x="792" y="26" text-anchor="end" class="sub">peak 2,027 in 2025</text>
+  <text x="56" y="58" class="headline">6,239</text>
+  <text x="56" y="86" class="sub">total contributions since 2020</text>
+  <text x="792" y="26" text-anchor="end" class="sub">+359 contributions/yr avg</text>
   <line x1="56" y1="224.0" x2="792" y2="224.0" class="grid"/>
 <text x="46" y="227.0" text-anchor="end" class="axis">0</text>
   <line x1="56" y1="191.0" x2="792" y2="191.0" class="grid"/>

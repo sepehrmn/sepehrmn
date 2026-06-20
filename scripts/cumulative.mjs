@@ -123,19 +123,31 @@ async function fetchYearTotals(login, startYear, endYear) {
 function buildModel(years) {
   let cumulative = 0;
   let peak = 0;
-  let peakYear = years[0]?.year ?? START_YEAR;
   const rows = years.map((y) => {
     cumulative += y.total;
-    if (y.total > peak) {
-      peak = y.total;
-      peakYear = y.year;
-    }
+    if (y.total > peak) peak = y.total;
     return { ...y, cumulative, isCurrent: y.year === currentYear() };
   });
+
+  // Average year-over-year INCREASE in contribution count: the mean of the
+  // per-year deltas, which telescopes to (last − first) / periods. Computed over
+  // COMPLETE years only — the in-progress current year is partial and would drag
+  // the average down. null when there isn't enough data.
+  const complete = rows.filter((r) => !r.isCurrent);
+  let avgIncrease = null;
+  if (complete.length >= 2) {
+    const first = complete[0];
+    const last = complete[complete.length - 1];
+    const periods = last.year - first.year;
+    if (periods > 0) {
+      avgIncrease = Math.round((last.total - first.total) / periods);
+    }
+  }
+
   return {
     rows,
     peak,
-    peakYear,
+    avgIncrease,
     cumulative,
     startYear: years[0]?.year ?? START_YEAR,
   };
@@ -151,7 +163,7 @@ function placeholder(errorMessage) {
   return {
     rows: [],
     peak: 0,
-    peakYear: START_YEAR,
+    avgIncrease: null,
     cumulative: 0,
     startYear: START_YEAR,
     warning,
@@ -185,7 +197,7 @@ const niceMax = (v) => {
 };
 
 function renderSVG(model) {
-  const { rows, peak, peakYear, cumulative, warning, startYear } = model;
+  const { rows, peak, avgIncrease, cumulative, warning, startYear } = model;
   const yMax = niceMax(peak);
   const n = rows.length || 1;
 
@@ -294,10 +306,10 @@ function renderSVG(model) {
     }
   </style>
   <rect width="${W}" height="${H}" fill="transparent"/>
-  <text x="${PAD_LEFT}" y="${HEAD_TOP + 36}" class="headline">${headlineNum}</text>
-  <text x="${PAD_LEFT}" y="${HEAD_TOP + 56}" class="sub">total contributions since ${startYear}</text>
-  ${peak > 0
-    ? `<text x="${PLOT_RIGHT}" y="${HEAD_TOP}" text-anchor="end" class="sub">peak ${fmt(peak)} in ${peakYear}</text>`
+  <text x="${PAD_LEFT}" y="${HEAD_TOP + 32}" class="headline">${headlineNum}</text>
+  <text x="${PAD_LEFT}" y="${HEAD_TOP + 60}" class="sub">total contributions since ${startYear}</text>
+  ${avgIncrease != null
+    ? `<text x="${PLOT_RIGHT}" y="${HEAD_TOP}" text-anchor="end" class="sub">${avgIncrease >= 0 ? "+" : ""}${fmt(avgIncrease)} contributions/yr avg</text>`
     : ""}
   ${gridlines}
   <line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>
@@ -321,7 +333,7 @@ async function main() {
     console.log(`[cumulative] ${summary}`);
     model = buildModel(years);
     console.log(
-      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak} in ${model.peakYear} (sources: ${years
+      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak}; avgIncrease=${model.avgIncrease}/yr (sources: ${years
         .map((y) => `${y.year}:${y.source}`)
         .join(", ")}).`
     );

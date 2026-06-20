@@ -136,8 +136,5 @@
 </a>
 </p>
 
-<p align="center">
-<strong><a href="mailto:sepehr.mahmoudian@gmail.com">sepehr.mahmoudian@gmail.com</a></strong> &mdash; always open to interesting problems.
-</p>
 
 </details>

@@ -36,10 +36,14 @@ const USERNAME = process.env.GH_USERNAME || "sepahead";
 // on my profile" enabled — verified: the unauthenticated h2 equals the
 // authenticated contributionsCollection total). So the unauthenticated numbers
 // are already complete, and we avoid a PAT that could expose private repos.
-// First year of activity on GitHub for this user (created 2014, but
-// contribution tracking is only meaningful from 2020 onward per the chart's
-// scope — matches the prior external chart's from=2020-01-01).
-const START_YEAR = Number(process.env.CUMULATIVE_START_YEAR) || 2020;
+// First year of activity on GitHub for this user (account created 2014). The
+// early years (2014–2020) were sparse, so rather than seven tiny standalone
+// bars they are collapsed into ONE stacked, multi-colour bar (a segment per
+// year). 2021 onward each get their own bar.
+const START_YEAR = Number(process.env.CUMULATIVE_START_YEAR) || 2014;
+// Years <= this are merged into the first, stacked bar.
+const STACK_THROUGH_YEAR =
+  Number(process.env.CUMULATIVE_STACK_THROUGH) || 2020;
 
 // ---------------------------------------------------------------------------
 // 0. Helpers
@@ -121,33 +125,66 @@ async function fetchYearTotals(login, startYear, endYear) {
 // 2. Build the render model (add cumulative + flag the in-progress year).
 // ---------------------------------------------------------------------------
 function buildModel(years) {
-  let cumulative = 0;
+  // Peak single-year total (for y-axis scaling) across ALL years.
   let peak = 0;
-  const rows = years.map((y) => {
-    cumulative += y.total;
-    if (y.total > peak) peak = y.total;
-    return { ...y, cumulative, isCurrent: y.year === currentYear() };
-  });
+  for (const y of years) if (y.total > peak) peak = y.total;
 
-  // Average year-over-year INCREASE in contribution count: the mean of the
-  // per-year deltas, which telescopes to (last − first) / periods. Computed over
-  // COMPLETE years only — the in-progress current year is partial and would drag
-  // the average down. null when there isn't enough data.
-  const complete = rows.filter((r) => !r.isCurrent);
-  let avgIncrease = null;
-  if (complete.length >= 2) {
-    const first = complete[0];
-    const last = complete[complete.length - 1];
+  const early = years.filter((y) => y.year <= STACK_THROUGH_YEAR);
+  const late = years.filter((y) => y.year > STACK_THROUGH_YEAR);
+
+  let cumulative = 0;
+  const rows = [];
+
+  // Bar 0: the stacked, multi-colour history bar (one segment per early year).
+  if (early.length) {
+    const earlyTotal = early.reduce((s, y) => s + y.total, 0);
+    cumulative += earlyTotal;
+    const firstYear = early[0].year;
+    rows.push({
+      isStack: true,
+      isCurrent: false,
+      total: earlyTotal,
+      cumulative,
+      // e.g. 2014–20
+      label: `${firstYear}–${String(STACK_THROUGH_YEAR).slice(2)}`,
+      segments: early.map((y) => ({ year: y.year, total: y.total })),
+    });
+  }
+
+  // Bars 1..n: one per year after the stack cutoff.
+  for (const y of late) {
+    cumulative += y.total;
+    rows.push({
+      isStack: false,
+      isCurrent: y.year === currentYear(),
+      total: y.total,
+      cumulative,
+      label: String(y.year),
+    });
+  }
+
+  // Average year-over-year PERCENT growth (CAGR — geometric mean of the YoY
+  // ratios, robust to wild single-year swings). Measured over the post-stack
+  // era (years >= STACK_THROUGH_YEAR), complete years only: the sparse pre-2020
+  // years would explode a percentage, and the in-progress year would understate
+  // it. null when there isn't enough data.
+  const growthYears = years.filter(
+    (y) => y.year >= STACK_THROUGH_YEAR && y.year !== currentYear()
+  );
+  let avgGrowthPct = null;
+  if (growthYears.length >= 2) {
+    const first = growthYears[0];
+    const last = growthYears[growthYears.length - 1];
     const periods = last.year - first.year;
-    if (periods > 0) {
-      avgIncrease = Math.round((last.total - first.total) / periods);
+    if (first.total > 0 && periods > 0) {
+      avgGrowthPct = (Math.pow(last.total / first.total, 1 / periods) - 1) * 100;
     }
   }
 
   return {
     rows,
     peak,
-    avgIncrease,
+    avgGrowthPct,
     cumulative,
     startYear: years[0]?.year ?? START_YEAR,
   };
@@ -163,7 +200,7 @@ function placeholder(errorMessage) {
   return {
     rows: [],
     peak: 0,
-    avgIncrease: null,
+    avgGrowthPct: null,
     cumulative: 0,
     startYear: START_YEAR,
     warning,
@@ -187,6 +224,19 @@ const PLOT_LEFT = PAD_LEFT;
 const PLOT_RIGHT = W - PAD_RIGHT;
 const PLOT_WIDTH = PLOT_RIGHT - PLOT_LEFT;
 
+// Distinct colours for the stacked history bar — one per early year (oldest
+// first, drawn from the baseline up). Harmonious with the cyan theme but
+// individually distinguishable; cycles if there are more years than colours.
+const STACK_COLORS = [
+  "#a78bfa", // violet
+  "#60a5fa", // blue
+  "#22d3ee", // cyan
+  "#34d399", // emerald
+  "#fbbf24", // amber
+  "#fb7185", // rose
+  "#f472b6", // pink
+];
+
 // "Nice" rounded-up max for the y-axis (e.g. 1996 -> 2000; 1676 -> 2000).
 const niceMax = (v) => {
   if (v <= 0) return 1;
@@ -197,7 +247,7 @@ const niceMax = (v) => {
 };
 
 function renderSVG(model) {
-  const { rows, peak, avgIncrease, cumulative, warning, startYear } = model;
+  const { rows, peak, avgGrowthPct, cumulative, warning, startYear } = model;
   const yMax = niceMax(peak);
   const n = rows.length || 1;
 
@@ -222,14 +272,64 @@ function renderSVG(model) {
       const x = cx - barW / 2;
       const h = yMax > 0 ? (row.total / yMax) * PLOT_HEIGHT : 0;
       const y = PLOT_BOTTOM - h;
-      const isPeak = peak > 0 && row.total === peak;
       // Staggered draw-in: each bar starts from the baseline and grows.
       const begin = 0.15 + i * 0.13; // seconds
       const dur = 0.7; // seconds
+
+      // --- Stacked history bar (multi-colour, one segment per early year) -----
+      if (row.isStack) {
+        // These early years are so sparse (single/double digits) that a strictly
+        // proportional stack would be a few invisible sub-pixel slivers. To make
+        // the per-year breakdown actually legible, each NON-ZERO year gets a
+        // minimum visible band; exact counts live in the hover tooltips and the
+        // bar's total label. Zero years are omitted entirely. The stack is thus
+        // a qualitative "this bar spans several years" cue, not a proportional one.
+        const MIN_SEG_PX = 7;
+        let accH = 0;
+        const segs = row.segments
+          .map((seg, si) => {
+            if (seg.total <= 0) return ""; // omit empty years, keep colour order
+            const prop = yMax > 0 ? (seg.total / yMax) * PLOT_HEIGHT : 0;
+            const sh = Math.max(prop, MIN_SEG_PX);
+            const sy = PLOT_BOTTOM - accH - sh;
+            accH += sh;
+            const color = STACK_COLORS[si % STACK_COLORS.length];
+            const segTitle = escapeXML(
+              `${seg.year}: ${fmt(seg.total)} contributions`
+            );
+            return `<rect x="${x.toFixed(1)}" y="${sy.toFixed(1)}" width="${barW.toFixed(1)}" height="${sh.toFixed(1)}" fill="${color}"><title>${segTitle}</title></rect>`;
+          })
+          .join("\n    ");
+        // Actual rendered top of the (min-band-inflated) stack.
+        const stackTop = PLOT_BOTTOM - accH;
+        const stackTitle = escapeXML(
+          `${row.label}: ${fmt(row.total)} contributions (stacked by year) · cumulative ${fmt(row.cumulative)}`
+        );
+        // Round only the top edge of the whole stack, matching the other bars.
+        const clipId = `stackClip${i}`;
+        return `
+  <g>
+    <clipPath id="${clipId}"><rect x="${x.toFixed(1)}" y="${stackTop.toFixed(1)}" width="${barW.toFixed(1)}" height="${accH.toFixed(1)}" rx="5"/></clipPath>
+    <g clip-path="url(#${clipId})">
+      <title>${stackTitle}</title>
+      ${segs}
+      <animate attributeName="opacity" from="0" to="1" begin="${begin.toFixed(2)}s" dur="${dur}s" fill="freeze"/>
+    </g>
+    <g class="bar-label">
+      <text x="${cx.toFixed(1)}" y="${(stackTop - 8).toFixed(1)}" text-anchor="middle" class="value">${fmt(row.total)}
+        <animate attributeName="opacity" from="0" to="1" begin="${(begin + dur * 0.6).toFixed(2)}s" dur="${(dur * 0.4).toFixed(2)}s" fill="freeze"/>
+      </text>
+    </g>
+    <text x="${cx.toFixed(1)}" y="${PLOT_BOTTOM + 22}" text-anchor="middle" class="year">${escapeXML(row.label)}</text>
+  </g>`;
+      }
+
+      // --- Normal single-year bar --------------------------------------------
+      const isPeak = peak > 0 && row.total === peak;
       // Peak pulse starts only AFTER the draw-in finishes (begin + dur), so
       // the glow doesn't throb while the bar is still rising.
       const pulseBegin = begin + dur;
-      const title = `${row.year}: ${fmt(row.total)} contributions${
+      const title = `${row.label}: ${fmt(row.total)} contributions${
         row.isCurrent ? " (year in progress)" : ""
       } · cumulative ${fmt(row.cumulative)}`;
       const titleEsc = escapeXML(title);
@@ -248,14 +348,13 @@ function renderSVG(model) {
         <animate attributeName="opacity" from="0" to="1" begin="${(begin + dur * 0.6).toFixed(2)}s" dur="${(dur * 0.4).toFixed(2)}s" fill="freeze"/>
       </text>
     </g>
-    <text x="${cx.toFixed(1)}" y="${PLOT_BOTTOM + 22}" text-anchor="middle" class="year${isPeak ? " year-peak" : ""}">${row.year}</text>
+    <text x="${cx.toFixed(1)}" y="${PLOT_BOTTOM + 22}" text-anchor="middle" class="year${isPeak ? " year-peak" : ""}">${escapeXML(row.label)}</text>
   </g>`;
     })
     .join("");
 
   const headlineNum = fmt(cumulative);
-  const lastYear = rows.length ? rows[rows.length - 1].year : currentYear();
-  const rangeLabel = `${startYear}–${lastYear}`;
+  const rangeLabel = `${startYear}–${currentYear()}`;
   const warningBanner = warning
     ? `<text x="${W / 2}" y="${H - 8}" text-anchor="middle" class="warning">${escapeXML(
         warning
@@ -308,8 +407,8 @@ function renderSVG(model) {
   <rect width="${W}" height="${H}" fill="transparent"/>
   <text x="${PAD_LEFT}" y="${HEAD_TOP + 32}" class="headline">${headlineNum}</text>
   <text x="${PAD_LEFT}" y="${HEAD_TOP + 60}" class="sub">total contributions since ${startYear}</text>
-  ${avgIncrease != null
-    ? `<text x="${PLOT_RIGHT}" y="${HEAD_TOP}" text-anchor="end" class="sub">${avgIncrease >= 0 ? "+" : ""}${fmt(avgIncrease)} contributions/yr avg</text>`
+  ${avgGrowthPct != null
+    ? `<text x="${PLOT_RIGHT}" y="${HEAD_TOP}" text-anchor="end" class="sub">avg growth ${avgGrowthPct >= 0 ? "+" : ""}${Math.round(avgGrowthPct)}%/yr</text>`
     : ""}
   ${gridlines}
   <line x1="${PLOT_LEFT}" y1="${PLOT_BOTTOM}" x2="${PLOT_RIGHT}" y2="${PLOT_BOTTOM}" class="baseline"/>
@@ -333,7 +432,7 @@ async function main() {
     console.log(`[cumulative] ${summary}`);
     model = buildModel(years);
     console.log(
-      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak}; avgIncrease=${model.avgIncrease}/yr (sources: ${years
+      `[cumulative] ${model.rows.length} bars; cumulative=${model.cumulative}; peak=${model.peak}; avgGrowth=${model.avgGrowthPct?.toFixed(1)}%/yr (sources: ${years
         .map((y) => `${y.year}:${y.source}`)
         .join(", ")}).`
     );

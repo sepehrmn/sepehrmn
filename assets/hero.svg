@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 170" width="820" height="170" role="img" aria-label="sepehrmn — AI systems engineer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — computational neuroscience, robotics, 3D vision and Rust systems, Berlin">
   <style>
-    /* Theme colors mirror assets/weekdays.svg so the two charts read as one system. */
-    .wordmark { font: 700 46px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
-    .role     { font: 500 21px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    /* Theme colors mirror assets/weekdays.svg so the page reads as one system. */
+    .wordmark { font: 700 40px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
+    .role     { font: 500 20px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .meta     { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .cursor   { fill: #22d3ee; }
     .underline-base { stroke: #30363d; stroke-width: 2; fill: none; }
@@ -21,58 +21,60 @@
     }
   </style>
 
-  <!-- Wordmark. textLength locks the rendered width so the cursor + underline
-       positions are stable regardless of the host's monospace font metrics. -->
-  <text x="40" y="74" class="wordmark" textLength="220" lengthAdjust="spacingAndGlyphs">sepehrmn</text>
+  <!-- Wordmark = the name (searchable, matches the publication byline).
+       textLength locks rendered width so cursor + underline are stable
+       regardless of the host's monospace font metrics. -->
+  <text x="40" y="68" class="wordmark" textLength="500" lengthAdjust="spacingAndGlyphs">Sepehr Mahmoudian</text>
 
   <!-- Blinking block cursor right after the wordmark. -->
-  <rect x="270" y="40" width="14" height="42" rx="2" class="cursor">
+  <rect x="548" y="36" width="13" height="38" rx="2" class="cursor">
     <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" repeatCount="indefinite"/>
   </rect>
 
   <!-- Animated underline: a static muted base + a bright cyan band sweeping
        left→right along it, drawn via an animated linearGradient. -->
-  <line x1="40" y1="92" x2="260" y2="92" class="underline-base"/>
-  <rect x="40" y="89" width="220" height="6" rx="3" fill="url(#sweep)">
-    <title>sepehrmn</title>
+  <line x1="40" y1="86" x2="540" y2="86" class="underline-base"/>
+  <rect x="40" y="83" width="500" height="6" rx="3" fill="url(#sweep)">
+    <title>Sepehr Mahmoudian</title>
   </rect>
   <defs>
     <linearGradient id="sweep" gradientUnits="userSpaceOnUse" x1="-60" y1="0" x2="60" y2="0">
       <stop offset="0"   stop-color="#22d3ee" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.9"/>
       <stop offset="1"   stop-color="#22d3ee" stop-opacity="0"/>
-      <animate attributeName="x1" from="-60" to="280" dur="3.2s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="60"  to="400" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="-60" to="560" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="60"  to="680" dur="3.2s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
 
-  <!-- Rotating role line. Four roles share one 16s cycle; each is visible in
-       its own 4s slot (0.5s fade-in, ~2.5s hold, 0.5s fade-out) via staggered
-       keyTimes. Base opacity attributes give a clean reduced-motion fallback. -->
+  <!-- Rotating role line — the four verified pillars. Each shares one 16s cycle
+       and is visible in its own 4s slot (0.5s fade-in, ~2.5s hold, 0.5s
+       fade-out) via staggered keyTimes. Base opacity attributes give a clean
+       reduced-motion fallback (the first line stays visible). -->
   <g>
-    <text x="40" y="128" class="role" opacity="1">
-      building AI systems that work in the real world
+    <text x="40" y="124" class="role" opacity="1">
+      partial information decomposition · spiking networks · information theory
       <animate attributeName="opacity"
         values="0;1;1;0;0"
         keyTimes="0;0.03125;0.1875;0.21875;1"
         dur="16s" repeatCount="indefinite"/>
     </text>
-    <text x="40" y="128" class="role" opacity="0">
-      distributed systems · cryptography · confidential compute
+    <text x="40" y="124" class="role" opacity="0">
+      UAV autonomy · sensor fusion · ML detection · ROS / Gazebo
       <animate attributeName="opacity"
         values="0;0;1;1;0;0"
         keyTimes="0;0.25;0.28125;0.4375;0.46875;1"
         dur="16s" repeatCount="indefinite"/>
     </text>
-    <text x="40" y="128" class="role" opacity="0">
-      robot autonomy · sensor fusion · ROS / Gazebo
+    <text x="40" y="124" class="role" opacity="0">
+      3D vision · Gaussian splatting · depth pipelines
       <animate attributeName="opacity"
         values="0;0;1;1;0;0"
         keyTimes="0;0.5;0.53125;0.6875;0.71875;1"
         dur="16s" repeatCount="indefinite"/>
     </text>
-    <text x="40" y="128" class="role" opacity="0">
-      neural modeling · memory &amp; self-healing agent architectures
+    <text x="40" y="124" class="role" opacity="0">
+      safe-Rust estimators · provenance-first protocols · ML systems
       <animate attributeName="opacity"
         values="0;0;1;1;0;0"
         keyTimes="0;0.75;0.78125;0.9375;0.96875;1"
@@ -80,5 +82,5 @@
     </text>
   </g>
 
-  <text x="40" y="156" class="meta">Berlin  ·  10+ years R&amp;D → production  ·  Rust · AI/ML · distributed systems</text>
+  <text x="40" y="158" class="meta">Berlin  ·  computational neuroscience × robotics × Rust  ·  building since 2014</text>
 </svg>

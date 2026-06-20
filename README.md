@@ -1,89 +1,77 @@
 <p align="center">
-<!-- Animated hero banner (SMIL). Renders inside <img> — same approach as
-     assets/weekdays.svg. Theme-adaptive via internal prefers-color-scheme.
-     Committed to the repo so it always loads (no external card service). -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/hero.svg" width="820" alt="sepehrmn — building AI systems that work in the real world"/>
+<!-- Animated hero (SMIL). Renders and animates inside <img>; theme-adaptive via
+     the SVG's internal prefers-color-scheme, with a reduced-motion fallback.
+     Committed to the repo and served from raw.githubusercontent.com, so it always
+     loads with no external card service. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; computational neuroscience, robotics and UAV autonomy, 3D vision, and Rust + ML systems. Berlin, building since 2014."/>
+</p>
+
+<p align="center">
+<sub>
+Published in <strong>ReScience&nbsp;C</strong> &mdash; a three-way information-theoretic replication of Smyth, Phillips&nbsp;&amp;&nbsp;Kay&nbsp;(1996)
+&middot; <a href="https://github.com/sepehrmn/mahmoudian-2020-rescience">paper&nbsp;&amp;&nbsp;code</a>
+&middot; contributor to <strong><a href="https://github.com/sepehrmn/nest-simulator">NEST</a></strong>, the open-source spiking-network simulator
+</sub>
 </p>
 
 ---
 
-### What I do
+### What I build
 
-<table>
-<tr>
-<td align="center" width="33%">
+<p align="center">
+I turn research into running systems for robots, UAVs and vision &mdash; and ship the code.
+</p>
 
-**Intelligence, in production**<br/>
-<sub>Deep learning, computer vision, reinforcement learning — research shipped, not shelved</sub>
+<p align="center">
+<strong>Neural computation</strong><br/>
+<sub>Partial Information Decomposition, spiking networks, information theory &mdash; published in ReScience&nbsp;C, contributor to NEST.</sub>
+</p>
 
-</td>
-<td align="center" width="33%">
+<p align="center">
+<strong>Machines that move</strong><br/>
+<sub>UAV autonomy, sensor fusion, ML detection, ROS&nbsp;/&nbsp;Gazebo simulation &mdash; the crebain&nbsp;/&nbsp;NCP stack.</sub>
+</p>
 
-**Distributed & confidential compute**<br/>
-<sub>Cryptography, decentralized tallying, provenance-first protocols</sub>
-
-</td>
-<td align="center" width="33%">
-
-**Machines that move**<br/>
-<sub>Sensor fusion, ML detection, simulation — ROS / Gazebo</sub>
-
-</td>
-</tr>
-</table>
+<p align="center">
+<strong>3D vision &amp; Rust systems</strong><br/>
+<sub>Gaussian splatting and depth pipelines; safe-Rust estimators and a safety-gated, provenance-first robotics protocol.</sub>
+</p>
 
 ---
 
 ### Selected work
 
-<!-- Live pin cards via github-readme-stats — they pull stars, language + color,
-     forks and the repo description dynamically, so they stay accurate with no
-     CI. Wrapped in <picture> for dark/light themes, same pattern as the rest of
-     this page. -->
-<p align="center">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=crebain&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=crebain&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=crebain&theme=transparent&hide_border=true" />
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=engram&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=engram&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=engram&theme=transparent&hide_border=true" />
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=pid-rs&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=pid-rs&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=pid-rs&theme=transparent&hide_border=true" />
-</picture>
-</p>
-<p align="center">
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=NCP&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=NCP&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=NCP&theme=transparent&hide_border=true" />
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=cobot-atlas&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=cobot-atlas&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=sepehrmn&repo=cobot-atlas&theme=transparent&hide_border=true" />
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=torus-automations&repo=groupweave&theme=github_dark&hide_border=true">
-<source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=torus-automations&repo=groupweave&theme=transparent&hide_border=true">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=torus-automations&repo=groupweave&theme=transparent&hide_border=true" />
-</picture>
-</p>
+<!-- A hand-authored table, deliberately not github-readme-stats pin cards: the
+     public card service (github-readme-stats.vercel.app) is rate-limited (~100
+     req/hr per IP) and frequently returns 503 / DEPLOYMENT_PAUSED, so this &mdash;
+     the highest-stakes section &mdash; would fail hardest as broken images. A
+     static table never breaks, matches the self-hosted ethos of the charts
+     below, and stays accurate (these star counts are slow-moving). -->
+
+| Project | What it is | Stack |
+|---|---|---|
+| **[crebain](https://github.com/sepehrmn/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship. | TS &middot; Rust &middot; Nix |
+| **[brojapid-activationfunctions](https://github.com/sepehrmn/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). | Python |
+| **[cobot-atlas](https://github.com/sepehrmn/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. | Python |
+| **[engram](https://github.com/sepehrmn/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; spiking-network and neural-modeling experiments. | Python |
+| **[pid-rs](https://github.com/sepehrmn/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust. | Rust |
+| **[NCP](https://github.com/sepehrmn/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
 
 <details>
 <summary><strong>More repositories</strong></summary>
 
+<br/>
+
 | Repository | Area |
 |---|---|
-| **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D assets for disaster relief & humanitarian aid |
-| **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines & depth analysis |
-| **[manwe](https://github.com/sepehrmn/manwe)** | UAV detection using vision (Rust) |
-| **[brojapid-activationfunctions](https://github.com/sepehrmn/brojapid-activationfunctions)** | Partial Information Decomposition (PID) analysis of activation functions |
+| **[mahmoudian-2020-rescience](https://github.com/sepehrmn/mahmoudian-2020-rescience)** | ReScience&nbsp;C publication &mdash; three-way information-theoretic analysis of transfer functions (replication, forked by&nbsp;3). |
+| **[nest-simulator](https://github.com/sepehrmn/nest-simulator)** | NEST spiking-network simulator &mdash; fork carrying original contributions on feature branches. |
+| **[melkor](https://github.com/sepehrmn/melkor)** | Gaussian splatting pipelines &amp; depth analysis. |
+| **[relief-atlas](https://github.com/sepehrmn/relief-atlas)** | 10K+ AI-generated 3D mesh assets for disaster relief &amp; humanitarian aid. |
+| **[manwe](https://github.com/sepehrmn/manwe)** | Real-time UAV detection from vision, in Rust. |
+| **[silmaril-vision-studio](https://github.com/sepehrmn/silmaril-vision-studio)** | Computer-vision studio &amp; testbed for prototyping vision models. |
+
+<sub>Repo names borrow from Tolkien &mdash; <em>crebain</em> were Saruman's spy-crows.</sub>
 
 </details>
 
@@ -92,11 +80,9 @@
 ### The toolbox
 
 <details>
-<summary><strong>The full stack — click to expand</strong></summary>
+<summary><strong>The full stack &mdash; click to expand</strong></summary>
 
-<!-- Each category is a full-width block: a header line, then the icons at 44px
-     (larger than the old 32px table) spaced out for a magazine-like, breathable
-     layout. Same devicon/in-repo icon set as before, just more prominent. -->
+<br/>
 
 **AI / ML**
 
@@ -104,33 +90,33 @@
 <a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="44"/></a>&nbsp;&nbsp;
 <a href="https://numpy.org" title="NumPy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" height="44"/></a>&nbsp;&nbsp;
 <a href="https://pandas.pydata.org" title="Pandas"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" height="44"/></a>&nbsp;&nbsp;
-<a href="https://scipy.org/" title="SciPy"><img src="https://github.com/scipy/scipy.org/blob/main/static/images/logo.svg" alt="SciPy" height="44"/></a>&nbsp;&nbsp;
-<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/pydantic-icon.png" alt="Pydantic" height="44"/></a>
+<a href="https://scipy.org/" title="SciPy"><img src="pics/scipy-icon.svg" alt="SciPy" height="44"/></a>&nbsp;&nbsp;
+<a href="https://docs.pydantic.dev/latest/" title="Pydantic"><img src="pics/pydantic-icon.png" alt="Pydantic" height="44"/></a>
 
-**Backend & Systems**
+**Backend &amp; Systems**
 
 <a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="44"/></a>&nbsp;&nbsp;
-<a href="https://www.w3schools.com/c/index.php" title="C"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/c-icon.svg" alt="C" height="44"/></a>&nbsp;&nbsp;
+<a href="https://en.cppreference.com/w/c" title="C"><img src="pics/c-icon.svg" alt="C" height="44"/></a>&nbsp;&nbsp;
 <a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="44"/></a>&nbsp;&nbsp;
-<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/fastapi-icon.png" alt="FastAPI" height="44"/></a>&nbsp;&nbsp;
-<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/drizzle-icon.png" alt="Drizzle" height="44"/></a>
+<a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI" height="44"/></a>&nbsp;&nbsp;
+<a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="pics/drizzle-icon.svg" alt="Drizzle ORM" height="44"/></a>
 
-**Cloud & DevOps**
+**Cloud &amp; DevOps**
 
 <a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="44"/></a>&nbsp;&nbsp;
-<a href="https://cloud.google.com" title="GCP"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/gcp-icon.svg" alt="GCP" height="44"/></a>&nbsp;&nbsp;
-<a href="https://aws.amazon.com/" title="AWS"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/aws-icon.svg" alt="AWS" height="44"/></a>&nbsp;&nbsp;
-<a href="https://Docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="44"/></a>&nbsp;&nbsp;
+<a href="https://cloud.google.com" title="Google Cloud"><img src="pics/gcp-icon.svg" alt="Google Cloud" height="44"/></a>&nbsp;&nbsp;
+<a href="https://aws.amazon.com/" title="AWS"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/aws-white.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/aws-icon.svg"><img src="pics/aws-icon.svg" alt="AWS" height="44"/></picture></a>&nbsp;&nbsp;
+<a href="https://www.docker.com" title="Docker"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" height="44"/></a>&nbsp;&nbsp;
 <a href="https://kubernetes.io" title="Kubernetes"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" height="44"/></a>&nbsp;&nbsp;
-<a href="https://www.terraform.io" title="Terraform"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/terraform.svg" alt="Terraform" height="44"/></a>
+<a href="https://www.terraform.io" title="Terraform"><img src="pics/terraform.svg" alt="Terraform" height="44"/></a>
 
-**Frontend & Web**
+**Frontend &amp; Web**
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="44"/></a>&nbsp;&nbsp;
 <a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="44"/></a>&nbsp;&nbsp;
 <a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="44"/></a>&nbsp;&nbsp;
 <a href="https://vite.dev" title="Vite"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg" alt="Vite" height="44"/></a>&nbsp;&nbsp;
-<a href="https://tanstack.com" title="TanStack"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/tanstack-icon.png" alt="TanStack" height="44"/></a>
+<a href="https://tanstack.com" title="TanStack"><img src="pics/tanstack-icon.png" alt="TanStack" height="44"/></a>
 
 </details>
 
@@ -139,27 +125,22 @@
 ### The pulse
 
 <p align="center">
-<!-- Annual contribution totals (2020→present) as a self-hosted SVG.
-     Regenerated daily by .github/workflows/cumulative.yml, which scrapes the
-     per-year contribution fragment at github.com/users/sepehrmn/contributions
-     ?from=YYYY-01-01 (the same unauthenticated host the weekday chart uses).
-     Replaces a flaky third-party growth-graph card with an in-repo asset served
-     from raw.githubusercontent.com. Gradient bars, glowing peak year, animated
-     draw-in; matches the weekday chart's design language. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/cumulative.svg" width="780" alt="Annual contributions 2020–present with cumulative total" loading="lazy"/>
+<!-- Annual contribution totals (2020 to present) as a self-hosted SVG,
+     regenerated daily by .github/workflows/cumulative.yml from the per-year
+     contribution fragment at github.com/users/sepehrmn/contributions (the
+     unauthenticated host, not the rate-limited API). Served from
+     raw.githubusercontent.com so it never depends on a third-party card. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
 </p>
 
 <p align="center">
-<!-- Each weekday's % share of contributions over the last ~13 weeks, as a
-     donut. A week is a cycle, so a ring reads more naturally than bars, and
-     shares make the weekend-heavy / midweek-dip pattern obvious at a glance.
-     Regenerated daily by .github/workflows/weekdays.yml, which scrapes the
-     server-rendered contributions fragment at github.com/users/sepehrmn/
-     contributions (not the rate-limited API). The glowing slice marks the
-     peak day. The SVG carries its own "Where the week goes" title, so no
-     separate heading is needed above it. Lives in-repo so it works
-     regardless of external card services. -->
-<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Weekday contribution share — a donut of each weekday's percentage of the last ~13 weeks of contributions; the glowing slice marks the peak day" loading="lazy"/>
+<!-- Each weekday's share of contributions over the last 500 days (~16 months) as
+     a donut &mdash; a week is a cycle, so a ring reads more naturally than bars,
+     and shares make the rhythm obvious at a glance. Regenerated daily by
+     .github/workflows/weekdays.yml from the same server-rendered fragment. The
+     glowing slice marks the peak day. Lives in-repo, so it works regardless of
+     external card services. -->
+<img src="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
 </p>
 
 ---
@@ -167,17 +148,19 @@
 ### Elsewhere
 
 <p align="center">
-<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
-<a href="https://substack.com/@thetorus"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
-<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ"><img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
-<a href="https://twitter.com/SepAhead">
+<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/" title="LinkedIn"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn" height="40"/></a>&nbsp;&nbsp;
+<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ" title="Google Scholar"><img src="pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
+<a href="https://substack.com/@thetorus" title="Substack"><img src="pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
+<a href="https://huggingface.co/torusprime" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>&nbsp;&nbsp;
+<a href="https://x.com/SepehrMN" title="X (Twitter) &mdash; @SepehrMN">
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-white.svg" height="40">
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" height="40">
-<img src="https://github.com/sepehrmn/sepehrmn/blob/main/pics/x-logo-black.svg" alt="X (Twitter)" height="40"/>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/x-logo-white.svg">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepehrmn/sepehrmn/main/pics/x-logo-black.svg">
+<img src="pics/x-logo-black.svg" alt="X (Twitter) &mdash; @SepehrMN" height="40"/>
 </picture>
-</a>&nbsp;&nbsp;
-<a href="https://huggingface.co/torusprime"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>
+</a>
 </p>
 
-**sepmhn @ gmail.com** — always open to interesting problems.
+<p align="center">
+<strong><a href="mailto:sepehr.mahmoudian@gmail.com">sepehr.mahmoudian@gmail.com</a></strong> &mdash; always open to interesting problems.
+</p>

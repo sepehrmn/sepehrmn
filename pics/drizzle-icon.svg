@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Drizzle ORM">
+  <!-- Drizzle mark: parallel "rain" bars on a transparent background.
+       Brand green (#C5F74F) reads on both GitHub dark and light themes;
+       transparent background avoids the black-box-on-light failure mode. -->
+  <g fill="#C5F74F">
+    <rect x="22"  y="60"  width="20" height="78" rx="10" transform="rotate(-22 32 99)"/>
+    <rect x="62"  y="60"  width="20" height="78" rx="10" transform="rotate(-22 72 99)"/>
+    <rect x="78"  y="22"  width="20" height="78" rx="10" transform="rotate(-22 88 61)"/>
+    <rect x="118" y="22"  width="20" height="78" rx="10" transform="rotate(-22 128 61)"/>
+  </g>
+</svg>

@@ -53,16 +53,29 @@ jobs:
 
       - name: Commit updated cumulative chart SVG
         run: |
-          # Stage FIRST, then diff the INDEX against HEAD — same guard pattern
-          # as weekdays.yml. A bare `git diff <path>` ignores untracked files,
-          # which is what originally left the weekdays chart broken; staging
-          # first catches both new and modified files.
+          # Stage FIRST, then diff the INDEX against HEAD (catches both new and
+          # modified files; a bare `git diff <path>` would ignore an untracked
+          # SVG and never push it).
           git add assets/cumulative.svg
-          if ! git diff --cached --quiet HEAD -- assets/cumulative.svg; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git commit -m "chore(cumulative): regenerate annual activity chart"
-            git push
-          else
+          if git diff --cached --quiet HEAD -- assets/cumulative.svg; then
             echo "No changes to cumulative.svg — skipping commit."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(cumulative): regenerate annual activity chart"
+          # Robust push: the weekdays workflow can run concurrently and push
+          # weekdays.svg to main at the same moment (any commit touching both
+          # scripts triggers both workflows), and a maintainer may push too. A
+          # plain `git push` then fails non-fast-forward. The two chart workflows
+          # touch DIFFERENT files, so rebasing onto the concurrent commit is
+          # always conflict-free — pull --rebase and retry.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "pushed on attempt $attempt"; exit 0
+            fi
+            echo "push attempt $attempt failed; rebasing on origin/main…"
+            sleep 2
+            git pull --rebase origin main || exit 1
+          done
+          echo "push failed after 5 attempts"; exit 1

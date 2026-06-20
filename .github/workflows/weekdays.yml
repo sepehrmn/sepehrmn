@@ -68,11 +68,25 @@ jobs:
           # profile.) Staging then diffing the index catches both new and
           # modified files.
           git add assets/weekdays.svg
-          if ! git diff --cached --quiet HEAD -- assets/weekdays.svg; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git commit -m "chore(weekdays): regenerate weekday activity chart"
-            git push
-          else
+          if git diff --cached --quiet HEAD -- assets/weekdays.svg; then
             echo "No changes to weekdays.svg — skipping commit."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(weekdays): regenerate weekday activity chart"
+          # Robust push: the cumulative workflow can run concurrently and push
+          # cumulative.svg to main at the same moment (any commit touching both
+          # scripts triggers both workflows), and a maintainer may push too. A
+          # plain `git push` then fails non-fast-forward. The two chart workflows
+          # touch DIFFERENT files, so rebasing onto the concurrent commit is
+          # always conflict-free — pull --rebase and retry.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "pushed on attempt $attempt"; exit 0
+            fi
+            echo "push attempt $attempt failed; rebasing on origin/main…"
+            sleep 2
+            git pull --rebase origin main || exit 1
+          done
+          echo "push failed after 5 attempts"; exit 1

@@ -53,7 +53,7 @@
        reduced-motion fallback (the first line stays visible). -->
   <g>
     <text x="40" y="124" class="role" opacity="1">
-      partial information decomposition · spiking networks · information theory
+      partial information decomposition · neural networks · information theory
       <animate attributeName="opacity"
         values="0;1;1;0;0"
         keyTimes="0;0.03125;0.1875;0.21875;1"

@@ -50,9 +50,9 @@
 | **[crebain](https://github.com/sepahead/crebain)** &#9733;8 | Adaptive Response &amp; Awareness System (ARAS) &mdash; tactical visualization and autonomy prototype: sensor fusion, ML detection, drone physics, ROS&nbsp;/&nbsp;Gazebo. The flagship. | TS &middot; Rust &middot; Nix |
 | **[brojapid-activationfunctions](https://github.com/sepahead/brojapid-activationfunctions)** &#9733;4 | Partial Information Decomposition analysis of activation functions for PID deep neural networks (PIDeepnets). | Python |
 | **[cobot-atlas](https://github.com/sepahead/cobot-atlas)** &#9733;2 | 3D mesh-generation pipeline &mdash; 2,023 meshes for robot simulation; dataset published on Hugging&nbsp;Face. | Python |
-| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; spiking-network and neural-modeling experiments. | Python |
+| **[engram](https://github.com/sepahead/engram)** &#9733;2 | Engram Neural Modeling Labs &mdash; neural-network and neural-modeling experiments. | Python |
 | **[pid-rs](https://github.com/sepahead/pid-rs)** &#9733;1 | Partial Information Decomposition with continuous mutual-information (KSG&nbsp;/&nbsp;I&#8339;&#739;) estimators, in safe Rust. | Rust |
-| **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
+| **[NCP](https://github.com/sepahead/NCP)** &#9733;1 | Safety-gated, provenance-first wire protocol (Rust SDK) letting a neural-network simulation perceive and act through robots, UAVs and analysis clients. Pre-1.0. | Rust |
 
 <details>
 <summary><strong>More repositories</strong></summary>
@@ -62,7 +62,7 @@
 | Repository | Area |
 |---|---|
 | **[mahmoudian-2020-rescience](https://github.com/sepahead/mahmoudian-2020-rescience)** | ReScience&nbsp;C publication &mdash; three-way information-theoretic analysis of transfer functions (replication, forked by&nbsp;3). |
-| **[nest-simulator](https://github.com/sepahead/nest-simulator)** | NEST spiking-network simulator &mdash; fork carrying original contributions on feature branches. |
+| **[nest-simulator](https://github.com/sepahead/nest-simulator)** | NEST neural-network simulator &mdash; fork carrying original contributions on feature branches. |
 | **[melkor](https://github.com/sepahead/melkor)** | Gaussian splatting pipelines &amp; depth analysis. |
 | **[relief-atlas](https://github.com/sepahead/relief-atlas)** | 10K+ AI-generated 3D mesh assets for disaster relief &amp; humanitarian aid. |
 | **[manwe](https://github.com/sepahead/manwe)** | Real-time UAV detection from vision, in Rust. |

@@ -1,23 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — agentic engineering, continual learning, knowledge graphs and RAG; AI/ML and neurorobotics; defense tech and threat detection. Berlin.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — agentic engineering, continual learning, knowledge graphs and RAG; AI/ML, neural networks, neurorobotics and information theory; defense tech, threat detection and 3D vision. Berlin.">
   <style>
     /* Theme colors mirror assets/weekdays.svg so the page reads as one system. */
     .wordmark { font: 700 40px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
     .role     { font: 500 20px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .role-hack{ fill: #22e36b; }            /* defense line: terminal/hacker green */
     .meta     { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .cursor   { fill: #22d3ee; }
     .underline-base { stroke: #30363d; stroke-width: 2; fill: none; }
+
+    /* Each rotating line gets its OWN entrance/exit theme (CSS animations run
+       inside the SVG when embedded as an img element, like the SMIL ones). All
+       share one 15s/3-slot clock; inline opacity attrs are the no-anim fallback.
+         seq1 — rise and fade up;  seq2 — zoom in / pop out;
+         seq3 — decrypt type-on reveal + glitch-out (the hacker line). */
+    .seq1 { animation: seq1 15s linear infinite; }
+    .seq2 { animation: seq2 15s linear infinite; transform-box: view-box; transform-origin: 40px 124px; }
+    .seq3 { animation: seq3 15s linear infinite; }
+    .hack-cursor { visibility: hidden; fill: #22e36b; animation: hackslot 15s linear infinite, hackblink 0.9s steps(1) infinite; }
+
+    @keyframes seq1 {
+      0%    { opacity: 0; transform: translateY(12px); }
+      3%    { opacity: 1; transform: translateY(0); }
+      30%   { opacity: 1; transform: translateY(0); }
+      33.3% { opacity: 0; transform: translateY(-12px); }
+      100%  { opacity: 0; transform: translateY(-12px); }
+    }
+    @keyframes seq2 {
+      0%    { opacity: 0; transform: scale(0.9); }
+      33.3% { opacity: 0; transform: scale(0.9); }
+      36.5% { opacity: 1; transform: scale(1); }
+      63.5% { opacity: 1; transform: scale(1); }
+      66.7% { opacity: 0; transform: scale(1.08); }
+      100%  { opacity: 0; transform: scale(1.08); }
+    }
+    @keyframes seq3 {
+      0%    { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(0); }
+      66.7% { opacity: 0; clip-path: inset(0 100% 0 0); }
+      67.5% { opacity: 1; clip-path: inset(0 100% 0 0); }
+      70%   { opacity: 0.7; clip-path: inset(0 55% 0 0); }
+      73%   { opacity: 1; clip-path: inset(0 22% 0 0); }
+      75.5% { opacity: 0.85; clip-path: inset(0 0 0 0); }
+      77%   { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
+      95%   { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
+      96%   { opacity: 0.5; transform: translateX(-3px); }
+      97%   { opacity: 0.9; transform: translateX(3px); }
+      98%   { opacity: 0.3; transform: translateX(-2px); }
+      99%   { opacity: 0.75; transform: translateX(1px); }
+      100%  { opacity: 0; transform: translateX(0); clip-path: inset(0 0 0 0); }
+    }
+    @keyframes hackslot { 0%, 76% { visibility: hidden; } 76.01%, 95% { visibility: visible; } 95.01%, 100% { visibility: hidden; } }
+    @keyframes hackblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
     @media (prefers-color-scheme: light) {
       .wordmark { fill: #0891b2; }
       .role     { fill: #1f2328; }
+      .role-hack{ fill: #15803d; }
       .meta     { fill: #57606a; }
       .cursor   { fill: #0891b2; }
       .underline-base { stroke: #d0d7de; }
+      .hack-cursor { fill: #15803d; }
     }
-    /* Respect reduced-motion: stop all animation, show a sensible static state
-       (wordmark + cursor solid + the first role visible). Each role's base
-       opacity attribute is set for exactly this fallback. */
+    /* Reduced-motion: drop all animation; inline opacity attrs leave the first
+       line visible and the rest hidden. */
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }
+      .seq1, .seq2, .seq3, .hack-cursor { animation: none; }
+      .hack-cursor { visibility: hidden; }
     }
   </style>
 
@@ -47,32 +95,15 @@
     </linearGradient>
   </defs>
 
-  <!-- Rotating role line — three pillars. Each shares one 15s cycle and is
-       visible in its own 5s slot (~0.45s fade-in, ~4s hold, ~0.45s fade-out)
-       via staggered keyTimes. Base opacity attributes give a clean
-       reduced-motion fallback (the first line stays visible). -->
+  <!-- Rotating role line — three pillars sharing one 15s/3-slot clock, each with
+       its own entrance/exit theme (see <style>). Inline opacity = the
+       no-animation fallback (first line visible). The defense line is the
+       "hacker" one: green, decrypt-style type-on reveal, glitch-out + cursor. -->
   <g>
-    <text x="40" y="124" class="role" opacity="1">
-      Agentic Engineering · Continual Learning · Knowledge Graphs · RAG
-      <animate attributeName="opacity"
-        values="0;1;1;0;0"
-        keyTimes="0;0.03;0.30;0.3333;1"
-        dur="15s" repeatCount="indefinite"/>
-    </text>
-    <text x="40" y="124" class="role" opacity="0">
-      AI / ML · Neurorobotics
-      <animate attributeName="opacity"
-        values="0;0;1;1;0;0"
-        keyTimes="0;0.3333;0.3633;0.6367;0.6667;1"
-        dur="15s" repeatCount="indefinite"/>
-    </text>
-    <text x="40" y="124" class="role" opacity="0">
-      Defense Tech · Threat Detection
-      <animate attributeName="opacity"
-        values="0;0;1;1;0"
-        keyTimes="0;0.6667;0.6967;0.97;1"
-        dur="15s" repeatCount="indefinite"/>
-    </text>
+    <text x="40" y="124" class="role seq1" opacity="1">Agentic Engineering · Continual Learning · Knowledge Graphs · RAG</text>
+    <text x="40" y="124" class="role seq2" opacity="0">AI / ML · Neural Networks · Neurorobotics · Information Theory</text>
+    <text x="40" y="124" class="role role-hack seq3" opacity="0">Defense Tech · Threat Detection · 3D Vision</text>
+    <rect x="560" y="109" width="11" height="20" rx="1" class="hack-cursor"/>
   </g>
 
   <text x="40" y="158" class="meta">High Energy  ·  High Agency  ·  Takes Initiative  ·  Consistent</text>

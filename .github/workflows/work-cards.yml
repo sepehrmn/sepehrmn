@@ -1,0 +1,67 @@
+name: Generate Selected-work cards
+
+on:
+  schedule:
+    # Every 4 hours at :40 past (offset from the two chart workflows at :00/:20)
+    # so the live star counts on the project cards stay fresh. Free: Actions
+    # minutes are unlimited on public repos.
+    - cron: "40 */4 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/work-cards.mjs"
+      - "scripts/tokens.mjs"
+      - ".github/workflows/work-cards.yml"
+
+# Serialize so concurrent triggers never race on the git push for the SVG.
+concurrency:
+  group: work-cards
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  work-cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate project cards SVG
+        env:
+          # The built-in token authenticates the REST call that reads each public
+          # repo's stargazerCount (authenticated => 5000/hr, not the exhausted
+          # 60/hr anonymous limit). It only needs to READ public repo metadata.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/work-cards.mjs
+
+      - name: Commit updated cards SVG
+        run: |
+          git add assets/work-cards.svg
+          if git diff --cached --quiet HEAD -- assets/work-cards.svg; then
+            echo "No changes to work-cards.svg — skipping commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(cards): refresh project star counts"
+          # Robust push: another chart workflow may push to main at the same
+          # moment; the workflows touch different files, so rebase + retry.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "pushed on attempt $attempt"; exit 0
+            fi
+            echo "push attempt $attempt failed; rebasing on origin/main…"
+            sleep 2
+            git pull --rebase origin main || exit 1
+          done
+          echo "push failed after 5 attempts"; exit 1

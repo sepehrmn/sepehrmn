@@ -72,6 +72,43 @@ const projects = [
 ];
 
 // ---------------------------------------------------------------------------
+// Live star counts. With a token (GitHub Actions provides GITHUB_TOKEN) we read
+// each public repo's current stargazerCount so the badges auto-update; the
+// `stars:` above are the no-token fallback (kept current). Private repos
+// (engram, prisoma) have no `repo` and keep their lock badge. Run by the
+// work-cards.yml cron; a local run without a token just uses the fallback.
+async function hydrateStars(list) {
+  const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || "";
+  if (!token) {
+    console.warn("[work-cards] no token — using baked-in star counts.");
+    return;
+  }
+  for (const p of list) {
+    if (p.private || !p.repo) continue;
+    try {
+      const res = await fetch(`https://api.github.com/repos/${p.repo}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/vnd.github+json",
+          "User-Agent": "sepahead-work-cards/1.0",
+        },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (typeof json.stargazers_count === "number") {
+        if (json.stargazers_count !== p.stars) {
+          console.log(`[work-cards] ${p.repo}: ${p.stars} -> ${json.stargazers_count} stars`);
+        }
+        p.stars = json.stargazers_count;
+      }
+    } catch (e) {
+      console.warn(`[work-cards] star fetch failed for ${p.repo} (${e.message}); keeping ${p.stars}.`);
+    }
+  }
+}
+await hydrateStars(projects);
+
+// ---------------------------------------------------------------------------
 // Layout.
 // ---------------------------------------------------------------------------
 const W = 860;

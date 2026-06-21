@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 342" width="860" height="342" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (agent); Ghostty (terminal). The loop never sleeps.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 342" width="860" height="342" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs><linearGradient id="sweepFwd" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
       <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
@@ -110,9 +110,9 @@
       <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin="1.25s" repeatCount="indefinite"/>
     </circle>
     <text x="62" y="247" class="name">Orca</text>
-    <rect x="112" y="233" width="58" height="22" rx="6" class="chip"/>
-    <text x="141" y="247" text-anchor="middle" class="chip-label">agent</text>
-    <text x="182" y="246" class="note">// in the loop</text>
+    <rect x="112" y="233" width="114" height="22" rx="6" class="chip"/>
+    <text x="169" y="247" text-anchor="middle" class="chip-label">orchestrator</text>
+    <text x="238" y="246" class="note">// multi-agent</text>
   </g>
   <g>
     

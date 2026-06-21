@@ -22,7 +22,7 @@ const AGENTS = [
   { name: "Codex",       role: "generalist", note: "broad coverage" },
   { name: "Cursor",      role: "editor",     note: "in-IDE pair" },
   { name: "Zed",         role: "editor",     note: "fast · collaborative" },
-  { name: "Orca",        role: "agent",      note: "in the loop" },
+  { name: "Orca",        role: "orchestrator", note: "multi-agent" },
   { name: "Ghostty",     role: "terminal",   note: "GPU-native" },
 ];
 
@@ -72,7 +72,7 @@ const sweepFwd = sweepDefs("sweepFwd", {
 
 const railY = H - 22;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (agent); Ghostty (terminal). The loop never sleeps.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>

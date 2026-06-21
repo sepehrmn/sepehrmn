@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 358" width="860" height="358" role="img" aria-label="More repositories — a directory tree of 7 public repos under sepahead. brojapid-activationfunctions (4 stars): PID analysis of activation functions. mahmoudian-2020-rescience (forked by 3): ReScience C info-theoretic transfer-function analysis. nest-simulator: NEST simulator fork with original contributions. melkor: Gaussian splatting and depth analysis. relief-atlas: 10K+ AI-generated 3D mesh assets for disaster relief. manwe: real-time UAV detection from vision, in Rust. silmaril-vision-studio: computer-vision studio and testbed. Names borrow from Tolkien.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 318" width="860" height="318" role="img" aria-label="More repositories — a directory tree of 7 public repos under sepahead. brojapid-activationfunctions (4 stars): PID analysis of activation functions. mahmoudian-2020-rescience (forked by 3): ReScience C info-theoretic transfer-function analysis. nest-simulator: NEST simulator fork with original contributions. melkor: Gaussian splatting and depth analysis. relief-atlas: 10K+ AI-generated 3D mesh assets for disaster relief. manwe: real-time UAV detection from vision, in Rust. silmaril-vision-studio: computer-vision studio and testbed.">
   <title>More repositories</title>
   <defs><linearGradient id="sweepFwd" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
       <stop offset="0" stop-color="#a78bfa" stop-opacity="0"/>
@@ -10,7 +10,6 @@
   <style>
     .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     .spine { stroke: #a78bfa; stroke-width: 4; stroke-linecap: round; }
-    .cap   { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .prompt{ font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a78bfa; }
     .cmd   { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .arg, .flag { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
@@ -19,7 +18,6 @@
     .name  { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .badge { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a78bfa; }
     .note  { font: 400 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
-    .tag   { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .rail  { stroke: #30363d; stroke-width: 1; }
     .flow  { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
     .cursor{ fill: #a78bfa; animation: curblink 1s steps(1) infinite; }
@@ -30,7 +28,7 @@
       .prompt, .val, .root, .badge { fill: #7c3aed; }
       .cursor { fill: #7c3aed; }
       .cmd, .name { fill: #1f2328; }
-      .cap, .arg, .flag, .note, .tag { fill: #57606a; }
+      .arg, .flag, .note { fill: #57606a; }
       .rail { stroke: #d0d7de; }
       .flow { stroke: #22d3ee; }
     }
@@ -41,27 +39,25 @@
     }
   </style>
 
-  <rect x="0.5" y="0.5" width="859" height="357" rx="16" class="panel"/>
+  <rect x="0.5" y="0.5" width="859" height="317" rx="16" class="panel"/>
   <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepFwd)"/>
-  <path d="M6 20 V338" class="spine"/>
+  <path d="M6 16 V300" class="spine"/>
 
-  <text x="40" y="34" class="cap">// MORE REPOSITORIES &#8212; THE UNDERGROWTH</text>
-  <text x="40" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">tree </tspan><tspan class="arg">~/sep </tspan><tspan class="flag">--pub --sort </tspan><tspan class="val">activity</tspan></text>
-  <rect x="332" y="47" width="9" height="15" rx="1" class="cursor"/>
+  <text x="40" y="40"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">tree </tspan><tspan class="arg">~/sep </tspan><tspan class="flag">--pub --sort </tspan><tspan class="val">activity</tspan></text>
+  <rect x="332" y="27" width="9" height="15" rx="1" class="cursor"/>
 
-  <text x="40" y="92" class="root">sepahead/</text>
-  <path d="M48 100 V298" class="branch"/>
-  <path d="M48 118 H68" class="branch"/><text x="72" y="122" class="name">brojapid-activationfunctions</text><text x="319" y="122" class="badge">&#9733;4</text><text x="812" y="122" text-anchor="end" class="note">// PID analysis of activation functions</text>
-  <path d="M48 148 H68" class="branch"/><text x="72" y="152" class="name">mahmoudian-2020-rescience</text><text x="294" y="152" class="badge">forks 3</text><text x="812" y="152" text-anchor="end" class="note">// ReScience C — info-theoretic transfer fn</text>
-  <path d="M48 178 H68" class="branch"/><text x="72" y="182" class="name">nest-simulator</text><text x="812" y="182" text-anchor="end" class="note">// NEST simulator fork — orig. contributions</text>
-  <path d="M48 208 H68" class="branch"/><text x="72" y="212" class="name">melkor</text><text x="812" y="212" text-anchor="end" class="note">// Gaussian splatting &amp; depth analysis</text>
-  <path d="M48 238 H68" class="branch"/><text x="72" y="242" class="name">relief-atlas</text><text x="812" y="242" text-anchor="end" class="note">// 10K+ AI-gen 3D mesh assets for relief</text>
-  <path d="M48 268 H68" class="branch"/><text x="72" y="272" class="name">manwe</text><text x="812" y="272" text-anchor="end" class="note">// real-time UAV detection in Rust</text>
-  <path d="M48 298 H68" class="branch"/><text x="72" y="302" class="name">silmaril-vision-studio</text><text x="812" y="302" text-anchor="end" class="note">// computer-vision studio &amp; testbed</text>
+  <text x="40" y="72" class="root">sepahead/</text>
+  <path d="M48 80 V278" class="branch"/>
+  <path d="M48 98 H68" class="branch"/><text x="72" y="102" class="name">brojapid-activationfunctions</text><text x="319" y="102" class="badge">&#9733;4</text><text x="812" y="102" text-anchor="end" class="note">// PID analysis of activation functions</text>
+  <path d="M48 128 H68" class="branch"/><text x="72" y="132" class="name">mahmoudian-2020-rescience</text><text x="294" y="132" class="badge">forks 3</text><text x="812" y="132" text-anchor="end" class="note">// ReScience C — info-theoretic transfer fn</text>
+  <path d="M48 158 H68" class="branch"/><text x="72" y="162" class="name">nest-simulator</text><text x="812" y="162" text-anchor="end" class="note">// NEST simulator fork — orig. contributions</text>
+  <path d="M48 188 H68" class="branch"/><text x="72" y="192" class="name">melkor</text><text x="812" y="192" text-anchor="end" class="note">// Gaussian splatting &amp; depth analysis</text>
+  <path d="M48 218 H68" class="branch"/><text x="72" y="222" class="name">relief-atlas</text><text x="812" y="222" text-anchor="end" class="note">// 10K+ AI-gen 3D mesh assets for relief</text>
+  <path d="M48 248 H68" class="branch"/><text x="72" y="252" class="name">manwe</text><text x="812" y="252" text-anchor="end" class="note">// real-time UAV detection in Rust</text>
+  <path d="M48 278 H68" class="branch"/><text x="72" y="282" class="name">silmaril-vision-studio</text><text x="812" y="282" text-anchor="end" class="note">// computer-vision studio &amp; testbed</text>
 
-  <text x="40" y="328" class="tag">// names from Tolkien &#183; crebain &#8212; Saruman's spy-crows</text>
-  <line x1="40" y1="336" x2="820" y2="336" class="rail"/>
-  <path d="M40 336 H820" class="flow">
+  <line x1="40" y1="298" x2="820" y2="298" class="rail"/>
+  <path d="M40 298 H820" class="flow">
     <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/>
   </path>
 </svg>

@@ -2,7 +2,7 @@
 // Single source of truth for the profile's canonical lists. Each list lives here
 // once; the generators render it AND scripts/section-titles.mjs derives the
 // per-section "# N …" banner counts from these lengths — so adding/removing a
-// project, agent, stack or channel updates the count automatically (no second
+// project, repo, agent, stack or channel updates the count automatically (no second
 // place to edit). Pure data: zero deps, no side effects (safe to import
 // anywhere). CHANNELS is a plain count because the Elsewhere icons are hand-
 // authored clickable markdown, not generated from here.
@@ -52,6 +52,20 @@ export const PROJECTS = [
     desc: "3D mesh-generation pipeline — 2,023 meshes for robot simulation; dataset published on Hugging Face. Feeds simulation from pid-rs analysis.",
     stack: ["Python"],
   },
+];
+
+// "More repositories" public repos (repo-tree.mjs --sort activity order); the
+// number of REPOS is the sub-header banner's "# N repos". `area` is the short
+// note, `full` the long aria copy. `metric`/`count`/`repo` drive the live star/
+// fork badge (refreshed on the 4h cron; `count` is the no-token fallback).
+export const REPOS = [
+  { name: "brojapid-activationfunctions", area: "PID analysis of activation functions",      full: "PID analysis of activation functions",                  repo: "sepahead/brojapid-activationfunctions", metric: "stars", count: 4 },
+  { name: "mahmoudian-2020-rescience",    area: "ReScience C — info-theoretic transfer fn",  full: "ReScience C info-theoretic transfer-function analysis", repo: "sepahead/mahmoudian-2020-rescience",    metric: "forks", count: 3 },
+  { name: "nest-simulator",               area: "NEST simulator fork — orig. contributions", full: "NEST simulator fork with original contributions" },
+  { name: "melkor",                       area: "Gaussian splatting & depth analysis",        full: "Gaussian splatting and depth analysis" },
+  { name: "relief-atlas",                 area: "10K+ AI-gen 3D mesh assets for relief",       full: "10K+ AI-generated 3D mesh assets for disaster relief" },
+  { name: "manwe",                        area: "real-time UAV detection in Rust",             full: "real-time UAV detection from vision, in Rust" },
+  { name: "silmaril-vision-studio",       area: "computer-vision studio & testbed",            full: "computer-vision studio and testbed" },
 ];
 
 // Agentic-stack roster (agents.mjs). [0] is the pinned lead.

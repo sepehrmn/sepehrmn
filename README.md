@@ -67,8 +67,8 @@
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas and cobot-relief connect to prisoma; cobot-atlas and cobot-relief also connect to crebain." loading="lazy"/>
 </p>
 
-<details>
-<summary><strong>More repositories</strong></summary>
+<details open>
+<summary><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-more.svg" width="480" alt="More repositories"/></summary>
 
 <br/>
 
@@ -76,10 +76,9 @@
      scripts/repo-tree.mjs): a `tree ~/sep` view with drawn branches and each
      repo's area as a right-aligned note, in the same terminal language as the
      rest of the profile but violet-accented to inherit "Selected work". The
-     panel is an image, so the clickable links live in the row beneath; the
-     Tolkien note lives in the SVG footer (not repeated here). -->
+     panel is an image, so the clickable links live in the row beneath. -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories — a directory tree of seven public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, melkor, relief-atlas, manwe, silmaril-vision-studio. Names borrow from Tolkien." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories — a directory tree of seven public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, melkor, relief-atlas, manwe, silmaril-vision-studio." loading="lazy"/>
 </p>
 
 <p align="center">

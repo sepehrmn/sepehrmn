@@ -4,32 +4,22 @@
 // "More repositories" for the Selected-work sub-section. Twin of connect.svg /
 // agents.svg grammar (rounded panel, accent spine, top sweep, blinking cursor,
 // comms-rail flow) but VIOLET-accented to inherit the parent "02 Selected work"
-// section (subordinate, not a new hero). The ├─/└─ branches are drawn paths, not
-// glyphs. The star/fork badges auto-refresh from the live repos when a token is
-// present (the work-cards cron runs this too); baked-in values are the fallback.
-// Display-only (the README carries the real click row). Theme-adaptive,
-// reduced-motion safe, zero deps. Run: `node scripts/repo-tree.mjs`.
+// section (subordinate, not a new hero). The sub-header banner (title-more.svg)
+// carries the section title, so the panel itself opens straight on the command.
+// The ├─/└─ branches are drawn paths, not glyphs. The star/fork badges
+// auto-refresh from the live repos when a token is present (the work-cards cron
+// runs this too); baked-in values are the fallback. Display-only (the README
+// carries the real click row). Theme-adaptive, reduced-motion safe, zero deps.
+// Run: `node scripts/repo-tree.mjs`.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PALETTE, MONO, escapeXML, charLen, sweepDefs, CURBLINK_KEYFRAMES } from "./tokens.mjs";
+import { REPOS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(__dirname, "..", "assets", "repo-tree.svg");
-
-// One source of truth (--sort activity order). `area` is the short column note;
-// `full` is the long copy used only in aria. `metric` ("stars" | "forks") is the
-// live-refreshed badge; `count` is its baked-in fallback.
-const REPOS = [
-  { name: "brojapid-activationfunctions", area: "PID analysis of activation functions",     full: "PID analysis of activation functions",                       repo: "sepahead/brojapid-activationfunctions", metric: "stars", count: 4 },
-  { name: "mahmoudian-2020-rescience",    area: "ReScience C — info-theoretic transfer fn", full: "ReScience C info-theoretic transfer-function analysis",       repo: "sepahead/mahmoudian-2020-rescience",    metric: "forks", count: 3 },
-  { name: "nest-simulator",               area: "NEST simulator fork — orig. contributions", full: "NEST simulator fork with original contributions" },
-  { name: "melkor",                       area: "Gaussian splatting & depth analysis",       full: "Gaussian splatting and depth analysis" },
-  { name: "relief-atlas",                 area: "10K+ AI-gen 3D mesh assets for relief",      full: "10K+ AI-generated 3D mesh assets for disaster relief" },
-  { name: "manwe",                        area: "real-time UAV detection in Rust",            full: "real-time UAV detection from vision, in Rust" },
-  { name: "silmaril-vision-studio",       area: "computer-vision studio & testbed",          full: "computer-vision studio and testbed" },
-];
 
 // Live badge refresh (mirrors work-cards.mjs). With a token, read each badged
 // repo's current star/fork count; baked-in `count` is the no-token fallback.
@@ -65,14 +55,16 @@ const RIGHT = 820;
 const TRUNK_X = 48;
 const NAME_X = 72;
 const NOTE_RIGHT = 812;
-const ROOT_Y = 92;
-const ROW0_Y = 122;
+const PROMPT_Y = 40;
+const ROOT_Y = 72;
+const ROW0_Y = 102;
 const PITCH = 30;
 const n = REPOS.length;
-const H = ROW0_Y + (n - 1) * PITCH + 56;
-const trunkBottom = ROW0_Y + (n - 1) * PITCH - 4;
-const railY = H - 22;
-const spineEnd = H - 20;
+const lastBaseline = ROW0_Y + (n - 1) * PITCH;
+const H = lastBaseline + 36;
+const trunkBottom = lastBaseline - 4;
+const railY = H - 20;
+const spineEnd = H - 18;
 
 const [inkD, inkL] = PALETTE.ink;
 const [mutedD, mutedL] = PALETTE.muted;
@@ -104,7 +96,7 @@ const aria =
   REPOS.map((r) => {
     const tag = r.metric === "stars" ? ` (${r.count} stars)` : r.metric === "forks" ? ` (forked by ${r.count})` : "";
     return `${r.name}${tag}: ${r.full}.`;
-  }).join(" ") + " Names borrow from Tolkien.";
+  }).join(" ");
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <title>More repositories</title>
@@ -112,7 +104,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <style>
     .panel { fill: ${pD.fill}; fill-opacity: ${pD.fillOpacity}; stroke: ${pD.stroke}; stroke-opacity: ${pD.strokeOpacity}; }
     .spine { stroke: ${vioD}; stroke-width: 4; stroke-linecap: round; }
-    .cap   { font: 600 11px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }
     .prompt{ font: 600 14px ${MONO}; fill: ${vioD}; }
     .cmd   { font: 600 14px ${MONO}; fill: ${inkD}; }
     .arg, .flag { font: 600 14px ${MONO}; fill: ${mutedD}; }
@@ -121,7 +112,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .name  { font: 600 14px ${MONO}; fill: ${inkD}; }
     .badge { font: 600 11px ${MONO}; fill: ${vioD}; }
     .note  { font: 400 12.5px ${MONO}; fill: ${mutedD}; }
-    .tag   { font: 400 13px ${MONO}; fill: ${mutedD}; }
     .rail  { stroke: ${ruleD}; stroke-width: 1; }
     .flow  { fill: none; stroke: ${flowD}; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
     .cursor{ fill: ${vioD}; animation: curblink 1s steps(1) infinite; }
@@ -132,7 +122,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .prompt, .val, .root, .badge { fill: ${vioL}; }
       .cursor { fill: ${vioL}; }
       .cmd, .name { fill: ${inkL}; }
-      .cap, .arg, .flag, .note, .tag { fill: ${mutedL}; }
+      .arg, .flag, .note { fill: ${mutedL}; }
       .rail { stroke: ${ruleL}; }
       .flow { stroke: ${flowL}; }
     }
@@ -145,17 +135,15 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
   <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepFwd)"/>
-  <path d="M6 20 V${spineEnd}" class="spine"/>
+  <path d="M6 16 V${spineEnd}" class="spine"/>
 
-  <text x="${X}" y="34" class="cap">// MORE REPOSITORIES &#8212; THE UNDERGROWTH</text>
-  <text x="${X}" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">tree </tspan><tspan class="arg">~/sep </tspan><tspan class="flag">--pub --sort </tspan><tspan class="val">activity</tspan></text>
-  <rect x="${cmdCursorX.toFixed(0)}" y="47" width="9" height="15" rx="1" class="cursor"/>
+  <text x="${X}" y="${PROMPT_Y}"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">tree </tspan><tspan class="arg">~/sep </tspan><tspan class="flag">--pub --sort </tspan><tspan class="val">activity</tspan></text>
+  <rect x="${cmdCursorX.toFixed(0)}" y="${PROMPT_Y - 13}" width="9" height="15" rx="1" class="cursor"/>
 
   <text x="${X}" y="${ROOT_Y}" class="root">sepahead/</text>
-  <path d="M${TRUNK_X} 100 V${trunkBottom}" class="branch"/>
+  <path d="M${TRUNK_X} ${ROOT_Y + 8} V${trunkBottom}" class="branch"/>
 ${rows}
 
-  <text x="${X}" y="${railY - 8}" class="tag">// names from Tolkien &#183; crebain &#8212; Saruman's spy-crows</text>
   <line x1="${X}" y1="${railY}" x2="${RIGHT}" y2="${railY}" class="rail"/>
   <path d="M${X} ${railY} H${RIGHT}" class="flow">
     <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/>

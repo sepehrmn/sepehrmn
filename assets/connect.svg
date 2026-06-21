@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 132" width="860" height="132" role="img" aria-label="Open channel — reach me at sepmhn@gmail.com; always open to interesting problems.">
   <title>Open channel</title>
   <defs>
-    <linearGradient id="sweepRev" gradientUnits="userSpaceOnUse" x1="920" y1="0" x2="1040" y2="0">
+    <linearGradient id="sweepFwd" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
       <stop offset="0" stop-color="#f472b6" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#f472b6" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
-      <animate attributeName="x1" from="920" to="-120" dur="3.6s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="1040" to="0" dur="3.6s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="-120" to="820" dur="3.6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="0" to="940" dur="3.6s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
   <style>
@@ -39,7 +39,7 @@
   </style>
 
   <rect x="0.5" y="0.5" width="859" height="131" rx="16" class="panel"/>
-  <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepRev)"/>
+  <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V112" class="spine"/>
 
   <text x="40" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>

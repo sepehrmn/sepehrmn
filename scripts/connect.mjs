@@ -38,16 +38,16 @@ const cursorX = X + charLen(EMAIL_PLAIN, 16, 0) + 6;
 // Comms rail with a single travelling packet (flow dash grammar).
 const railY = 116;
 
-// Top bracket sweep — pink, travelling RIGHT→LEFT (closes the session; the hero
-// opens with a cyan sweep travelling left→right).
-const sweepRev = sweepDefs("sweepRev", {
-  x1from: W + 60, x1to: -120, x2from: W + 180, x2to: 0, color: pinkD, dur: "3.6s",
+// Top bracket sweep — pink, travelling LEFT→RIGHT (matching the hero's opening
+// cyan sweep and every other panel; the bright band enters from the left edge).
+const sweepFwd = sweepDefs("sweepFwd", {
+  x1from: -120, x1to: RIGHT, x2from: 0, x2to: RIGHT + 120, color: pinkD, dur: "3.6s",
 });
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Open channel — reach me at sepmhn@gmail.com; always open to interesting problems.">
   <title>Open channel</title>
   <defs>
-    ${sweepRev}
+    ${sweepFwd}
   </defs>
   <style>
     .panel { fill: ${panelD.fill}; fill-opacity: ${panelD.fillOpacity}; stroke: ${panelD.stroke}; stroke-opacity: ${panelD.strokeOpacity}; }
@@ -79,7 +79,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </style>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
-  <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepRev)"/>
+  <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V112" class="spine"/>
 
   <text x="${X}" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>

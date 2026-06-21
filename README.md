@@ -47,7 +47,7 @@
      raw.githubusercontent.com. Because links INSIDE an <img>-embedded SVG are not
      clickable on GitHub, the clickable repo links live in the row just below. -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-cards.svg" width="820" alt="Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated, provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents — PID diagnostics for Vision-Language-Action policies, Rust and Python. crebain (8 stars): Adaptive Response & Awareness System, tactical visualization and autonomy, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in safe Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-cards.svg" width="820" alt="Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated, provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): Adaptive Response & Awareness System, tactical visualization and autonomy, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in safe Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python." loading="lazy"/>
 </p>
 
 <!-- The cards above are an image, so their links aren't clickable on GitHub.

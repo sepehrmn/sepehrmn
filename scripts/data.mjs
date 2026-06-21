@@ -28,7 +28,7 @@ export const PROJECTS = [
     name: "prisoma",
     accent: "#a78bfa", light: "#7c3aed", grad: "#241a44",
     private: true,
-    desc: "A prism for embodied agents — refracting a Vision-Language-Action policy into unique / redundant / synergistic information.",
+    desc: "A prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods, PID among them.",
     stack: ["Rust", "Python"],
   },
   {

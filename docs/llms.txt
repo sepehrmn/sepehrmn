@@ -6,8 +6,8 @@
 > 3D vision. Primary languages: Rust and Python. Building on GitHub since 2014.
 
 ## Focus
-Agentic engineering, continual learning, knowledge graphs, RAG, neural networks,
-spiking neural networks, neurorobotics, information theory, computational
+Agentic engineering, continual learning, knowledge graphs, RAG, world models,
+neural networks, spiking neural networks, neurorobotics, information theory, computational
 neuroscience, 3D vision and scene reconstruction, robotics.
 
 ## Selected work
@@ -16,7 +16,7 @@ neuroscience, 3D vision and scene reconstruction, robotics.
 - pid-rs — Partial Information Decomposition with continuous mutual-information (KSG) estimators, in safe Rust: https://github.com/sepahead/pid-rs
 - cobot-atlas — 3D mesh-generation pipeline; 2,023 meshes for collaborative-robot simulation and embodied AI; dataset on Hugging Face (Python): https://github.com/sepahead/cobot-atlas
 - engram (private) — NEST-based neural-modeling hub (the "brain" the rest of the stack connects to)
-- prisoma (private) — a Partial-Information-Decomposition "prism" for Vision-Language-Action policies
+- prisoma (private) — a prism for embodied agents, robotics and world models; refracts Vision-Language-Action policies through several natively-implemented analysis methods, Partial Information Decomposition among them
 
 ## Research & writing
 - ReScience C replication — information-theoretic analysis of transfer functions: https://github.com/sepahead/mahmoudian-2020-rescience

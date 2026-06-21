@@ -251,7 +251,7 @@ const accentRulesLight = projects
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): PID diagnostics for Vision-Language-Action policies, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
+  "Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>

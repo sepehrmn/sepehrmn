@@ -77,8 +77,6 @@
 <sub>&#8599;&nbsp;&nbsp;<a href="https://github.com/sepahead/brojapid-activationfunctions">brojapid-activationfunctions</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/mahmoudian-2020-rescience">mahmoudian-2020-rescience</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/nest-simulator">nest-simulator</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/melkor">melkor</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/relief-atlas">relief-atlas</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/manwe">manwe</a>&nbsp;&middot;&nbsp;<a href="https://github.com/sepahead/silmaril-vision-studio">silmaril-vision-studio</a></sub>
 </p>
 
----
-
 <h3 align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-toolbox.svg" width="820" alt="The toolbox"/></h3>
 
 <br/>

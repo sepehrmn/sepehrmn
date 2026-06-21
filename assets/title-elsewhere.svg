@@ -5,8 +5,8 @@
       <stop offset="0" stop-color="#f472b6" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#f472b6" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
-      <animate attributeName="x1" from="12" to="760" dur="3.2s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="132" to="880" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="12" to="856" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="132" to="976" dur="3.2s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
   <style>
@@ -38,8 +38,8 @@
   <text x="22" y="33" class="idx">05</text>
   <text x="50" y="33" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
   <text x="132" y="33" class="label" textLength="108" lengthAdjust="spacingAndGlyphs">ELSEWHERE</text>
-  <text x="760" y="33" text-anchor="end" class="cap"># 5 channels</text>
-  <line x1="132" y1="42.5" x2="760" y2="42.5" class="rule"/>
-  <rect x="132" y="41" width="628" height="3" rx="1.5" fill="url(#sweep-elsewhere)"/>
+  <text x="856" y="33" text-anchor="end" class="cap"># 5 channels</text>
+  <line x1="132" y1="42.5" x2="856" y2="42.5" class="rule"/>
+  <rect x="132" y="41" width="724" height="3" rx="1.5" fill="url(#sweep-elsewhere)"/>
   <rect x="250" y="22" width="9" height="14" rx="1" class="cursor"/>
 </svg>

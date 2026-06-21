@@ -49,7 +49,7 @@ function render(s) {
 
   const labelW = charLen(s.label, 14, 4);
   const ruleX1 = LABEL_X;
-  const ruleX2 = 760;
+  const ruleX2 = 856; // hairline + "# …" count reach the right edge (4px margin, matching the left spine)
   const cursorX = LABEL_X + labelW + 10;
 
   // Sweep spans the rule; bright band travels across it once per loop.
@@ -118,7 +118,7 @@ function renderHeading({ label, comment, accent, begin = "0.6s" }) {
   const labelW = charLen(label, 14, 4);
   const PROMPT_X = 22; // where the index sits on the numbered banners
   const HLABEL_X = LABEL_X; // 132 — aligned with the section labels
-  const RULE_X2 = 760;
+  const RULE_X2 = 856; // reaches the right edge, like the numbered section banners
   const cursorX = HLABEL_X + labelW + 10;
 
   const sweepId = "sweep-more";

@@ -4,8 +4,8 @@
       <stop offset="0" stop-color="#fbbf24" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
-      <animate attributeName="x1" from="111" to="740" dur="3.2s" begin="0.3s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="221" to="850" dur="3.2s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="111" to="856" dur="3.2s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="221" to="966" dur="3.2s" begin="0.3s" repeatCount="indefinite"/>
     </linearGradient></defs>
   <style>
     .label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 3px; }
@@ -22,7 +22,7 @@
   </style>
   <path d="M4 6 V24" class="spine"/>
   <text x="24" y="20" class="label" textLength="181" lengthAdjust="spacingAndGlyphs">BACKEND &amp; SYSTEMS</text>
-  <text x="740" y="20" text-anchor="end" class="cap"># 8 tools</text>
-  <line x1="221" y1="24.5" x2="740" y2="24.5" class="rule"/>
-  <rect x="221" y="23" width="519" height="3" rx="1.5" fill="url(#rail-backend)"/>
+  <text x="856" y="20" text-anchor="end" class="cap"># 8 tools</text>
+  <line x1="221" y1="24.5" x2="856" y2="24.5" class="rule"/>
+  <rect x="221" y="23" width="635" height="3" rx="1.5" fill="url(#rail-backend)"/>
 </svg>

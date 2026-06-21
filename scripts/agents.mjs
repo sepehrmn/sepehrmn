@@ -12,19 +12,10 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PALETTE, MONO, escapeXML, charLen, sweepDefs, CURBLINK_KEYFRAMES } from "./tokens.mjs";
+import { AGENTS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(__dirname, "..", "assets", "agents.svg");
-
-const AGENTS = [
-  { name: "Pi",          role: "lead",       note: "mono · the agent", lead: true },
-  { name: "Claude Code", role: "engineer",   note: "deep refactors" },
-  { name: "Codex",       role: "generalist", note: "broad coverage" },
-  { name: "Cursor",      role: "editor",     note: "in-IDE pair" },
-  { name: "Zed",         role: "editor",     note: "fast · collaborative" },
-  { name: "Orca",        role: "orchestrator", note: "multi-agent" },
-  { name: "Ghostty",     role: "terminal",   note: "GPU-native" },
-];
 
 const W = 860;
 const X = 40;

@@ -13,6 +13,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PALETTE, MONO, escapeXML, charLen, sweepDefs } from "./tokens.mjs";
+import { RAILS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ASSETS = resolve(__dirname, "..", "assets");
@@ -27,13 +28,6 @@ const [amberD, amberL] = PALETTE.accents.toolbox;
 const [inkD, inkL] = PALETTE.ink;
 const [mutedD, mutedL] = PALETTE.muted;
 const [ruleD, ruleL] = PALETTE.rule;
-
-const RAILS = [
-  { slug: "aiml",     label: "AI / ML",            count: 8, begin: "0s" },
-  { slug: "backend",  label: "BACKEND &amp; SYSTEMS", count: 7, begin: "0.3s" },
-  { slug: "cloud",    label: "CLOUD &amp; DEVOPS",     count: 8, begin: "0.6s" },
-  { slug: "frontend", label: "FRONTEND &amp; WEB",     count: 7, begin: "0.9s" },
-];
 
 function render(r) {
   // label width uses the visible text length (entities count as 1 char)

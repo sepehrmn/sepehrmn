@@ -14,6 +14,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PALETTE, MONO, escapeXML, charLen, sweepDefs, CURBLINK_KEYFRAMES } from "./tokens.mjs";
+import { PROJECTS, AGENTS, RAILS, CHANNELS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ASSETS = resolve(__dirname, "..", "assets");
@@ -25,10 +26,10 @@ const LABEL_X = 132;
 
 const SECTIONS = [
   { slug: "pulse",     index: "01", label: "THE PULSE",     comment: "# active since 2014", accent: "pulse",     begin: "0s" },
-  { slug: "work",      index: "02", label: "SELECTED WORK", comment: "# 6 projects",        accent: "work",      begin: "0.4s" },
-  { slug: "toolbox",   index: "03", label: "THE TOOLBOX",         comment: "# 4 stacks",    accent: "toolbox",   begin: "0.8s" },
-  { slug: "agentic",   index: "04", label: "AGENTIC ENGINEERING", comment: "# 7 in the loop", accent: "agentic",   begin: "1.2s" },
-  { slug: "elsewhere", index: "05", label: "ELSEWHERE",           comment: "# 5 channels",  accent: "elsewhere", begin: "1.6s" },
+  { slug: "work",      index: "02", label: "SELECTED WORK", comment: `# ${PROJECTS.length} projects`,    accent: "work",      begin: "0.4s" },
+  { slug: "toolbox",   index: "03", label: "THE TOOLBOX",         comment: `# ${RAILS.length} stacks`,      accent: "toolbox",   begin: "0.8s" },
+  { slug: "agentic",   index: "04", label: "AGENTIC ENGINEERING", comment: `# ${AGENTS.length} in the loop`, accent: "agentic",   begin: "1.2s" },
+  { slug: "elsewhere", index: "05", label: "ELSEWHERE",           comment: `# ${CHANNELS} channels`,        accent: "elsewhere", begin: "1.6s" },
 ];
 
 const HEADING = {

@@ -15,6 +15,7 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { PROJECTS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "assets", "work-cards.svg");
@@ -26,50 +27,7 @@ const OUT_PATH = resolve(__dirname, "..", "assets", "work-cards.svg");
 // the top-right status badge; `repo` drives nothing in the SVG (links live in
 // the README) but documents the public slug for maintainers.
 // ---------------------------------------------------------------------------
-const projects = [
-  {
-    name: "engram",
-    accent: "#22d3ee", light: "#0891b2", grad: "#0b2b33",
-    private: true,
-    desc: "Engram Neural Modeling Labs — the hub: neural-network and neural-modeling experiments that drive the rest of the stack.",
-    stack: ["Python"],
-  },
-  {
-    name: "NCP",
-    accent: "#fbbf24", light: "#b45309", grad: "#332408",
-    stars: 1, repo: "sepahead/NCP",
-    desc: "Safety-gated, provenance-first wire protocol (Rust SDK) letting a simulation perceive and act through robots and clients. Pre-1.0.",
-    stack: ["Rust"],
-  },
-  {
-    name: "prisoma",
-    accent: "#a78bfa", light: "#7c3aed", grad: "#241a44",
-    private: true,
-    desc: "A prism for embodied agents — refracting a Vision-Language-Action policy into unique / redundant / synergistic information.",
-    stack: ["Rust", "Python"],
-  },
-  {
-    name: "crebain",
-    accent: "#f472b6", light: "#db2777", grad: "#2b1020",
-    stars: 8, repo: "sepahead/crebain",
-    desc: "Adaptive Response & Awareness System — sensor fusion, ML detection, drone physics, ROS / Gazebo. The flagship robotics client.",
-    stack: ["TS", "Rust", "Nix"],
-  },
-  {
-    name: "pid-rs",
-    accent: "#34d399", light: "#059669", grad: "#06281d",
-    stars: 1, repo: "sepahead/pid-rs",
-    desc: "Partial Information Decomposition with continuous mutual-information (KSG / I_sx) estimators, in safe Rust — the analysis client.",
-    stack: ["Rust"],
-  },
-  {
-    name: "cobot-atlas",
-    accent: "#60a5fa", light: "#2563eb", grad: "#0b1f3a",
-    stars: 2, repo: "sepahead/cobot-atlas",
-    desc: "3D mesh-generation pipeline — 2,023 meshes for robot simulation; dataset published on Hugging Face. Feeds simulation from pid-rs analysis.",
-    stack: ["Python"],
-  },
-];
+const projects = PROJECTS;
 
 // ---------------------------------------------------------------------------
 // Live star counts. With a token (GitHub Actions provides GITHUB_TOKEN) we read

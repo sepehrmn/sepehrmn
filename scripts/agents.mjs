@@ -21,8 +21,9 @@ const AGENTS = [
   { name: "Claude Code", role: "engineer",   note: "deep refactors" },
   { name: "Codex",       role: "generalist", note: "broad coverage" },
   { name: "Cursor",      role: "editor",     note: "in-IDE pair" },
-  { name: "Amp",         role: "autonomous", note: "long-horizon runs" },
-  { name: "Aider",       role: "surgical",   note: "git-native edits" },
+  { name: "Zed",         role: "editor",     note: "fast · collaborative" },
+  { name: "Orca",        role: "agent",      note: "in the loop" },
+  { name: "Ghostty",     role: "terminal",   note: "GPU-native" },
 ];
 
 const W = 860;
@@ -40,7 +41,7 @@ const [flowD, flowL] = PALETTE.flow;
 const pD = PALETTE.panel.dark;
 const pL = PALETTE.panel.light;
 
-const HEADER = "❯ roster --status live";
+const HEADER = "❯ stack --status live";
 const cmdCursorX = X + charLen(HEADER, 14, 0) + 6;
 
 const rows = AGENTS.map((a, i) => {
@@ -71,7 +72,7 @@ const sweepFwd = sweepDefs("sweepFwd", {
 
 const railY = H - 22;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agents manifest — the AI coding agents I build with. Pi (lead, mono the agent); Claude Code (engineer, deep refactors); Codex (generalist, broad coverage); Cursor (editor, in-IDE pair); Amp (autonomous, long-horizon runs); Aider (surgical, git-native edits). The loop never sleeps.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>
@@ -117,8 +118,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V${H - 20}" class="spine"/>
 
-  <text x="${X}" y="34" class="cap">// AGENTS &#8212; MANIFEST</text>
-  <text x="${X}" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">roster </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
+  <text x="${X}" y="34" class="cap">// AGENTIC STACK &#8212; MANIFEST</text>
+  <text x="${X}" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">stack </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
   <rect x="${cmdCursorX.toFixed(0)}" y="47" width="9" height="15" rx="1" class="cursor"/>
 
 ${rows}

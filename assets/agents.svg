@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 312" width="860" height="312" role="img" aria-label="Agents manifest — the AI coding agents I build with. Pi (lead, mono the agent); Claude Code (engineer, deep refactors); Codex (generalist, broad coverage); Cursor (editor, in-IDE pair); Amp (autonomous, long-horizon runs); Aider (surgical, git-native edits). The loop never sleeps.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 342" width="860" height="342" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Cursor (editor); Zed (editor); Orca (agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs><linearGradient id="sweepFwd" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
       <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
@@ -46,13 +46,13 @@
     }
   </style>
 
-  <rect x="0.5" y="0.5" width="859" height="311" rx="16" class="panel"/>
+  <rect x="0.5" y="0.5" width="859" height="341" rx="16" class="panel"/>
   <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepFwd)"/>
-  <path d="M6 20 V292" class="spine"/>
+  <path d="M6 20 V322" class="spine"/>
 
-  <text x="40" y="34" class="cap">// AGENTS &#8212; MANIFEST</text>
-  <text x="40" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">roster </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
-  <rect x="231" y="47" width="9" height="15" rx="1" class="cursor"/>
+  <text x="40" y="34" class="cap">// AGENTIC STACK &#8212; MANIFEST</text>
+  <text x="40" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">stack </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
+  <rect x="222" y="47" width="9" height="15" rx="1" class="cursor"/>
 
   <g>
     <circle cx="46" cy="88" r="7" fill="none" stroke="var(--em)" stroke-opacity="0.5"/>
@@ -99,25 +99,35 @@
     <circle cx="46" cy="208" r="4" class="pip">
       <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin="1.00s" repeatCount="indefinite"/>
     </circle>
-    <text x="62" y="217" class="name">Amp</text>
-    <rect x="103" y="203" width="98" height="22" rx="6" class="chip"/>
-    <text x="152" y="217" text-anchor="middle" class="chip-label">autonomous</text>
-    <text x="213" y="216" class="note">// long-horizon runs</text>
+    <text x="62" y="217" class="name">Zed</text>
+    <rect x="103" y="203" width="66" height="22" rx="6" class="chip"/>
+    <text x="136" y="217" text-anchor="middle" class="chip-label">editor</text>
+    <text x="181" y="216" class="note">// fast · collaborative</text>
   </g>
   <g>
     
     <circle cx="46" cy="238" r="4" class="pip">
       <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin="1.25s" repeatCount="indefinite"/>
     </circle>
-    <text x="62" y="247" class="name">Aider</text>
-    <rect x="121" y="233" width="82" height="22" rx="6" class="chip"/>
-    <text x="162" y="247" text-anchor="middle" class="chip-label">surgical</text>
-    <text x="215" y="246" class="note">// git-native edits</text>
+    <text x="62" y="247" class="name">Orca</text>
+    <rect x="112" y="233" width="58" height="22" rx="6" class="chip"/>
+    <text x="141" y="247" text-anchor="middle" class="chip-label">agent</text>
+    <text x="182" y="246" class="note">// in the loop</text>
+  </g>
+  <g>
+    
+    <circle cx="46" cy="268" r="4" class="pip">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin="1.50s" repeatCount="indefinite"/>
+    </circle>
+    <text x="62" y="277" class="name">Ghostty</text>
+    <rect x="139" y="263" width="82" height="22" rx="6" class="chip"/>
+    <text x="180" y="277" text-anchor="middle" class="chip-label">terminal</text>
+    <text x="233" y="276" class="note">// GPU-native</text>
   </g>
 
-  <text x="40" y="282" class="tag">// the loop never sleeps</text>
-  <line x1="40" y1="290" x2="820" y2="290" class="rail"/>
-  <path d="M40 290 H820" class="flow">
+  <text x="40" y="312" class="tag">// the loop never sleeps</text>
+  <line x1="40" y1="320" x2="820" y2="320" class="rail"/>
+  <path d="M40 320 H820" class="flow">
     <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/>
   </path>
 </svg>

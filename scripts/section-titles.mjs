@@ -27,7 +27,7 @@ const SECTIONS = [
   { slug: "pulse",     index: "01", label: "THE PULSE",     comment: "# active since 2014", accent: "pulse",     begin: "0s" },
   { slug: "work",      index: "02", label: "SELECTED WORK", comment: "# 6 projects",        accent: "work",      begin: "0.4s" },
   { slug: "toolbox",   index: "03", label: "THE TOOLBOX",         comment: "# 4 stacks",    accent: "toolbox",   begin: "0.8s" },
-  { slug: "agentic",   index: "04", label: "AGENTIC ENGINEERING", comment: "# 6 agents",    accent: "agentic",   begin: "1.2s" },
+  { slug: "agentic",   index: "04", label: "AGENTIC ENGINEERING", comment: "# 7 in the loop", accent: "agentic",   begin: "1.2s" },
   { slug: "elsewhere", index: "05", label: "ELSEWHERE",           comment: "# 5 channels",  accent: "elsewhere", begin: "1.6s" },
 ];
 

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 52" width="860" height="52" role="img" aria-label="Elsewhere">
+  <title>Elsewhere</title>
+  <defs>
+    <linearGradient id="sweep-elsewhere" gradientUnits="userSpaceOnUse" x1="12" y1="0" x2="132" y2="0">
+      <stop offset="0" stop-color="#f472b6" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#f472b6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
+      <animate attributeName="x1" from="12" to="760" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="132" to="880" dur="3.2s" repeatCount="indefinite"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .idx    { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f472b6; letter-spacing: 1px; }
+    .prompt { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .caret  { fill: #f472b6; }
+    .label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 4px; }
+    .cap    { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
+    .spine  { stroke: #f472b6; stroke-width: 4; stroke-linecap: round; }
+    .rule   { stroke: #30363d; stroke-width: 1; }
+    .cursor { fill: #f472b6; animation: curblink 1s steps(1) 1.2s infinite; }
+    @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    @media (prefers-color-scheme: light) {
+      .idx { fill: #db2777; }
+      .prompt { fill: #57606a; }
+      .caret { fill: #db2777; }
+      .label { fill: #1f2328; }
+      .cap { fill: #57606a; }
+      .spine { stroke: #db2777; }
+      .rule { stroke: #d0d7de; }
+      .cursor { fill: #db2777; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      animate { display: none; }
+      .cursor { animation: none; visibility: hidden; }
+    }
+  </style>
+  <path d="M4 13 V39" class="spine"/>
+  <text x="22" y="33" class="idx">04</text>
+  <text x="50" y="33" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
+  <text x="132" y="33" class="label" textLength="108" lengthAdjust="spacingAndGlyphs">ELSEWHERE</text>
+  <text x="760" y="33" text-anchor="end" class="cap"># 5 channels</text>
+  <line x1="132" y1="42.5" x2="760" y2="42.5" class="rule"/>
+  <rect x="132" y="41" width="628" height="3" rx="1.5" fill="url(#sweep-elsewhere)"/>
+  <rect x="250" y="22" width="9" height="14" rx="1" class="cursor"/>
+</svg>

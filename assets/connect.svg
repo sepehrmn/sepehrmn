@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 132" width="860" height="132" role="img" aria-label="Open channel — reach me at sepehr.mahmoudian@gmail.com; always open to interesting problems.">
+  <title>Open channel</title>
+  <defs>
+    <linearGradient id="sweepRev" gradientUnits="userSpaceOnUse" x1="920" y1="0" x2="1040" y2="0">
+      <stop offset="0" stop-color="#f472b6" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#f472b6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
+      <animate attributeName="x1" from="920" to="-120" dur="3.6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="1040" to="0" dur="3.6s" repeatCount="indefinite"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
+    .spine { stroke: #f472b6; stroke-width: 4; stroke-linecap: round; }
+    .cap   { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
+    .cmd   { font: 500 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .addr  { font: 500 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .at    { font: 500 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f472b6; }
+    .prompt{ font: 500 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f472b6; }
+    .tag   { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .rail  { stroke: #30363d; stroke-width: 1; }
+    .flow  { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
+    .cursor{ fill: #f472b6; animation: curblink 1s steps(1) infinite; }
+    @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    @media (prefers-color-scheme: light) {
+      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
+      .spine { stroke: #db2777; }
+      .cap, .cmd, .tag { fill: #57606a; }
+      .addr { fill: #1f2328; }
+      .at, .prompt, .cursor { fill: #db2777; }
+      .rail { stroke: #d0d7de; }
+      .flow { stroke: #22d3ee; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      animate { display: none; }
+      .cursor { animation: none; visibility: hidden; }
+      .flow { display: none; }
+    }
+  </style>
+
+  <rect x="0.5" y="0.5" width="859" height="131" rx="16" class="panel"/>
+  <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepRev)"/>
+  <path d="M6 20 V112" class="spine"/>
+
+  <text x="40" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>
+
+  <text x="40" y="76">
+    <tspan class="prompt">❯ </tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepehr.mahmoudian</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>
+  </text>
+  <rect x="372" y="63" width="9" height="17" rx="1" class="cursor"/>
+
+  <text x="40" y="100" class="tag">// always open to interesting problems</text>
+
+  <line x1="40" y1="116" x2="820" y2="116" class="rail"/>
+  <path d="M40 116 H820" class="flow">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+</svg>

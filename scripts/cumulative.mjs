@@ -490,6 +490,14 @@ function renderSVG(model) {
     .cum-area { fill: url(#cumGrad); }
     .cum-line { fill: none; stroke: url(#cumLineGrad); stroke-width: 2.5; stroke-opacity: 0.3; stroke-linecap: round; stroke-linejoin: round; filter: url(#lineGlow); }
     .cum-dot { fill: #a5f3fc; fill-opacity: 0.7; stroke: #22d3ee; stroke-width: 1.5; filter: url(#lineGlow); }
+    /* Legibility halo. An image-embedded SVG resolves prefers-color-scheme from the
+       OS/browser, NOT from GitHub's theme, so the two can disagree — e.g. GitHub in
+       dark mode while the OS reports "light" (common on mobile). That would paint the
+       light-mode near-black labels as black-on-dark and make them unreadable. A
+       paint-order stroke in the page-background colour is invisible in the matching
+       case and only appears to outline the text when the scheme mismatches, so the
+       numbers stay legible on either background. */
+    .headline, .sub, .value, .year { paint-order: stroke; stroke: #0d1117; stroke-width: 3; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
       .headline { fill: #0891b2; }
       .sub { fill: #57606a; }
@@ -504,6 +512,7 @@ function renderSVG(model) {
       .cum-line { stroke: url(#cumLineGradLight); stroke-opacity: 0.35; }
       .cum-area { fill: url(#cumGradLight); }
       .cum-dot { fill: #0891b2; stroke: #0e7490; }
+      .headline, .sub, .value, .year { stroke: #ffffff; }
     }
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }

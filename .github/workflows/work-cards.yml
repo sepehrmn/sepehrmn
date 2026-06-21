@@ -1,15 +1,17 @@
-name: Generate Selected-work cards
+name: Generate Selected-work SVGs
 
 on:
   schedule:
     # Every 4 hours at :40 past (offset from the two chart workflows at :00/:20)
-    # so the live star counts on the project cards stay fresh. Free: Actions
-    # minutes are unlimited on public repos.
+    # so the live star/fork counts on the project cards + the repo tree stay
+    # fresh. Free: Actions minutes are unlimited on public repos.
     - cron: "40 */4 * * *"
   workflow_dispatch:
   push:
     paths:
       - "scripts/work-cards.mjs"
+      - "scripts/repo-tree.mjs"
+      - "scripts/data.mjs"
       - "scripts/tokens.mjs"
       - ".github/workflows/work-cards.yml"
 

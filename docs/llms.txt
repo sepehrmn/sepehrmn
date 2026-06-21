@@ -7,15 +7,15 @@
 
 ## Focus
 Agentic engineering, continual learning, knowledge graphs, RAG, neural networks,
-neurorobotics, information theory, computational neuroscience, 3D vision and scene
-reconstruction, robotics.
+spiking neural networks, neurorobotics, information theory, computational
+neuroscience, 3D vision and scene reconstruction, robotics.
 
 ## Selected work
-- NCP — safety-gated, provenance-first wire protocol (Rust): https://github.com/sepahead/NCP
-- crebain — Adaptive Response & Awareness System; sensor fusion, ML detection, drone physics, ROS/Gazebo: https://github.com/sepahead/crebain
-- pid-rs — Partial Information Decomposition with continuous mutual-information estimators (Rust): https://github.com/sepahead/pid-rs
-- cobot-atlas — 3D mesh-generation pipeline; dataset on Hugging Face: https://github.com/sepahead/cobot-atlas
-- engram (private) — neural-modeling hub
+- NCP (Neuro-Cybernetic Protocol) — safety-gated, provenance-first wire protocol that lets a spiking neural simulation (NEST) perceive and act through robots, UAVs and analysis clients; Rust SDK with Python, C/C++ and TypeScript peers: https://github.com/sepahead/NCP
+- crebain — Adaptive Response & Awareness System (ARAS); tactical visualization & autonomy: sensor fusion, ML detection, drone physics, ROS/Gazebo; Tauri + React + Rust: https://github.com/sepahead/crebain
+- pid-rs — Partial Information Decomposition with continuous mutual-information (KSG) estimators, in safe Rust: https://github.com/sepahead/pid-rs
+- cobot-atlas — 3D mesh-generation pipeline; 2,023 meshes for collaborative-robot simulation and embodied AI; dataset on Hugging Face (Python): https://github.com/sepahead/cobot-atlas
+- engram (private) — NEST-based neural-modeling hub (the "brain" the rest of the stack connects to)
 - prisoma (private) — a Partial-Information-Decomposition "prism" for Vision-Language-Action policies
 
 ## Research & writing

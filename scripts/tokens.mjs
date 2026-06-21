@@ -15,6 +15,7 @@ export const PALETTE = {
     pulse: ["#22d3ee", "#0891b2"],
     work: ["#a78bfa", "#7c3aed"],
     toolbox: ["#fbbf24", "#b45309"],
+    agentic: ["#34d399", "#059669"],
     elsewhere: ["#f472b6", "#db2777"],
   },
   panel: {

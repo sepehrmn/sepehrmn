@@ -22,7 +22,7 @@
   </style>
   <path d="M4 6 V24" class="spine"/>
   <text x="24" y="20" class="label" textLength="181" lengthAdjust="spacingAndGlyphs">BACKEND &amp; SYSTEMS</text>
-  <text x="760" y="20" text-anchor="end" class="cap"># 7 tools</text>
+  <text x="760" y="20" text-anchor="end" class="cap"># 8 tools</text>
   <line x1="221" y1="24.5" x2="760" y2="24.5" class="rule"/>
   <rect x="221" y="23" width="539" height="3" rx="1.5" fill="url(#rail-backend)"/>
 </svg>

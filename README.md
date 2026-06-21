@@ -118,7 +118,8 @@
 <a href="https://fastapi.tiangolo.com" title="FastAPI"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://orm.drizzle.team/" title="Drizzle ORM"><img src="pics/drizzle-icon.svg" alt="Drizzle ORM" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://www.postgresql.org" title="PostgreSQL"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="44"/></a>&nbsp;&nbsp;&nbsp;
-<a href="https://grpc.io" title="gRPC"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grpc/grpc-plain.svg" alt="gRPC" height="44"/></a>
+<a href="https://grpc.io" title="gRPC"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grpc/grpc-plain.svg" alt="gRPC" height="44"/></a>&nbsp;&nbsp;&nbsp;
+<a href="https://zenoh.io" title="Zenoh &mdash; zero-overhead pub/sub/query protocol"><img src="pics/zenoh-icon.png" alt="Zenoh" height="44"/></a>
 </p>
 
 <p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-cloud.svg" width="820" alt="Cloud &amp; DevOps stack" loading="lazy"/></p>

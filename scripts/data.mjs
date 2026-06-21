@@ -84,7 +84,7 @@ export const AGENTS = [
 // toolbox banner's "# N stacks".
 export const RAILS = [
   { slug: "aiml",     label: "AI / ML",            count: 8, begin: "0s" },
-  { slug: "backend",  label: "BACKEND &amp; SYSTEMS", count: 7, begin: "0.3s" },
+  { slug: "backend",  label: "BACKEND &amp; SYSTEMS", count: 8, begin: "0.3s" },
   { slug: "cloud",    label: "CLOUD &amp; DEVOPS",     count: 8, begin: "0.6s" },
   { slug: "frontend", label: "FRONTEND &amp; WEB",     count: 7, begin: "0.9s" },
 ];

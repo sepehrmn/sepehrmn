@@ -131,11 +131,11 @@
 <a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ" title="Google Scholar"><img src="pics/google-scholar.png" alt="Google Scholar" height="40"/></a>&nbsp;&nbsp;
 <a href="https://substack.com/@thetorus" title="Substack"><img src="pics/substack.png" alt="Substack" height="40"/></a>&nbsp;&nbsp;
 <a href="https://huggingface.co/torusprime" title="Hugging Face"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" height="40"/></a>&nbsp;&nbsp;
-<a href="https://x.com/SepehrMN" title="X (Twitter) &mdash; @SepehrMN">
+<a href="https://x.com/SepAhead" title="X (Twitter) &mdash; @SepAhead">
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/x-logo-white.svg">
 <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/x-logo-black.svg">
-<img src="pics/x-logo-black.svg" alt="X (Twitter) &mdash; @SepehrMN" height="40"/>
+<img src="pics/x-logo-black.svg" alt="X (Twitter) &mdash; @SepAhead" height="40"/>
 </picture>
 </a>
 </p>

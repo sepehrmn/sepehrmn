@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 132" width="860" height="132" role="img" aria-label="Open channel — reach me at sepehr.mahmoudian@gmail.com; always open to interesting problems.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 132" width="860" height="132" role="img" aria-label="Open channel — reach me at sepmhn@gmail.com; always open to interesting problems.">
   <title>Open channel</title>
   <defs>
     <linearGradient id="sweepRev" gradientUnits="userSpaceOnUse" x1="920" y1="0" x2="1040" y2="0">
@@ -45,9 +45,9 @@
   <text x="40" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>
 
   <text x="40" y="76">
-    <tspan class="prompt">❯ </tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepehr.mahmoudian</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>
+    <tspan class="prompt">❯ </tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepmhn</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>
   </text>
-  <rect x="372" y="63" width="9" height="17" rx="1" class="cursor"/>
+  <rect x="267" y="63" width="9" height="17" rx="1" class="cursor"/>
 
   <text x="40" y="100" class="tag">// always open to interesting problems</text>
 

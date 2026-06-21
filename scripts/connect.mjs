@@ -32,7 +32,7 @@ const panelL = PALETTE.panel.light;
 // Email shown as a command. The address segments are split so '@' and '.' take
 // the accent; everything else is ink. Real mailto is separate, in the README.
 const PROMPT = "❯ "; // ❯ + nbsp
-const EMAIL_PLAIN = PROMPT + "mail sepehr.mahmoudian@gmail.com";
+const EMAIL_PLAIN = PROMPT + "mail sepmhn@gmail.com";
 const cursorX = X + charLen(EMAIL_PLAIN, 16, 0) + 6;
 
 // Comms rail with a single travelling packet (flow dash grammar).
@@ -44,7 +44,7 @@ const sweepRev = sweepDefs("sweepRev", {
   x1from: W + 60, x1to: -120, x2from: W + 180, x2to: 0, color: pinkD, dur: "3.6s",
 });
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Open channel — reach me at sepehr.mahmoudian@gmail.com; always open to interesting problems.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Open channel — reach me at sepmhn@gmail.com; always open to interesting problems.">
   <title>Open channel</title>
   <defs>
     ${sweepRev}
@@ -85,7 +85,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <text x="${X}" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>
 
   <text x="${X}" y="76">
-    <tspan class="prompt">${escapeXML(PROMPT)}</tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepehr.mahmoudian</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>
+    <tspan class="prompt">${escapeXML(PROMPT)}</tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepmhn</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>
   </text>
   <rect x="${cursorX.toFixed(0)}" y="63" width="9" height="17" rx="1" class="cursor"/>
 

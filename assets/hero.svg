@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — computational neuroscience, robotics, 3D vision and Rust systems, Berlin">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — agentic engineering and orchestration, AI/ML and neurorobotics, defense tech. Berlin.">
   <style>
     /* Theme colors mirror assets/weekdays.svg so the page reads as one system. */
     .wordmark { font: 700 40px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
@@ -47,38 +47,31 @@
     </linearGradient>
   </defs>
 
-  <!-- Rotating role line — the four verified pillars. Each shares one 16s cycle
-       and is visible in its own 4s slot (0.5s fade-in, ~2.5s hold, 0.5s
-       fade-out) via staggered keyTimes. Base opacity attributes give a clean
+  <!-- Rotating role line — three pillars. Each shares one 15s cycle and is
+       visible in its own 5s slot (~0.45s fade-in, ~4s hold, ~0.45s fade-out)
+       via staggered keyTimes. Base opacity attributes give a clean
        reduced-motion fallback (the first line stays visible). -->
   <g>
     <text x="40" y="124" class="role" opacity="1">
-      partial information decomposition · neural networks · information theory
+      agentic engineering · orchestration
       <animate attributeName="opacity"
         values="0;1;1;0;0"
-        keyTimes="0;0.03125;0.1875;0.21875;1"
-        dur="16s" repeatCount="indefinite"/>
+        keyTimes="0;0.03;0.30;0.3333;1"
+        dur="15s" repeatCount="indefinite"/>
     </text>
     <text x="40" y="124" class="role" opacity="0">
-      UAV autonomy · sensor fusion · ML detection · ROS / Gazebo
+      AI / ML · neurorobotics
       <animate attributeName="opacity"
         values="0;0;1;1;0;0"
-        keyTimes="0;0.25;0.28125;0.4375;0.46875;1"
-        dur="16s" repeatCount="indefinite"/>
+        keyTimes="0;0.3333;0.3633;0.6367;0.6667;1"
+        dur="15s" repeatCount="indefinite"/>
     </text>
     <text x="40" y="124" class="role" opacity="0">
-      3D vision · Gaussian splatting · depth pipelines
+      defense tech · UAV autonomy
       <animate attributeName="opacity"
-        values="0;0;1;1;0;0"
-        keyTimes="0;0.5;0.53125;0.6875;0.71875;1"
-        dur="16s" repeatCount="indefinite"/>
-    </text>
-    <text x="40" y="124" class="role" opacity="0">
-      safe-Rust estimators · provenance-first protocols · ML systems
-      <animate attributeName="opacity"
-        values="0;0;1;1;0;0"
-        keyTimes="0;0.75;0.78125;0.9375;0.96875;1"
-        dur="16s" repeatCount="indefinite"/>
+        values="0;0;1;1;0"
+        keyTimes="0;0.6667;0.6967;0.97;1"
+        dur="15s" repeatCount="indefinite"/>
     </text>
   </g>
 

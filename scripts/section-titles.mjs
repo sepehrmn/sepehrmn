@@ -38,6 +38,7 @@ const HEADING = {
   toolbox: "The toolbox",
   agentic: "Agentic engineering",
   elsewhere: "Elsewhere",
+  more: "More repositories",
 };
 
 function render(s) {
@@ -102,49 +103,47 @@ function render(s) {
 }
 
 // ---------------------------------------------------------------------------
-// Subordinate sub-header (e.g. "More repositories" inside 02 Selected work).
-// Same terminal grammar as the section banners, but deliberately SMALLER and
-// DIMMER — no index, a muted (not bright-ink) label, a thinner half-opacity
-// spine, and a tighter viewBox — so it reads as a child of its section rather
-// than a sixth top-level command. Embedded at a smaller width in the README.
+// "More repositories" heading. Same terminal grammar as the numbered section
+// banners and at the SAME prominence — full-weight accent spine, bright-ink
+// label, full size — so it reads as a real heading, NOT a dim subtitle. The one
+// difference: no two-digit index (it isn't one of the numbered top-level
+// commands), so the prompt sits where the index would be.
 // ---------------------------------------------------------------------------
-function renderSub({ label, comment, accent }) {
+function renderHeading({ label, comment, accent, begin = "0.6s" }) {
   const [accentD, accentL] = PALETTE.accents[accent];
+  const [inkD, inkL] = PALETTE.ink;
   const [mutedD, mutedL] = PALETTE.muted;
   const [ruleD, ruleL] = PALETTE.rule;
 
-  const SW = 600;
-  const SH = 44;
-  const SBASE = 28;
-  const PROMPT_X = 14;
-  const SLABEL_X = 86;
-  const RULE_X2 = 540;
-  const labelW = charLen(label, 13, 3);
-  const cursorX = SLABEL_X + labelW + 8;
+  const labelW = charLen(label, 14, 4);
+  const PROMPT_X = 22; // where the index sits on the numbered banners
+  const HLABEL_X = LABEL_X; // 132 — aligned with the section labels
+  const RULE_X2 = 760;
+  const cursorX = HLABEL_X + labelW + 10;
 
-  const sweepId = "sweep-sub";
+  const sweepId = "sweep-more";
   const sweep = sweepDefs(sweepId, {
-    x1from: SLABEL_X - 110, x1to: RULE_X2, x2from: SLABEL_X, x2to: RULE_X2 + 110, color: accentD, dur: "3.4s",
+    x1from: HLABEL_X - 120, x1to: RULE_X2, x2from: HLABEL_X, x2to: RULE_X2 + 120, color: accentD, dur: "3.2s",
   });
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SW} ${SH}" width="${SW}" height="${SH}" role="img" aria-label="${escapeXML(label.toLowerCase())}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(label.toLowerCase())}">
   <title>${escapeXML(label.toLowerCase())}</title>
   <defs>
     ${sweep}
   </defs>
   <style>
-    .prompt { font: 600 13px ${MONO}; fill: ${mutedD}; }
+    .prompt { font: 600 14px ${MONO}; fill: ${mutedD}; }
     .caret  { fill: ${accentD}; }
-    .label  { font: 700 13px ${MONO}; fill: ${mutedD}; letter-spacing: 3px; }
-    .cap    { font: 600 10px ${MONO}; fill: ${mutedD}; letter-spacing: 1.5px; }
-    .spine  { stroke: ${accentD}; stroke-width: 3; stroke-linecap: round; stroke-opacity: 0.8; }
+    .label  { font: 700 14px ${MONO}; fill: ${inkD}; letter-spacing: 4px; }
+    .cap    { font: 600 11px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }
+    .spine  { stroke: ${accentD}; stroke-width: 4; stroke-linecap: round; }
     .rule   { stroke: ${ruleD}; stroke-width: 1; }
-    .cursor { fill: ${accentD}; opacity: 0.85; animation: curblink 1s steps(1) 0.4s infinite; }
+    .cursor { fill: ${accentD}; animation: curblink 1s steps(1) ${begin} infinite; }
     ${CURBLINK_KEYFRAMES}
     @media (prefers-color-scheme: light) {
       .prompt { fill: ${mutedL}; }
       .caret  { fill: ${accentL}; }
-      .label  { fill: ${mutedL}; }
+      .label  { fill: ${inkL}; }
       .cap    { fill: ${mutedL}; }
       .spine  { stroke: ${accentL}; }
       .rule   { stroke: ${ruleL}; }
@@ -155,13 +154,13 @@ function renderSub({ label, comment, accent }) {
       .cursor { animation: none; visibility: hidden; }
     }
   </style>
-  <path d="M4 13 V31" class="spine"/>
-  <text x="${PROMPT_X}" y="${SBASE}" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
-  <text x="${SLABEL_X}" y="${SBASE}" class="label" textLength="${labelW}" lengthAdjust="spacingAndGlyphs">${escapeXML(label)}</text>
-  <text x="${RULE_X2}" y="${SBASE}" text-anchor="end" class="cap">${escapeXML(comment)}</text>
-  <line x1="${SLABEL_X}" y1="37" x2="${RULE_X2}" y2="37" class="rule"/>
-  <rect x="${SLABEL_X}" y="35.5" width="${RULE_X2 - SLABEL_X}" height="3" rx="1.5" fill="url(#${sweepId})"/>
-  <rect x="${cursorX}" y="18" width="8" height="13" rx="1" class="cursor"/>
+  <path d="M4 13 V39" class="spine"/>
+  <text x="${PROMPT_X}" y="${BASE}" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
+  <text x="${HLABEL_X}" y="${BASE}" class="label" textLength="${labelW}" lengthAdjust="spacingAndGlyphs">${escapeXML(label)}</text>
+  <text x="${RULE_X2}" y="${BASE}" text-anchor="end" class="cap">${escapeXML(comment)}</text>
+  <line x1="${HLABEL_X}" y1="42.5" x2="${RULE_X2}" y2="42.5" class="rule"/>
+  <rect x="${HLABEL_X}" y="41" width="${RULE_X2 - HLABEL_X}" height="3" rx="1.5" fill="url(#${sweepId})"/>
+  <rect x="${cursorX}" y="22" width="9" height="14" rx="1" class="cursor"/>
 </svg>
 `;
 }
@@ -174,5 +173,5 @@ for (const s of SECTIONS) {
 }
 
 const moreOut = resolve(ASSETS, "title-more.svg");
-writeFileSync(moreOut, renderSub({ label: "MORE REPOSITORIES", comment: `# ${REPOS.length} repos`, accent: "work" }), "utf8");
+writeFileSync(moreOut, renderHeading({ label: "MORE REPOSITORIES", comment: `# ${REPOS.length} repos`, accent: "work" }), "utf8");
 console.log(`[section-titles] wrote ${moreOut}`);

@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 44" width="600" height="44" role="img" aria-label="more repositories">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 52" width="860" height="52" role="img" aria-label="more repositories">
   <title>more repositories</title>
   <defs>
-    <linearGradient id="sweep-sub" gradientUnits="userSpaceOnUse" x1="-24" y1="0" x2="86" y2="0">
+    <linearGradient id="sweep-more" gradientUnits="userSpaceOnUse" x1="12" y1="0" x2="132" y2="0">
       <stop offset="0" stop-color="#a78bfa" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#a78bfa" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
-      <animate attributeName="x1" from="-24" to="540" dur="3.4s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="86" to="650" dur="3.4s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="12" to="760" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="132" to="880" dur="3.2s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
   <style>
-    .prompt { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .prompt { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .caret  { fill: #a78bfa; }
-    .label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 3px; }
-    .cap    { font: 600 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 1.5px; }
-    .spine  { stroke: #a78bfa; stroke-width: 3; stroke-linecap: round; stroke-opacity: 0.8; }
+    .label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 4px; }
+    .cap    { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
+    .spine  { stroke: #a78bfa; stroke-width: 4; stroke-linecap: round; }
     .rule   { stroke: #30363d; stroke-width: 1; }
-    .cursor { fill: #a78bfa; opacity: 0.85; animation: curblink 1s steps(1) 0.4s infinite; }
+    .cursor { fill: #a78bfa; animation: curblink 1s steps(1) 0.6s infinite; }
     @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
     @media (prefers-color-scheme: light) {
       .prompt { fill: #57606a; }
       .caret  { fill: #7c3aed; }
-      .label  { fill: #57606a; }
+      .label  { fill: #1f2328; }
       .cap    { fill: #57606a; }
       .spine  { stroke: #7c3aed; }
       .rule   { stroke: #d0d7de; }
@@ -32,11 +32,11 @@
       .cursor { animation: none; visibility: hidden; }
     }
   </style>
-  <path d="M4 13 V31" class="spine"/>
-  <text x="14" y="28" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
-  <text x="86" y="28" class="label" textLength="181" lengthAdjust="spacingAndGlyphs">MORE REPOSITORIES</text>
-  <text x="540" y="28" text-anchor="end" class="cap"># 7 repos</text>
-  <line x1="86" y1="37" x2="540" y2="37" class="rule"/>
-  <rect x="86" y="35.5" width="454" height="3" rx="1.5" fill="url(#sweep-sub)"/>
-  <rect x="275" y="18" width="8" height="13" rx="1" class="cursor"/>
+  <path d="M4 13 V39" class="spine"/>
+  <text x="22" y="33" class="prompt">~/sep <tspan class="caret">&#10095;</tspan></text>
+  <text x="132" y="33" class="label" textLength="207" lengthAdjust="spacingAndGlyphs">MORE REPOSITORIES</text>
+  <text x="760" y="33" text-anchor="end" class="cap"># 7 repos</text>
+  <line x1="132" y1="42.5" x2="760" y2="42.5" class="rule"/>
+  <rect x="132" y="41" width="628" height="3" rx="1.5" fill="url(#sweep-more)"/>
+  <rect x="349" y="22" width="9" height="14" rx="1" class="cursor"/>
 </svg>

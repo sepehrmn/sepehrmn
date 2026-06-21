@@ -60,7 +60,7 @@
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas and cobot-relief connect to prisoma; cobot-atlas and cobot-relief also connect to crebain." loading="lazy"/>
 </p>
 
-<h4 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-more.svg" width="480" alt="More repositories"/></h4>
+<h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-more.svg" width="820" alt="More repositories"/></h3>
 
 <br/>
 

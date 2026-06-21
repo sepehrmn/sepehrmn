@@ -1,0 +1,31 @@
+# Sepehr Mahmoudian
+
+> AI/ML engineer in Berlin, Germany. Builds agentic systems; works across
+> continual learning, knowledge graphs and retrieval-augmented generation (RAG),
+> with roots in computational neuroscience, information theory, neurorobotics and
+> 3D vision. Primary languages: Rust and Python. Building on GitHub since 2014.
+
+## Focus
+Agentic engineering, continual learning, knowledge graphs, RAG, neural networks,
+neurorobotics, information theory, computational neuroscience, 3D vision and scene
+reconstruction, robotics.
+
+## Selected work
+- NCP — safety-gated, provenance-first wire protocol (Rust): https://github.com/sepahead/NCP
+- crebain — Adaptive Response & Awareness System; sensor fusion, ML detection, drone physics, ROS/Gazebo: https://github.com/sepahead/crebain
+- pid-rs — Partial Information Decomposition with continuous mutual-information estimators (Rust): https://github.com/sepahead/pid-rs
+- cobot-atlas — 3D mesh-generation pipeline; dataset on Hugging Face: https://github.com/sepahead/cobot-atlas
+- engram (private) — neural-modeling hub
+- prisoma (private) — a Partial-Information-Decomposition "prism" for Vision-Language-Action policies
+
+## Research & writing
+- ReScience C replication — information-theoretic analysis of transfer functions: https://github.com/sepahead/mahmoudian-2020-rescience
+- Google Scholar: https://scholar.google.com/citations?user=t3PSg8kAAAAJ
+- Substack: https://substack.com/@thetorus
+
+## Links
+- GitHub: https://github.com/sepahead
+- LinkedIn: https://www.linkedin.com/in/sepehr-mahmoudian-99367516/
+- Hugging Face: https://huggingface.co/torusprime
+- X: https://x.com/SepAhead
+- Email: sepmhn@gmail.com

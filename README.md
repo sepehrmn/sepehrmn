@@ -3,7 +3,7 @@
      the SVG's internal prefers-color-scheme, with a reduced-motion fallback.
      Committed to the repo and served from raw.githubusercontent.com, so it always
      loads with no external card service. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; computational neuroscience, robotics and UAV autonomy, 3D vision, and Rust + ML systems. Berlin, building since 2014."/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; AI/ML engineer in Berlin building agentic systems, continual learning, knowledge graphs and RAG. Background spans neural networks, neurorobotics, information theory, and 3D vision and scene reconstruction for threat detection. Rust and Python; building since 2014."/>
 </p>
 
 ---

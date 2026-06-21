@@ -1,35 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — NCP connects two-way to engram (private), prisoma (private hub) and crebain; pid-rs, cobot-atlas and cobot-relief each feed one-way into prisoma; cobot-atlas and cobot-relief connect two-way to crebain.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas and cobot-relief connect to prisoma; cobot-atlas and cobot-relief also connect to crebain.">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
       <stop offset="0%" stop-color="#241a44"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </radialGradient>
+    <radialGradient id="cubeGrad" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#0b2b33"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </radialGradient>
+    <radialGradient id="triGrad" cx="50%" cy="56%" r="70%">
+      <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="edgeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="eg0" gradientUnits="userSpaceOnUse" x1="163" y1="230" x2="217.5" y2="230"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient>
+    <linearGradient id="eg1" gradientUnits="userSpaceOnUse" x1="281.8" y1="214.8" x2="412.1" y2="152.8"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="415.9" y2="310.6"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="298.4" y1="96.1" x2="408.1" y2="119.1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="622.2" y1="165.3" x2="511.8" y2="141.3"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="659.6" y1="260.2" x2="504.4" y2="159"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="500.9" y1="305" x2="659.9" y2="199.9"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="507.8" y1="321.2" x2="618.2" y2="296.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
   </defs>
   <style>
+    :root { --hub-accent: #a78bfa; --cube-accent: #22d3ee; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
-    .edge       { fill: none; stroke: #30363d; stroke-width: 1.6; }
-    .flow       { fill: none; stroke: #22d3ee; stroke-width: 2; stroke-dasharray: 1 9; stroke-linecap: round; opacity: 0.9; }
-    .arrow      { fill: #8b949e; }
+    .edge       { opacity: 0.55; }
+    .edge-live  { filter: url(#edgeGlow); }
+    .flow       { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
+    .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
-    .lock       { fill: #a78bfa; stroke: #a78bfa; }
-    .panel { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
+    .cube       { fill: url(#cubeGrad); stroke: #22d3ee; stroke-width: 2; filter: url(#soft); }
+    .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
+    .tri        { fill: url(#triGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
+    .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
+      :root { --hub-accent: #7c3aed; --cube-accent: #0891b2; }
       .cap { fill: #57606a; }
-      .edge { stroke: #d0d7de; }
-      .flow { stroke: #0891b2; }
-      .arrow { fill: #57606a; }
+      .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
       .chip-label { fill: #1f2328; }
       .hub { fill: #ffffff; stroke: #7c3aed; }
       .hub-label { fill: #6d28d9; }
-      .lock { fill: #7c3aed; stroke: #7c3aed; }
+      .cube { fill: #ffffff; stroke: #0891b2; }
+      .cube-label { fill: #0891b2; }
+      .tri { fill: #ffffff; stroke: #db2777; }
+      .tri-label { fill: #be185d; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
@@ -38,108 +65,59 @@
   <rect x="0.5" y="0.5" width="859" height="459" rx="16" class="panel"/>
   <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;&#8212;&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
 
-  <!-- ============================ EDGES (boundary-trimmed) ============================ -->
-  <!-- engram <-> NCP -->
-  <path d="M146 230 L218 230" class="edge"/>
-  <!-- NCP <-> prisoma -->
-  <path d="M278.6 215.7 L405.3 152.4" class="edge"/>
-  <!-- NCP <-> crebain -->
-  <path d="M278.6 244.3 L407.1 308.5" class="edge"/>
-  <!-- pid-rs -> prisoma (one-way) -->
-  <path d="M293.2 98.6 L401 120.2" class="edge"/>
-  <!-- cobot-atlas -> prisoma (one-way) -->
-  <path d="M619.4 166.8 L498.9 140.6" class="edge"/>
-  <!-- cobot-relief -> prisoma (one-way) -->
-  <path d="M626.4 245 L491.9 157.3" class="edge"/>
-  <!-- crebain <-> cobot-atlas -->
-  <path d="M490.2 303.8 L628.1 213.9" class="edge"/>
-  <!-- crebain <-> cobot-relief -->
-  <path d="M496.9 319.8 L617.5 293.6" class="edge"/>
-
-  <!-- Animated NCP data-flow: marching pulses along the NCP backbone -->
-  <path d="M146 230 L218 230" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.2s" repeatCount="indefinite"/></path>
-  <path d="M278.6 215.7 L405.3 152.4" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.3s" repeatCount="indefinite"/></path>
-  <path d="M278.6 244.3 L407.1 308.5" class="flow"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.3s" repeatCount="indefinite"/></path>
-
-  <!-- ===================== DIRECTION ARROWHEADS ===================== -->
-  <g>
-    <!-- engram <-> NCP -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(146 230) rotate(180)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(218 230) rotate(0)"/>
-    <!-- NCP <-> prisoma -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(278.6 215.7) rotate(153.4)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(405.3 152.4) rotate(-26.6)"/>
-    <!-- NCP <-> crebain -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(278.6 244.3) rotate(206.6)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(407.1 308.5) rotate(26.6)"/>
-    <!-- pid-rs -> prisoma -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(401 120.2) rotate(11.3)"/>
-    <!-- cobot-atlas -> prisoma -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(498.9 140.6) rotate(192.3)"/>
-    <!-- cobot-relief -> prisoma -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(491.9 157.3) rotate(213.1)"/>
-    <!-- crebain <-> cobot-atlas -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(490.2 303.8) rotate(146.9)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(628.1 213.9) rotate(-33.1)"/>
-    <!-- crebain <-> cobot-relief -->
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(496.9 319.8) rotate(167.7)"/>
-    <path d="M5 0 L-4 -3.4 L-4 3.4 Z" class="arrow" transform="translate(617.5 293.6) rotate(-12.3)"/>
+  <g class="edges">
+    <path d="M 298.4 96.1 Q 356.9 90.1 408.1 119.1" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 622.2 165.3 Q 570.8 135.6 511.8 141.3" fill="none" stroke="url(#eg4)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 659.6 260.2 Q 596.2 187.8 504.4 159" fill="none" stroke="url(#eg5)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 500.9 305 Q 594.7 274.1 659.9 199.9" fill="none" stroke="url(#eg6)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 507.8 321.2 Q 567 326.4 618.2 296.2" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 163 230 Q 190.3 238.7 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" fill="none" stroke="url(#eg1)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.30s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 338.4 299.5 415.9 310.6" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
   </g>
-
-  <!-- ============================ NODES ============================ -->
-  <!-- engram (private) -->
-  <g>
-    <rect x="58" y="214" width="84" height="32" rx="8" class="chip" stroke="#22d3ee"/>
-    <g transform="translate(64 222.5)">
-      <path d="M1.6 4.6 V3.5 a2.6 2.6 0 0 1 5.2 0 V4.6" fill="none" stroke="#22d3ee" stroke-width="1.1"/>
-      <rect x="0.5" y="4.6" width="7.8" height="6" rx="1.2" fill="#22d3ee"/>
-    </g>
-    <text x="78" y="235" class="chip-label">engram</text>
+  <g class="flows">
+    <path d="M 163 230 Q 190.3 238.7 217.5 230" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
+    <path d="M 163 230 Q 190.3 238.7 217.5 230" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 338.4 299.5 415.9 310.6" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 338.4 299.5 415.9 310.6" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
   </g>
-
-  <!-- pid-rs -->
-  <g>
-    <rect x="208" y="74" width="84" height="32" rx="8" class="chip" stroke="#34d399"/>
-    <circle cx="223" cy="90" r="4" fill="#34d399"/>
-    <text x="234" y="95" class="chip-label">pid-rs</text>
+  <g class="nodes">
+    <g>
+    <rect x="64" y="184" width="92" height="92" rx="16" class="cube"/>
+    <g transform="translate(104 200.5) scale(1)"><path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" stroke="var(--cube-accent)" stroke-width="1.5"/><rect x="0" y="6" width="12" height="9" rx="1.6" fill="var(--cube-accent)"/></g>
+    <text x="110" y="242" text-anchor="middle" class="cube-label">engram</text>
   </g>
-
-  <!-- NCP (protocol) -->
   <g>
-    <rect x="223" y="214" width="54" height="32" rx="16" class="chip" stroke="#fbbf24"/>
+    <rect x="208.5" y="70" width="83" height="32" rx="8" class="chip" stroke="#34d399"/>
+    <circle cx="223.5" cy="86" r="4" fill="#34d399"/>
+    <text x="235.5" y="91" class="chip-label">pid-rs</text>
+  </g>
+  <g>
+    <rect x="224.5" y="214" width="51" height="32" rx="16" class="chip" stroke="#fbbf24"/>
     <text x="250" y="235" text-anchor="middle" class="chip-label" style="fill:#fbbf24">NCP</text>
   </g>
-
-  <!-- cobot-atlas -->
   <g>
-    <rect x="620" y="164" width="120" height="32" rx="8" class="chip" stroke="#60a5fa"/>
-    <circle cx="635" cy="180" r="4" fill="#60a5fa"/>
-    <text x="646" y="185" class="chip-label">cobot-atlas</text>
-  </g>
-
-  <!-- cobot-relief -->
-  <g>
-    <rect x="618" y="264" width="124" height="32" rx="8" class="chip" stroke="#fb7185"/>
-    <circle cx="633" cy="280" r="4" fill="#fb7185"/>
-    <text x="644" y="285" class="chip-label">cobot-relief</text>
-  </g>
-
-  <!-- crebain -->
-  <g>
-    <rect x="404" y="314" width="92" height="32" rx="8" class="chip" stroke="#f472b6"/>
-    <circle cx="419" cy="330" r="4" fill="#f472b6"/>
-    <text x="430" y="335" class="chip-label">crebain</text>
-  </g>
-
-  <!-- prisoma (private hub) -->
-  <g>
-    <circle cx="450" cy="130" r="46" class="hub">
+    <circle cx="460" cy="130" r="46" class="hub">
       <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
     </circle>
-    <g transform="translate(444 100)">
-      <path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="lock" stroke-width="1.5"/>
-      <rect x="0" y="6" width="12" height="9" rx="1.6" class="lock" stroke="none"/>
-    </g>
-    <text x="450" y="142" text-anchor="middle" class="hub-label">prisoma</text>
+    <g transform="translate(454 98.5) scale(1)"><path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" stroke="var(--hub-accent)" stroke-width="1.5"/><rect x="0" y="6" width="12" height="9" rx="1.6" fill="var(--hub-accent)"/></g>
+    <text x="460" y="142" text-anchor="middle" class="hub-label">prisoma</text>
+  </g>
+  <g>
+    <polygon points="460,279 505.9,358.5 414.1,358.5" class="tri" stroke-linejoin="round"/>
+    <text x="460" y="352" text-anchor="middle" class="tri-label">crebain</text>
+  </g>
+  <g>
+    <rect x="629" y="164" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>
+    <circle cx="644" cy="180" r="4" fill="#60a5fa"/>
+    <text x="656" y="185" class="chip-label">cobot-atlas</text>
+  </g>
+  <g>
+    <rect x="625" y="264" width="130" height="32" rx="8" class="chip" stroke="#fb7185"/>
+    <circle cx="640" cy="280" r="4" fill="#fb7185"/>
+    <text x="652" y="285" class="chip-label">cobot-relief</text>
+  </g>
   </g>
 </svg>

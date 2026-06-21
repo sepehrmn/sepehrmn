@@ -2,12 +2,13 @@ name: Generate cumulative activity chart
 
 on:
   schedule:
-    # 04:30 UTC — early morning in the user's zone (Europe/Berlin = 05:30 CET /
-    # 06:30 CEST); GitHub cron is UTC-only so we can't set it in local time, but
-    # the chart's current-year boundary is anchored to Berlin in the script
-    # (CHART_TZ). Offset 30m from the weekdays chart so the two runs don't hammer
-    # the shared github.com contributions fragment simultaneously.
-    - cron: "30 4 * * *"
+    # Every 4 hours at :20 past (00:20, 04:20, 08:20, … UTC) so the numbers stay
+    # fresh through the day. Free: Actions minutes are unlimited on public repos.
+    # The :20 offset from the weekdays chart keeps the two runs off the same
+    # minute on the shared github.com contributions fragment (and the push step
+    # rebase-retries anyway). Current-year boundary is anchored to Berlin in the
+    # script (CHART_TZ), independent of when this fires.
+    - cron: "20 */4 * * *"
   workflow_dispatch:
   push:
     paths:

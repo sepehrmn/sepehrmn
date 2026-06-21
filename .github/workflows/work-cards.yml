@@ -38,24 +38,26 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate project cards SVG
+      - name: Generate Selected-work SVGs
         env:
-          # The built-in token authenticates the REST call that reads each public
-          # repo's stargazerCount (authenticated => 5000/hr, not the exhausted
+          # The built-in token authenticates the REST calls that read each public
+          # repo's star/fork count (authenticated => 5000/hr, not the exhausted
           # 60/hr anonymous limit). It only needs to READ public repo metadata.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/work-cards.mjs
-
-      - name: Commit updated cards SVG
         run: |
-          git add assets/work-cards.svg
-          if git diff --cached --quiet HEAD -- assets/work-cards.svg; then
-            echo "No changes to work-cards.svg — skipping commit."
+          node scripts/work-cards.mjs
+          node scripts/repo-tree.mjs
+
+      - name: Commit updated SVGs
+        run: |
+          git add assets/work-cards.svg assets/repo-tree.svg
+          if git diff --cached --quiet HEAD -- assets/work-cards.svg assets/repo-tree.svg; then
+            echo "No changes to the Selected-work SVGs — skipping commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(cards): refresh project star counts"
+          git commit -m "chore(cards): refresh project star/fork counts"
           # Robust push: another chart workflow may push to main at the same
           # moment; the workflows touch different files, so rebase + retry.
           for attempt in 1 2 3 4 5; do

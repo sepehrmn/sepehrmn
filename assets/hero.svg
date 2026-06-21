@@ -5,67 +5,66 @@
     .role     { font: 500 20px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .role-hack{ fill: #22e36b; }            /* defense line: terminal/hacker green */
     .meta     { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
-    .cursor   { fill: #22d3ee; }
     .underline-base { stroke: #30363d; stroke-width: 2; fill: none; }
 
-    /* Each rotating line gets its OWN entrance/exit theme (CSS animations run
-       inside the SVG when embedded as an img element, like the SMIL ones). All
-       share one 15s/3-slot clock; inline opacity attrs are the no-anim fallback.
-         seq1 — rise and fade up;  seq2 — zoom in / pop out;
-         seq3 — decrypt type-on reveal + glitch-out (the hacker line). */
+    /* Each rotating line shares one 15s/3-slot clock and has its own refined
+       entrance/exit (CSS animations run inside the SVG when embedded as an img
+       element). Inline opacity attrs are the no-anim fallback.
+         seq1 — focus pull (blur -> sharp -> blur);
+         seq2 — soft fade with a small upward drift;
+         seq3 — terminal "decrypt" type-on reveal, then a clean fade out.
+       Every line carries its own blinking block cursor (cur1/2/3) at its end. */
     .seq1 { animation: seq1 15s linear infinite; }
-    .seq2 { animation: seq2 15s linear infinite; transform-box: view-box; transform-origin: 40px 124px; }
+    .seq2 { animation: seq2 15s linear infinite; }
     .seq3 { animation: seq3 15s linear infinite; }
-    .hack-cursor { visibility: hidden; fill: #22e36b; animation: hackslot 15s linear infinite, hackblink 0.9s steps(1) infinite; }
+    .role-cur { visibility: hidden; }
+    .cur1 { fill: #22d3ee; animation: cur1 15s linear infinite, curblink 1s steps(1) infinite; }
+    .cur2 { fill: #22d3ee; animation: cur2 15s linear infinite, curblink 1s steps(1) infinite; }
+    .cur3 { fill: #22e36b; animation: cur3 15s linear infinite, curblink 1s steps(1) infinite; }
 
     @keyframes seq1 {
-      0%    { opacity: 0; transform: translateY(12px); }
-      3%    { opacity: 1; transform: translateY(0); }
-      30%   { opacity: 1; transform: translateY(0); }
-      33.3% { opacity: 0; transform: translateY(-12px); }
-      100%  { opacity: 0; transform: translateY(-12px); }
+      0%    { opacity: 0; filter: blur(6px); }
+      4%    { opacity: 1; filter: blur(0); }
+      30%   { opacity: 1; filter: blur(0); }
+      33.3% { opacity: 0; filter: blur(6px); }
+      100%  { opacity: 0; filter: blur(6px); }
     }
     @keyframes seq2 {
-      0%    { opacity: 0; transform: scale(0.9); }
-      33.3% { opacity: 0; transform: scale(0.9); }
-      36.5% { opacity: 1; transform: scale(1); }
-      63.5% { opacity: 1; transform: scale(1); }
-      66.7% { opacity: 0; transform: scale(1.08); }
-      100%  { opacity: 0; transform: scale(1.08); }
+      0%, 33.3% { opacity: 0; transform: translateY(5px); }
+      37%   { opacity: 1; transform: translateY(0); }
+      63%   { opacity: 1; transform: translateY(0); }
+      66.7% { opacity: 0; transform: translateY(-5px); }
+      100%  { opacity: 0; transform: translateY(-5px); }
     }
     @keyframes seq3 {
-      0%    { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(0); }
-      66.7% { opacity: 0; clip-path: inset(0 100% 0 0); }
+      0%, 66.7% { opacity: 0; clip-path: inset(0 100% 0 0); }
       67.5% { opacity: 1; clip-path: inset(0 100% 0 0); }
       70%   { opacity: 0.7; clip-path: inset(0 55% 0 0); }
       73%   { opacity: 1; clip-path: inset(0 22% 0 0); }
-      75.5% { opacity: 0.85; clip-path: inset(0 0 0 0); }
-      77%   { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
-      95%   { opacity: 1; clip-path: inset(0 0 0 0); transform: translateX(0); }
-      96%   { opacity: 0.5; transform: translateX(-3px); }
-      97%   { opacity: 0.9; transform: translateX(3px); }
-      98%   { opacity: 0.3; transform: translateX(-2px); }
-      99%   { opacity: 0.75; transform: translateX(1px); }
-      100%  { opacity: 0; transform: translateX(0); clip-path: inset(0 0 0 0); }
+      75.5% { opacity: 0.9; clip-path: inset(0 0 0 0); }
+      77%, 93% { opacity: 1; clip-path: inset(0 0 0 0); }
+      97%, 100% { opacity: 0; clip-path: inset(0 0 0 0); }
     }
-    @keyframes hackslot { 0%, 76% { visibility: hidden; } 76.01%, 95% { visibility: visible; } 95.01%, 100% { visibility: hidden; } }
-    @keyframes hackblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    @keyframes cur1 { 0%, 4% { visibility: hidden; } 4.01%, 31% { visibility: visible; } 31.01%, 100% { visibility: hidden; } }
+    @keyframes cur2 { 0%, 38% { visibility: hidden; } 38.01%, 63% { visibility: visible; } 63.01%, 100% { visibility: hidden; } }
+    @keyframes cur3 { 0%, 77% { visibility: hidden; } 77.01%, 93% { visibility: visible; } 93.01%, 100% { visibility: hidden; } }
+    @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
     @media (prefers-color-scheme: light) {
       .wordmark { fill: #0891b2; }
       .role     { fill: #1f2328; }
       .role-hack{ fill: #15803d; }
       .meta     { fill: #57606a; }
-      .cursor   { fill: #0891b2; }
       .underline-base { stroke: #d0d7de; }
-      .hack-cursor { fill: #15803d; }
+      .cur1, .cur2 { fill: #0891b2; }
+      .cur3 { fill: #15803d; }
     }
     /* Reduced-motion: drop all animation; inline opacity attrs leave the first
-       line visible and the rest hidden. */
+       line visible and the rest hidden, and all cursors stay hidden. */
     @media (prefers-reduced-motion: reduce) {
       animate, animateTransform { display: none; }
-      .seq1, .seq2, .seq3, .hack-cursor { animation: none; }
-      .hack-cursor { visibility: hidden; }
+      .seq1, .seq2, .seq3, .cur1, .cur2, .cur3 { animation: none; }
+      .cur1, .cur2, .cur3 { visibility: hidden; }
     }
   </style>
 
@@ -73,11 +72,6 @@
        textLength locks rendered width so cursor + underline are stable
        regardless of the host's monospace font metrics. -->
   <text x="40" y="68" class="wordmark" textLength="500" lengthAdjust="spacingAndGlyphs">Sepehr Mahmoudian</text>
-
-  <!-- Blinking block cursor right after the wordmark. -->
-  <rect x="548" y="36" width="13" height="38" rx="2" class="cursor">
-    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" repeatCount="indefinite"/>
-  </rect>
 
   <!-- Animated underline: a static muted base + a bright cyan band sweeping
        left→right along it, drawn via an animated linearGradient. -->
@@ -96,14 +90,18 @@
   </defs>
 
   <!-- Rotating role line — three pillars sharing one 15s/3-slot clock, each with
-       its own entrance/exit theme (see <style>). Inline opacity = the
-       no-animation fallback (first line visible). The defense line is the
-       "hacker" one: green, decrypt-style type-on reveal, glitch-out + cursor. -->
+       its own refined transition (see the style block) and its own blinking
+       block cursor. Inline opacity = the no-animation fallback (first line
+       visible). The defense line is green with a decrypt-style type-on reveal
+       and a clean fade-out. -->
   <g>
     <text x="40" y="124" class="role seq1" opacity="1">Agentic Engineering · Continual Learning · Knowledge Graphs · RAG</text>
     <text x="40" y="124" class="role seq2" opacity="0">AI / ML · Neural Networks · Neurorobotics · Information Theory</text>
     <text x="40" y="124" class="role role-hack seq3" opacity="0">Defense Tech · Threat Detection · 3D Vision</text>
-    <rect x="560" y="109" width="11" height="20" rx="1" class="hack-cursor"/>
+    <!-- per-line blinking block cursors, placed at each line's measured end -->
+    <rect x="826" y="109" width="11" height="20" rx="1" class="role-cur cur1"/>
+    <rect x="790" y="109" width="11" height="20" rx="1" class="role-cur cur2"/>
+    <rect x="561" y="109" width="11" height="20" rx="1" class="role-cur cur3"/>
   </g>
 
   <text x="40" y="158" class="meta">High Energy  ·  High Agency  ·  Takes Initiative  ·  Consistent</text>

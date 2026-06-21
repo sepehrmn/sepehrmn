@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" width="860" height="580" role="img" aria-label="Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): PID diagnostics for Vision-Language-Action policies, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.">
+  <defs>
+    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="wash0" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#0b2b33" stop-opacity="0.9"/><stop offset="60%" stop-color="#0b2b33" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash1" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#332408" stop-opacity="0.9"/><stop offset="60%" stop-color="#332408" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash2" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#241a44" stop-opacity="0.9"/><stop offset="60%" stop-color="#241a44" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash3" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2b1020" stop-opacity="0.9"/><stop offset="60%" stop-color="#2b1020" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash4" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#06281d" stop-opacity="0.9"/><stop offset="60%" stop-color="#06281d" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash5" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#0b1f3a" stop-opacity="0.9"/><stop offset="60%" stop-color="#0b1f3a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <style>
+    :root { --a0: #22d3ee; --a1: #fbbf24; --a2: #a78bfa; --a3: #f472b6; --a4: #34d399; --a5: #60a5fa; }
+    .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
+    .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
+    .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
+    .title      { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .desc       { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9da7b3; }
+    .badge      { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .chip       { fill: #0d1117; fill-opacity: 0.6; stroke-width: 1.3; }
+    .chip-label { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .c0.title { fill: #22d3ee; } .c0.rule { fill: #22d3ee; } .c0.spine { stroke: #22d3ee; } .c0.badge { fill: #22d3ee; } .c0.chip { stroke: #22d3ee; } .c0.chip-label { fill: #22d3ee; } .c0.glyph-fill { fill: #22d3ee; } .c0.glyph-stroke { stroke: #22d3ee; }
+    .c1.title { fill: #fbbf24; } .c1.rule { fill: #fbbf24; } .c1.spine { stroke: #fbbf24; } .c1.badge { fill: #fbbf24; } .c1.chip { stroke: #fbbf24; } .c1.chip-label { fill: #fbbf24; } .c1.glyph-fill { fill: #fbbf24; } .c1.glyph-stroke { stroke: #fbbf24; }
+    .c2.title { fill: #a78bfa; } .c2.rule { fill: #a78bfa; } .c2.spine { stroke: #a78bfa; } .c2.badge { fill: #a78bfa; } .c2.chip { stroke: #a78bfa; } .c2.chip-label { fill: #a78bfa; } .c2.glyph-fill { fill: #a78bfa; } .c2.glyph-stroke { stroke: #a78bfa; }
+    .c3.title { fill: #f472b6; } .c3.rule { fill: #f472b6; } .c3.spine { stroke: #f472b6; } .c3.badge { fill: #f472b6; } .c3.chip { stroke: #f472b6; } .c3.chip-label { fill: #f472b6; } .c3.glyph-fill { fill: #f472b6; } .c3.glyph-stroke { stroke: #f472b6; }
+    .c4.title { fill: #34d399; } .c4.rule { fill: #34d399; } .c4.spine { stroke: #34d399; } .c4.badge { fill: #34d399; } .c4.chip { stroke: #34d399; } .c4.chip-label { fill: #34d399; } .c4.glyph-fill { fill: #34d399; } .c4.glyph-stroke { stroke: #34d399; }
+    .c5.title { fill: #60a5fa; } .c5.rule { fill: #60a5fa; } .c5.spine { stroke: #60a5fa; } .c5.badge { fill: #60a5fa; } .c5.chip { stroke: #60a5fa; } .c5.chip-label { fill: #60a5fa; } .c5.glyph-fill { fill: #60a5fa; } .c5.glyph-stroke { stroke: #60a5fa; }
+    @media (prefers-color-scheme: light) {
+      :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #db2777; --a4: #059669; --a5: #2563eb; }
+      .cap { fill: #57606a; }
+      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
+      .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
+      /* The accent wash is a dark-mode bloom; on white it only muddies the card,
+         so hide it entirely in light mode (the accent spine + title carry the
+         colour there). */
+      .wash { display: none; }
+      .desc { fill: #57606a; }
+      .chip { fill: #ffffff; fill-opacity: 0.7; }
+      .c0.title { fill: #0891b2; } .c0.rule { fill: #0891b2; } .c0.spine { stroke: #0891b2; } .c0.badge { fill: #0891b2; } .c0.chip { stroke: #0891b2; } .c0.chip-label { fill: #0891b2; } .c0.glyph-fill { fill: #0891b2; } .c0.glyph-stroke { stroke: #0891b2; }
+      .c1.title { fill: #b45309; } .c1.rule { fill: #b45309; } .c1.spine { stroke: #b45309; } .c1.badge { fill: #b45309; } .c1.chip { stroke: #b45309; } .c1.chip-label { fill: #b45309; } .c1.glyph-fill { fill: #b45309; } .c1.glyph-stroke { stroke: #b45309; }
+      .c2.title { fill: #7c3aed; } .c2.rule { fill: #7c3aed; } .c2.spine { stroke: #7c3aed; } .c2.badge { fill: #7c3aed; } .c2.chip { stroke: #7c3aed; } .c2.chip-label { fill: #7c3aed; } .c2.glyph-fill { fill: #7c3aed; } .c2.glyph-stroke { stroke: #7c3aed; }
+      .c3.title { fill: #db2777; } .c3.rule { fill: #db2777; } .c3.spine { stroke: #db2777; } .c3.badge { fill: #db2777; } .c3.chip { stroke: #db2777; } .c3.chip-label { fill: #db2777; } .c3.glyph-fill { fill: #db2777; } .c3.glyph-stroke { stroke: #db2777; }
+      .c4.title { fill: #059669; } .c4.rule { fill: #059669; } .c4.spine { stroke: #059669; } .c4.badge { fill: #059669; } .c4.chip { stroke: #059669; } .c4.chip-label { fill: #059669; } .c4.glyph-fill { fill: #059669; } .c4.glyph-stroke { stroke: #059669; }
+      .c5.title { fill: #2563eb; } .c5.rule { fill: #2563eb; } .c5.spine { stroke: #2563eb; } .c5.badge { fill: #2563eb; } .c5.chip { stroke: #2563eb; } .c5.chip-label { fill: #2563eb; } .c5.glyph-fill { fill: #2563eb; } .c5.glyph-stroke { stroke: #2563eb; }
+    }
+  </style>
+
+  <rect x="0.5" y="0.5" width="859" height="579" rx="16" class="panel"/>
+  <text x="40" y="40" class="cap">SELECTED&#160;WORK&#160;&#8212;&#160;SIX&#160;PROJECTS</text>
+
+  <!-- engram -->
+  <g>
+    <rect x="26" y="64" width="393" height="150" rx="14" class="card"/>
+    <rect x="26" y="64" width="393" height="150" rx="14" fill="url(#wash0)" class="wash"/>
+    <path d="M27.5 78 v122" class="spine c0" stroke-width="4" stroke-linecap="round"/>
+    <text x="48" y="102" class="title c0" textLength="78" lengthAdjust="spacingAndGlyphs">engram</text>
+    <rect x="48" y="110" width="34" height="2.5" rx="1.25" class="rule c0"/>
+    <g transform="translate(390 80) scale(0.78)"><path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="glyph-stroke c0" stroke-width="1.6"/><rect x="0" y="6" width="12" height="9" rx="1.6" class="glyph-fill c0"/></g><text x="385" y="92" text-anchor="end" class="badge c0">private</text>
+    <text x="48" y="124" class="desc">Engram Neural Modeling Labs — the hub:</text>
+    <text x="48" y="142" class="desc">neural-network and neural-modeling experiments</text>
+    <text x="48" y="160" class="desc">that drive the rest of the stack.</text>
+    <g><rect x="48" y="174" width="66" height="22" rx="6" class="chip c0"/><text x="81" y="189" text-anchor="middle" class="chip-label c0">Python</text></g>
+  </g>
+  <!-- NCP -->
+  <g>
+    <rect x="441" y="64" width="393" height="150" rx="14" class="card"/>
+    <rect x="441" y="64" width="393" height="150" rx="14" fill="url(#wash1)" class="wash"/>
+    <path d="M442.5 78 v122" class="spine c1" stroke-width="4" stroke-linecap="round"/>
+    <text x="463" y="102" class="title c1" textLength="39" lengthAdjust="spacingAndGlyphs">NCP</text>
+    <rect x="463" y="110" width="34" height="2.5" rx="1.25" class="rule c1"/>
+    <polygon points="810.0,80.0 811.5,84.0 815.7,84.1 812.4,86.8 813.5,90.9 810.0,88.5 806.5,90.9 807.6,86.8 804.3,84.1 808.5,84.0" class="glyph-fill c1"/><text x="800" y="91" text-anchor="end" class="badge c1">1</text>
+    <text x="463" y="124" class="desc">Safety-gated, provenance-first wire protocol</text>
+    <text x="463" y="142" class="desc">(Rust SDK) letting a simulation perceive and act</text>
+    <text x="463" y="160" class="desc">through robots and clients. Pre-1.0.</text>
+    <g><rect x="463" y="174" width="50" height="22" rx="6" class="chip c1"/><text x="488" y="189" text-anchor="middle" class="chip-label c1">Rust</text></g>
+  </g>
+  <!-- prisoma -->
+  <g>
+    <rect x="26" y="234" width="393" height="150" rx="14" class="card"/>
+    <rect x="26" y="234" width="393" height="150" rx="14" fill="url(#wash2)" class="wash"/>
+    <path d="M27.5 248 v122" class="spine c2" stroke-width="4" stroke-linecap="round"/>
+    <text x="48" y="272" class="title c2" textLength="91" lengthAdjust="spacingAndGlyphs">prisoma</text>
+    <rect x="48" y="280" width="34" height="2.5" rx="1.25" class="rule c2"/>
+    <g transform="translate(390 250) scale(0.78)"><path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="glyph-stroke c2" stroke-width="1.6"/><rect x="0" y="6" width="12" height="9" rx="1.6" class="glyph-fill c2"/></g><text x="385" y="262" text-anchor="end" class="badge c2">private</text>
+    <text x="48" y="294" class="desc">A prism for embodied agents — refracting a</text>
+    <text x="48" y="312" class="desc">Vision-Language-Action policy into unique /</text>
+    <text x="48" y="330" class="desc">redundant / synergistic information.</text>
+    <g><rect x="48" y="344" width="50" height="22" rx="6" class="chip c2"/><text x="73" y="359" text-anchor="middle" class="chip-label c2">Rust</text></g>
+    <g><rect x="106" y="344" width="66" height="22" rx="6" class="chip c2"/><text x="139" y="359" text-anchor="middle" class="chip-label c2">Python</text></g>
+  </g>
+  <!-- crebain -->
+  <g>
+    <rect x="441" y="234" width="393" height="150" rx="14" class="card"/>
+    <rect x="441" y="234" width="393" height="150" rx="14" fill="url(#wash3)" class="wash"/>
+    <path d="M442.5 248 v122" class="spine c3" stroke-width="4" stroke-linecap="round"/>
+    <text x="463" y="272" class="title c3" textLength="91" lengthAdjust="spacingAndGlyphs">crebain</text>
+    <rect x="463" y="280" width="34" height="2.5" rx="1.25" class="rule c3"/>
+    <polygon points="810.0,250.0 811.5,254.0 815.7,254.1 812.4,256.8 813.5,260.9 810.0,258.5 806.5,260.9 807.6,256.8 804.3,254.1 808.5,254.0" class="glyph-fill c3"/><text x="800" y="261" text-anchor="end" class="badge c3">8</text>
+    <text x="463" y="294" class="desc">Adaptive Response &amp; Awareness System — sensor</text>
+    <text x="463" y="312" class="desc">fusion, ML detection, drone physics, ROS /</text>
+    <text x="463" y="330" class="desc">Gazebo. The flagship robotics client.</text>
+    <g><rect x="463" y="344" width="34" height="22" rx="6" class="chip c3"/><text x="480" y="359" text-anchor="middle" class="chip-label c3">TS</text></g>
+    <g><rect x="505" y="344" width="50" height="22" rx="6" class="chip c3"/><text x="530" y="359" text-anchor="middle" class="chip-label c3">Rust</text></g>
+    <g><rect x="563" y="344" width="42" height="22" rx="6" class="chip c3"/><text x="584" y="359" text-anchor="middle" class="chip-label c3">Nix</text></g>
+  </g>
+  <!-- pid-rs -->
+  <g>
+    <rect x="26" y="404" width="393" height="150" rx="14" class="card"/>
+    <rect x="26" y="404" width="393" height="150" rx="14" fill="url(#wash4)" class="wash"/>
+    <path d="M27.5 418 v122" class="spine c4" stroke-width="4" stroke-linecap="round"/>
+    <text x="48" y="442" class="title c4" textLength="78" lengthAdjust="spacingAndGlyphs">pid-rs</text>
+    <rect x="48" y="450" width="34" height="2.5" rx="1.25" class="rule c4"/>
+    <polygon points="395.0,420.0 396.5,424.0 400.7,424.1 397.4,426.8 398.5,430.9 395.0,428.5 391.5,430.9 392.6,426.8 389.3,424.1 393.5,424.0" class="glyph-fill c4"/><text x="385" y="431" text-anchor="end" class="badge c4">1</text>
+    <text x="48" y="464" class="desc">Partial Information Decomposition with continuous</text>
+    <text x="48" y="482" class="desc">mutual-information (KSG / I<tspan baseline-shift="-22%" font-size="9">sx</tspan><tspan baseline-shift="0">​</tspan>) estimators, in</text>
+    <text x="48" y="500" class="desc">safe Rust — the analysis client.</text>
+    <g><rect x="48" y="514" width="50" height="22" rx="6" class="chip c4"/><text x="73" y="529" text-anchor="middle" class="chip-label c4">Rust</text></g>
+  </g>
+  <!-- cobot-atlas -->
+  <g>
+    <rect x="441" y="404" width="393" height="150" rx="14" class="card"/>
+    <rect x="441" y="404" width="393" height="150" rx="14" fill="url(#wash5)" class="wash"/>
+    <path d="M442.5 418 v122" class="spine c5" stroke-width="4" stroke-linecap="round"/>
+    <text x="463" y="442" class="title c5" textLength="143" lengthAdjust="spacingAndGlyphs">cobot-atlas</text>
+    <rect x="463" y="450" width="34" height="2.5" rx="1.25" class="rule c5"/>
+    <polygon points="810.0,420.0 811.5,424.0 815.7,424.1 812.4,426.8 813.5,430.9 810.0,428.5 806.5,430.9 807.6,426.8 804.3,424.1 808.5,424.0" class="glyph-fill c5"/><text x="800" y="431" text-anchor="end" class="badge c5">2</text>
+    <text x="463" y="464" class="desc">3D mesh-generation pipeline — 2,023 meshes for</text>
+    <text x="463" y="482" class="desc">robot simulation; dataset published on Hugging</text>
+    <text x="463" y="500" class="desc">Face. Feeds simulation from pid-rs analysis.</text>
+    <g><rect x="463" y="514" width="66" height="22" rx="6" class="chip c5"/><text x="496" y="529" text-anchor="middle" class="chip-label c5">Python</text></g>
+  </g>
+</svg>

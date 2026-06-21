@@ -85,7 +85,7 @@
 
 <br/>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-aiml.svg" width="820" alt="AI / ML stack" loading="lazy"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-aiml.svg" width="780" alt="AI / ML stack" loading="lazy"/></p>
 
 <p align="center">
 <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="44"/></a>&nbsp;&nbsp;&nbsp;
@@ -98,7 +98,7 @@
 <a href="https://jupyter.org" title="Jupyter"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" alt="Jupyter" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-backend.svg" width="820" alt="Backend &amp; Systems stack" loading="lazy"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-backend.svg" width="780" alt="Backend &amp; Systems stack" loading="lazy"/></p>
 
 <p align="center">
 <a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="44"/></a>&nbsp;&nbsp;&nbsp;
@@ -111,7 +111,7 @@
 <a href="https://zenoh.io" title="Zenoh &mdash; zero-overhead pub/sub/query protocol"><img src="pics/zenoh-icon.png" alt="Zenoh" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-cloud.svg" width="820" alt="Cloud &amp; DevOps stack" loading="lazy"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-cloud.svg" width="780" alt="Cloud &amp; DevOps stack" loading="lazy"/></p>
 
 <p align="center">
 <a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="44"/></a>&nbsp;&nbsp;&nbsp;
@@ -124,7 +124,7 @@
 <a href="https://www.kernel.org" title="Linux"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-frontend.svg" width="820" alt="Frontend &amp; Web stack" loading="lazy"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-frontend.svg" width="780" alt="Frontend &amp; Web stack" loading="lazy"/></p>
 
 <p align="center">
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="44"/></a>&nbsp;&nbsp;&nbsp;

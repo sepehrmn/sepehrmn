@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 30" width="860" height="30" role="img" aria-label="FRONTEND &amp; WEB stack">
   <title>FRONTEND &amp; WEB stack</title>
-  <defs><linearGradient id="rail-frontend" gradientUnits="userSpaceOnUse" x1="78" y1="0" x2="188" y2="0">
+  <defs><linearGradient id="rail-frontend" gradientUnits="userSpaceOnUse" x1="146" y1="0" x2="256" y2="0">
       <stop offset="0" stop-color="#fbbf24" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
-      <animate attributeName="x1" from="78" to="760" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="188" to="870" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
+      <animate attributeName="x1" from="146" to="740" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="256" to="850" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
     </linearGradient></defs>
   <style>
     .label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 3px; }
@@ -20,9 +20,9 @@
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
   </style>
-  <path d="M4 6 V24" class="spine"/>
-  <text x="24" y="20" class="label" textLength="148" lengthAdjust="spacingAndGlyphs">FRONTEND &amp; WEB</text>
-  <text x="760" y="20" text-anchor="end" class="cap"># 7 tools</text>
-  <line x1="188" y1="24.5" x2="760" y2="24.5" class="rule"/>
-  <rect x="188" y="23" width="572" height="3" rx="1.5" fill="url(#rail-frontend)"/>
+  <path d="M72 6 V24" class="spine"/>
+  <text x="92" y="20" class="label" textLength="148" lengthAdjust="spacingAndGlyphs">FRONTEND &amp; WEB</text>
+  <text x="740" y="20" text-anchor="end" class="cap"># 7 tools</text>
+  <line x1="256" y1="24.5" x2="740" y2="24.5" class="rule"/>
+  <rect x="256" y="23" width="484" height="3" rx="1.5" fill="url(#rail-frontend)"/>
 </svg>

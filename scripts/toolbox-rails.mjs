@@ -3,10 +3,10 @@
 // Generates assets/rail-<slug>.svg — a slim amber "category rail" for each Toolbox
 // group (AI/ML, Backend, Cloud, Frontend): an accent spine, the category LABEL
 // (neutral ink), a right-anchored "# N tools" count, and a swept hairline. The
-// content is INSET with left + right margins (and the README embeds it slightly
-// narrower than the section-title banner), so each rail nests visually as a
-// SUBSECTION under "The toolbox" rather than reading as a peer of it. No prompt /
-// index / cursor. Theme-adaptive, reduced-motion safe, zero deps.
+// content is flush-LEFT (no left margin) with a right margin only, embedded
+// slightly narrower than the section-title banner; the README left-aligns the
+// whole toolbox. No prompt / index / cursor. Theme-adaptive, reduced-motion safe,
+// zero deps.
 // Run: `node scripts/toolbox-rails.mjs`.
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -21,8 +21,8 @@ const ASSETS = resolve(__dirname, "..", "assets");
 const W = 860;
 const H = 30;
 const BASE = 20;
-const LABEL_X = 92;  // inset from the left so the rail reads as a subsection
-const RIGHT = 740;   // pulled in (left+right margin) so the rail nests inside the section title
+const LABEL_X = 24;  // flush left — no left margin
+const RIGHT = 740;   // right margin only — the rail doesn't span the full width
 
 const [amberD, amberL] = PALETTE.accents.toolbox;
 const [inkD, inkL] = PALETTE.ink;
@@ -57,7 +57,7 @@ function render(r) {
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
   </style>
-  <path d="M72 6 V24" class="spine"/>
+  <path d="M4 6 V24" class="spine"/>
   <text x="${LABEL_X}" y="${BASE}" class="label" textLength="${labelW}" lengthAdjust="spacingAndGlyphs">${r.label}</text>
   <text x="${RIGHT}" y="${BASE}" text-anchor="end" class="cap"># ${r.count} tools</text>
   <line x1="${ruleX1}" y1="24.5" x2="${RIGHT}" y2="24.5" class="rule"/>

@@ -79,13 +79,13 @@
 
 ---
 
-<h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-toolbox.svg" width="820" alt="The toolbox"/></h3>
+<h3 align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-toolbox.svg" width="820" alt="The toolbox"/></h3>
 
 <br/>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-aiml.svg" width="780" alt="AI / ML stack" loading="lazy"/></p>
+<p align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-aiml.svg" width="780" alt="AI / ML stack" loading="lazy"/></p>
 
-<p align="center">
+<p align="left">
 <a href="https://python.org" title="Python"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/pytorch/pytorch" title="PyTorch"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://numpy.org" title="NumPy"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" height="44"/></a>&nbsp;&nbsp;&nbsp;
@@ -96,9 +96,9 @@
 <a href="https://jupyter.org" title="Jupyter"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" alt="Jupyter" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-backend.svg" width="780" alt="Backend &amp; Systems stack" loading="lazy"/></p>
+<p align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-backend.svg" width="780" alt="Backend &amp; Systems stack" loading="lazy"/></p>
 
-<p align="center">
+<p align="left">
 <a href="https://www.rust-lang.org/" title="Rust"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://en.cppreference.com/w/c" title="C"><img src="pics/c-icon.svg" alt="C" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://cplusplus.com" title="C++"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-plain.svg" alt="C++" height="44"/></a>&nbsp;&nbsp;&nbsp;
@@ -109,9 +109,9 @@
 <a href="https://zenoh.io" title="Zenoh &mdash; zero-overhead pub/sub/query protocol"><img src="pics/zenoh-icon.png" alt="Zenoh" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-cloud.svg" width="780" alt="Cloud &amp; DevOps stack" loading="lazy"/></p>
+<p align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-cloud.svg" width="780" alt="Cloud &amp; DevOps stack" loading="lazy"/></p>
 
-<p align="center">
+<p align="left">
 <a href="https://www.cloudflare.com/" title="Cloudflare"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://cloud.google.com" title="Google Cloud"><img src="pics/gcp-icon.svg" alt="Google Cloud" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://aws.amazon.com/" title="AWS"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/aws-white.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sepahead/sepahead/main/pics/aws-icon.svg"><img src="pics/aws-icon.svg" alt="AWS" height="44"/></picture></a>&nbsp;&nbsp;&nbsp;
@@ -122,9 +122,9 @@
 <a href="https://www.kernel.org" title="Linux"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" height="44"/></a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-frontend.svg" width="780" alt="Frontend &amp; Web stack" loading="lazy"/></p>
+<p align="left"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/rail-frontend.svg" width="780" alt="Frontend &amp; Web stack" loading="lazy"/></p>
 
-<p align="center">
+<p align="left">
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="JavaScript" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://www.typescriptlang.org" title="TypeScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="TypeScript" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://react.dev" title="React"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" height="44"/></a>&nbsp;&nbsp;&nbsp;

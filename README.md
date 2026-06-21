@@ -6,7 +6,6 @@
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/hero.svg" width="820" alt="Sepehr Mahmoudian &mdash; AI/ML engineer in Berlin building agentic systems, continual learning, knowledge graphs and RAG. Background spans neural networks, neurorobotics, information theory, and 3D vision and scene reconstruction for threat detection. Rust and Python; building since 2014."/>
 </p>
 
----
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-pulse.svg" width="820" alt="The pulse"/></h3>
 
@@ -28,7 +27,6 @@
      external card services. -->
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share &mdash; a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
 </p>
----
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-work.svg" width="820" alt="Selected work"/></h3>
 

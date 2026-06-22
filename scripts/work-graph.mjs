@@ -9,14 +9,14 @@
 //     centroid (keeps the layout open and separates the bridge crossing);
 //   • each edge is stroked with a gradient from the source node's colour to the
 //     target node's colour — no arrowheads, just connections.
-// The connections to/from NCP are rendered as PERSISTENT, live links (glow +
-// gentle pulse + bi-directional flowing packets, like an always-open websocket)
-// to contrast with the calmer static edges.
-// A few nodes carry bespoke, animated "logos": NCP is a gated wire (a packet
-// dwells at a safety/provenance checkpoint, then is released); cortexel is a
-// tiny voxel NEURAL NETWORK with signal packets flowing along its synapses. The
-// whole panel is wrapped in a "provenance instrument" frame (amber corner
-// brackets) so it reads as a framed instrument like the page's other panels.
+// NCP's connections are PERSISTENT, live links: a glowing spine plus TWO
+// near-equal counter-flowing packet lanes (full-duplex, the edge echo of NCP's
+// dual-lane gate glyph).
+// A few nodes carry bespoke, animated "logos": NCP is a dual-lane safety gate
+// (perception ⇄ action through one checkpoint); cortexel is a voxel NEURAL
+// NETWORK matted in a render-viewport with an incoming agent VizSpec; crebain
+// is its own raven-in-crosshair mark. The whole panel is wrapped in a
+// "provenance instrument" frame (amber corner brackets).
 // Theme-adaptive (prefers-color-scheme), reduced-motion safe. Zero deps.
 // Run: `node scripts/work-graph.mjs`.
 
@@ -32,15 +32,15 @@ const H = 460;
 
 // ---------------------------------------------------------------------------
 // Spec. Positions are node centres; colours are per-project accents.
-//   large: cube · hub (circle) · triangle · hexagon · trapezoid
-//   bespoke logos: gate (NCP) · voxel-net (cortexel)   |   small: chip
+//   large: cube · hub (circle) · triangle · hexagon
+//   bespoke logos: gate (NCP) · voxel-net (cortexel) · raven (crebain) | chip
 // ---------------------------------------------------------------------------
 const nodes = {
   engram:      { x: 110, y: 230, color: "#22d3ee", kind: "cube", private: true },
-  pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "hub", label: "pid-rs" },
+  pidrs:       { x: 250, y: 98,  color: "#34d399", kind: "hub", label: "pid-rs", r: 36 },
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
-  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "trapezoid" },
+  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "raven" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
   cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
@@ -69,10 +69,8 @@ const HUB_R = 46;
 const CUBE = 92; // engram square, matched to a hub's diameter
 const TRI_CIRCUM = 53; // prisoma triangle circumradius (~92 wide, like the others)
 const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 tall)
-const TRAP_TW = 20; // pid-rs trapezoid: top half-width
-const TRAP_BW = 40; // …bottom half-width (wider base — a truncated triangle)
-const TRAP_HH = 24; // …half-height
 const NET_R = 26; // cortexel voxel-net trim radius (only the up-edge to engram uses it)
+const RAVEN_R = 36; // crebain crosshair-reticle ring radius
 const CHIP_H = 32;
 const GAP = 7;
 
@@ -80,22 +78,22 @@ const escapeXML = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" }[c]));
 
 function nodeWidth(n) {
-  if (n.kind === "hub") return HUB_R * 2;
+  if (n.kind === "hub") return (n.r || HUB_R) * 2;
   if (n.kind === "cube") return CUBE;
   const pad = (n.kind === "gate") ? 28 : 36;
   return Math.round(n.label.length * 7.8 + pad);
 }
 function halfExtents(n) {
-  if (n.kind === "hub") return { hw: HUB_R, hh: HUB_R, circle: true };
+  if (n.kind === "hub") return { hw: (n.r || HUB_R), hh: (n.r || HUB_R), circle: true };
   if (n.kind === "voxel") return { hw: NET_R, hh: NET_R, circle: true };
+  if (n.kind === "raven") return { hw: RAVEN_R + 2, hh: RAVEN_R + 2, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
 
 // Centre-relative polygon silhouette for the angular shapes (null => fall back
 // to the rect/circle box in halfExtents). Kept in lockstep with the render
-// geometry so edges trim to the TRUE outline — exact for a triangle/trapezoid
-// whose boundary distance swings a lot with direction (no single radius works).
+// geometry so edges trim to the TRUE outline.
 function nodePolygon(n) {
   if (n.kind === "triangle") {
     const dx = (TRI_CIRCUM * Math.sqrt(3)) / 2;
@@ -104,9 +102,6 @@ function nodePolygon(n) {
   if (n.kind === "hexagon") {
     const R = HEX_CIRCUM, dy = (R * Math.sqrt(3)) / 2;
     return [{ x: R, y: 0 }, { x: R / 2, y: -dy }, { x: -R / 2, y: -dy }, { x: -R, y: 0 }, { x: -R / 2, y: dy }, { x: R / 2, y: dy }];
-  }
-  if (n.kind === "trapezoid") {
-    return [{ x: -TRAP_TW, y: -TRAP_HH }, { x: TRAP_TW, y: -TRAP_HH }, { x: TRAP_BW, y: TRAP_HH }, { x: -TRAP_BW, y: TRAP_HH }];
   }
   return null;
 }
@@ -186,15 +181,20 @@ edges.forEach((e, i) => {
   );
 
   if (live) {
-    // Persistent, "alive" link: glowing gradient base with a slow opacity pulse…
+    // Glowing gradient spine with a slow opacity pulse…
     liveEdges.push(
       `<path d="${d}" fill="none" stroke="url(#${gid})" stroke-width="3" stroke-linecap="round" class="edge-live">` +
         `<animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="${(i * 0.3).toFixed(2)}s" repeatCount="indefinite"/></path>`
     );
-    // …and bi-directional flowing packets (forward bright, reverse dim).
+    // …plus TWO near-equal counter-flowing packet lanes, offset across the chord
+    // normal (nx,ny) so they read full-duplex at any edge angle — the edge echo
+    // of NCP's dual-lane gate. 21 = two dash periods (jump-free); matched dur.
+    const off = 2.4;
+    const dF = `M ${f1(p0.x + off * nx)} ${f1(p0.y + off * ny)} Q ${f1(c.x + off * nx)} ${f1(c.y + off * ny)} ${f1(p1.x + off * nx)} ${f1(p1.y + off * ny)}`;
+    const dR = `M ${f1(p0.x - off * nx)} ${f1(p0.y - off * ny)} Q ${f1(c.x - off * nx)} ${f1(c.y - off * ny)} ${f1(p1.x - off * nx)} ${f1(p1.y - off * ny)}`;
     flows.push(
-      `<path d="${d}" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>`,
-      `<path d="${d}" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>`
+      `<path d="${dF}" class="flow"><animate attributeName="stroke-dashoffset" from="21" to="0" dur="1.7s" repeatCount="indefinite"/></path>`,
+      `<path d="${dR}" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="21" dur="1.7s" repeatCount="indefinite"/></path>`
     );
   } else {
     calmEdges.push(
@@ -214,9 +214,10 @@ function lock(cx, cy, scale, color) {
 
 const nodeEls = Object.values(nodes).map((n) => {
   if (n.kind === "hub") {
+    const r = n.r || HUB_R;
     return `<g>
-    <circle cx="${n.x}" cy="${n.y}" r="${HUB_R}" class="hub">
-      <animate attributeName="r" values="${HUB_R};${HUB_R + 2};${HUB_R}" dur="3.2s" repeatCount="indefinite"/>
+    <circle cx="${n.x}" cy="${n.y}" r="${r}" class="hub">
+      <animate attributeName="r" values="${r};${r + 2};${r}" dur="3.2s" repeatCount="indefinite"/>
     </circle>
     ${n.private ? lock(n.x, n.y - 24, 1, "var(--hub-accent)") : ""}
     <text x="${n.x}" y="${n.y + (n.private ? 12 : 6)}" text-anchor="middle" class="hub-label">${escapeXML(n.label)}</text>
@@ -258,36 +259,33 @@ const nodeEls = Object.values(nodes).map((n) => {
     <text x="${n.x}" y="${n.y + 5}" text-anchor="middle" class="hex-label">${escapeXML(n.label)}</text>
   </g>`;
   }
-  if (n.kind === "trapezoid") {
-    const pts = [
-      `${f1(n.x - TRAP_TW)},${f1(n.y - TRAP_HH)}`,
-      `${f1(n.x + TRAP_TW)},${f1(n.y - TRAP_HH)}`,
-      `${f1(n.x + TRAP_BW)},${f1(n.y + TRAP_HH)}`,
-      `${f1(n.x - TRAP_BW)},${f1(n.y + TRAP_HH)}`,
-    ].join(" ");
-    return `<g>
-    <polygon points="${pts}" class="trap" stroke-linejoin="round"/>
-    <text x="${n.x}" y="${f1(n.y + 6)}" text-anchor="middle" class="trap-label">${escapeXML(n.label)}</text>
-  </g>`;
-  }
   if (n.kind === "gate") {
-    // NCP — THE GATED WIRE: a broken amber wire interrupted by a vertical safety
-    // gate; a packet runs in, DWELLS at the checkpoint while a verify-tick stamps
-    // it (fail-closed provenance), then is released. A cross-section of what NCP
-    // does to every live edge leaving it.
+    // NCP — TWO LANES, ONE GATE: an upper PERCEPTION lane (body→brain, packets
+    // right→left, dashed best-effort) + a lower ACTION lane (brain→body, left→
+    // right, solid express, SAFETY-GATED — its packet dwells to be verify-
+    // stamped then releases). Counter-flowing packets = two-way at a glance;
+    // dashed-vs-solid = the QoS asymmetry. The lanes fan straight into the live
+    // edges (prisoma=perception/top, crebain=action/bottom, engram=centre trunk).
     return `<g>
     <g filter="url(#soft)">
-      <path d="M224 230 H243 M257 230 H276" class="gate-wire"/>
-      <circle cx="224" cy="230" r="2.2" class="gate-port"/>
-      <circle cx="276" cy="230" r="2.2" class="gate-port"/>
+      <path d="M224 222 H243 M257 222 H276" class="gate-wire-perc"/>
+      <path d="M224 238 H243 M257 238 H276" class="gate-wire"/>
+      <circle cx="224" cy="222" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="222" r="2.2" class="gate-port"/>
+      <circle cx="224" cy="238" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="238" r="2.2" class="gate-port"/>
       <rect x="247.5" y="214" width="5" height="32" rx="2.5" class="gate-bar">
         <animate attributeName="fill-opacity" values="0.16;0.32;0.16" dur="2.8s" repeatCount="indefinite"/>
       </rect>
-      <polyline points="246.6,230.6 249.4,233.2 253.2,227.6" class="gate-tick">
+      <polyline points="246.6,238.6 249.4,241.2 253.2,235.6" class="gate-tick">
         <animate attributeName="stroke-opacity" values="0.75;0.75;1;0.75;0.75" keyTimes="0;0.5;0.58;0.72;1" dur="2.6s" repeatCount="indefinite"/>
         <animate attributeName="stroke-width" values="1.6;1.6;2.4;1.6;1.6" keyTimes="0;0.52;0.6;0.74;1" dur="2.6s" repeatCount="indefinite"/>
       </polyline>
-      <circle cx="258" cy="230" r="3" class="gate-packet">
+      <circle cx="250" cy="222" r="2.6" class="gate-packet-perc">
+        <animate attributeName="cx" values="276;224" dur="1.9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.35;0.7;0.5;0.7" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="238" r="3" class="gate-packet">
         <animate attributeName="cx" values="224;248;248;254;276" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="1;1;0.3;1;1" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
       </circle>
@@ -296,13 +294,14 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "voxel") {
-    // cortexel — a tiny VOXEL NEURAL NETWORK: three isometric voxel-neurons wired
-    // by synapses with signal packets streaming along them (what cortexel does:
-    // visualise neural activity). Deliberately a NETWORK, not a stack.
-    const vw = 9, vbh = 8, rh = vw / 2; // one small iso voxel
-    const T = { x: n.x, y: n.y - 25 };       // entry neuron (top — engram feeds here)
-    const L = { x: n.x - 20, y: n.y + 13 };  // lower-left neuron
-    const R = { x: n.x + 20, y: n.y + 13 };  // lower-right neuron
+    // cortexel — a VOXEL NEURAL NETWORK (three iso voxel-neurons + flowing
+    // synapses) matted inside a render VIEWPORT (corner brackets => it's a
+    // rendered figure = visualisation), with a "</>" VizSpec caret firing one
+    // inbound directive packet (an agent requests the render = agentic).
+    const vw = 9, vbh = 8, rh = vw / 2;
+    const T = { x: n.x, y: n.y - 25 };
+    const L = { x: n.x - 20, y: n.y + 13 };
+    const R = { x: n.x + 20, y: n.y + 13 };
     const cube = (c) => {
       const cyt = c.y - vbh / 2;
       const bt = `${f1(c.x)},${f1(cyt - rh)}`;
@@ -324,8 +323,41 @@ const nodeEls = Object.values(nodes).map((n) => {
       ${syn(T, L)} ${syn(T, R)} ${syn(L, R)}
       ${flow(T, L, "1.5s")} ${flow(T, R, "1.5s")} ${flow(L, R, "1.9s")}
       ${cube(L)} ${cube(R)} ${cube(T)}
+      <polyline points="65,319 61,323 65,327" class="vox-spec"/>
+      <polyline points="69,319 73,323 69,327" class="vox-spec"/>
+      <line x1="68" y1="318" x2="65" y2="328" class="vox-spec"/>
+      <path d="M74 324 L80 328" class="flow"><animate attributeName="stroke-dashoffset" from="10.5" to="0" dur="1.6s" repeatCount="indefinite"/></path>
     </g>
+    <path d="M78 336 V332 A4 4 0 0 1 82 328 H90" class="vp-frame"><animate attributeName="stroke-opacity" values="0.7;0.7;1;0.7" keyTimes="0;0.45;0.6;1" dur="1.6s" repeatCount="indefinite"/></path>
+    <path d="M142 374 V380 A4 4 0 0 1 138 384 H130" class="vp-frame"/>
     <text x="${n.x}" y="${f1(n.y + 34)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
+  if (n.kind === "raven") {
+    // crebain — its real brand mark: a faceted RAVEN head with a glowing red eye
+    // inside a tactical CROSSHAIR reticle (ARAS — awareness/surveillance;
+    // "crebain" = Tolkien's spy-crows). Recreated as vector in crebain's pink.
+    const cx = n.x, cy = n.y, R = RAVEN_R;
+    const ticks = [[0, -1], [1, 0], [0, 1], [-1, 0]].map(([dx, dy]) =>
+      `<line x1="${f1(cx + dx * R)}" y1="${f1(cy + dy * R)}" x2="${f1(cx + dx * (R + 6))}" y2="${f1(cy + dy * (R + 6))}" class="raven-tick"/>`).join("");
+    // raven head in profile, facing left: a sharp beak (tip far-left), a domed
+    // crown, head bulk + nape to the right, throat/neck below.
+    const ro = [[-26, 3], [-10, -2], [-4, -11], [4, -16], [14, -13], [20, -2], [17, 8], [9, 16], [0, 17], [-8, 11], [-15, 7]];
+    const head = ro.map(([dx, dy]) => `${f1(cx + dx)},${f1(cy + dy)}`).join(" ");
+    return `<g>
+    <g filter="url(#soft)">
+      <circle cx="${cx}" cy="${cy}" r="${R}" class="raven-ring"/>
+      ${ticks}
+      <circle cx="${f1(cx - 21)}" cy="${f1(cy + 29)}" r="1.8" class="raven-dot"/>
+      <polygon points="${head}" class="raven-body" stroke-linejoin="round"/>
+      <polyline points="${f1(cx - 10)},${f1(cy - 2)} ${f1(cx - 15)},${f1(cy + 7)}" class="raven-facet"/>
+      <polyline points="${f1(cx + 4)},${f1(cy - 16)} ${f1(cx - 6)},${f1(cy + 9)}" class="raven-facet"/>
+      <polyline points="${f1(cx + 20)},${f1(cy - 2)} ${f1(cx + 1)},${f1(cy + 16)}" class="raven-facet"/>
+      <circle cx="${f1(cx - 5)}" cy="${f1(cy - 4)}" r="2.5" class="raven-eye">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="${cx}" y="${f1(cy + R + 16)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   // small "chip" nodes
@@ -345,7 +377,6 @@ const nodeEls = Object.values(nodes).map((n) => {
 // ---------------------------------------------------------------------------
 // Frame — a "provenance instrument": four amber corner brackets, all in NCP's
 // amber (the connective protocol literally framing the work it connects).
-// Frames by ABSENCE so the graph stays the star.
 // ---------------------------------------------------------------------------
 const frame = `<g class="frame">
     <line x1="27" y1="11" x2="833" y2="11" class="wg-rule"/>
@@ -359,7 +390,7 @@ const frame = `<g class="frame">
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.";
+  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
@@ -379,7 +410,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
-    <radialGradient id="trapGrad" cx="50%" cy="56%" r="70%">
+    <radialGradient id="ravenGrad" cx="50%" cy="45%" r="70%">
       <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
@@ -399,7 +430,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
     .flow       { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
-    .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
+    .flow-rev   { stroke-width: 2; opacity: 0.78; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
@@ -410,19 +441,28 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
-    .trap       { fill: url(#trapGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
-    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
-    .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
-    .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
-    .gate-port   { fill: #fbbf24; }
-    .gate-tick   { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .gate-packet { fill: #fde68a; }
-    .gate-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
+    .gate-wire      { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
+    .gate-wire-perc { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 4; opacity: 0.6; }
+    .gate-bar       { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
+    .gate-port      { fill: #fbbf24; }
+    .gate-tick      { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .gate-packet    { fill: #fde68a; }
+    .gate-packet-perc { fill: #fde68a; opacity: 0.7; }
+    .gate-label     { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
     .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
+    .vox-spec   { fill: none; stroke: #f0abfc; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+    .vp-frame   { fill: none; stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.7; stroke-linecap: round; stroke-linejoin: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .raven-ring  { fill: none; stroke: #f472b6; stroke-width: 1.6; stroke-opacity: 0.6; }
+    .raven-tick  { stroke: #f472b6; stroke-width: 1.6; stroke-linecap: round; stroke-opacity: 0.75; }
+    .raven-dot   { fill: #34d399; }
+    .raven-body  { fill: url(#ravenGrad); fill-opacity: 0.85; stroke: #f472b6; stroke-width: 1.3; }
+    .raven-facet { fill: none; stroke: #f472b6; stroke-width: 0.9; stroke-opacity: 0.55; stroke-linecap: round; }
+    .raven-eye   { fill: #fb4d4d; }
+    .raven-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
@@ -440,19 +480,28 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .tri-label { fill: #6d28d9; }
       .hex { fill: #ffffff; stroke: #c2410c; }
       .hex-label { fill: #c2410c; }
-      .trap { fill: #ffffff; stroke: #db2777; }
-      .trap-label { fill: #be185d; }
       .gate-wire { stroke: #b45309; }
+      .gate-wire-perc { stroke: #b45309; }
       .gate-bar { fill: #b45309; stroke: #b45309; }
       .gate-port { fill: #b45309; }
       .gate-tick { stroke: #b45309; }
       .gate-packet { fill: #b45309; }
+      .gate-packet-perc { fill: #b45309; }
       .gate-label { fill: #b45309; }
       .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
       .vox-syn { stroke: #c026d3; }
+      .vox-spec { stroke: #c026d3; }
+      .vp-frame { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
+      .raven-ring { stroke: #db2777; }
+      .raven-tick { stroke: #db2777; }
+      .raven-dot { fill: #059669; }
+      .raven-body { fill: #ffffff; fill-opacity: 0.9; stroke: #db2777; }
+      .raven-facet { stroke: #db2777; }
+      .raven-eye { fill: #dc2626; }
+      .raven-label { fill: #be185d; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
       .wg-bracket { stroke: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }

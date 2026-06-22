@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
       <stop offset="0%" stop-color="#06281d"/>
@@ -16,7 +16,7 @@
       <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
-    <radialGradient id="trapGrad" cx="50%" cy="56%" r="70%">
+    <radialGradient id="ravenGrad" cx="50%" cy="45%" r="70%">
       <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
@@ -30,14 +30,14 @@
     </filter>
     <linearGradient id="eg0" gradientUnits="userSpaceOnUse" x1="163" y1="230" x2="217.5" y2="230"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient>
     <linearGradient id="eg1" gradientUnits="userSpaceOnUse" x1="281.8" y1="214.8" x2="411.5" y2="153.1"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="428.8" y2="316.8"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
-    <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="301.9" y1="96.9" x2="425.9" y2="122.8"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="419.5" y2="312.3"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="292.5" y1="104.5" x2="425" y2="124.7"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="622" y1="144.1" x2="499.2" y2="133.4"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="653.1" y1="230.7" x2="510" y2="156.1"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="668.2" y1="329.2" x2="492.8" y2="161.3"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="488.1" y1="309.8" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
-    <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="492.7" y1="320.3" x2="650.2" y2="264.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
-    <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="498" y1="335" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
+    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="495.3" y1="304.1" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+    <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="502.4" y1="316.9" x2="650.2" y2="264.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
+    <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="504.9" y1="335.5" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
     <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="327" x2="110" y2="283"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <style>
@@ -46,7 +46,7 @@
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
     .flow       { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
-    .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
+    .flow-rev   { stroke-width: 2; opacity: 0.78; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
@@ -57,19 +57,28 @@
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
-    .trap       { fill: url(#trapGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
-    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
-    .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
-    .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
-    .gate-port   { fill: #fbbf24; }
-    .gate-tick   { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .gate-packet { fill: #fde68a; }
-    .gate-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
+    .gate-wire      { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
+    .gate-wire-perc { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 4; opacity: 0.6; }
+    .gate-bar       { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
+    .gate-port      { fill: #fbbf24; }
+    .gate-tick      { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .gate-packet    { fill: #fde68a; }
+    .gate-packet-perc { fill: #fde68a; opacity: 0.7; }
+    .gate-label     { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
     .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
+    .vox-spec   { fill: none; stroke: #f0abfc; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+    .vp-frame   { fill: none; stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.7; stroke-linecap: round; stroke-linejoin: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .raven-ring  { fill: none; stroke: #f472b6; stroke-width: 1.6; stroke-opacity: 0.6; }
+    .raven-tick  { stroke: #f472b6; stroke-width: 1.6; stroke-linecap: round; stroke-opacity: 0.75; }
+    .raven-dot   { fill: #34d399; }
+    .raven-body  { fill: url(#ravenGrad); fill-opacity: 0.85; stroke: #f472b6; stroke-width: 1.3; }
+    .raven-facet { fill: none; stroke: #f472b6; stroke-width: 0.9; stroke-opacity: 0.55; stroke-linecap: round; }
+    .raven-eye   { fill: #fb4d4d; }
+    .raven-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
@@ -87,19 +96,28 @@
       .tri-label { fill: #6d28d9; }
       .hex { fill: #ffffff; stroke: #c2410c; }
       .hex-label { fill: #c2410c; }
-      .trap { fill: #ffffff; stroke: #db2777; }
-      .trap-label { fill: #be185d; }
       .gate-wire { stroke: #b45309; }
+      .gate-wire-perc { stroke: #b45309; }
       .gate-bar { fill: #b45309; stroke: #b45309; }
       .gate-port { fill: #b45309; }
       .gate-tick { stroke: #b45309; }
       .gate-packet { fill: #b45309; }
+      .gate-packet-perc { fill: #b45309; }
       .gate-label { fill: #b45309; }
       .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
       .vox-syn { stroke: #c026d3; }
+      .vox-spec { stroke: #c026d3; }
+      .vp-frame { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
+      .raven-ring { stroke: #db2777; }
+      .raven-tick { stroke: #db2777; }
+      .raven-dot { fill: #059669; }
+      .raven-body { fill: #ffffff; fill-opacity: 0.9; stroke: #db2777; }
+      .raven-facet { stroke: #db2777; }
+      .raven-eye { fill: #dc2626; }
+      .raven-label { fill: #be185d; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
       .wg-bracket { stroke: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
@@ -111,25 +129,25 @@
   <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;&#8212;&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
 
   <g class="edges">
-    <path d="M 301.9 96.9 Q 368 90 425.9 122.8" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 292.5 104.5 Q 362 93.4 425 124.7" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 622 144.1 Q 562.3 119.1 499.2 133.4" fill="none" stroke="url(#eg4)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 653.1 230.7 Q 593.5 170.5 510 156.1" fill="none" stroke="url(#eg5)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 668.2 329.2 Q 598.5 226.5 492.8 161.3" fill="none" stroke="url(#eg6)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 488.1 309.8 Q 592.3 260.5 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 492.7 320.3 Q 580.2 316.7 650.2 264.2" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 498 335 Q 556.5 358.9 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 495.3 304.1 Q 595.9 257.6 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 502.4 316.9 Q 584.7 314.2 650.2 264.2" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 504.9 335.5 Q 560 358 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 110 327 Q 103 305 110 283" fill="none" stroke="url(#eg10)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 163 230 Q 190.3 221.3 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" fill="none" stroke="url(#eg1)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.30s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 340 300.9 419.5 312.3" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
   </g>
   <g class="flows">
-    <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
-    <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
+    <path d="M 163 232.4 Q 190.3 223.7 217.5 232.4" class="flow"><animate attributeName="stroke-dashoffset" from="21" to="0" dur="1.7s" repeatCount="indefinite"/></path>
+    <path d="M 163 227.6 Q 190.3 218.9 217.5 227.6" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="21" dur="1.7s" repeatCount="indefinite"/></path>
+    <path d="M 282.9 217 Q 337.8 165.4 412.5 155.3" class="flow"><animate attributeName="stroke-dashoffset" from="21" to="0" dur="1.7s" repeatCount="indefinite"/></path>
+    <path d="M 280.8 212.7 Q 335.7 161.1 410.4 150.9" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="21" dur="1.7s" repeatCount="indefinite"/></path>
+    <path d="M 280.7 247.6 Q 338.9 303.1 418.5 314.5" class="flow"><animate attributeName="stroke-dashoffset" from="21" to="0" dur="1.7s" repeatCount="indefinite"/></path>
+    <path d="M 282.8 243.3 Q 341 298.8 420.6 310.2" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="21" dur="1.7s" repeatCount="indefinite"/></path>
   </g>
   <g class="nodes">
     <g>
@@ -138,25 +156,32 @@
     <text x="110" y="242" text-anchor="middle" class="cube-label">engram</text>
   </g>
   <g>
-    <circle cx="250" cy="86" r="46" class="hub">
-      <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
+    <circle cx="250" cy="98" r="36" class="hub">
+      <animate attributeName="r" values="36;38;36" dur="3.2s" repeatCount="indefinite"/>
     </circle>
     
-    <text x="250" y="92" text-anchor="middle" class="hub-label">pid-rs</text>
+    <text x="250" y="104" text-anchor="middle" class="hub-label">pid-rs</text>
   </g>
   <g>
     <g filter="url(#soft)">
-      <path d="M224 230 H243 M257 230 H276" class="gate-wire"/>
-      <circle cx="224" cy="230" r="2.2" class="gate-port"/>
-      <circle cx="276" cy="230" r="2.2" class="gate-port"/>
+      <path d="M224 222 H243 M257 222 H276" class="gate-wire-perc"/>
+      <path d="M224 238 H243 M257 238 H276" class="gate-wire"/>
+      <circle cx="224" cy="222" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="222" r="2.2" class="gate-port"/>
+      <circle cx="224" cy="238" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="238" r="2.2" class="gate-port"/>
       <rect x="247.5" y="214" width="5" height="32" rx="2.5" class="gate-bar">
         <animate attributeName="fill-opacity" values="0.16;0.32;0.16" dur="2.8s" repeatCount="indefinite"/>
       </rect>
-      <polyline points="246.6,230.6 249.4,233.2 253.2,227.6" class="gate-tick">
+      <polyline points="246.6,238.6 249.4,241.2 253.2,235.6" class="gate-tick">
         <animate attributeName="stroke-opacity" values="0.75;0.75;1;0.75;0.75" keyTimes="0;0.5;0.58;0.72;1" dur="2.6s" repeatCount="indefinite"/>
         <animate attributeName="stroke-width" values="1.6;1.6;2.4;1.6;1.6" keyTimes="0;0.52;0.6;0.74;1" dur="2.6s" repeatCount="indefinite"/>
       </polyline>
-      <circle cx="258" cy="230" r="3" class="gate-packet">
+      <circle cx="250" cy="222" r="2.6" class="gate-packet-perc">
+        <animate attributeName="cx" values="276;224" dur="1.9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.35;0.7;0.5;0.7" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="238" r="3" class="gate-packet">
         <animate attributeName="cx" values="224;248;248;254;276" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="1;1;0.3;1;1" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
       </circle>
@@ -169,8 +194,19 @@
     <text x="460" y="150" text-anchor="middle" class="tri-label">prisoma</text>
   </g>
   <g>
-    <polygon points="440,308 480,308 500,356 420,356" class="trap" stroke-linejoin="round"/>
-    <text x="460" y="338" text-anchor="middle" class="trap-label">crebain</text>
+    <g filter="url(#soft)">
+      <circle cx="460" cy="332" r="36" class="raven-ring"/>
+      <line x1="460" y1="296" x2="460" y2="290" class="raven-tick"/><line x1="496" y1="332" x2="502" y2="332" class="raven-tick"/><line x1="460" y1="368" x2="460" y2="374" class="raven-tick"/><line x1="424" y1="332" x2="418" y2="332" class="raven-tick"/>
+      <circle cx="439" cy="361" r="1.8" class="raven-dot"/>
+      <polygon points="434,335 450,330 456,321 464,316 474,319 480,330 477,340 469,348 460,349 452,343 445,339" class="raven-body" stroke-linejoin="round"/>
+      <polyline points="450,330 445,339" class="raven-facet"/>
+      <polyline points="464,316 454,341" class="raven-facet"/>
+      <polyline points="480,330 461,348" class="raven-facet"/>
+      <circle cx="455" cy="328" r="2.5" class="raven-eye">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="460" y="384" text-anchor="middle" class="raven-label">crebain</text>
   </g>
   <g>
     <rect x="629" y="134" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>
@@ -192,7 +228,13 @@
       <line x1="110" y1="335" x2="90" y2="373" class="vox-syn"/> <line x1="110" y1="335" x2="130" y2="373" class="vox-syn"/> <line x1="90" y1="373" x2="130" y2="373" class="vox-syn"/>
       <path d="M110 335 L90 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path> <path d="M110 335 L130 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path> <path d="M90 373 L130 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.9s" repeatCount="indefinite"/></path>
       <polygon points="81,369 90,373.5 90,381.5 81,377" class="vox-left" stroke-linejoin="round"/><polygon points="99,369 90,373.5 90,381.5 99,377" class="vox-right" stroke-linejoin="round"/><polygon points="90,364.5 99,369 90,373.5 81,369" class="vox-top" stroke-linejoin="round"/> <polygon points="121,369 130,373.5 130,381.5 121,377" class="vox-left" stroke-linejoin="round"/><polygon points="139,369 130,373.5 130,381.5 139,377" class="vox-right" stroke-linejoin="round"/><polygon points="130,364.5 139,369 130,373.5 121,369" class="vox-top" stroke-linejoin="round"/> <polygon points="101,331 110,335.5 110,343.5 101,339" class="vox-left" stroke-linejoin="round"/><polygon points="119,331 110,335.5 110,343.5 119,339" class="vox-right" stroke-linejoin="round"/><polygon points="110,326.5 119,331 110,335.5 101,331" class="vox-top" stroke-linejoin="round"/>
+      <polyline points="65,319 61,323 65,327" class="vox-spec"/>
+      <polyline points="69,319 73,323 69,327" class="vox-spec"/>
+      <line x1="68" y1="318" x2="65" y2="328" class="vox-spec"/>
+      <path d="M74 324 L80 328" class="flow"><animate attributeName="stroke-dashoffset" from="10.5" to="0" dur="1.6s" repeatCount="indefinite"/></path>
     </g>
+    <path d="M78 336 V332 A4 4 0 0 1 82 328 H90" class="vp-frame"><animate attributeName="stroke-opacity" values="0.7;0.7;1;0.7" keyTimes="0;0.45;0.6;1" dur="1.6s" repeatCount="indefinite"/></path>
+    <path d="M142 374 V380 A4 4 0 0 1 138 384 H130" class="vp-frame"/>
     <text x="110" y="394" text-anchor="middle" class="vox-label">cortexel</text>
   </g>
   </g>

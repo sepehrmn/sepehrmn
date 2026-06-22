@@ -369,10 +369,7 @@ const nodeEls = Object.values(nodes).map((n) => {
       ${flowMarkup}
       ${cubeAt(T)} ${cubeAt(L)} ${cubeAt(R)}
     </g>
-    <text x="${f1(n.x - 5)}" y="${f1(n.y + 34)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
-    <rect x="${f1(n.x + 29)}" y="${f1(n.y + 24)}" width="6" height="11" rx="1" class="vox-cursor">
-      <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
-    </rect>
+    <text x="${n.x}" y="${f1(n.y + 35)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "raven") {
@@ -383,7 +380,10 @@ const nodeEls = Object.values(nodes).map((n) => {
     return `<g>
     <circle cx="${cx}" cy="${cy}" r="34" class="raven-seat"/>
     <image href="${CREBAIN_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
-    <text x="${cx}" y="${f1(cy + S / 2 + 8)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
+    <text x="${f1(cx - 3)}" y="${f1(cy + S / 2 + 8)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
+    <rect x="${f1(cx + 30)}" y="${f1(cy + S / 2 - 1)}" width="5" height="10" rx="1" class="raven-cursor">
+      <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
+    </rect>
   </g>`;
   }
   // small "chip" nodes
@@ -477,11 +477,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
     .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
-    .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
-    .vox-cursor { fill: #f0abfc; }
+    .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
     .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; letter-spacing: 2.5px; text-transform: uppercase; }
+    .raven-cursor { fill: #9caf88; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
@@ -512,10 +512,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
       .vox-syn { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
-      .vox-cursor { fill: #c026d3; }
       .vox-net { color: #c026d3; }
       .raven-seat { fill-opacity: 0.06; }
       .raven-label { fill: #4b5320; }
+      .raven-cursor { fill: #4b5320; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
       .wg-bracket { stroke: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }

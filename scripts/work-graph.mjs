@@ -3,8 +3,8 @@
 // Generates assets/work-graph.svg — the "Selected work" project relationship
 // graph, from a declarative {nodes, edges} spec so the geometry is correct and
 // easy to edit:
-//   • edges are trimmed to each node's boundary (rect or circle) so a line never
-//     runs under a node;
+//   • edges are trimmed to each node's true boundary (rect, circle, or polygon)
+//     so a line never runs under a node;
 //   • each edge is a gentle quadratic Bézier that bows AWAY from the graph
 //     centroid (keeps the layout open and separates the bridge crossing);
 //   • each edge is stroked with a gradient from the source node's colour to the
@@ -27,18 +27,19 @@ const H = 460;
 
 // ---------------------------------------------------------------------------
 // Spec. Positions are node centres; colours are per-project accents.
-//   kind: "cube" (large square hub) | "hub" (large circle) | "pill" | "chip"
+//   large: cube · hub (circle) · triangle · hexagon · trapezoid · voxel (iso
+//   cube)   |   small: pill · chip
 // ---------------------------------------------------------------------------
 const nodes = {
   engram:      { x: 110, y: 230, color: "#22d3ee", kind: "cube", private: true },
-  pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "chip", label: "pid-rs" },
+  pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "trapezoid", label: "pid-rs" },
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "pill", label: "NCP" },
-  prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "hub",  private: true },
-  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "triangle" },
+  prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
+  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "hub" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
   cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
-  cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "chip" },
+  cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
 
@@ -60,11 +61,14 @@ const edges = [
 // Geometry.
 // ---------------------------------------------------------------------------
 const HUB_R = 46;
-const CUBE = 92; // engram square, matched to prisoma's diameter
-const TRI_CIRCUM = 53; // crebain triangle circumradius (~92 wide, like the others)
-const TRI_R = 42; // boundary radius used to trim edges to the triangle
+const CUBE = 92; // engram square, matched to a hub's diameter
+const TRI_CIRCUM = 53; // prisoma triangle circumradius (~92 wide, like the others)
 const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 tall)
-const HEX_R = 38; // boundary radius used to trim edges to the hexagon
+const TRAP_TW = 20; // pid-rs trapezoid: top half-width
+const TRAP_BW = 40; // …bottom half-width (wider base — a truncated triangle)
+const TRAP_HH = 24; // …half-height
+const VOX_W = 32; // cortexel voxel (iso cube): horizontal half-width
+const VOX_H = 36; // …half-height to the top/bottom vertices
 const CHIP_H = 32;
 const GAP = 7;
 
@@ -73,19 +77,57 @@ const escapeXML = (s) =>
 
 function nodeWidth(n) {
   if (n.kind === "hub") return HUB_R * 2;
-  if (n.kind === "cube" || n.kind === "triangle") return CUBE;
-  if (n.kind === "hexagon") return HEX_CIRCUM * 2;
+  if (n.kind === "cube") return CUBE;
   const pad = n.kind === "pill" ? 28 : 36;
   return Math.round(n.label.length * 7.8 + pad);
 }
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: HUB_R, hh: HUB_R, circle: true };
-  if (n.kind === "triangle") return { hw: TRI_R, hh: TRI_R, circle: true };
-  if (n.kind === "hexagon") return { hw: HEX_R, hh: HEX_R, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
+
+// Centre-relative polygon silhouette for the angular shapes (null => fall back
+// to the rect/circle box in halfExtents). Kept in lockstep with the render
+// geometry so edges trim to the TRUE outline — exact for a triangle/trapezoid
+// whose boundary distance swings a lot with direction (no single radius works).
+function nodePolygon(n) {
+  if (n.kind === "triangle") {
+    const dx = (TRI_CIRCUM * Math.sqrt(3)) / 2;
+    return [{ x: 0, y: -TRI_CIRCUM }, { x: dx, y: TRI_CIRCUM / 2 }, { x: -dx, y: TRI_CIRCUM / 2 }];
+  }
+  if (n.kind === "hexagon") {
+    const R = HEX_CIRCUM, dy = (R * Math.sqrt(3)) / 2;
+    return [{ x: R, y: 0 }, { x: R / 2, y: -dy }, { x: -R / 2, y: -dy }, { x: -R, y: 0 }, { x: -R / 2, y: dy }, { x: R / 2, y: dy }];
+  }
+  if (n.kind === "trapezoid") {
+    return [{ x: -TRAP_TW, y: -TRAP_HH }, { x: TRAP_TW, y: -TRAP_HH }, { x: TRAP_BW, y: TRAP_HH }, { x: -TRAP_BW, y: TRAP_HH }];
+  }
+  if (n.kind === "voxel") {
+    return [{ x: 0, y: -VOX_H }, { x: VOX_W, y: -VOX_H / 2 }, { x: VOX_W, y: VOX_H / 2 }, { x: 0, y: VOX_H }, { x: -VOX_W, y: VOX_H / 2 }, { x: -VOX_W, y: -VOX_H / 2 }];
+  }
+  return null;
+}
+
+// Distance from a node centre to its polygon boundary along unit dir (ux,uy):
+// the nearest positive ray–edge intersection. Ray P = s·D from the centre.
+function polyBoundary(verts, ux, uy) {
+  let best = Infinity;
+  for (let i = 0; i < verts.length; i++) {
+    const A = verts[i], B = verts[(i + 1) % verts.length];
+    const Ex = B.x - A.x, Ey = B.y - A.y;
+    const det = Ex * uy - ux * Ey;
+    if (Math.abs(det) < 1e-9) continue;
+    const s = (Ex * A.y - A.x * Ey) / det; // distance along the ray
+    const t = (ux * A.y - uy * A.x) / det; // position along the edge [0,1]
+    if (s >= 0 && t >= -1e-9 && t <= 1 + 1e-9 && s < best) best = s;
+  }
+  return Number.isFinite(best) ? best : 0;
+}
+
 function boundaryDist(n, ux, uy) {
+  const poly = nodePolygon(n);
+  if (poly) return polyBoundary(poly, ux, uy);
   const { hw, hh, circle } = halfExtents(n);
   if (circle) return hw;
   const tx = Math.abs(ux) < 1e-6 ? Infinity : hw / Math.abs(ux);
@@ -193,6 +235,7 @@ const nodeEls = Object.values(nodes).map((n) => {
     const br = `${f1(n.x + dx)},${f1(n.y + TRI_CIRCUM / 2)}`;
     return `<g>
     <polygon points="${top} ${br} ${bl}" class="tri" stroke-linejoin="round"/>
+    ${n.private ? lock(n.x, n.y - 8, 1, "var(--tri-accent)") : ""}
     <text x="${n.x}" y="${n.y + 20}" text-anchor="middle" class="tri-label">${escapeXML(n.label)}</text>
   </g>`;
   }
@@ -211,6 +254,37 @@ const nodeEls = Object.values(nodes).map((n) => {
     <polygon points="${pts}" class="hex" stroke-linejoin="round"/>
     ${n.private ? lock(n.x, n.y - 20, 1, "#fb923c") : ""}
     <text x="${n.x}" y="${n.y + 5}" text-anchor="middle" class="hex-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
+  if (n.kind === "trapezoid") {
+    const pts = [
+      `${f1(n.x - TRAP_TW)},${f1(n.y - TRAP_HH)}`,
+      `${f1(n.x + TRAP_TW)},${f1(n.y - TRAP_HH)}`,
+      `${f1(n.x + TRAP_BW)},${f1(n.y + TRAP_HH)}`,
+      `${f1(n.x - TRAP_BW)},${f1(n.y + TRAP_HH)}`,
+    ].join(" ");
+    return `<g>
+    <polygon points="${pts}" class="trap" stroke-linejoin="round"/>
+    <text x="${n.x}" y="${f1(n.y + 6)}" text-anchor="middle" class="trap-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
+  if (n.kind === "voxel") {
+    // Isometric cube: a hexagonal silhouette split into top / left / right faces
+    // (shaded brightest → dimmest) so it reads as a 3-D "voxel" block.
+    const T = `${n.x},${f1(n.y - VOX_H)}`;
+    const UR = `${f1(n.x + VOX_W)},${f1(n.y - VOX_H / 2)}`;
+    const UL = `${f1(n.x - VOX_W)},${f1(n.y - VOX_H / 2)}`;
+    const C = `${n.x},${n.y}`;
+    const LR = `${f1(n.x + VOX_W)},${f1(n.y + VOX_H / 2)}`;
+    const LL = `${f1(n.x - VOX_W)},${f1(n.y + VOX_H / 2)}`;
+    const B = `${n.x},${f1(n.y + VOX_H)}`;
+    return `<g>
+    <g filter="url(#soft)">
+      <polygon points="${T} ${UR} ${C} ${UL}" class="vox-top" stroke-linejoin="round"/>
+      <polygon points="${UL} ${C} ${B} ${LL}" class="vox-left" stroke-linejoin="round"/>
+      <polygon points="${UR} ${C} ${B} ${LR}" class="vox-right" stroke-linejoin="round"/>
+    </g>
+    <text x="${n.x}" y="${f1(n.y + VOX_H + 16)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   const w = nodeWidth(n);
@@ -241,7 +315,7 @@ const aria =
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="#241a44"/>
+      <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="cubeGrad" cx="50%" cy="42%" r="70%">
@@ -249,11 +323,15 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="triGrad" cx="50%" cy="56%" r="70%">
-      <stop offset="0%" stop-color="#2b1020"/>
+      <stop offset="0%" stop-color="#241a44"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="hexGrad" cx="50%" cy="45%" r="70%">
       <stop offset="0%" stop-color="#2a1608"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </radialGradient>
+    <radialGradient id="trapGrad" cx="50%" cy="56%" r="70%">
+      <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -267,7 +345,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     ${gradDefs.join("\n    ")}
   </defs>
   <style>
-    :root { --hub-accent: #a78bfa; --cube-accent: #22d3ee; }
+    :root { --hub-accent: #f472b6; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
@@ -275,29 +353,41 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
-    .hub        { fill: url(#hubGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
-    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
+    .hub        { fill: url(#hubGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
+    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
     .cube       { fill: url(#cubeGrad); stroke: #22d3ee; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
-    .tri        { fill: url(#triGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
-    .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
+    .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
+    .trap       { fill: url(#trapGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
+    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
+    .vox-top    { fill: #e879f9; fill-opacity: 0.55; stroke: #e879f9; stroke-width: 1.4; }
+    .vox-left   { fill: #e879f9; fill-opacity: 0.28; stroke: #e879f9; stroke-width: 1.4; }
+    .vox-right  { fill: #e879f9; fill-opacity: 0.13; stroke: #e879f9; stroke-width: 1.4; }
+    .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
-      :root { --hub-accent: #7c3aed; --cube-accent: #0891b2; }
+      :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
       .chip-label { fill: #1f2328; }
-      .hub { fill: #ffffff; stroke: #7c3aed; }
-      .hub-label { fill: #6d28d9; }
+      .hub { fill: #ffffff; stroke: #db2777; }
+      .hub-label { fill: #be185d; }
       .cube { fill: #ffffff; stroke: #0891b2; }
       .cube-label { fill: #0891b2; }
-      .tri { fill: #ffffff; stroke: #db2777; }
-      .tri-label { fill: #be185d; }
+      .tri { fill: #ffffff; stroke: #7c3aed; }
+      .tri-label { fill: #6d28d9; }
       .hex { fill: #ffffff; stroke: #c2410c; }
       .hex-label { fill: #c2410c; }
+      .trap { fill: #ffffff; stroke: #059669; }
+      .trap-label { fill: #059669; }
+      .vox-top { fill: #c026d3; fill-opacity: 0.30; stroke: #c026d3; }
+      .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
+      .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
+      .vox-label { fill: #c026d3; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }

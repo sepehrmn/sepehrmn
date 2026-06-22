@@ -48,7 +48,9 @@ function render(r) {
     .cap   { font: 600 10px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }
     .spine { stroke: ${amberD}; stroke-width: 4; stroke-linecap: round; }
     .rule  { stroke: ${ruleD}; stroke-width: 1; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .label { fill: ${inkL}; }
       .cap { fill: ${mutedL}; }
       .spine { stroke: ${amberL}; }

@@ -75,7 +75,9 @@ function render(s) {
     .rule   { stroke: ${ruleD}; stroke-width: 1; }
     .cursor { fill: ${accentD}; animation: curblink 1s steps(1) ${s.begin} infinite; }
     ${CURBLINK_KEYFRAMES}
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .idx { fill: ${accentL}; }
       .prompt { fill: ${mutedL}; }
       .caret { fill: ${accentL}; }
@@ -140,7 +142,9 @@ function renderHeading({ label, comment, accent, begin = "0.6s" }) {
     .rule   { stroke: ${ruleD}; stroke-width: 1; }
     .cursor { fill: ${accentD}; animation: curblink 1s steps(1) ${begin} infinite; }
     ${CURBLINK_KEYFRAMES}
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .prompt { fill: ${mutedL}; }
       .caret  { fill: ${accentL}; }
       .label  { fill: ${inkL}; }

@@ -62,7 +62,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .flow  { fill: none; stroke: ${flowD}; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
     .cursor{ fill: ${pinkD}; animation: curblink 1s steps(1) infinite; }
     ${CURBLINK_KEYFRAMES}
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .panel { fill: ${panelL.fill}; fill-opacity: ${panelL.fillOpacity}; stroke: ${panelL.stroke}; stroke-opacity: ${panelL.strokeOpacity}; }
       .spine { stroke: ${pinkL}; }
       .cap, .cmd, .tag { fill: ${mutedL}; }

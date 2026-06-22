@@ -31,7 +31,9 @@
     .c5.title { fill: #e879f9; } .c5.rule { fill: #e879f9; } .c5.spine { stroke: #e879f9; } .c5.badge { fill: #e879f9; } .c5.chip { stroke: #e879f9; } .c5.chip-label { fill: #e879f9; } .c5.glyph-fill { fill: #e879f9; } .c5.glyph-stroke { stroke: #e879f9; }
     .c6.title { fill: #34d399; } .c6.rule { fill: #34d399; } .c6.spine { stroke: #34d399; } .c6.badge { fill: #34d399; } .c6.chip { stroke: #34d399; } .c6.chip-label { fill: #34d399; } .c6.glyph-fill { fill: #34d399; } .c6.glyph-stroke { stroke: #34d399; }
     .c7.title { fill: #60a5fa; } .c7.rule { fill: #60a5fa; } .c7.spine { stroke: #60a5fa; } .c7.badge { fill: #60a5fa; } .c7.chip { stroke: #60a5fa; } .c7.chip-label { fill: #60a5fa; } .c7.glyph-fill { fill: #60a5fa; } .c7.glyph-stroke { stroke: #60a5fa; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #4b5320; --a4: #c2410c; --a5: #c026d3; --a6: #059669; --a7: #2563eb; }
       .cap { fill: #57606a; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
@@ -133,7 +135,7 @@
     <path d="M442.5 418 v122" class="spine c5" stroke-width="4" stroke-linecap="round"/>
     <text x="463" y="442" class="title c5" textLength="104" lengthAdjust="spacingAndGlyphs">cortexel</text>
     <rect x="463" y="450" width="34" height="2.5" rx="1.25" class="rule c5"/>
-    <polygon points="810.0,420.0 811.5,424.0 815.7,424.1 812.4,426.8 813.5,430.9 810.0,428.5 806.5,430.9 807.6,426.8 804.3,424.1 808.5,424.0" class="glyph-fill c5"/><text x="800" y="431" text-anchor="end" class="badge c5">1</text>
+    <polygon points="810.0,420.0 811.5,424.0 815.7,424.1 812.4,426.8 813.5,430.9 810.0,428.5 806.5,430.9 807.6,426.8 804.3,424.1 808.5,424.0" class="glyph-fill c5"/><text x="800" y="431" text-anchor="end" class="badge c5">0</text>
     <text x="463" y="464" class="desc">Agent-consumable scientific-visualization library</text>
     <text x="463" y="482" class="desc">for neural simulations — VizSpec to spike rasters</text>
     <text x="463" y="500" class="desc">&amp; STDP curves, provenance fail-closed.</text>

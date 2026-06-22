@@ -19,7 +19,9 @@
     .rule   { stroke: #30363d; stroke-width: 1; }
     .cursor { fill: #fbbf24; animation: curblink 1s steps(1) 0.8s infinite; }
     @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .idx { fill: #b45309; }
       .prompt { fill: #57606a; }
       .caret { fill: #b45309; }

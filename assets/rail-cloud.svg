@@ -12,7 +12,9 @@
     .cap   { font: 600 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .spine { stroke: #fbbf24; stroke-width: 4; stroke-linecap: round; }
     .rule  { stroke: #30363d; stroke-width: 1; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .label { fill: #1f2328; }
       .cap { fill: #57606a; }
       .spine { stroke: #b45309; }

@@ -272,7 +272,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .chip       { fill: #0d1117; fill-opacity: 0.6; stroke-width: 1.3; }
     .chip-label { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
     ${accentRules}
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       :root { ${accentVarsLight} }
       .cap { fill: #57606a; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }

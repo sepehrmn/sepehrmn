@@ -514,11 +514,13 @@ function renderSVG(model) {
     .legend-peak { font-weight: 700; fill: #22d3ee; }
     .legend-swatch { fill: #22d3ee; fill-opacity: 0.55; }
     .swatch-peak { fill-opacity: 1; }
-    .slice-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #0b1f24; }
+    .slice-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #0b1f24; stroke: none; }
     .warning { font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; }
     .slice { fill: #22d3ee; fill-opacity: 0.82; }
     .slice-peak { fill: #22d3ee; fill-opacity: 1; filter: url(#glow); }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .title { fill: #0891b2; }
       .subtitle { fill: #57606a; }

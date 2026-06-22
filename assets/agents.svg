@@ -26,7 +26,9 @@
     .tag   { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .cursor{ fill: #34d399; animation: curblink 1s steps(1) infinite; }
     @keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       :root { --em: #059669; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .spine { stroke: #059669; }

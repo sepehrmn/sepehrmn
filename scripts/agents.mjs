@@ -85,7 +85,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .tag   { font: 400 13px ${MONO}; fill: ${mutedD}; }
     .cursor{ fill: ${emD}; animation: curblink 1s steps(1) infinite; }
     ${CURBLINK_KEYFRAMES}
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       :root { --em: ${emL}; }
       .panel { fill: ${pL.fill}; fill-opacity: ${pL.fillOpacity}; stroke: ${pL.stroke}; stroke-opacity: ${pL.strokeOpacity}; }
       .spine { stroke: ${emL}; }

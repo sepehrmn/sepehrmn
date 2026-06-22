@@ -229,43 +229,34 @@ function datasetPlates(cx, cy, color) {
   }).join("");
 }
 
-// crebain's wordmark flag — a small WAVING CLOTH flag: three rippled bands in
-// rich German colours with wave-driven FOLD SHADING (light along the crests,
-// shadow in the troughs) and clean edges, so it reads as real fabric catching
-// light — neither flat-plasticky nor dull. One instance, so ids are unique.
+// crebain's wordmark flag — a clean, crisp German flag chip: three bands in rich
+// official colours, softly rounded, with a whisper of matte top-light shading and
+// a soft drop shadow for depth. Matte (not glossy), crisp (not distressed), still
+// (not wavy). One instance, so the filter / gradient / clip ids are unique.
 function germanFlag(cxf, top, w) {
-  const h = Number((w * 0.6).toFixed(2)), s = h / 3, x0 = cxf - w / 2;
-  const A = h * 0.1, per = 1.35, ph = -0.7, SAMP = 18;       // ripple shape
-  const wy = (t) => A * Math.sin(2 * Math.PI * per * t + ph);
-  const line = (by) => {
-    const p = [];
-    for (let i = 0; i <= SAMP; i++) {
-      const t = i / SAMP;
-      p.push([Number((x0 + t * w).toFixed(2)), Number((by + wy(t)).toFixed(2))]);
-    }
-    return p;
-  };
-  const band = (a, b) =>
-    `M${a.map(([x, y]) => `${x} ${y}`).join("L")}L${b.slice().reverse().map(([x, y]) => `${x} ${y}`).join("L")}Z`;
-  const L0 = line(top), L1 = line(top + s), L2 = line(top + 2 * s), L3 = line(top + 3 * s);
-  const outline = band(L0, L3);
-  let stops = "";
-  for (let i = 0; i <= SAMP; i++) {
-    const t = i / SAMP, sn = Math.sin(2 * Math.PI * per * t + ph), off = Number(t.toFixed(3));
-    stops += sn >= 0
-      ? `<stop offset="${off}" stop-color="#ffffff" stop-opacity="${Number((sn * 0.17).toFixed(3))}"/>`
-      : `<stop offset="${off}" stop-color="#000000" stop-opacity="${Number((-sn * 0.24).toFixed(3))}"/>`;
-  }
+  const h = Number((w * 0.62).toFixed(2)), s = Number((h / 3).toFixed(3));
+  const x = f1(cxf - w / 2), tp = f1(top), rx = 1.6;
+  const bh = f1(s + 0.4);
   return (
     `<defs>` +
-      `<linearGradient id="flagFold" x1="0" y1="0" x2="1" y2="0">${stops}</linearGradient>` +
-      `<clipPath id="flagClip"><path d="${outline}"/></clipPath>` +
+      `<filter id="flagDrop" x="-35%" y="-35%" width="170%" height="185%">` +
+        `<feDropShadow dx="0" dy="0.7" stdDeviation="0.9" flood-color="#000000" flood-opacity="0.4"/></filter>` +
+      `<linearGradient id="flagShade" x1="0" y1="0" x2="0" y2="1">` +
+        `<stop offset="0" stop-color="#ffffff" stop-opacity="0.06"/>` +
+        `<stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>` +
+        `<stop offset="1" stop-color="#000000" stop-opacity="0.13"/>` +
+      `</linearGradient>` +
+      `<clipPath id="flagClip"><rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="${rx}"/></clipPath>` +
     `</defs>` +
-    `<path d="${band(L0, L1)}" class="flag-k"/>` +
-    `<path d="${band(L1, L2)}" class="flag-r"/>` +
-    `<path d="${band(L2, L3)}" class="flag-g"/>` +
-    `<path d="${outline}" fill="url(#flagFold)" clip-path="url(#flagClip)"/>` +
-    `<path d="${outline}" fill="none" class="flag-edge"/>`
+    `<g filter="url(#flagDrop)">` +
+      `<g clip-path="url(#flagClip)">` +
+        `<rect x="${x}" y="${tp}" width="${w}" height="${bh}" class="flag-k"/>` +
+        `<rect x="${x}" y="${f1(top + s)}" width="${w}" height="${bh}" class="flag-r"/>` +
+        `<rect x="${x}" y="${f1(top + 2 * s)}" width="${w}" height="${bh}" class="flag-g"/>` +
+        `<rect x="${x}" y="${tp}" width="${w}" height="${h}" fill="url(#flagShade)"/>` +
+      `</g>` +
+      `<rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="${rx}" class="flag-edge"/>` +
+    `</g>`
   );
 }
 
@@ -544,10 +535,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
-    .flag-k     { fill: #15151a; }
-    .flag-r     { fill: #d21c1c; }
-    .flag-g     { fill: #fbc02d; }
-    .flag-edge  { fill: none; stroke: #ffffff; stroke-opacity: 0.18; stroke-width: 0.5; }
+    .flag-k     { fill: #181818; }
+    .flag-r     { fill: #d8001d; }
+    .flag-g     { fill: #ffcc00; }
+    .flag-edge  { fill: none; stroke: #ffffff; stroke-opacity: 0.16; stroke-width: 0.6; }
     .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
@@ -556,7 +547,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
       :root { --hub-accent: #059669; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }

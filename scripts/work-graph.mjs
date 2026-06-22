@@ -311,14 +311,19 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "voxel") {
-    // cortexel — a VOXEL NEURAL NETWORK (three iso voxel-neurons + flowing
-    // synapses) matted inside a render VIEWPORT (corner brackets => it's a
-    // rendered figure = visualisation), with a "</>" VizSpec caret firing one
-    // inbound directive packet (an agent requests the render = agentic).
+    // cortexel — a VOXEL NEURAL NETWORK: three isometric voxel-neurons wired by
+    // synapses with signal packets streaming along them. DEPTH-CUED so the
+    // cluster reads as genuinely 3-D: each neuron carries a near→far opacity (the
+    // apex T recedes into the back, the front-right neuron R sits nearest the
+    // viewer, L is mid) and every synapse fades along its length from its nearer
+    // end to its farther one. The label + typing cursor below are NOT depth-faded
+    // — they are the wordmark, not part of the 3-D figure.
     const vw = 9, vbh = 8, rh = vw / 2;
-    const T = { x: n.x, y: n.y - 25 };
-    const L = { x: n.x - 20, y: n.y + 13 };
-    const R = { x: n.x + 20, y: n.y + 13 };
+    const T = { x: n.x,      y: n.y - 25, depth: 1.0 }; // farthest — up/back
+    const L = { x: n.x - 20, y: n.y + 13, depth: 0.5 }; // mid
+    const R = { x: n.x + 20, y: n.y + 13, depth: 0.0 }; // nearest — front
+    // Atmospheric perspective: map depth 0 (near)..1 (far) → opacity 1.0..0.45.
+    const dop = (d) => Number((1 - d * 0.55).toFixed(3));
     const cube = (c) => {
       const cyt = c.y - vbh / 2;
       const bt = `${f1(c.x)},${f1(cyt - rh)}`;
@@ -332,22 +337,42 @@ const nodeEls = Object.values(nodes).map((n) => {
         `<polygon points="${rr} ${ft} ${fb} ${rb}" class="vox-right" stroke-linejoin="round"/>` +
         `<polygon points="${bt} ${rr} ${ft} ${lf}" class="vox-top" stroke-linejoin="round"/>`;
     };
-    const syn = (a, b) => `<line x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}" class="vox-syn"/>`;
-    const flow = (a, b, dur) =>
-      `<path d="M${f1(a.x)} ${f1(a.y)} L${f1(b.x)} ${f1(b.y)}" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="${dur}" repeatCount="indefinite"/></path>`;
-    return `<g>
+    // Each cube dimmed as a unit by its depth (group opacity multiplies the
+    // per-face iso shading), painted far → near.
+    const cubeAt = (c) => `<g opacity="${dop(c.depth)}">${cube(c)}</g>`;
+    // Synapse: a userSpaceOnUse gradient down the line whose stop-opacity tracks
+    // each endpoint's depth, so the link recedes with the neurons it joins.
+    // currentColor resolves to .vox-net's theme-adaptive colour.
+    const grads = [];
+    let gi = 0;
+    const syn = (a, b) => {
+      const id = `voxSyn${gi++}`;
+      grads.push(
+        `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}">` +
+          `<stop offset="0" stop-color="currentColor" stop-opacity="${dop(a.depth)}"/>` +
+          `<stop offset="1" stop-color="currentColor" stop-opacity="${dop(b.depth)}"/>` +
+          `</linearGradient>`
+      );
+      return `<line x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}" class="vox-syn" style="stroke:url(#${id})"/>`;
+    };
+    // Signal packets dim with the mean depth of the link they ride.
+    const flow = (a, b, dur) => {
+      const o = ((dop(a.depth) + dop(b.depth)) / 2).toFixed(3);
+      return `<path d="M${f1(a.x)} ${f1(a.y)} L${f1(b.x)} ${f1(b.y)}" class="flow" opacity="${o}"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="${dur}" repeatCount="indefinite"/></path>`;
+    };
+    const synMarkup = `${syn(T, L)} ${syn(T, R)} ${syn(L, R)}`;
+    const flowMarkup = `${flow(T, L, "1.5s")} ${flow(T, R, "1.5s")} ${flow(L, R, "1.9s")}`;
+    return `<g class="vox-net">
+    <defs>${grads.join("")}</defs>
     <g filter="url(#soft)">
-      ${syn(T, L)} ${syn(T, R)} ${syn(L, R)}
-      ${flow(T, L, "1.5s")} ${flow(T, R, "1.5s")} ${flow(L, R, "1.9s")}
-      ${cube(L)} ${cube(R)} ${cube(T)}
-      <polyline points="65,319 61,323 65,327" class="vox-spec"/>
-      <polyline points="69,319 73,323 69,327" class="vox-spec"/>
-      <line x1="68" y1="318" x2="65" y2="328" class="vox-spec"/>
-      <path d="M73 323 H81" class="flow"><animate attributeName="stroke-dashoffset" from="10.5" to="0" dur="1.6s" repeatCount="indefinite"/></path>
+      ${synMarkup}
+      ${flowMarkup}
+      ${cubeAt(T)} ${cubeAt(L)} ${cubeAt(R)}
     </g>
-    <path d="M77 331 V327 A4 4 0 0 1 81 323 H89" class="vp-frame"><animate attributeName="stroke-opacity" values="0.7;0.7;1;0.7" keyTimes="0;0.45;0.6;1" dur="1.6s" repeatCount="indefinite"/></path>
-    <path d="M143 377 V381 A4 4 0 0 1 139 385 H131" class="vp-frame"/>
-    <text x="${n.x}" y="${f1(n.y + 38)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+    <text x="${f1(n.x - 5)}" y="${f1(n.y + 34)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+    <rect x="${f1(n.x + 29)}" y="${f1(n.y + 24)}" width="6" height="11" rx="1" class="vox-cursor">
+      <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
+    </rect>
   </g>`;
   }
   if (n.kind === "raven") {
@@ -452,9 +477,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
     .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
-    .vox-spec   { fill: none; stroke: #f0abfc; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
-    .vp-frame   { fill: none; stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.7; stroke-linecap: round; stroke-linejoin: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .vox-cursor { fill: #f0abfc; }
+    .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
     .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; letter-spacing: 2.5px; text-transform: uppercase; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
@@ -486,9 +511,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
       .vox-syn { stroke: #c026d3; }
-      .vox-spec { stroke: #c026d3; }
-      .vp-frame { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
+      .vox-cursor { fill: #c026d3; }
+      .vox-net { color: #c026d3; }
       .raven-seat { fill-opacity: 0.06; }
       .raven-label { fill: #4b5320; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }

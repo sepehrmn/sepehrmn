@@ -39,6 +39,20 @@ export const PROJECTS = [
     stack: ["TS", "Rust", "Nix"],
   },
   {
+    name: "melkor",
+    accent: "#fb923c", light: "#c2410c", grad: "#2a1608",
+    stars: 1, repo: "sepahead/melkor",
+    desc: "Gaussian-splatting & depth-analysis pipelines for 3D reconstruction — multi-view capture to dense geometry, CUDA-accelerated.",
+    stack: ["Python", "C++", "CUDA"],
+  },
+  {
+    name: "cortexel",
+    accent: "#2dd4bf", light: "#0d9488", grad: "#06292a",
+    stars: 0, repo: "sepahead/cortexel",
+    desc: "Agent-consumable scientific-visualization library for neural simulations — VizSpec to spike rasters & STDP curves, provenance fail-closed.",
+    stack: ["TS", "React", "Three"],
+  },
+  {
     name: "pid-rs",
     accent: "#34d399", light: "#059669", grad: "#06281d",
     stars: 1, repo: "sepahead/pid-rs",
@@ -62,7 +76,6 @@ export const REPOS = [
   { name: "brojapid-activationfunctions", area: "PID analysis of activation functions",      full: "PID analysis of activation functions",                  repo: "sepahead/brojapid-activationfunctions", metric: "stars", count: 4 },
   { name: "mahmoudian-2020-rescience",    area: "ReScience C — info-theoretic transfer fn",  full: "ReScience C info-theoretic transfer-function analysis", repo: "sepahead/mahmoudian-2020-rescience",    metric: "forks", count: 3 },
   { name: "nest-simulator",               area: "NEST simulator fork — orig. contributions", full: "NEST simulator fork with original contributions" },
-  { name: "melkor",                       area: "Gaussian splatting & depth analysis",        full: "Gaussian splatting and depth analysis" },
   { name: "relief-atlas",                 area: "10K+ AI-gen 3D mesh assets for relief",       full: "10K+ AI-generated 3D mesh assets for disaster relief" },
   { name: "manwe",                        area: "real-time UAV detection in Rust",             full: "real-time UAV detection from vision, in Rust" },
   { name: "silmaril-vision-studio",       area: "computer-vision studio & testbed",            full: "computer-vision studio and testbed" },

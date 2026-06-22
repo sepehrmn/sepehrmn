@@ -251,7 +251,7 @@ const accentRulesLight = projects
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Selected work — six project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
+  "Selected work — eight project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. melkor (1 star): Gaussian-splatting and depth-analysis pipelines for 3D reconstruction, Python, C++, CUDA. cortexel: agent-consumable scientific-visualization library for neural simulations — VizSpec to spike rasters and STDP curves with fail-closed provenance, TypeScript, React, Three.js. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
@@ -288,7 +288,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </style>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
-  <text x="${M + 14}" y="${CAP_Y}" class="cap">SELECTED&#160;WORK&#160;&#8212;&#160;SIX&#160;PROJECTS</text>
+  <text x="${M + 14}" y="${CAP_Y}" class="cap">SELECTED&#160;WORK&#160;&#8212;&#160;EIGHT&#160;PROJECTS</text>
 
 ${cardEls.join("\n")}
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas and cobot-relief connect to prisoma; cobot-atlas and cobot-relief also connect to crebain.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
       <stop offset="0%" stop-color="#241a44"/>
@@ -10,6 +10,10 @@
     </radialGradient>
     <radialGradient id="triGrad" cx="50%" cy="56%" r="70%">
       <stop offset="0%" stop-color="#2b1020"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </radialGradient>
+    <radialGradient id="hexGrad" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -24,10 +28,13 @@
     <linearGradient id="eg1" gradientUnits="userSpaceOnUse" x1="281.8" y1="214.8" x2="412.1" y2="152.8"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="415.9" y2="310.6"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
     <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="298.4" y1="96.1" x2="408.1" y2="119.1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="622.2" y1="165.3" x2="511.8" y2="141.3"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="659.6" y1="260.2" x2="504.4" y2="159"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="500.9" y1="305" x2="659.9" y2="199.9"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
-    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="507.8" y1="321.2" x2="618.2" y2="296.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
+    <linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="622" y1="144.1" x2="512.8" y2="134.6"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="650.1" y1="229.2" x2="507" y2="154.5"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="668.2" y1="329.2" x2="498.3" y2="166.6"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="498.4" y1="301.6" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+    <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="506.2" y1="315.5" x2="647.6" y2="265.1"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
+    <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="508.9" y1="335.8" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
+    <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="337" x2="110" y2="283"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <style>
     :root { --hub-accent: #a78bfa; --cube-accent: #22d3ee; }
@@ -44,6 +51,8 @@
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .tri        { fill: url(#triGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
+    .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       :root { --hub-accent: #7c3aed; --cube-accent: #0891b2; }
@@ -57,6 +66,8 @@
       .cube-label { fill: #0891b2; }
       .tri { fill: #ffffff; stroke: #db2777; }
       .tri-label { fill: #be185d; }
+      .hex { fill: #ffffff; stroke: #c2410c; }
+      .hex-label { fill: #c2410c; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
@@ -67,17 +78,20 @@
 
   <g class="edges">
     <path d="M 298.4 96.1 Q 356.9 90.1 408.1 119.1" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 622.2 165.3 Q 570.8 135.6 511.8 141.3" fill="none" stroke="url(#eg4)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 659.6 260.2 Q 596.2 187.8 504.4 159" fill="none" stroke="url(#eg5)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 500.9 305 Q 594.7 274.1 659.9 199.9" fill="none" stroke="url(#eg6)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 507.8 321.2 Q 567 326.4 618.2 296.2" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 163 230 Q 190.3 238.7 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
+    <path d="M 622 144.1 Q 568.9 121.9 512.8 134.6" fill="none" stroke="url(#eg4)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 650.1 229.2 Q 590.5 169 507 154.5" fill="none" stroke="url(#eg5)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 668.2 329.2 Q 601.2 229.1 498.3 166.6" fill="none" stroke="url(#eg6)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 498.4 301.6 Q 597.5 256.4 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 506.2 315.5 Q 585 313 647.6 265.1" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 508.9 335.8 Q 562.1 357.6 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 110 337 Q 101.4 310 110 283" fill="none" stroke="url(#eg10)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 163 230 Q 190.3 221.3 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" fill="none" stroke="url(#eg1)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.30s" repeatCount="indefinite"/></path>
     <path d="M 281.8 245.4 Q 338.4 299.5 415.9 310.6" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
   </g>
   <g class="flows">
-    <path d="M 163 230 Q 190.3 238.7 217.5 230" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
-    <path d="M 163 230 Q 190.3 238.7 217.5 230" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
+    <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
+    <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 337.1 163 412.1 152.8" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
     <path d="M 281.8 245.4 Q 338.4 299.5 415.9 310.6" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
@@ -110,14 +124,24 @@
     <text x="460" y="352" text-anchor="middle" class="tri-label">crebain</text>
   </g>
   <g>
-    <rect x="629" y="164" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>
-    <circle cx="644" cy="180" r="4" fill="#60a5fa"/>
-    <text x="656" y="185" class="chip-label">cobot-atlas</text>
+    <rect x="629" y="134" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>
+    <circle cx="644" cy="150" r="4" fill="#60a5fa"/>
+    <text x="656" y="155" class="chip-label">cobot-atlas</text>
   </g>
   <g>
-    <rect x="625" y="264" width="130" height="32" rx="8" class="chip" stroke="#fb7185"/>
-    <circle cx="640" cy="280" r="4" fill="#fb7185"/>
-    <text x="652" y="285" class="chip-label">cobot-relief</text>
+    <polygon points="730,250 710,215.4 670,215.4 650,250 670,284.6 710,284.6" class="hex" stroke-linejoin="round"/>
+    
+    <text x="690" y="255" text-anchor="middle" class="hex-label">melkor</text>
+  </g>
+  <g>
+    <rect x="625" y="334" width="130" height="32" rx="8" class="chip" stroke="#fb7185"/>
+    <circle cx="640" cy="350" r="4" fill="#fb7185"/>
+    <text x="652" y="355" class="chip-label">cobot-relief</text>
+  </g>
+  <g>
+    <rect x="61" y="344" width="98" height="32" rx="8" class="chip" stroke="#2dd4bf"/>
+    <circle cx="76" cy="360" r="4" fill="#2dd4bf"/>
+    <text x="88" y="365" class="chip-label">cortexel</text>
   </g>
   </g>
 </svg>

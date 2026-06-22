@@ -151,11 +151,30 @@
       "author": { "@id": "https://sepahead.github.io/sepahead/#person" }
     },
     {
+      "@type": "SoftwareSourceCode",
+      "name": "melkor",
+      "codeRepository": "https://github.com/sepahead/melkor",
+      "url": "https://github.com/sepahead/melkor",
+      "description": "Gaussian-splatting and depth-analysis pipelines for 3D scene reconstruction: multi-view capture to dense geometry, CUDA-accelerated.",
+      "programmingLanguage": ["Python", "C++", "CUDA"],
+      "author": { "@id": "https://sepahead.github.io/sepahead/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "cortexel",
+      "codeRepository": "https://github.com/sepahead/cortexel",
+      "url": "https://github.com/sepahead/cortexel",
+      "description": "An agent-consumable scientific-visualization library for neural simulations: an agent emits a declarative VizSpec and Cortexel renders spike rasters, Brunel networks and STDP curves, with scientific-honesty provenance enforced fail-closed.",
+      "programmingLanguage": "TypeScript",
+      "license": "https://spdx.org/licenses/MIT.html",
+      "author": { "@id": "https://sepahead.github.io/sepahead/#person" }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://sepahead.github.io/sepahead/#website",
       "url": "https://sepahead.github.io/sepahead/",
       "name": "Sepehr Mahmoudian",
-      "dateModified": "2026-06-21",
+      "dateModified": "2026-06-22",
       "about": { "@id": "https://sepahead.github.io/sepahead/#person" }
     },
     {
@@ -244,6 +263,8 @@
   <ul>
     <li class="proj"><a href="https://github.com/sepahead/NCP"><b>NCP</b></a> <span>— Neuro-Cybernetic Protocol: a safety-gated, provenance-first wire contract that lets a spiking neural simulation (NEST) perceive and act through robots, UAVs and analysis clients. Rust SDK with Python, C/C++ and TypeScript peers.</span></li>
     <li class="proj"><a href="https://github.com/sepahead/crebain"><b>crebain</b></a> <span>— Adaptive Response &amp; Awareness System (ARAS): tactical visualization &amp; autonomy — sensor fusion, ML detection, drone physics, ROS / Gazebo. Tauri + React + Rust.</span></li>
+    <li class="proj"><a href="https://github.com/sepahead/melkor"><b>melkor</b></a> <span>— Gaussian-splatting &amp; depth-analysis pipelines for 3D scene reconstruction: multi-view capture to dense geometry, CUDA-accelerated. Python &amp; C++.</span></li>
+    <li class="proj"><a href="https://github.com/sepahead/cortexel"><b>cortexel</b></a> <span>— agent-consumable scientific-visualization library for neural simulations: emit a declarative VizSpec and render spike rasters, Brunel networks &amp; STDP curves, with provenance enforced fail-closed. TypeScript.</span></li>
     <li class="proj"><a href="https://github.com/sepahead/pid-rs"><b>pid-rs</b></a> <span>— Partial Information Decomposition with continuous mutual-information (KSG) estimators, in safe Rust.</span></li>
     <li class="proj"><a href="https://github.com/sepahead/cobot-atlas"><b>cobot-atlas</b></a> <span>— 3D mesh-generation pipeline: 2,023 meshes for collaborative-robot simulation and embodied AI; dataset published on Hugging Face. Python.</span></li>
     <li class="proj"><b>engram</b><span class="priv">private</span> <span>— a NEST-based neural-modeling hub: the "brain" the rest of the stack connects to.</span></li>

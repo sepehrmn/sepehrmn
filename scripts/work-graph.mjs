@@ -35,8 +35,10 @@ const nodes = {
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "pill", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "hub",  private: true },
   crebain:     { x: 460, y: 332, color: "#f472b6", kind: "triangle" },
-  cobotatlas:  { x: 690, y: 180, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
-  cobotrelief: { x: 690, y: 280, color: "#fb7185", kind: "chip", label: "cobot-relief" },
+  cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
+  melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
+  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
+  cortexel:    { x: 110, y: 360, color: "#2dd4bf", kind: "chip" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
 
@@ -46,9 +48,12 @@ const edges = [
   { a: "ncp",         b: "crebain" },
   { a: "pidrs",       b: "prisoma" },
   { a: "cobotatlas",  b: "prisoma" },
+  { a: "melkor",      b: "prisoma" },
   { a: "cobotrelief", b: "prisoma" },
   { a: "crebain",     b: "cobotatlas" },
+  { a: "crebain",     b: "melkor" },
   { a: "crebain",     b: "cobotrelief" },
+  { a: "cortexel",    b: "engram" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -58,6 +63,8 @@ const HUB_R = 46;
 const CUBE = 92; // engram square, matched to prisoma's diameter
 const TRI_CIRCUM = 53; // crebain triangle circumradius (~92 wide, like the others)
 const TRI_R = 42; // boundary radius used to trim edges to the triangle
+const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 tall)
+const HEX_R = 38; // boundary radius used to trim edges to the hexagon
 const CHIP_H = 32;
 const GAP = 7;
 
@@ -67,12 +74,14 @@ const escapeXML = (s) =>
 function nodeWidth(n) {
   if (n.kind === "hub") return HUB_R * 2;
   if (n.kind === "cube" || n.kind === "triangle") return CUBE;
+  if (n.kind === "hexagon") return HEX_CIRCUM * 2;
   const pad = n.kind === "pill" ? 28 : 36;
   return Math.round(n.label.length * 7.8 + pad);
 }
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: HUB_R, hh: HUB_R, circle: true };
   if (n.kind === "triangle") return { hw: TRI_R, hh: TRI_R, circle: true };
+  if (n.kind === "hexagon") return { hw: HEX_R, hh: HEX_R, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
@@ -187,6 +196,23 @@ const nodeEls = Object.values(nodes).map((n) => {
     <text x="${n.x}" y="${n.y + 20}" text-anchor="middle" class="tri-label">${escapeXML(n.label)}</text>
   </g>`;
   }
+  if (n.kind === "hexagon") {
+    const R = HEX_CIRCUM;
+    const dy = (R * Math.sqrt(3)) / 2; // flat-top hexagon half-height
+    const pts = [
+      `${f1(n.x + R)},${n.y}`,
+      `${f1(n.x + R / 2)},${f1(n.y - dy)}`,
+      `${f1(n.x - R / 2)},${f1(n.y - dy)}`,
+      `${f1(n.x - R)},${n.y}`,
+      `${f1(n.x - R / 2)},${f1(n.y + dy)}`,
+      `${f1(n.x + R / 2)},${f1(n.y + dy)}`,
+    ].join(" ");
+    return `<g>
+    <polygon points="${pts}" class="hex" stroke-linejoin="round"/>
+    ${n.private ? lock(n.x, n.y - 20, 1, "#fb923c") : ""}
+    <text x="${n.x}" y="${n.y + 5}" text-anchor="middle" class="hex-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
   const w = nodeWidth(n);
   const x = n.x - w / 2;
   const y = n.y - CHIP_H / 2;
@@ -210,7 +236,7 @@ const nodeEls = Object.values(nodes).map((n) => {
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas and cobot-relief connect to prisoma; cobot-atlas and cobot-relief also connect to crebain.";
+  "Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
@@ -224,6 +250,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     </radialGradient>
     <radialGradient id="triGrad" cx="50%" cy="56%" r="70%">
       <stop offset="0%" stop-color="#2b1020"/>
+      <stop offset="100%" stop-color="#0a1117"/>
+    </radialGradient>
+    <radialGradient id="hexGrad" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -251,6 +281,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .tri        { fill: url(#triGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
+    .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       :root { --hub-accent: #7c3aed; --cube-accent: #0891b2; }
@@ -264,6 +296,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .cube-label { fill: #0891b2; }
       .tri { fill: #ffffff; stroke: #db2777; }
       .tri-label { fill: #be185d; }
+      .hex { fill: #ffffff; stroke: #c2410c; }
+      .hex-label { fill: #c2410c; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }

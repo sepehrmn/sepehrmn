@@ -76,7 +76,7 @@
     <path d="M442.5 78 v122" class="spine c1" stroke-width="4" stroke-linecap="round"/>
     <text x="463" y="102" class="title c1" textLength="39" lengthAdjust="spacingAndGlyphs">NCP</text>
     <rect x="463" y="110" width="34" height="2.5" rx="1.25" class="rule c1"/>
-    <polygon points="810.0,80.0 811.5,84.0 815.7,84.1 812.4,86.8 813.5,90.9 810.0,88.5 806.5,90.9 807.6,86.8 804.3,84.1 808.5,84.0" class="glyph-fill c1"/><text x="800" y="91" text-anchor="end" class="badge c1">1</text>
+    <polygon points="810.0,80.0 811.5,84.0 815.7,84.1 812.4,86.8 813.5,90.9 810.0,88.5 806.5,90.9 807.6,86.8 804.3,84.1 808.5,84.0" class="glyph-fill c1"/><text x="800" y="91" text-anchor="end" class="badge c1">2</text>
     <text x="463" y="124" class="desc">Safety-gated, provenance-first wire protocol</text>
     <text x="463" y="142" class="desc">(Rust SDK) letting a simulation perceive and act</text>
     <text x="463" y="160" class="desc">through robots and clients. Pre-1.0.</text>
@@ -103,7 +103,7 @@
     <path d="M442.5 248 v122" class="spine c3" stroke-width="4" stroke-linecap="round"/>
     <text x="463" y="272" class="title c3" textLength="91" lengthAdjust="spacingAndGlyphs">crebain</text>
     <rect x="463" y="280" width="34" height="2.5" rx="1.25" class="rule c3"/>
-    <polygon points="810.0,250.0 811.5,254.0 815.7,254.1 812.4,256.8 813.5,260.9 810.0,258.5 806.5,260.9 807.6,256.8 804.3,254.1 808.5,254.0" class="glyph-fill c3"/><text x="800" y="261" text-anchor="end" class="badge c3">8</text>
+    <polygon points="810.0,250.0 811.5,254.0 815.7,254.1 812.4,256.8 813.5,260.9 810.0,258.5 806.5,260.9 807.6,256.8 804.3,254.1 808.5,254.0" class="glyph-fill c3"/><text x="800" y="261" text-anchor="end" class="badge c3">9</text>
     <text x="463" y="294" class="desc">Adaptive Response &amp; Awareness System — sensor</text>
     <text x="463" y="312" class="desc">fusion, ML detection, drone physics, ROS /</text>
     <text x="463" y="330" class="desc">Gazebo. The flagship robotics client.</text>

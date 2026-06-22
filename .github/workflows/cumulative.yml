@@ -2,18 +2,24 @@ name: Generate cumulative activity chart
 
 on:
   schedule:
-    # Every 4 hours at :20 past (00:20, 04:20, 08:20, … UTC) so the numbers stay
-    # fresh through the day. Free: Actions minutes are unlimited on public repos.
-    # The :20 offset from the weekdays chart keeps the two runs off the same
-    # minute on the shared github.com contributions fragment (and the push step
-    # rebase-retries anyway). Current-year boundary is anchored to Berlin in the
-    # script (CHART_TZ), independent of when this fires.
-    - cron: "20 */4 * * *"
+    # HOURLY at :20 past. GitHub's scheduler delays and DROPS scheduled runs
+    # under load — observed here: the old every-4h cron fired 20–90 min late and
+    # skipped ~half its slots, leaving the in-progress year's total visibly stale
+    # for 4–8 h. Running hourly means a dropped slot is recovered within ~an hour.
+    # :20 stays out of the top-of-hour high-load window and offset from the
+    # weekdays (:00) and work-cards (:40) charts on the shared contributions
+    # fragment. Free: Actions minutes are unlimited on public repos. The
+    # current-year boundary is anchored to Berlin in the script (CHART_TZ).
+    - cron: "20 * * * *"
   workflow_dispatch:
+  # Also regenerate on EVERY push to main, so the chart refreshes the moment any
+  # work lands rather than waiting for the next scheduled slot — this, not the
+  # cron, is what keeps the number feeling live during active days. The workflow's
+  # own regen commit is pushed with GITHUB_TOKEN, which by design does NOT
+  # re-trigger workflows, so this cannot loop; an unchanged chart is skipped by
+  # the commit guard below, so quiet pushes cost nothing.
   push:
-    paths:
-      - "scripts/cumulative.mjs"
-      - ".github/workflows/cumulative.yml"
+    branches: [main]
 
 # Serialize runs so concurrent triggers never race on the `git push` for
 # assets/cumulative.svg. A queued run waits for the in-flight one to finish.

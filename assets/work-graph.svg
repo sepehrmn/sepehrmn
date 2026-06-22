@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" role="img" aria-label="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and cobot-relief connect to prisoma; cobot-atlas, melkor and cobot-relief also connect to crebain; cortexel connects to engram.">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="#2b1020"/>
+      <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="cubeGrad" cx="50%" cy="42%" r="70%">
@@ -17,7 +17,7 @@
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="trapGrad" cx="50%" cy="56%" r="70%">
-      <stop offset="0%" stop-color="#06281d"/>
+      <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -30,18 +30,18 @@
     </filter>
     <linearGradient id="eg0" gradientUnits="userSpaceOnUse" x1="163" y1="230" x2="217.5" y2="230"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient>
     <linearGradient id="eg1" gradientUnits="userSpaceOnUse" x1="281.8" y1="214.8" x2="411.5" y2="153.1"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="412.3" y2="308.8"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
-    <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="289.7" y1="94.3" x2="425.9" y2="122.8"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="281.8" y1="245.4" x2="428.8" y2="316.8"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="301.9" y1="96.9" x2="425.9" y2="122.8"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="622" y1="144.1" x2="499.2" y2="133.4"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="653.1" y1="230.7" x2="510" y2="156.1"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
     <linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="668.2" y1="329.2" x2="492.8" y2="161.3"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
-    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="501.6" y1="299.1" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
-    <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="509.9" y1="314.2" x2="650.2" y2="264.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
-    <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="512.8" y1="336.1" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
+    <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="488.1" y1="309.8" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+    <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="492.7" y1="320.3" x2="650.2" y2="264.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
+    <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="498" y1="335" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
     <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="327" x2="110" y2="283"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <style>
-    :root { --hub-accent: #f472b6; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
+    :root { --hub-accent: #34d399; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
@@ -49,16 +49,16 @@
     .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
-    .hub        { fill: url(#hubGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
-    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
+    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #22d3ee; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
-    .trap       { fill: url(#trapGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
-    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
+    .trap       { fill: url(#trapGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
+    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
     .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
     .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
     .gate-port   { fill: #fbbf24; }
@@ -74,21 +74,21 @@
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
-      :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
+      :root { --hub-accent: #059669; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
       .chip-label { fill: #1f2328; }
-      .hub { fill: #ffffff; stroke: #db2777; }
-      .hub-label { fill: #be185d; }
+      .hub { fill: #ffffff; stroke: #059669; }
+      .hub-label { fill: #059669; }
       .cube { fill: #ffffff; stroke: #0891b2; }
       .cube-label { fill: #0891b2; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }
       .hex { fill: #ffffff; stroke: #c2410c; }
       .hex-label { fill: #c2410c; }
-      .trap { fill: #ffffff; stroke: #059669; }
-      .trap-label { fill: #059669; }
+      .trap { fill: #ffffff; stroke: #db2777; }
+      .trap-label { fill: #be185d; }
       .gate-wire { stroke: #b45309; }
       .gate-bar { fill: #b45309; stroke: #b45309; }
       .gate-port { fill: #b45309; }
@@ -111,25 +111,25 @@
   <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;&#8212;&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
 
   <g class="edges">
-    <path d="M 289.7 94.3 Q 362.3 86.8 425.9 122.8" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 301.9 96.9 Q 368 90 425.9 122.8" fill="none" stroke="url(#eg3)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 622 144.1 Q 562.3 119.1 499.2 133.4" fill="none" stroke="url(#eg4)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 653.1 230.7 Q 593.5 170.5 510 156.1" fill="none" stroke="url(#eg5)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 668.2 329.2 Q 598.5 226.5 492.8 161.3" fill="none" stroke="url(#eg6)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 501.6 299.1 Q 599.1 255.1 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 509.9 314.2 Q 588.1 311.6 650.2 264.2" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 512.8 336.1 Q 564.1 357.1 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 488.1 309.8 Q 592.3 260.5 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 492.7 320.3 Q 580.2 316.7 650.2 264.2" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 498 335 Q 556.5 358.9 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 110 327 Q 103 305 110 283" fill="none" stroke="url(#eg10)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 163 230 Q 190.3 221.3 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" fill="none" stroke="url(#eg1)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.30s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 336.9 298 412.3 308.8" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
   </g>
   <g class="flows">
     <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
     <path d="M 163 230 Q 190.3 221.3 217.5 230" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 336.9 298 412.3 308.8" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
-    <path d="M 281.8 245.4 Q 336.9 298 412.3 308.8" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path>
+    <path d="M 281.8 245.4 Q 343.9 304.5 428.8 316.8" class="flow flow-rev"><animate attributeName="stroke-dashoffset" from="0" to="24" dur="2.1s" repeatCount="indefinite"/></path>
   </g>
   <g class="nodes">
     <g>
@@ -138,8 +138,11 @@
     <text x="110" y="242" text-anchor="middle" class="cube-label">engram</text>
   </g>
   <g>
-    <polygon points="230,62 270,62 290,110 210,110" class="trap" stroke-linejoin="round"/>
-    <text x="250" y="92" text-anchor="middle" class="trap-label">pid-rs</text>
+    <circle cx="250" cy="86" r="46" class="hub">
+      <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <text x="250" y="92" text-anchor="middle" class="hub-label">pid-rs</text>
   </g>
   <g>
     <g filter="url(#soft)">
@@ -166,11 +169,8 @@
     <text x="460" y="150" text-anchor="middle" class="tri-label">prisoma</text>
   </g>
   <g>
-    <circle cx="460" cy="332" r="46" class="hub">
-      <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    
-    <text x="460" y="338" text-anchor="middle" class="hub-label">crebain</text>
+    <polygon points="440,308 480,308 500,356 420,356" class="trap" stroke-linejoin="round"/>
+    <text x="460" y="338" text-anchor="middle" class="trap-label">crebain</text>
   </g>
   <g>
     <rect x="629" y="134" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>

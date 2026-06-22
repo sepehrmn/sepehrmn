@@ -37,10 +37,10 @@ const H = 460;
 // ---------------------------------------------------------------------------
 const nodes = {
   engram:      { x: 110, y: 230, color: "#22d3ee", kind: "cube", private: true },
-  pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "trapezoid", label: "pid-rs" },
+  pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "hub", label: "pid-rs" },
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
-  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "hub" },
+  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "trapezoid" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
   cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
@@ -364,7 +364,7 @@ const aria =
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
     <radialGradient id="hubGrad" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="#2b1020"/>
+      <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="cubeGrad" cx="50%" cy="42%" r="70%">
@@ -380,7 +380,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="trapGrad" cx="50%" cy="56%" r="70%">
-      <stop offset="0%" stop-color="#06281d"/>
+      <stop offset="0%" stop-color="#2b1020"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -394,7 +394,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     ${gradDefs.join("\n    ")}
   </defs>
   <style>
-    :root { --hub-accent: #f472b6; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
+    :root { --hub-accent: #34d399; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
@@ -402,16 +402,16 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .flow-rev   { stroke-width: 1.8; opacity: 0.45; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
-    .hub        { fill: url(#hubGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
-    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
+    .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
+    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #22d3ee; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
-    .trap       { fill: url(#trapGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
-    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
+    .trap       { fill: url(#trapGrad); stroke: #f472b6; stroke-width: 2; filter: url(#soft); }
+    .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f9a8d4; }
     .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
     .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
     .gate-port   { fill: #fbbf24; }
@@ -427,21 +427,21 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
-      :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
+      :root { --hub-accent: #059669; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
       .chip-label { fill: #1f2328; }
-      .hub { fill: #ffffff; stroke: #db2777; }
-      .hub-label { fill: #be185d; }
+      .hub { fill: #ffffff; stroke: #059669; }
+      .hub-label { fill: #059669; }
       .cube { fill: #ffffff; stroke: #0891b2; }
       .cube-label { fill: #0891b2; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }
       .hex { fill: #ffffff; stroke: #c2410c; }
       .hex-label { fill: #c2410c; }
-      .trap { fill: #ffffff; stroke: #059669; }
-      .trap-label { fill: #059669; }
+      .trap { fill: #ffffff; stroke: #db2777; }
+      .trap-label { fill: #be185d; }
       .gate-wire { stroke: #b45309; }
       .gate-bar { fill: #b45309; stroke: #b45309; }
       .gate-port { fill: #b45309; }

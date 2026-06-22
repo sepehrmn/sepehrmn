@@ -20,6 +20,13 @@
       <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
+    <linearGradient id="wgSweep" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="560" y2="0">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
+      <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.85" class="wg-sw"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
+      <animate attributeName="x1" from="-180" to="849" dur="4.6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="80" to="1109" dur="4.6s" repeatCount="indefinite"/>
+    </linearGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -38,7 +45,7 @@
     <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="501.6" y1="299.1" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
     <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="509.9" y1="314.2" x2="650.2" y2="264.2"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
     <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="512.8" y1="336.1" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
-    <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="317" x2="110" y2="283"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
+    <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="327" x2="110" y2="283"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <style>
     :root { --hub-accent: #f472b6; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
@@ -59,10 +66,20 @@
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .trap       { fill: url(#trapGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
     .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
-    .vox-top    { fill: #e879f9; fill-opacity: 0.55; stroke: #e879f9; stroke-width: 1.4; }
-    .vox-left   { fill: #e879f9; fill-opacity: 0.28; stroke: #e879f9; stroke-width: 1.4; }
-    .vox-right  { fill: #e879f9; fill-opacity: 0.13; stroke: #e879f9; stroke-width: 1.4; }
+    .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
+    .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
+    .gate-port   { fill: #fbbf24; }
+    .gate-tick   { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .gate-packet { fill: #fde68a; }
+    .gate-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
+    .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
+    .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
+    .wg-seal    { fill: none; stroke: #fbbf24; stroke-width: 1.8; stroke-linecap: round; opacity: 0.9; filter: url(#edgeGlow); }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
@@ -80,10 +97,21 @@
       .hex-label { fill: #c2410c; }
       .trap { fill: #ffffff; stroke: #059669; }
       .trap-label { fill: #059669; }
-      .vox-top { fill: #c026d3; fill-opacity: 0.30; stroke: #c026d3; }
+      .gate-wire { stroke: #b45309; }
+      .gate-bar { fill: #b45309; stroke: #b45309; }
+      .gate-port { fill: #b45309; }
+      .gate-tick { stroke: #b45309; }
+      .gate-packet { fill: #b45309; }
+      .gate-label { fill: #b45309; }
+      .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
+      .vox-syn { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
+      .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
+      .wg-bracket { stroke: #b45309; }
+      .wg-seal { stroke: #b45309; }
+      .wg-sw { stop-color: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
@@ -100,7 +128,7 @@
     <path d="M 501.6 299.1 Q 599.1 255.1 664.3 170.3" fill="none" stroke="url(#eg7)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 509.9 314.2 Q 588.1 311.6 650.2 264.2" fill="none" stroke="url(#eg8)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 512.8 336.1 Q 564.1 357.1 618 344.4" fill="none" stroke="url(#eg9)" stroke-width="2" stroke-linecap="round" class="edge"/>
-    <path d="M 110 317 Q 104.6 300 110 283" fill="none" stroke="url(#eg10)" stroke-width="2" stroke-linecap="round" class="edge"/>
+    <path d="M 110 327 Q 103 305 110 283" fill="none" stroke="url(#eg10)" stroke-width="2" stroke-linecap="round" class="edge"/>
     <path d="M 163 230 Q 190.3 221.3 217.5 230" fill="none" stroke="url(#eg0)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></path>
     <path d="M 281.8 214.8 Q 336.8 163.2 411.5 153.1" fill="none" stroke="url(#eg1)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.30s" repeatCount="indefinite"/></path>
     <path d="M 281.8 245.4 Q 336.9 298 412.3 308.8" fill="none" stroke="url(#eg2)" stroke-width="3" stroke-linecap="round" class="edge-live"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="0.60s" repeatCount="indefinite"/></path>
@@ -124,8 +152,23 @@
     <text x="250" y="92" text-anchor="middle" class="trap-label">pid-rs</text>
   </g>
   <g>
-    <rect x="224.5" y="214" width="51" height="32" rx="16" class="chip" stroke="#fbbf24"/>
-    <text x="250" y="235" text-anchor="middle" class="chip-label" style="fill:#fbbf24">NCP</text>
+    <g filter="url(#soft)">
+      <path d="M224 230 H243 M257 230 H276" class="gate-wire"/>
+      <circle cx="224" cy="230" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="230" r="2.2" class="gate-port"/>
+      <rect x="247.5" y="214" width="5" height="32" rx="2.5" class="gate-bar">
+        <animate attributeName="fill-opacity" values="0.16;0.32;0.16" dur="2.8s" repeatCount="indefinite"/>
+      </rect>
+      <polyline points="246.6,230.6 249.4,233.2 253.2,227.6" class="gate-tick">
+        <animate attributeName="stroke-opacity" values="0.75;0.75;1;0.75;0.75" keyTimes="0;0.5;0.58;0.72;1" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-width" values="1.6;1.6;2.4;1.6;1.6" keyTimes="0;0.52;0.6;0.74;1" dur="2.6s" repeatCount="indefinite"/>
+      </polyline>
+      <circle cx="258" cy="230" r="3" class="gate-packet">
+        <animate attributeName="cx" values="224;248;248;254;276" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;0.3;1;1" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="250" y="262" text-anchor="middle" class="gate-label">NCP</text>
   </g>
   <g>
     <polygon points="460,77 505.9,156.5 414.1,156.5" class="tri" stroke-linejoin="round"/>
@@ -137,7 +180,7 @@
       <animate attributeName="r" values="46;48;46" dur="3.2s" repeatCount="indefinite"/>
     </circle>
     
-    <text x="460" y="344" text-anchor="middle" class="hub-label">crebain</text>
+    <text x="460" y="338" text-anchor="middle" class="hub-label">crebain</text>
   </g>
   <g>
     <rect x="629" y="134" width="122" height="32" rx="8" class="chip" stroke="#60a5fa"/>
@@ -156,11 +199,22 @@
   </g>
   <g>
     <g filter="url(#soft)">
-      <polygon points="110,324 142,342 110,360 78,342" class="vox-top" stroke-linejoin="round"/>
-      <polygon points="78,342 110,360 110,396 78,378" class="vox-left" stroke-linejoin="round"/>
-      <polygon points="142,342 110,360 110,396 142,378" class="vox-right" stroke-linejoin="round"/>
+      <line x1="110" y1="335" x2="90" y2="373" class="vox-syn"/> <line x1="110" y1="335" x2="130" y2="373" class="vox-syn"/> <line x1="90" y1="373" x2="130" y2="373" class="vox-syn"/>
+      <path d="M110 335 L90 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path> <path d="M110 335 L130 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.5s" repeatCount="indefinite"/></path> <path d="M90 373 L130 373" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.9s" repeatCount="indefinite"/></path>
+      <polygon points="81,369 90,373.5 90,381.5 81,377" class="vox-left" stroke-linejoin="round"/><polygon points="99,369 90,373.5 90,381.5 99,377" class="vox-right" stroke-linejoin="round"/><polygon points="90,364.5 99,369 90,373.5 81,369" class="vox-top" stroke-linejoin="round"/> <polygon points="121,369 130,373.5 130,381.5 121,377" class="vox-left" stroke-linejoin="round"/><polygon points="139,369 130,373.5 130,381.5 139,377" class="vox-right" stroke-linejoin="round"/><polygon points="130,364.5 139,369 130,373.5 121,369" class="vox-top" stroke-linejoin="round"/> <polygon points="101,331 110,335.5 110,343.5 101,339" class="vox-left" stroke-linejoin="round"/><polygon points="119,331 110,335.5 110,343.5 119,339" class="vox-right" stroke-linejoin="round"/><polygon points="110,326.5 119,331 110,335.5 101,331" class="vox-top" stroke-linejoin="round"/>
     </g>
-    <text x="110" y="412" text-anchor="middle" class="vox-label">cortexel</text>
+    <text x="110" y="394" text-anchor="middle" class="vox-label">cortexel</text>
   </g>
+  </g>
+  <g class="frame">
+    <line x1="27" y1="11" x2="833" y2="11" class="wg-rule"/>
+    <rect x="27" y="9.5" width="806" height="3" rx="1.5" fill="url(#wgSweep)"/>
+    <path d="M 37 11 H 27 A 16 16 0 0 0 11 27 V 37" class="wg-bracket"/>
+    <path d="M 823 11 H 833 A 16 16 0 0 1 849 27 V 37" class="wg-bracket"/>
+    <path d="M 849 423 V 433 A 16 16 0 0 1 833 449 H 823" class="wg-bracket"/>
+    <path d="M 37 449 H 27 A 16 16 0 0 1 11 433 V 423" class="wg-bracket"/>
+    <path d="M 27 11 H 833 A 16 16 0 0 1 849 27 V 433 A 16 16 0 0 1 833 449 H 27 A 16 16 0 0 1 11 433 V 27 A 16 16 0 0 1 27 11 Z" class="wg-seal" stroke-dasharray="3 2522">
+      <animate attributeName="stroke-dashoffset" from="2525" to="0" dur="7s" repeatCount="indefinite"/>
+    </path>
   </g>
 </svg>

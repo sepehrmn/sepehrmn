@@ -12,6 +12,12 @@
 // The connections to/from NCP are rendered as PERSISTENT, live links (glow +
 // gentle pulse + bi-directional flowing packets, like an always-open websocket)
 // to contrast with the calmer static edges.
+// A few nodes carry bespoke, animated "logos": NCP is a gated wire (a packet
+// dwells at a safety/provenance checkpoint, then is released); cortexel is a
+// tiny voxel NEURAL NETWORK with signal packets flowing along its synapses. The
+// whole panel is wrapped in a "provenance instrument" frame (amber corner
+// brackets + a top sweep + one packet circumnavigating the perimeter) so it
+// reads as a framed instrument like the page's other panels.
 // Theme-adaptive (prefers-color-scheme), reduced-motion safe. Zero deps.
 // Run: `node scripts/work-graph.mjs`.
 
@@ -27,13 +33,13 @@ const H = 460;
 
 // ---------------------------------------------------------------------------
 // Spec. Positions are node centres; colours are per-project accents.
-//   large: cube · hub (circle) · triangle · hexagon · trapezoid · voxel (iso
-//   cube)   |   small: pill · chip
+//   large: cube · hub (circle) · triangle · hexagon · trapezoid
+//   bespoke logos: gate (NCP) · voxel-net (cortexel)   |   small: chip
 // ---------------------------------------------------------------------------
 const nodes = {
   engram:      { x: 110, y: 230, color: "#22d3ee", kind: "cube", private: true },
   pidrs:       { x: 250, y: 86,  color: "#34d399", kind: "trapezoid", label: "pid-rs" },
-  ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "pill", label: "NCP" },
+  ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
   crebain:     { x: 460, y: 332, color: "#f472b6", kind: "hub" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
@@ -67,8 +73,7 @@ const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 ta
 const TRAP_TW = 20; // pid-rs trapezoid: top half-width
 const TRAP_BW = 40; // …bottom half-width (wider base — a truncated triangle)
 const TRAP_HH = 24; // …half-height
-const VOX_W = 32; // cortexel voxel (iso cube): horizontal half-width
-const VOX_H = 36; // …half-height to the top/bottom vertices
+const NET_R = 26; // cortexel voxel-net trim radius (only the up-edge to engram uses it)
 const CHIP_H = 32;
 const GAP = 7;
 
@@ -78,11 +83,12 @@ const escapeXML = (s) =>
 function nodeWidth(n) {
   if (n.kind === "hub") return HUB_R * 2;
   if (n.kind === "cube") return CUBE;
-  const pad = n.kind === "pill" ? 28 : 36;
+  const pad = (n.kind === "gate") ? 28 : 36;
   return Math.round(n.label.length * 7.8 + pad);
 }
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: HUB_R, hh: HUB_R, circle: true };
+  if (n.kind === "voxel") return { hw: NET_R, hh: NET_R, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
@@ -102,9 +108,6 @@ function nodePolygon(n) {
   }
   if (n.kind === "trapezoid") {
     return [{ x: -TRAP_TW, y: -TRAP_HH }, { x: TRAP_TW, y: -TRAP_HH }, { x: TRAP_BW, y: TRAP_HH }, { x: -TRAP_BW, y: TRAP_HH }];
-  }
-  if (n.kind === "voxel") {
-    return [{ x: 0, y: -VOX_H }, { x: VOX_W, y: -VOX_H / 2 }, { x: VOX_W, y: VOX_H / 2 }, { x: 0, y: VOX_H }, { x: -VOX_W, y: VOX_H / 2 }, { x: -VOX_W, y: -VOX_H / 2 }];
   }
   return null;
 }
@@ -217,7 +220,7 @@ const nodeEls = Object.values(nodes).map((n) => {
       <animate attributeName="r" values="${HUB_R};${HUB_R + 2};${HUB_R}" dur="3.2s" repeatCount="indefinite"/>
     </circle>
     ${n.private ? lock(n.x, n.y - 24, 1, "var(--hub-accent)") : ""}
-    <text x="${n.x}" y="${n.y + 12}" text-anchor="middle" class="hub-label">${escapeXML(n.label)}</text>
+    <text x="${n.x}" y="${n.y + (n.private ? 12 : 6)}" text-anchor="middle" class="hub-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "cube") {
@@ -268,34 +271,68 @@ const nodeEls = Object.values(nodes).map((n) => {
     <text x="${n.x}" y="${f1(n.y + 6)}" text-anchor="middle" class="trap-label">${escapeXML(n.label)}</text>
   </g>`;
   }
-  if (n.kind === "voxel") {
-    // Isometric cube: a hexagonal silhouette split into top / left / right faces
-    // (shaded brightest → dimmest) so it reads as a 3-D "voxel" block.
-    const T = `${n.x},${f1(n.y - VOX_H)}`;
-    const UR = `${f1(n.x + VOX_W)},${f1(n.y - VOX_H / 2)}`;
-    const UL = `${f1(n.x - VOX_W)},${f1(n.y - VOX_H / 2)}`;
-    const C = `${n.x},${n.y}`;
-    const LR = `${f1(n.x + VOX_W)},${f1(n.y + VOX_H / 2)}`;
-    const LL = `${f1(n.x - VOX_W)},${f1(n.y + VOX_H / 2)}`;
-    const B = `${n.x},${f1(n.y + VOX_H)}`;
+  if (n.kind === "gate") {
+    // NCP — THE GATED WIRE: a broken amber wire interrupted by a vertical safety
+    // gate; a packet runs in, DWELLS at the checkpoint while a verify-tick stamps
+    // it (fail-closed provenance), then is released. A cross-section of what NCP
+    // does to every live edge leaving it.
     return `<g>
     <g filter="url(#soft)">
-      <polygon points="${T} ${UR} ${C} ${UL}" class="vox-top" stroke-linejoin="round"/>
-      <polygon points="${UL} ${C} ${B} ${LL}" class="vox-left" stroke-linejoin="round"/>
-      <polygon points="${UR} ${C} ${B} ${LR}" class="vox-right" stroke-linejoin="round"/>
+      <path d="M224 230 H243 M257 230 H276" class="gate-wire"/>
+      <circle cx="224" cy="230" r="2.2" class="gate-port"/>
+      <circle cx="276" cy="230" r="2.2" class="gate-port"/>
+      <rect x="247.5" y="214" width="5" height="32" rx="2.5" class="gate-bar">
+        <animate attributeName="fill-opacity" values="0.16;0.32;0.16" dur="2.8s" repeatCount="indefinite"/>
+      </rect>
+      <polyline points="246.6,230.6 249.4,233.2 253.2,227.6" class="gate-tick">
+        <animate attributeName="stroke-opacity" values="0.75;0.75;1;0.75;0.75" keyTimes="0;0.5;0.58;0.72;1" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-width" values="1.6;1.6;2.4;1.6;1.6" keyTimes="0;0.52;0.6;0.74;1" dur="2.6s" repeatCount="indefinite"/>
+      </polyline>
+      <circle cx="258" cy="230" r="3" class="gate-packet">
+        <animate attributeName="cx" values="224;248;248;254;276" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;1;0.3;1;1" keyTimes="0;0.34;0.56;0.62;1" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
     </g>
-    <text x="${n.x}" y="${f1(n.y + VOX_H + 16)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+    <text x="${n.x}" y="262" text-anchor="middle" class="gate-label">${escapeXML(n.label)}</text>
   </g>`;
   }
+  if (n.kind === "voxel") {
+    // cortexel — a tiny VOXEL NEURAL NETWORK: three isometric voxel-neurons wired
+    // by synapses with signal packets streaming along them (what cortexel does:
+    // visualise neural activity). Deliberately a NETWORK, not a stack.
+    const vw = 9, vbh = 8, rh = vw / 2; // one small iso voxel
+    const T = { x: n.x, y: n.y - 25 };       // entry neuron (top — engram feeds here)
+    const L = { x: n.x - 20, y: n.y + 13 };  // lower-left neuron
+    const R = { x: n.x + 20, y: n.y + 13 };  // lower-right neuron
+    const cube = (c) => {
+      const cyt = c.y - vbh / 2;
+      const bt = `${f1(c.x)},${f1(cyt - rh)}`;
+      const rr = `${f1(c.x + vw)},${f1(cyt)}`;
+      const ft = `${f1(c.x)},${f1(cyt + rh)}`;
+      const lf = `${f1(c.x - vw)},${f1(cyt)}`;
+      const rb = `${f1(c.x + vw)},${f1(cyt + vbh)}`;
+      const fb = `${f1(c.x)},${f1(cyt + rh + vbh)}`;
+      const lb = `${f1(c.x - vw)},${f1(cyt + vbh)}`;
+      return `<polygon points="${lf} ${ft} ${fb} ${lb}" class="vox-left" stroke-linejoin="round"/>` +
+        `<polygon points="${rr} ${ft} ${fb} ${rb}" class="vox-right" stroke-linejoin="round"/>` +
+        `<polygon points="${bt} ${rr} ${ft} ${lf}" class="vox-top" stroke-linejoin="round"/>`;
+    };
+    const syn = (a, b) => `<line x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}" class="vox-syn"/>`;
+    const flow = (a, b, dur) =>
+      `<path d="M${f1(a.x)} ${f1(a.y)} L${f1(b.x)} ${f1(b.y)}" class="flow"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="${dur}" repeatCount="indefinite"/></path>`;
+    return `<g>
+    <g filter="url(#soft)">
+      ${syn(T, L)} ${syn(T, R)} ${syn(L, R)}
+      ${flow(T, L, "1.5s")} ${flow(T, R, "1.5s")} ${flow(L, R, "1.9s")}
+      ${cube(L)} ${cube(R)} ${cube(T)}
+    </g>
+    <text x="${n.x}" y="${f1(n.y + 34)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
+  // small "chip" nodes
   const w = nodeWidth(n);
   const x = n.x - w / 2;
   const y = n.y - CHIP_H / 2;
-  if (n.kind === "pill") {
-    return `<g>
-    <rect x="${f1(x)}" y="${y}" width="${w}" height="${CHIP_H}" rx="${CHIP_H / 2}" class="chip" stroke="${n.color}"/>
-    <text x="${n.x}" y="${n.y + 5}" text-anchor="middle" class="chip-label" style="fill:${n.color}">${escapeXML(n.label)}</text>
-  </g>`;
-  }
   const glyph = n.private
     ? lock(x + 15, n.y, 0.62, n.color)
     : `<circle cx="${f1(x + 15)}" cy="${n.y}" r="4" fill="${n.color}"/>`;
@@ -305,6 +342,26 @@ const nodeEls = Object.values(nodes).map((n) => {
     <text x="${f1(x + 27)}" y="${n.y + 5}" class="chip-label">${escapeXML(n.label)}</text>
   </g>`;
 });
+
+// ---------------------------------------------------------------------------
+// Frame — a "provenance instrument": four amber corner brackets + a top sweep
+// (the family signature) + ONE packet circumnavigating the perimeter on the
+// .flow grammar, all in NCP's amber (the connective protocol literally framing
+// the work it connects). Frames by ABSENCE so the graph stays the star.
+// ---------------------------------------------------------------------------
+const SEAL_PATH =
+  "M 27 11 H 833 A 16 16 0 0 1 849 27 V 433 A 16 16 0 0 1 833 449 H 27 A 16 16 0 0 1 11 433 V 27 A 16 16 0 0 1 27 11 Z";
+const frame = `<g class="frame">
+    <line x1="27" y1="11" x2="833" y2="11" class="wg-rule"/>
+    <rect x="27" y="9.5" width="806" height="3" rx="1.5" fill="url(#wgSweep)"/>
+    <path d="M 37 11 H 27 A 16 16 0 0 0 11 27 V 37" class="wg-bracket"/>
+    <path d="M 823 11 H 833 A 16 16 0 0 1 849 27 V 37" class="wg-bracket"/>
+    <path d="M 849 423 V 433 A 16 16 0 0 1 833 449 H 823" class="wg-bracket"/>
+    <path d="M 37 449 H 27 A 16 16 0 0 1 11 433 V 423" class="wg-bracket"/>
+    <path d="${SEAL_PATH}" class="wg-seal" stroke-dasharray="3 2522">
+      <animate attributeName="stroke-dashoffset" from="2525" to="0" dur="7s" repeatCount="indefinite"/>
+    </path>
+  </g>`;
 
 // ---------------------------------------------------------------------------
 // Assemble.
@@ -334,6 +391,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
+    <linearGradient id="wgSweep" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="560" y2="0">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
+      <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.85" class="wg-sw"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
+      <animate attributeName="x1" from="-180" to="849" dur="4.6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="80" to="1109" dur="4.6s" repeatCount="indefinite"/>
+    </linearGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -363,10 +427,20 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .trap       { fill: url(#trapGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
     .trap-label { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
-    .vox-top    { fill: #e879f9; fill-opacity: 0.55; stroke: #e879f9; stroke-width: 1.4; }
-    .vox-left   { fill: #e879f9; fill-opacity: 0.28; stroke: #e879f9; stroke-width: 1.4; }
-    .vox-right  { fill: #e879f9; fill-opacity: 0.13; stroke: #e879f9; stroke-width: 1.4; }
+    .gate-wire   { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
+    .gate-bar    { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
+    .gate-port   { fill: #fbbf24; }
+    .gate-tick   { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .gate-packet { fill: #fde68a; }
+    .gate-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
+    .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
+    .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
+    .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
+    .wg-seal    { fill: none; stroke: #fbbf24; stroke-width: 1.8; stroke-linecap: round; opacity: 0.9; filter: url(#edgeGlow); }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
@@ -384,10 +458,21 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .hex-label { fill: #c2410c; }
       .trap { fill: #ffffff; stroke: #059669; }
       .trap-label { fill: #059669; }
-      .vox-top { fill: #c026d3; fill-opacity: 0.30; stroke: #c026d3; }
+      .gate-wire { stroke: #b45309; }
+      .gate-bar { fill: #b45309; stroke: #b45309; }
+      .gate-port { fill: #b45309; }
+      .gate-tick { stroke: #b45309; }
+      .gate-packet { fill: #b45309; }
+      .gate-label { fill: #b45309; }
+      .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
+      .vox-syn { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
+      .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
+      .wg-bracket { stroke: #b45309; }
+      .wg-seal { stroke: #b45309; }
+      .wg-sw { stop-color: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }
@@ -406,6 +491,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <g class="nodes">
     ${nodeEls.join("\n  ")}
   </g>
+  ${frame}
 </svg>
 `;
 

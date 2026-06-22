@@ -47,10 +47,10 @@ const nodes = {
   pidrs:       { x: 250, y: 98,  color: "#34d399", kind: "hub", label: "pid-rs", r: 36 },
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
-  crebain:     { x: 460, y: 332, color: "#f472b6", kind: "raven" },
-  cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
+  crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
+  cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas", dataset: true },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
-  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
+  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
@@ -77,7 +77,6 @@ const CUBE = 92; // engram square, matched to a hub's diameter
 const TRI_CIRCUM = 53; // prisoma triangle circumradius (~92 wide, like the others)
 const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 tall)
 const NET_R = 26; // cortexel voxel-net trim radius (only the up-edge to engram uses it)
-const RAVEN_R = 36; // crebain crosshair-reticle ring radius
 const CHIP_H = 32;
 const GAP = 7;
 
@@ -93,7 +92,7 @@ function nodeWidth(n) {
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: (n.r || HUB_R), hh: (n.r || HUB_R), circle: true };
   if (n.kind === "voxel") return { hw: NET_R, hh: NET_R, circle: true };
-  if (n.kind === "raven") return { hw: 38, hh: 38, circle: true };
+  if (n.kind === "raven") return { hw: 30, hh: 30, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
@@ -219,6 +218,17 @@ function lock(cx, cy, scale, color) {
     `<rect x="0" y="6" width="12" height="9" rx="1.6" fill="${color}"/></g>`;
 }
 
+// A small stacked-isometric-plates glyph for a chip — reads as "a layered
+// collection of 3-D mesh samples" (a dataset). Sits where the chip's accent dot does.
+function datasetPlates(cx, cy, color) {
+  const hw = 5, hh = 2.6, dy = 3.4, op = [0.16, 0.24, 0.34];
+  return [-dy, 0, dy].map((o, i) => {
+    const c = cy + o;
+    const pts = `${f1(cx)},${f1(c - hh)} ${f1(cx + hw)},${f1(c)} ${f1(cx)},${f1(c + hh)} ${f1(cx - hw)},${f1(c)}`;
+    return `<polygon points="${pts}" fill="${color}" fill-opacity="${op[i]}" stroke="${color}" stroke-width="1.1" stroke-linejoin="round"/>`;
+  }).join("");
+}
+
 const nodeEls = Object.values(nodes).map((n) => {
   if (n.kind === "hub") {
     const r = n.r || HUB_R;
@@ -341,10 +351,12 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "raven") {
-    // crebain — its real brand mark (a faceted raven head + red eye in a tactical
-    // crosshair reticle), embedded verbatim as a base64 PNG.
+    // crebain — its real brand mark (a faceted raven head + red eye in a crosshair
+    // reticle), embedded verbatim as a base64 PNG, over a faint field-green seat
+    // so it shares the soft glow of its neighbouring nodes.
     const cx = n.x, cy = n.y, S = 90;
     return `<g>
+    <circle cx="${cx}" cy="${cy}" r="34" class="raven-seat"/>
     <image href="${CREBAIN_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
     <text x="${cx}" y="${f1(cy + S / 2 + 8)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
   </g>`;
@@ -355,6 +367,8 @@ const nodeEls = Object.values(nodes).map((n) => {
   const y = n.y - CHIP_H / 2;
   const glyph = n.private
     ? lock(x + 15, n.y, 0.62, n.color)
+    : n.dataset
+    ? datasetPlates(x + 15, n.y, n.color)
     : `<circle cx="${f1(x + 15)}" cy="${n.y}" r="4" fill="${n.color}"/>`;
   return `<g>
     <rect x="${f1(x)}" y="${y}" width="${w}" height="${CHIP_H}" rx="8" class="chip" stroke="${n.color}"/>
@@ -399,10 +413,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
-    <radialGradient id="ravenGrad" cx="50%" cy="45%" r="70%">
-      <stop offset="0%" stop-color="#2b1020"/>
-      <stop offset="100%" stop-color="#0a1117"/>
-    </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -445,12 +455,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-spec   { fill: none; stroke: #f0abfc; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
     .vp-frame   { fill: none; stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.7; stroke-linecap: round; stroke-linejoin: round; }
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
-    .raven-ring  { fill: none; stroke: #f472b6; stroke-width: 1.6; stroke-opacity: 0.6; }
-    .raven-tick  { stroke: #f472b6; stroke-width: 1.6; stroke-linecap: round; stroke-opacity: 0.75; }
-    .raven-dot   { fill: #34d399; }
-    .raven-body  { fill: url(#ravenGrad); fill-opacity: 0.85; stroke: #f472b6; stroke-width: 1.3; }
-    .raven-facet { fill: none; stroke: #f472b6; stroke-width: 0.9; stroke-opacity: 0.55; stroke-linecap: round; }
-    .raven-eye   { fill: #fb4d4d; }
+    .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
     .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; letter-spacing: 2.5px; text-transform: uppercase; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
@@ -484,12 +489,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-spec { stroke: #c026d3; }
       .vp-frame { stroke: #c026d3; }
       .vox-label { fill: #c026d3; }
-      .raven-ring { stroke: #db2777; }
-      .raven-tick { stroke: #db2777; }
-      .raven-dot { fill: #059669; }
-      .raven-body { fill: #ffffff; fill-opacity: 0.9; stroke: #db2777; }
-      .raven-facet { stroke: #db2777; }
-      .raven-eye { fill: #dc2626; }
+      .raven-seat { fill-opacity: 0.06; }
       .raven-label { fill: #4b5320; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
       .wg-bracket { stroke: #b45309; }

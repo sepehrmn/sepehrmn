@@ -34,7 +34,7 @@
     <linearGradient id="eg7" gradientUnits="userSpaceOnUse" x1="498.4" y1="301.6" x2="664.3" y2="170.3"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
     <linearGradient id="eg8" gradientUnits="userSpaceOnUse" x1="506.2" y1="315.5" x2="647.6" y2="265.1"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
     <linearGradient id="eg9" gradientUnits="userSpaceOnUse" x1="508.9" y1="335.8" x2="618" y2="344.4"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
-    <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="337" x2="110" y2="283"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
+    <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="337" x2="110" y2="283"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
   </defs>
   <style>
     :root { --hub-accent: #a78bfa; --cube-accent: #22d3ee; }
@@ -139,8 +139,8 @@
     <text x="652" y="355" class="chip-label">cobot-relief</text>
   </g>
   <g>
-    <rect x="61" y="344" width="98" height="32" rx="8" class="chip" stroke="#2dd4bf"/>
-    <circle cx="76" cy="360" r="4" fill="#2dd4bf"/>
+    <rect x="61" y="344" width="98" height="32" rx="8" class="chip" stroke="#e879f9"/>
+    <circle cx="76" cy="360" r="4" fill="#e879f9"/>
     <text x="88" y="365" class="chip-label">cortexel</text>
   </g>
   </g>

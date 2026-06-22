@@ -20,7 +20,7 @@ export const PROJECTS = [
   {
     name: "NCP",
     accent: "#fbbf24", light: "#b45309", grad: "#332408",
-    stars: 1, repo: "sepahead/NCP",
+    stars: 2, repo: "sepahead/NCP",
     desc: "Safety-gated, provenance-first wire protocol (Rust SDK) letting a simulation perceive and act through robots and clients. Pre-1.0.",
     stack: ["Rust"],
   },
@@ -34,7 +34,7 @@ export const PROJECTS = [
   {
     name: "crebain",
     accent: "#f472b6", light: "#db2777", grad: "#2b1020",
-    stars: 8, repo: "sepahead/crebain",
+    stars: 9, repo: "sepahead/crebain",
     desc: "Adaptive Response & Awareness System — sensor fusion, ML detection, drone physics, ROS / Gazebo. The flagship robotics client.",
     stack: ["TS", "Rust", "Nix"],
   },
@@ -47,7 +47,7 @@ export const PROJECTS = [
   },
   {
     name: "cortexel",
-    accent: "#2dd4bf", light: "#0d9488", grad: "#06292a",
+    accent: "#e879f9", light: "#c026d3", grad: "#2a0a2e",
     stars: 0, repo: "sepahead/cortexel",
     desc: "Agent-consumable scientific-visualization library for neural simulations — VizSpec to spike rasters & STDP curves, provenance fail-closed.",
     stack: ["TS", "React", "Three"],

@@ -9,12 +9,12 @@
     <radialGradient id="wash2" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#241a44" stop-opacity="0.9"/><stop offset="60%" stop-color="#241a44" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash3" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2b1020" stop-opacity="0.9"/><stop offset="60%" stop-color="#2b1020" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash4" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2a1608" stop-opacity="0.9"/><stop offset="60%" stop-color="#2a1608" stop-opacity="0"/></radialGradient>
-    <radialGradient id="wash5" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#06292a" stop-opacity="0.9"/><stop offset="60%" stop-color="#06292a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash5" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2a0a2e" stop-opacity="0.9"/><stop offset="60%" stop-color="#2a0a2e" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash6" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#06281d" stop-opacity="0.9"/><stop offset="60%" stop-color="#06281d" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash7" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#0b1f3a" stop-opacity="0.9"/><stop offset="60%" stop-color="#0b1f3a" stop-opacity="0"/></radialGradient>
   </defs>
   <style>
-    :root { --a0: #22d3ee; --a1: #fbbf24; --a2: #a78bfa; --a3: #f472b6; --a4: #fb923c; --a5: #2dd4bf; --a6: #34d399; --a7: #60a5fa; }
+    :root { --a0: #22d3ee; --a1: #fbbf24; --a2: #a78bfa; --a3: #f472b6; --a4: #fb923c; --a5: #e879f9; --a6: #34d399; --a7: #60a5fa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
@@ -28,11 +28,11 @@
     .c2.title { fill: #a78bfa; } .c2.rule { fill: #a78bfa; } .c2.spine { stroke: #a78bfa; } .c2.badge { fill: #a78bfa; } .c2.chip { stroke: #a78bfa; } .c2.chip-label { fill: #a78bfa; } .c2.glyph-fill { fill: #a78bfa; } .c2.glyph-stroke { stroke: #a78bfa; }
     .c3.title { fill: #f472b6; } .c3.rule { fill: #f472b6; } .c3.spine { stroke: #f472b6; } .c3.badge { fill: #f472b6; } .c3.chip { stroke: #f472b6; } .c3.chip-label { fill: #f472b6; } .c3.glyph-fill { fill: #f472b6; } .c3.glyph-stroke { stroke: #f472b6; }
     .c4.title { fill: #fb923c; } .c4.rule { fill: #fb923c; } .c4.spine { stroke: #fb923c; } .c4.badge { fill: #fb923c; } .c4.chip { stroke: #fb923c; } .c4.chip-label { fill: #fb923c; } .c4.glyph-fill { fill: #fb923c; } .c4.glyph-stroke { stroke: #fb923c; }
-    .c5.title { fill: #2dd4bf; } .c5.rule { fill: #2dd4bf; } .c5.spine { stroke: #2dd4bf; } .c5.badge { fill: #2dd4bf; } .c5.chip { stroke: #2dd4bf; } .c5.chip-label { fill: #2dd4bf; } .c5.glyph-fill { fill: #2dd4bf; } .c5.glyph-stroke { stroke: #2dd4bf; }
+    .c5.title { fill: #e879f9; } .c5.rule { fill: #e879f9; } .c5.spine { stroke: #e879f9; } .c5.badge { fill: #e879f9; } .c5.chip { stroke: #e879f9; } .c5.chip-label { fill: #e879f9; } .c5.glyph-fill { fill: #e879f9; } .c5.glyph-stroke { stroke: #e879f9; }
     .c6.title { fill: #34d399; } .c6.rule { fill: #34d399; } .c6.spine { stroke: #34d399; } .c6.badge { fill: #34d399; } .c6.chip { stroke: #34d399; } .c6.chip-label { fill: #34d399; } .c6.glyph-fill { fill: #34d399; } .c6.glyph-stroke { stroke: #34d399; }
     .c7.title { fill: #60a5fa; } .c7.rule { fill: #60a5fa; } .c7.spine { stroke: #60a5fa; } .c7.badge { fill: #60a5fa; } .c7.chip { stroke: #60a5fa; } .c7.chip-label { fill: #60a5fa; } .c7.glyph-fill { fill: #60a5fa; } .c7.glyph-stroke { stroke: #60a5fa; }
     @media (prefers-color-scheme: light) {
-      :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #db2777; --a4: #c2410c; --a5: #0d9488; --a6: #059669; --a7: #2563eb; }
+      :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #db2777; --a4: #c2410c; --a5: #c026d3; --a6: #059669; --a7: #2563eb; }
       .cap { fill: #57606a; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
@@ -47,7 +47,7 @@
       .c2.title { fill: #7c3aed; } .c2.rule { fill: #7c3aed; } .c2.spine { stroke: #7c3aed; } .c2.badge { fill: #7c3aed; } .c2.chip { stroke: #7c3aed; } .c2.chip-label { fill: #7c3aed; } .c2.glyph-fill { fill: #7c3aed; } .c2.glyph-stroke { stroke: #7c3aed; }
       .c3.title { fill: #db2777; } .c3.rule { fill: #db2777; } .c3.spine { stroke: #db2777; } .c3.badge { fill: #db2777; } .c3.chip { stroke: #db2777; } .c3.chip-label { fill: #db2777; } .c3.glyph-fill { fill: #db2777; } .c3.glyph-stroke { stroke: #db2777; }
       .c4.title { fill: #c2410c; } .c4.rule { fill: #c2410c; } .c4.spine { stroke: #c2410c; } .c4.badge { fill: #c2410c; } .c4.chip { stroke: #c2410c; } .c4.chip-label { fill: #c2410c; } .c4.glyph-fill { fill: #c2410c; } .c4.glyph-stroke { stroke: #c2410c; }
-      .c5.title { fill: #0d9488; } .c5.rule { fill: #0d9488; } .c5.spine { stroke: #0d9488; } .c5.badge { fill: #0d9488; } .c5.chip { stroke: #0d9488; } .c5.chip-label { fill: #0d9488; } .c5.glyph-fill { fill: #0d9488; } .c5.glyph-stroke { stroke: #0d9488; }
+      .c5.title { fill: #c026d3; } .c5.rule { fill: #c026d3; } .c5.spine { stroke: #c026d3; } .c5.badge { fill: #c026d3; } .c5.chip { stroke: #c026d3; } .c5.chip-label { fill: #c026d3; } .c5.glyph-fill { fill: #c026d3; } .c5.glyph-stroke { stroke: #c026d3; }
       .c6.title { fill: #059669; } .c6.rule { fill: #059669; } .c6.spine { stroke: #059669; } .c6.badge { fill: #059669; } .c6.chip { stroke: #059669; } .c6.chip-label { fill: #059669; } .c6.glyph-fill { fill: #059669; } .c6.glyph-stroke { stroke: #059669; }
       .c7.title { fill: #2563eb; } .c7.rule { fill: #2563eb; } .c7.spine { stroke: #2563eb; } .c7.badge { fill: #2563eb; } .c7.chip { stroke: #2563eb; } .c7.chip-label { fill: #2563eb; } .c7.glyph-fill { fill: #2563eb; } .c7.glyph-stroke { stroke: #2563eb; }
     }

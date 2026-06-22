@@ -38,7 +38,7 @@ const nodes = {
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas" },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
   cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief" },
-  cortexel:    { x: 110, y: 360, color: "#2dd4bf", kind: "chip" },
+  cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "chip" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
 

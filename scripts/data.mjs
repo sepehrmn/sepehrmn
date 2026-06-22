@@ -33,7 +33,7 @@ export const PROJECTS = [
   },
   {
     name: "crebain",
-    accent: "#f472b6", light: "#db2777", grad: "#2b1020",
+    accent: "#9caf88", light: "#4b5320", grad: "#1f2913",
     stars: 9, repo: "sepahead/crebain",
     desc: "Adaptive Response & Awareness System — sensor fusion, ML detection, drone physics, ROS / Gazebo. The flagship robotics client.",
     stack: ["TS", "Rust", "Nix"],

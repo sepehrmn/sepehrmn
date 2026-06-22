@@ -7,14 +7,14 @@
     <radialGradient id="wash0" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#0b2b33" stop-opacity="0.9"/><stop offset="60%" stop-color="#0b2b33" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash1" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#332408" stop-opacity="0.9"/><stop offset="60%" stop-color="#332408" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash2" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#241a44" stop-opacity="0.9"/><stop offset="60%" stop-color="#241a44" stop-opacity="0"/></radialGradient>
-    <radialGradient id="wash3" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2b1020" stop-opacity="0.9"/><stop offset="60%" stop-color="#2b1020" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wash3" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#1f2913" stop-opacity="0.9"/><stop offset="60%" stop-color="#1f2913" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash4" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2a1608" stop-opacity="0.9"/><stop offset="60%" stop-color="#2a1608" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash5" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#2a0a2e" stop-opacity="0.9"/><stop offset="60%" stop-color="#2a0a2e" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash6" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#06281d" stop-opacity="0.9"/><stop offset="60%" stop-color="#06281d" stop-opacity="0"/></radialGradient>
     <radialGradient id="wash7" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#0b1f3a" stop-opacity="0.9"/><stop offset="60%" stop-color="#0b1f3a" stop-opacity="0"/></radialGradient>
   </defs>
   <style>
-    :root { --a0: #22d3ee; --a1: #fbbf24; --a2: #a78bfa; --a3: #f472b6; --a4: #fb923c; --a5: #e879f9; --a6: #34d399; --a7: #60a5fa; }
+    :root { --a0: #22d3ee; --a1: #fbbf24; --a2: #a78bfa; --a3: #9caf88; --a4: #fb923c; --a5: #e879f9; --a6: #34d399; --a7: #60a5fa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
@@ -26,13 +26,13 @@
     .c0.title { fill: #22d3ee; } .c0.rule { fill: #22d3ee; } .c0.spine { stroke: #22d3ee; } .c0.badge { fill: #22d3ee; } .c0.chip { stroke: #22d3ee; } .c0.chip-label { fill: #22d3ee; } .c0.glyph-fill { fill: #22d3ee; } .c0.glyph-stroke { stroke: #22d3ee; }
     .c1.title { fill: #fbbf24; } .c1.rule { fill: #fbbf24; } .c1.spine { stroke: #fbbf24; } .c1.badge { fill: #fbbf24; } .c1.chip { stroke: #fbbf24; } .c1.chip-label { fill: #fbbf24; } .c1.glyph-fill { fill: #fbbf24; } .c1.glyph-stroke { stroke: #fbbf24; }
     .c2.title { fill: #a78bfa; } .c2.rule { fill: #a78bfa; } .c2.spine { stroke: #a78bfa; } .c2.badge { fill: #a78bfa; } .c2.chip { stroke: #a78bfa; } .c2.chip-label { fill: #a78bfa; } .c2.glyph-fill { fill: #a78bfa; } .c2.glyph-stroke { stroke: #a78bfa; }
-    .c3.title { fill: #f472b6; } .c3.rule { fill: #f472b6; } .c3.spine { stroke: #f472b6; } .c3.badge { fill: #f472b6; } .c3.chip { stroke: #f472b6; } .c3.chip-label { fill: #f472b6; } .c3.glyph-fill { fill: #f472b6; } .c3.glyph-stroke { stroke: #f472b6; }
+    .c3.title { fill: #9caf88; } .c3.rule { fill: #9caf88; } .c3.spine { stroke: #9caf88; } .c3.badge { fill: #9caf88; } .c3.chip { stroke: #9caf88; } .c3.chip-label { fill: #9caf88; } .c3.glyph-fill { fill: #9caf88; } .c3.glyph-stroke { stroke: #9caf88; }
     .c4.title { fill: #fb923c; } .c4.rule { fill: #fb923c; } .c4.spine { stroke: #fb923c; } .c4.badge { fill: #fb923c; } .c4.chip { stroke: #fb923c; } .c4.chip-label { fill: #fb923c; } .c4.glyph-fill { fill: #fb923c; } .c4.glyph-stroke { stroke: #fb923c; }
     .c5.title { fill: #e879f9; } .c5.rule { fill: #e879f9; } .c5.spine { stroke: #e879f9; } .c5.badge { fill: #e879f9; } .c5.chip { stroke: #e879f9; } .c5.chip-label { fill: #e879f9; } .c5.glyph-fill { fill: #e879f9; } .c5.glyph-stroke { stroke: #e879f9; }
     .c6.title { fill: #34d399; } .c6.rule { fill: #34d399; } .c6.spine { stroke: #34d399; } .c6.badge { fill: #34d399; } .c6.chip { stroke: #34d399; } .c6.chip-label { fill: #34d399; } .c6.glyph-fill { fill: #34d399; } .c6.glyph-stroke { stroke: #34d399; }
     .c7.title { fill: #60a5fa; } .c7.rule { fill: #60a5fa; } .c7.spine { stroke: #60a5fa; } .c7.badge { fill: #60a5fa; } .c7.chip { stroke: #60a5fa; } .c7.chip-label { fill: #60a5fa; } .c7.glyph-fill { fill: #60a5fa; } .c7.glyph-stroke { stroke: #60a5fa; }
     @media (prefers-color-scheme: light) {
-      :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #db2777; --a4: #c2410c; --a5: #c026d3; --a6: #059669; --a7: #2563eb; }
+      :root { --a0: #0891b2; --a1: #b45309; --a2: #7c3aed; --a3: #4b5320; --a4: #c2410c; --a5: #c026d3; --a6: #059669; --a7: #2563eb; }
       .cap { fill: #57606a; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
       .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
@@ -45,7 +45,7 @@
       .c0.title { fill: #0891b2; } .c0.rule { fill: #0891b2; } .c0.spine { stroke: #0891b2; } .c0.badge { fill: #0891b2; } .c0.chip { stroke: #0891b2; } .c0.chip-label { fill: #0891b2; } .c0.glyph-fill { fill: #0891b2; } .c0.glyph-stroke { stroke: #0891b2; }
       .c1.title { fill: #b45309; } .c1.rule { fill: #b45309; } .c1.spine { stroke: #b45309; } .c1.badge { fill: #b45309; } .c1.chip { stroke: #b45309; } .c1.chip-label { fill: #b45309; } .c1.glyph-fill { fill: #b45309; } .c1.glyph-stroke { stroke: #b45309; }
       .c2.title { fill: #7c3aed; } .c2.rule { fill: #7c3aed; } .c2.spine { stroke: #7c3aed; } .c2.badge { fill: #7c3aed; } .c2.chip { stroke: #7c3aed; } .c2.chip-label { fill: #7c3aed; } .c2.glyph-fill { fill: #7c3aed; } .c2.glyph-stroke { stroke: #7c3aed; }
-      .c3.title { fill: #db2777; } .c3.rule { fill: #db2777; } .c3.spine { stroke: #db2777; } .c3.badge { fill: #db2777; } .c3.chip { stroke: #db2777; } .c3.chip-label { fill: #db2777; } .c3.glyph-fill { fill: #db2777; } .c3.glyph-stroke { stroke: #db2777; }
+      .c3.title { fill: #4b5320; } .c3.rule { fill: #4b5320; } .c3.spine { stroke: #4b5320; } .c3.badge { fill: #4b5320; } .c3.chip { stroke: #4b5320; } .c3.chip-label { fill: #4b5320; } .c3.glyph-fill { fill: #4b5320; } .c3.glyph-stroke { stroke: #4b5320; }
       .c4.title { fill: #c2410c; } .c4.rule { fill: #c2410c; } .c4.spine { stroke: #c2410c; } .c4.badge { fill: #c2410c; } .c4.chip { stroke: #c2410c; } .c4.chip-label { fill: #c2410c; } .c4.glyph-fill { fill: #c2410c; } .c4.glyph-stroke { stroke: #c2410c; }
       .c5.title { fill: #c026d3; } .c5.rule { fill: #c026d3; } .c5.spine { stroke: #c026d3; } .c5.badge { fill: #c026d3; } .c5.chip { stroke: #c026d3; } .c5.chip-label { fill: #c026d3; } .c5.glyph-fill { fill: #c026d3; } .c5.glyph-stroke { stroke: #c026d3; }
       .c6.title { fill: #059669; } .c6.rule { fill: #059669; } .c6.spine { stroke: #059669; } .c6.badge { fill: #059669; } .c6.chip { stroke: #059669; } .c6.chip-label { fill: #059669; } .c6.glyph-fill { fill: #059669; } .c6.glyph-stroke { stroke: #059669; }
@@ -133,7 +133,7 @@
     <path d="M442.5 418 v122" class="spine c5" stroke-width="4" stroke-linecap="round"/>
     <text x="463" y="442" class="title c5" textLength="104" lengthAdjust="spacingAndGlyphs">cortexel</text>
     <rect x="463" y="450" width="34" height="2.5" rx="1.25" class="rule c5"/>
-    <polygon points="810.0,420.0 811.5,424.0 815.7,424.1 812.4,426.8 813.5,430.9 810.0,428.5 806.5,430.9 807.6,426.8 804.3,424.1 808.5,424.0" class="glyph-fill c5"/><text x="800" y="431" text-anchor="end" class="badge c5">1</text>
+    <polygon points="810.0,420.0 811.5,424.0 815.7,424.1 812.4,426.8 813.5,430.9 810.0,428.5 806.5,430.9 807.6,426.8 804.3,424.1 808.5,424.0" class="glyph-fill c5"/><text x="800" y="431" text-anchor="end" class="badge c5">0</text>
     <text x="463" y="464" class="desc">Agent-consumable scientific-visualization library</text>
     <text x="463" y="482" class="desc">for neural simulations — VizSpec to spike rasters</text>
     <text x="463" y="500" class="desc">&amp; STDP curves, provenance fail-closed.</text>

@@ -140,7 +140,6 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/agents.svg" width="820" alt="Agentic stack manifest — the agents and environment I build with: Pi (lead, mono the agent), Claude Code (engineer), Codex (generalist), Cursor (editor), Zed (editor), Orca (agent), Ghostty (terminal). The loop never sleeps." loading="lazy"/>
 </p>
----
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-elsewhere.svg" width="820" alt="Elsewhere"/></h3>
 

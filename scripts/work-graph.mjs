@@ -50,7 +50,7 @@ const nodes = {
   crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas", dataset: true },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
-  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true, de: true },
+  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
@@ -229,16 +229,39 @@ function datasetPlates(cx, cy, color) {
   }).join("");
 }
 
-// A small German tricolour (black / red / gold, 5:3) with a faint frame so the
-// black band still reads on either theme. Centred on `cxf`, top edge at `top`.
+// crebain's wordmark flag — a German tricolour rendered as a rugged, subdued
+// FIELD PATCH: muted charcoal / brick / antique-gold bands under a worn fractal
+// grain, a fabric sheen, a stitched inner seam and a frame. One instance only,
+// so the filter / gradient / clip ids are unique. Centred on `cxf`, top at `top`.
 function germanFlag(cxf, top, w) {
   const h = Number((w * 0.6).toFixed(1)), s = Number((h / 3).toFixed(2));
   const x = f1(cxf - w / 2), tp = f1(top);
+  const ix = f1(cxf - w / 2 + 1.4), itp = f1(top + 1.4), iw = f1(w - 2.8), ih = f1(h - 2.8);
   return (
-    `<rect x="${x}" y="${tp}" width="${w}" height="${s}" class="flag-k"/>` +
-    `<rect x="${x}" y="${f1(top + s)}" width="${w}" height="${s}" fill="#DD0000"/>` +
-    `<rect x="${x}" y="${f1(top + 2 * s)}" width="${w}" height="${s}" fill="#FFCE00"/>` +
-    `<rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="0.8" class="flag-edge"/>`
+    `<defs>` +
+      `<filter id="flagWorn" x="-6%" y="-12%" width="112%" height="124%">` +
+        `<feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="9" result="n"/>` +
+        `<feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 -0.18" result="grain"/>` +
+        `<feComposite in="grain" in2="SourceAlpha" operator="in" result="gin"/>` +
+        `<feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="gin"/></feMerge>` +
+      `</filter>` +
+      `<linearGradient id="flagSheen" x1="0" y1="0" x2="0" y2="1">` +
+        `<stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>` +
+        `<stop offset="0.5" stop-color="#000000" stop-opacity="0"/>` +
+        `<stop offset="1" stop-color="#000000" stop-opacity="0.24"/>` +
+      `</linearGradient>` +
+      `<clipPath id="flagClip"><rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="1.4"/></clipPath>` +
+    `</defs>` +
+    `<g filter="url(#flagWorn)">` +
+      `<g clip-path="url(#flagClip)">` +
+        `<rect x="${x}" y="${tp}" width="${w}" height="${s}" class="flag-k"/>` +
+        `<rect x="${x}" y="${f1(top + s)}" width="${w}" height="${s}" class="flag-r"/>` +
+        `<rect x="${x}" y="${f1(top + 2 * s)}" width="${w}" height="${s}" class="flag-g"/>` +
+        `<rect x="${x}" y="${tp}" width="${w}" height="${h}" fill="url(#flagSheen)"/>` +
+      `</g>` +
+      `<rect x="${ix}" y="${itp}" width="${iw}" height="${ih}" rx="0.8" class="flag-stitch"/>` +
+      `<rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="1.4" class="flag-edge"/>` +
+    `</g>`
   );
 }
 
@@ -440,7 +463,6 @@ const nodeEls = Object.values(nodes).map((n) => {
     <rect x="${f1(x)}" y="${y}" width="${w}" height="${CHIP_H}" rx="8" class="chip" stroke="${n.color}"/>
     ${glyph}
     <text x="${f1(x + 27)}" y="${n.y + 5}" class="chip-label">${escapeXML(n.label)}</text>
-    ${n.de ? `<g class="deflag">${germanFlag(n.x, n.y + CHIP_H / 2 + 5, 20)}</g>` : ""}
   </g>`;
 });
 
@@ -518,8 +540,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
-    .flag-k     { fill: #262626; }
-    .flag-edge  { fill: none; stroke: #8b949e; stroke-width: 0.8; }
+    .flag-k      { fill: #1e1e1e; }
+    .flag-r      { fill: #6f2d28; }
+    .flag-g      { fill: #93783f; }
+    .flag-stitch { fill: none; stroke: #cdbf95; stroke-width: 0.5; stroke-dasharray: 1.3 1.1; stroke-opacity: 0.5; }
+    .flag-edge   { fill: none; stroke: #6b7060; stroke-width: 0.9; }
     .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
@@ -553,8 +578,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
-      .flag-k { fill: #111111; }
-      .flag-edge { stroke: #57606a; }
+      .flag-edge { stroke: #2f2f28; }
       .vox-label { fill: #c026d3; }
       .vox-net { color: #c026d3; }
       .raven-seat { fill-opacity: 0.06; }

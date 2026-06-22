@@ -1,3 +1,14 @@
 
 # local working clone of sepahead/melkor — not part of the profile repo
 /melkor/
+
+# Node tooling cruft (this repo is zero-dependency, hand-built SVGs). A stray
+# mermaid-cli experiment left these behind; ignore so they can never be staged.
+/node_modules/
+/package.json
+/package-lock.json
+
+# scratch render/screenshot artifacts from local SVG previews
+/preview.html
+/cxzoom.html
+/*.png

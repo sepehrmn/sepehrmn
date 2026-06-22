@@ -20,12 +20,19 @@
 // Theme-adaptive (prefers-color-scheme), reduced-motion safe. Zero deps.
 // Run: `node scripts/work-graph.mjs`.
 
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "..", "assets", "work-graph.svg");
+
+// crebain's brand mark (raven-in-crosshair) embedded as a base64 data-URI, so
+// the self-contained SVG renders the real logo with zero external requests
+// (an <img>-embedded SVG can't fetch external URLs, but data: URIs are fine).
+const CREBAIN_LOGO =
+  "data:image/png;base64," +
+  readFileSync(resolve(__dirname, "..", "pics", "crebain-logo.png")).toString("base64");
 
 const W = 860;
 const H = 460;
@@ -86,7 +93,7 @@ function nodeWidth(n) {
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: (n.r || HUB_R), hh: (n.r || HUB_R), circle: true };
   if (n.kind === "voxel") return { hw: NET_R, hh: NET_R, circle: true };
-  if (n.kind === "raven") return { hw: RAVEN_R + 2, hh: RAVEN_R + 2, circle: true };
+  if (n.kind === "raven") return { hw: 38, hh: 38, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
@@ -326,38 +333,20 @@ const nodeEls = Object.values(nodes).map((n) => {
       <polyline points="65,319 61,323 65,327" class="vox-spec"/>
       <polyline points="69,319 73,323 69,327" class="vox-spec"/>
       <line x1="68" y1="318" x2="65" y2="328" class="vox-spec"/>
-      <path d="M74 324 L80 328" class="flow"><animate attributeName="stroke-dashoffset" from="10.5" to="0" dur="1.6s" repeatCount="indefinite"/></path>
+      <path d="M73 323 H81" class="flow"><animate attributeName="stroke-dashoffset" from="10.5" to="0" dur="1.6s" repeatCount="indefinite"/></path>
     </g>
-    <path d="M78 336 V332 A4 4 0 0 1 82 328 H90" class="vp-frame"><animate attributeName="stroke-opacity" values="0.7;0.7;1;0.7" keyTimes="0;0.45;0.6;1" dur="1.6s" repeatCount="indefinite"/></path>
-    <path d="M142 374 V380 A4 4 0 0 1 138 384 H130" class="vp-frame"/>
-    <text x="${n.x}" y="${f1(n.y + 34)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+    <path d="M77 331 V327 A4 4 0 0 1 81 323 H89" class="vp-frame"><animate attributeName="stroke-opacity" values="0.7;0.7;1;0.7" keyTimes="0;0.45;0.6;1" dur="1.6s" repeatCount="indefinite"/></path>
+    <path d="M143 377 V381 A4 4 0 0 1 139 385 H131" class="vp-frame"/>
+    <text x="${n.x}" y="${f1(n.y + 38)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "raven") {
-    // crebain — its real brand mark: a faceted RAVEN head with a glowing red eye
-    // inside a tactical CROSSHAIR reticle (ARAS — awareness/surveillance;
-    // "crebain" = Tolkien's spy-crows). Recreated as vector in crebain's pink.
-    const cx = n.x, cy = n.y, R = RAVEN_R;
-    const ticks = [[0, -1], [1, 0], [0, 1], [-1, 0]].map(([dx, dy]) =>
-      `<line x1="${f1(cx + dx * R)}" y1="${f1(cy + dy * R)}" x2="${f1(cx + dx * (R + 6))}" y2="${f1(cy + dy * (R + 6))}" class="raven-tick"/>`).join("");
-    // raven head in profile, facing left: a sharp beak (tip far-left), a domed
-    // crown, head bulk + nape to the right, throat/neck below.
-    const ro = [[-26, 3], [-10, -2], [-4, -11], [4, -16], [14, -13], [20, -2], [17, 8], [9, 16], [0, 17], [-8, 11], [-15, 7]];
-    const head = ro.map(([dx, dy]) => `${f1(cx + dx)},${f1(cy + dy)}`).join(" ");
+    // crebain — its real brand mark (a faceted raven head + red eye in a tactical
+    // crosshair reticle), embedded verbatim as a base64 PNG.
+    const cx = n.x, cy = n.y, S = 90;
     return `<g>
-    <g filter="url(#soft)">
-      <circle cx="${cx}" cy="${cy}" r="${R}" class="raven-ring"/>
-      ${ticks}
-      <circle cx="${f1(cx - 21)}" cy="${f1(cy + 29)}" r="1.8" class="raven-dot"/>
-      <polygon points="${head}" class="raven-body" stroke-linejoin="round"/>
-      <polyline points="${f1(cx - 10)},${f1(cy - 2)} ${f1(cx - 15)},${f1(cy + 7)}" class="raven-facet"/>
-      <polyline points="${f1(cx + 4)},${f1(cy - 16)} ${f1(cx - 6)},${f1(cy + 9)}" class="raven-facet"/>
-      <polyline points="${f1(cx + 20)},${f1(cy - 2)} ${f1(cx + 1)},${f1(cy + 16)}" class="raven-facet"/>
-      <circle cx="${f1(cx - 5)}" cy="${f1(cy - 4)}" r="2.5" class="raven-eye">
-        <animate attributeName="opacity" values="1;0.5;1" dur="2.2s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-    <text x="${cx}" y="${f1(cy + R + 16)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
+    <image href="${CREBAIN_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
+    <text x="${cx}" y="${f1(cy + S / 2 + 8)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   // small "chip" nodes

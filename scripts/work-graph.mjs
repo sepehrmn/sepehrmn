@@ -50,7 +50,7 @@ const nodes = {
   crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas", dataset: true },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
-  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true },
+  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true, de: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
@@ -229,6 +229,19 @@ function datasetPlates(cx, cy, color) {
   }).join("");
 }
 
+// A small German tricolour (black / red / gold, 5:3) with a faint frame so the
+// black band still reads on either theme. Centred on `cxf`, top edge at `top`.
+function germanFlag(cxf, top, w) {
+  const h = Number((w * 0.6).toFixed(1)), s = Number((h / 3).toFixed(2));
+  const x = f1(cxf - w / 2), tp = f1(top);
+  return (
+    `<rect x="${x}" y="${tp}" width="${w}" height="${s}" class="flag-k"/>` +
+    `<rect x="${x}" y="${f1(top + s)}" width="${w}" height="${s}" fill="#DD0000"/>` +
+    `<rect x="${x}" y="${f1(top + 2 * s)}" width="${w}" height="${s}" fill="#FFCE00"/>` +
+    `<rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="0.8" class="flag-edge"/>`
+  );
+}
+
 const nodeEls = Object.values(nodes).map((n) => {
   if (n.kind === "hub") {
     const r = n.r || HUB_R;
@@ -311,79 +324,107 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "voxel") {
-    // cortexel — a VOXEL NEURAL NETWORK: three isometric voxel-neurons wired by
-    // synapses with signal packets streaming along them. DEPTH-CUED so the
-    // cluster reads as genuinely 3-D: each neuron carries a near→far opacity (the
-    // apex T recedes into the back, the front-right neuron R sits nearest the
-    // viewer, L is mid) and every synapse fades along its length from its nearer
-    // end to its farther one. The label + typing cursor below are NOT depth-faded
-    // — they are the wordmark, not part of the 3-D figure.
+    // cortexel — a VOXEL NEURAL NETWORK as a genuine 3-D cluster: three isometric
+    // voxel-neurons both SIZED and dimmed by depth (the front-right neuron is
+    // larger + fully opaque, the apex recedes — smaller + fainter), wired by
+    // CALLIGRAPHIC connections: static, tapered pen-strokes that bow and fade into
+    // the distance (no moving packets), echoing the script wordmark below and
+    // distinct from the SVG's other live wired edges.
     const vw = 9, vbh = 8, rh = vw / 2;
     const T = { x: n.x,      y: n.y - 25, depth: 1.0 }; // farthest — up/back
     const L = { x: n.x - 20, y: n.y + 13, depth: 0.5 }; // mid
     const R = { x: n.x + 20, y: n.y + 13, depth: 0.0 }; // nearest — front
-    // Atmospheric perspective: map depth 0 (near)..1 (far) → opacity 1.0..0.45.
+    // Perspective: depth 0 (near)..1 (far) → opacity 1.0..0.45 AND scale 1.2..0.8.
     const dop = (d) => Number((1 - d * 0.55).toFixed(3));
-    const cube = (c) => {
-      const cyt = c.y - vbh / 2;
-      const bt = `${f1(c.x)},${f1(cyt - rh)}`;
-      const rr = `${f1(c.x + vw)},${f1(cyt)}`;
-      const ft = `${f1(c.x)},${f1(cyt + rh)}`;
-      const lf = `${f1(c.x - vw)},${f1(cyt)}`;
-      const rb = `${f1(c.x + vw)},${f1(cyt + vbh)}`;
-      const fb = `${f1(c.x)},${f1(cyt + rh + vbh)}`;
-      const lb = `${f1(c.x - vw)},${f1(cyt + vbh)}`;
+    const dsc = (d) => 1.2 - d * 0.4;
+    const cube = (c, s) => {
+      const cw = vw * s, cbh = vbh * s, crh = rh * s, cyt = c.y - cbh / 2;
+      const bt = `${f1(c.x)},${f1(cyt - crh)}`;
+      const rr = `${f1(c.x + cw)},${f1(cyt)}`;
+      const ft = `${f1(c.x)},${f1(cyt + crh)}`;
+      const lf = `${f1(c.x - cw)},${f1(cyt)}`;
+      const rb = `${f1(c.x + cw)},${f1(cyt + cbh)}`;
+      const fb = `${f1(c.x)},${f1(cyt + crh + cbh)}`;
+      const lb = `${f1(c.x - cw)},${f1(cyt + cbh)}`;
       return `<polygon points="${lf} ${ft} ${fb} ${lb}" class="vox-left" stroke-linejoin="round"/>` +
         `<polygon points="${rr} ${ft} ${fb} ${rb}" class="vox-right" stroke-linejoin="round"/>` +
         `<polygon points="${bt} ${rr} ${ft} ${lf}" class="vox-top" stroke-linejoin="round"/>`;
     };
-    // Each cube dimmed as a unit by its depth (group opacity multiplies the
-    // per-face iso shading), painted far → near.
-    const cubeAt = (c) => `<g opacity="${dop(c.depth)}">${cube(c)}</g>`;
-    // Synapse: a userSpaceOnUse gradient down the line whose stop-opacity tracks
-    // each endpoint's depth, so the link recedes with the neurons it joins.
-    // currentColor resolves to .vox-net's theme-adaptive colour.
+    // Each cube scaled + dimmed as a unit by its depth, painted far → near.
+    const cubeAt = (c) => `<g opacity="${dop(c.depth)}">${cube(c, dsc(c.depth))}</g>`;
+    // Calligraphic connection: a tapered, bowed pen-stroke (a filled lens, pointed
+    // at both neurons, swelling at the middle) whose fill fades with the depth of
+    // its endpoints. currentColor resolves to .vox-net's theme-adaptive colour.
     const grads = [];
     let gi = 0;
-    const syn = (a, b) => {
-      const id = `voxSyn${gi++}`;
+    const calli = (a, b, bow) => {
+      const id = `voxCalli${gi++}`;
       grads.push(
         `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}">` +
           `<stop offset="0" stop-color="currentColor" stop-opacity="${dop(a.depth)}"/>` +
           `<stop offset="1" stop-color="currentColor" stop-opacity="${dop(b.depth)}"/>` +
           `</linearGradient>`
       );
-      return `<line x1="${f1(a.x)}" y1="${f1(a.y)}" x2="${f1(b.x)}" y2="${f1(b.y)}" class="vox-syn" style="stroke:url(#${id})"/>`;
+      const ax = b.x - a.x, ay = b.y - a.y, ln = Math.hypot(ax, ay) || 1;
+      const nx = -ay / ln, ny = ax / ln;
+      const mx = (a.x + b.x) / 2 + nx * bow, my = (a.y + b.y) / 2 + ny * bow, hh = 2.2;
+      const up = `${f1(mx + nx * hh)} ${f1(my + ny * hh)}`;
+      const dn = `${f1(mx - nx * hh)} ${f1(my - ny * hh)}`;
+      return `<path d="M${f1(a.x)} ${f1(a.y)} Q${up} ${f1(b.x)} ${f1(b.y)} Q${dn} ${f1(a.x)} ${f1(a.y)} Z" fill="url(#${id})"/>`;
     };
-    // Signal packets dim with the mean depth of the link they ride.
-    const flow = (a, b, dur) => {
-      const o = ((dop(a.depth) + dop(b.depth)) / 2).toFixed(3);
-      return `<path d="M${f1(a.x)} ${f1(a.y)} L${f1(b.x)} ${f1(b.y)}" class="flow" opacity="${o}"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="${dur}" repeatCount="indefinite"/></path>`;
-    };
-    const synMarkup = `${syn(T, L)} ${syn(T, R)} ${syn(L, R)}`;
-    const flowMarkup = `${flow(T, L, "1.5s")} ${flow(T, R, "1.5s")} ${flow(L, R, "1.9s")}`;
+    const conns = `${calli(T, L, 6)} ${calli(T, R, -6)} ${calli(L, R, 6)}`;
     return `<g class="vox-net">
     <defs>${grads.join("")}</defs>
     <g filter="url(#soft)">
-      ${synMarkup}
-      ${flowMarkup}
+      ${conns}
       ${cubeAt(T)} ${cubeAt(L)} ${cubeAt(R)}
     </g>
     <text x="${n.x}" y="${f1(n.y + 35)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "raven") {
-    // crebain — its real brand mark (a faceted raven head + red eye in a crosshair
-    // reticle), embedded verbatim as a base64 PNG, over a faint field-green seat
-    // so it shares the soft glow of its neighbouring nodes.
+    // crebain — its real brand mark (raven head + red eye in a crosshair reticle)
+    // over a faint field-green seat. Below it the wordmark is TYPED OUT by a block
+    // cursor, holds ~10 s with a German flag fading in beneath it, then the line is
+    // "entered" (fades + drops away) and the cycle retypes. The static attribute
+    // values hold the fully-typed state, so reduced-motion shows it complete.
     const cx = n.x, cy = n.y, S = 90;
+    const word = n.label;                          // CSS upper-cases it
+    const NN = word.length, CH = 9.7;              // 12px mono: 0.6em glyph + 2.5 track
+    const Wt = NN * CH, leftX = cx - Wt / 2;        // ~centred typed line
+    const baseY = cy + S / 2 + 8, curY = cy + S / 2 - 1, flagTop = cy + S / 2 + 16;
+    const pause = 0.5, step = 0.13, hold = 10, enterDur = 0.4, tail = 0.1;
+    const typeDone = pause + NN * step, holdEnd = typeDone + hold, enterEnd = holdEnd + enterDur;
+    const CYCLE = Number((enterEnd + tail).toFixed(2));
+    const kt = (ts) => ts.map((t) => Number((t / CYCLE).toFixed(4))).join(";");
+    const wt = [0, pause], wv = [0, 0];
+    for (let i = 1; i <= NN; i++) { wt.push(Number((pause + i * step).toFixed(3))); wv.push(Number((i * CH).toFixed(2))); }
+    wt.push(enterEnd, CYCLE); wv.push(0, 0);
+    const xv = wv.map((v) => f1(leftX + v));
+    const ot = [0, holdEnd, enterEnd, CYCLE], dur = `${CYCLE}s`;
     return `<g>
     <circle cx="${cx}" cy="${cy}" r="34" class="raven-seat"/>
     <image href="${CREBAIN_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
-    <text x="${f1(cx - 3)}" y="${f1(cy + S / 2 + 8)}" text-anchor="middle" class="raven-label">${escapeXML(n.label)}</text>
-    <rect x="${f1(cx + 30)}" y="${f1(cy + S / 2 - 1)}" width="5" height="10" rx="1" class="raven-cursor">
-      <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
-    </rect>
+    <defs>
+      <clipPath id="crebainType" clipPathUnits="userSpaceOnUse">
+        <rect x="${f1(leftX)}" y="${f1(baseY - 12)}" width="${f1(Wt)}" height="16">
+          <animate attributeName="width" values="${wv.join(";")}" keyTimes="${kt(wt)}" dur="${dur}" calcMode="discrete" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+    </defs>
+    <g class="raven-typeline">
+      <text x="${f1(leftX)}" y="${f1(baseY)}" text-anchor="start" class="raven-label" clip-path="url(#crebainType)">${escapeXML(word)}</text>
+      <rect x="${f1(leftX + Wt)}" y="${f1(curY)}" width="5" height="10" rx="1" class="raven-cursor">
+        <animate attributeName="x" values="${xv.join(";")}" keyTimes="${kt(wt)}" dur="${dur}" calcMode="discrete" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
+      </rect>
+      <g class="deflag">
+        ${germanFlag(cx, flagTop, 22)}
+        <animate attributeName="opacity" values="0;0;1;1" keyTimes="${kt([0, typeDone, Number((typeDone + 0.4).toFixed(2)), CYCLE])}" dur="${dur}" repeatCount="indefinite"/>
+      </g>
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="${kt(ot)}" dur="${dur}" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 3;0 3" keyTimes="${kt(ot)}" dur="${dur}" repeatCount="indefinite"/>
+    </g>
   </g>`;
   }
   // small "chip" nodes
@@ -399,6 +440,7 @@ const nodeEls = Object.values(nodes).map((n) => {
     <rect x="${f1(x)}" y="${y}" width="${w}" height="${CHIP_H}" rx="8" class="chip" stroke="${n.color}"/>
     ${glyph}
     <text x="${f1(x + 27)}" y="${n.y + 5}" class="chip-label">${escapeXML(n.label)}</text>
+    ${n.de ? `<g class="deflag">${germanFlag(n.x, n.y + CHIP_H / 2 + 5, 20)}</g>` : ""}
   </g>`;
 });
 
@@ -476,7 +518,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
-    .vox-syn    { stroke: #e879f9; stroke-width: 1.4; stroke-opacity: 0.5; stroke-linecap: round; }
+    .flag-k     { fill: #262626; }
+    .flag-edge  { fill: none; stroke: #8b949e; stroke-width: 0.8; }
     .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
@@ -510,7 +553,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
-      .vox-syn { stroke: #c026d3; }
+      .flag-k { fill: #111111; }
+      .flag-edge { stroke: #57606a; }
       .vox-label { fill: #c026d3; }
       .vox-net { color: #c026d3; }
       .raven-seat { fill-opacity: 0.06; }
@@ -520,7 +564,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .wg-bracket { stroke: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
-    @media (prefers-reduced-motion: reduce) { animate { display: none; } }
+    @media (prefers-reduced-motion: reduce) { animate, animateTransform { display: none; } }
   </style>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>

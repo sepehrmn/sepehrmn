@@ -4,10 +4,10 @@
 // Zero npm dependencies; uses the global `fetch` (Node 20+).
 //
 // What this renders: a DONUT chart of each weekday's % share of contributions
-// over the last ~13 weeks (91 days). A week is a cycle, so a ring reads more
+// over the last 500 days (~16 months). A week is a cycle, so a ring reads more
 // naturally than bars — and because the slices are shares of the whole, the
 // weekend-heavy / midweek-dip pattern is obvious at a glance. The center
-// holds the 91-day total; the legend (right) gives the exact % per day; the
+// holds the 500-day total; the legend (right) gives the exact % per day; the
 // peak slice (the biggest weekday) glows and pulses. GitHub already renders a
 // native 365-day heatmap on github.com/<user>, so we don't duplicate it —
 // this surfaces the weekly rhythm that grid cannot.
@@ -33,7 +33,7 @@
 //
 // TRADEOFF: the fragment has no per-type breakdown (commits vs PR vs issue),
 // so each slice is the per-weekday TOTAL contribution count, expressed as a
-// % of the 91-day total. That's the honest representation of this source.
+// % of the 500-day total. That's the honest representation of this source.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -322,7 +322,7 @@ function placeholder(errorMessage) {
 // ---------------------------------------------------------------------------
 // 4. Render SVG — a percentage DONUT chart.
 //    Layout: title/subtitle top; donut centered-left; legend right; caption.
-//    Each weekday is an annular slice ∝ its % share of the 91-day total.
+//    Each weekday is an annular slice ∝ its % share of the 500-day total.
 // ---------------------------------------------------------------------------
 const W = 760;
 const H = 340;

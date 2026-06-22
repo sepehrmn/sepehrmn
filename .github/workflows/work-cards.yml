@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate Selected-work SVGs
+      - name: Generate Selected-work SVGs + section banners
         env:
           # The built-in token authenticates the REST calls that read each public
           # repo's star/fork count (authenticated => 5000/hr, not the exhausted
@@ -47,17 +47,24 @@ jobs:
         run: |
           node scripts/work-cards.mjs
           node scripts/repo-tree.mjs
+          # Also regenerate the section-title banners so the "# N projects" /
+          # "# N repos" counts (derived from scripts/data.mjs, which is already
+          # in this workflow's push-paths) stay in lockstep with the cards on any
+          # data.mjs edit. Deterministic + no network: on a normal star-refresh
+          # run it reproduces byte-identical SVGs, so the commit guard below
+          # skips them — no spurious commits, no extra Actions cost.
+          node scripts/section-titles.mjs
 
       - name: Commit updated SVGs
         run: |
-          git add assets/work-cards.svg assets/repo-tree.svg
-          if git diff --cached --quiet HEAD -- assets/work-cards.svg assets/repo-tree.svg; then
-            echo "No changes to the Selected-work SVGs — skipping commit."
+          git add assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg
+          if git diff --cached --quiet HEAD -- assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg; then
+            echo "No changes to the Selected-work SVGs / banners — skipping commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(cards): refresh project star/fork counts"
+          git commit -m "chore(cards): refresh star/fork counts and section banners"
           # Robust push: another chart workflow may push to main at the same
           # moment; the workflows touch different files, so rebase + retry.
           for attempt in 1 2 3 4 5; do

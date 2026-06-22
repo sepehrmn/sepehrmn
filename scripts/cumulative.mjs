@@ -555,6 +555,18 @@ async function main() {
         .map((y) => `${y.year}:${y.source}`)
         .join(", ")}).`
     );
+    // Silent-zero guard: this profile always has thousands of contributions, so
+    // a parsed total of 0 means GitHub changed BOTH the <h2> total AND the
+    // <tool-tip> fallback markup — a 200 OK with unrecognised HTML, which
+    // fetchYearTotal() does NOT throw on. Fail here so the catch below renders
+    // the visible placeholder banner instead of silently committing a blank
+    // chart to the live profile.
+    if (!(model.cumulative > 0)) {
+      throw new Error(
+        `parsed 0 total contributions for ${START_YEAR}–${end} — likely a ` +
+          `contributions-page markup change; refusing to emit a blank chart`
+      );
+    }
   } catch (err) {
     const msg = String(err?.message ?? err);
     console.warn(`[cumulative] failed (reason below); using placeholder: ${msg}`);

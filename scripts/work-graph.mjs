@@ -229,39 +229,43 @@ function datasetPlates(cx, cy, color) {
   }).join("");
 }
 
-// crebain's wordmark flag — a German tricolour rendered as a rugged, subdued
-// FIELD PATCH: muted charcoal / brick / antique-gold bands under a worn fractal
-// grain, a fabric sheen, a stitched inner seam and a frame. One instance only,
-// so the filter / gradient / clip ids are unique. Centred on `cxf`, top at `top`.
+// crebain's wordmark flag — a small WAVING CLOTH flag: three rippled bands in
+// rich German colours with wave-driven FOLD SHADING (light along the crests,
+// shadow in the troughs) and clean edges, so it reads as real fabric catching
+// light — neither flat-plasticky nor dull. One instance, so ids are unique.
 function germanFlag(cxf, top, w) {
-  const h = Number((w * 0.6).toFixed(1)), s = Number((h / 3).toFixed(2));
-  const x = f1(cxf - w / 2), tp = f1(top);
-  const ix = f1(cxf - w / 2 + 1.4), itp = f1(top + 1.4), iw = f1(w - 2.8), ih = f1(h - 2.8);
+  const h = Number((w * 0.6).toFixed(2)), s = h / 3, x0 = cxf - w / 2;
+  const A = h * 0.1, per = 1.35, ph = -0.7, SAMP = 18;       // ripple shape
+  const wy = (t) => A * Math.sin(2 * Math.PI * per * t + ph);
+  const line = (by) => {
+    const p = [];
+    for (let i = 0; i <= SAMP; i++) {
+      const t = i / SAMP;
+      p.push([Number((x0 + t * w).toFixed(2)), Number((by + wy(t)).toFixed(2))]);
+    }
+    return p;
+  };
+  const band = (a, b) =>
+    `M${a.map(([x, y]) => `${x} ${y}`).join("L")}L${b.slice().reverse().map(([x, y]) => `${x} ${y}`).join("L")}Z`;
+  const L0 = line(top), L1 = line(top + s), L2 = line(top + 2 * s), L3 = line(top + 3 * s);
+  const outline = band(L0, L3);
+  let stops = "";
+  for (let i = 0; i <= SAMP; i++) {
+    const t = i / SAMP, sn = Math.sin(2 * Math.PI * per * t + ph), off = Number(t.toFixed(3));
+    stops += sn >= 0
+      ? `<stop offset="${off}" stop-color="#ffffff" stop-opacity="${Number((sn * 0.17).toFixed(3))}"/>`
+      : `<stop offset="${off}" stop-color="#000000" stop-opacity="${Number((-sn * 0.24).toFixed(3))}"/>`;
+  }
   return (
     `<defs>` +
-      `<filter id="flagWorn" x="-6%" y="-12%" width="112%" height="124%">` +
-        `<feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="9" result="n"/>` +
-        `<feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 -0.18" result="grain"/>` +
-        `<feComposite in="grain" in2="SourceAlpha" operator="in" result="gin"/>` +
-        `<feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="gin"/></feMerge>` +
-      `</filter>` +
-      `<linearGradient id="flagSheen" x1="0" y1="0" x2="0" y2="1">` +
-        `<stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>` +
-        `<stop offset="0.5" stop-color="#000000" stop-opacity="0"/>` +
-        `<stop offset="1" stop-color="#000000" stop-opacity="0.24"/>` +
-      `</linearGradient>` +
-      `<clipPath id="flagClip"><rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="1.4"/></clipPath>` +
+      `<linearGradient id="flagFold" x1="0" y1="0" x2="1" y2="0">${stops}</linearGradient>` +
+      `<clipPath id="flagClip"><path d="${outline}"/></clipPath>` +
     `</defs>` +
-    `<g filter="url(#flagWorn)">` +
-      `<g clip-path="url(#flagClip)">` +
-        `<rect x="${x}" y="${tp}" width="${w}" height="${s}" class="flag-k"/>` +
-        `<rect x="${x}" y="${f1(top + s)}" width="${w}" height="${s}" class="flag-r"/>` +
-        `<rect x="${x}" y="${f1(top + 2 * s)}" width="${w}" height="${s}" class="flag-g"/>` +
-        `<rect x="${x}" y="${tp}" width="${w}" height="${h}" fill="url(#flagSheen)"/>` +
-      `</g>` +
-      `<rect x="${ix}" y="${itp}" width="${iw}" height="${ih}" rx="0.8" class="flag-stitch"/>` +
-      `<rect x="${x}" y="${tp}" width="${w}" height="${h}" rx="1.4" class="flag-edge"/>` +
-    `</g>`
+    `<path d="${band(L0, L1)}" class="flag-k"/>` +
+    `<path d="${band(L1, L2)}" class="flag-r"/>` +
+    `<path d="${band(L2, L3)}" class="flag-g"/>` +
+    `<path d="${outline}" fill="url(#flagFold)" clip-path="url(#flagClip)"/>` +
+    `<path d="${outline}" fill="none" class="flag-edge"/>`
   );
 }
 
@@ -442,7 +446,7 @@ const nodeEls = Object.values(nodes).map((n) => {
         <animate attributeName="opacity" values="1;0" dur="1.06s" calcMode="discrete" repeatCount="indefinite"/>
       </rect>
       <g class="deflag">
-        ${germanFlag(cx, flagTop, 22)}
+        ${germanFlag(cx, flagTop, 26)}
         <animate attributeName="opacity" values="0;0;1;1" keyTimes="${kt([0, typeDone, Number((typeDone + 0.4).toFixed(2)), CYCLE])}" dur="${dur}" repeatCount="indefinite"/>
       </g>
       <animate attributeName="opacity" values="1;1;0;0" keyTimes="${kt(ot)}" dur="${dur}" repeatCount="indefinite"/>
@@ -540,11 +544,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
-    .flag-k      { fill: #1e1e1e; }
-    .flag-r      { fill: #6f2d28; }
-    .flag-g      { fill: #93783f; }
-    .flag-stitch { fill: none; stroke: #cdbf95; stroke-width: 0.5; stroke-dasharray: 1.3 1.1; stroke-opacity: 0.5; }
-    .flag-edge   { fill: none; stroke: #6b7060; stroke-width: 0.9; }
+    .flag-k     { fill: #15151a; }
+    .flag-r     { fill: #d21c1c; }
+    .flag-g     { fill: #fbc02d; }
+    .flag-edge  { fill: none; stroke: #ffffff; stroke-opacity: 0.18; stroke-width: 0.5; }
     .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
@@ -578,7 +581,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-top { fill: #c026d3; fill-opacity: 0.3; stroke: #c026d3; }
       .vox-left { fill: #c026d3; fill-opacity: 0.16; stroke: #c026d3; }
       .vox-right { fill: #c026d3; fill-opacity: 0.07; stroke: #c026d3; }
-      .flag-edge { stroke: #2f2f28; }
+      .flag-edge { stroke: #000000; stroke-opacity: 0.25; }
       .vox-label { fill: #c026d3; }
       .vox-net { color: #c026d3; }
       .raven-seat { fill-opacity: 0.06; }

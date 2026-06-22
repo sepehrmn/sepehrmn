@@ -16,8 +16,7 @@
 // dwells at a safety/provenance checkpoint, then is released); cortexel is a
 // tiny voxel NEURAL NETWORK with signal packets flowing along its synapses. The
 // whole panel is wrapped in a "provenance instrument" frame (amber corner
-// brackets + a top sweep + one packet circumnavigating the perimeter) so it
-// reads as a framed instrument like the page's other panels.
+// brackets) so it reads as a framed instrument like the page's other panels.
 // Theme-adaptive (prefers-color-scheme), reduced-motion safe. Zero deps.
 // Run: `node scripts/work-graph.mjs`.
 
@@ -344,23 +343,16 @@ const nodeEls = Object.values(nodes).map((n) => {
 });
 
 // ---------------------------------------------------------------------------
-// Frame — a "provenance instrument": four amber corner brackets + a top sweep
-// (the family signature) + ONE packet circumnavigating the perimeter on the
-// .flow grammar, all in NCP's amber (the connective protocol literally framing
-// the work it connects). Frames by ABSENCE so the graph stays the star.
+// Frame — a "provenance instrument": four amber corner brackets, all in NCP's
+// amber (the connective protocol literally framing the work it connects).
+// Frames by ABSENCE so the graph stays the star.
 // ---------------------------------------------------------------------------
-const SEAL_PATH =
-  "M 27 11 H 833 A 16 16 0 0 1 849 27 V 433 A 16 16 0 0 1 833 449 H 27 A 16 16 0 0 1 11 433 V 27 A 16 16 0 0 1 27 11 Z";
 const frame = `<g class="frame">
     <line x1="27" y1="11" x2="833" y2="11" class="wg-rule"/>
-    <rect x="27" y="9.5" width="806" height="3" rx="1.5" fill="url(#wgSweep)"/>
     <path d="M 37 11 H 27 A 16 16 0 0 0 11 27 V 37" class="wg-bracket"/>
     <path d="M 823 11 H 833 A 16 16 0 0 1 849 27 V 37" class="wg-bracket"/>
     <path d="M 849 423 V 433 A 16 16 0 0 1 833 449 H 823" class="wg-bracket"/>
     <path d="M 37 449 H 27 A 16 16 0 0 1 11 433 V 423" class="wg-bracket"/>
-    <path d="${SEAL_PATH}" class="wg-seal" stroke-dasharray="3 2522">
-      <animate attributeName="stroke-dashoffset" from="2525" to="0" dur="7s" repeatCount="indefinite"/>
-    </path>
   </g>`;
 
 // ---------------------------------------------------------------------------
@@ -391,13 +383,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="0%" stop-color="#06281d"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
-    <linearGradient id="wgSweep" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="560" y2="0">
-      <stop offset="0" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
-      <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.85" class="wg-sw"/>
-      <stop offset="1" stop-color="#fbbf24" stop-opacity="0" class="wg-sw"/>
-      <animate attributeName="x1" from="-180" to="849" dur="4.6s" repeatCount="indefinite"/>
-      <animate attributeName="x2" from="80" to="1109" dur="4.6s" repeatCount="indefinite"/>
-    </linearGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -440,7 +425,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .vox-label  { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
-    .wg-seal    { fill: none; stroke: #fbbf24; stroke-width: 1.8; stroke-linecap: round; opacity: 0.9; filter: url(#edgeGlow); }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
     @media (prefers-color-scheme: light) {
       :root { --hub-accent: #db2777; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
@@ -471,8 +455,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .vox-label { fill: #c026d3; }
       .wg-rule { stroke: #d0d7de; stroke-opacity: 0.9; }
       .wg-bracket { stroke: #b45309; }
-      .wg-seal { stroke: #b45309; }
-      .wg-sw { stop-color: #b45309; }
       .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
     }
     @media (prefers-reduced-motion: reduce) { animate { display: none; } }

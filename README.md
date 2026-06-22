@@ -131,7 +131,6 @@
 <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" height="44"/></a>&nbsp;&nbsp;&nbsp;
 <a href="https://vitest.dev" title="Vitest"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitest/vitest-original.svg" alt="Vitest" height="44"/></a>
 </p>
----
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-agentic.svg" width="820" alt="Agentic engineering"/></h3>
 

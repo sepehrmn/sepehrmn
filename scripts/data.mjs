@@ -60,9 +60,9 @@ export const PROJECTS = [
     stack: ["Rust"],
   },
   {
-    name: "cobot-atlas",
+    name: "atlas-relief",
     accent: "#60a5fa", light: "#2563eb", grad: "#0b1f3a",
-    stars: 2, repo: "sepahead/cobot-atlas",
+    stars: 2, repo: "sepahead/atlas-relief",
     desc: "3D mesh-generation pipeline — 2,023 meshes for robot simulation; dataset published on Hugging Face. Feeds simulation from pid-rs analysis.",
     stack: ["Python"],
   },

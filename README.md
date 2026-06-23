@@ -58,7 +58,7 @@
      persistent connections (glow + bi-directional flow). Theme-adaptive,
      reduced-motion safe; served from raw.githubusercontent.com. -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, atlas-relief, melkor and cobot-relief connect to prisoma; atlas-relief, melkor and cobot-relief also connect to crebain; cortexel connects to engram." loading="lazy"/>
+<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph — engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, atlas-relief, melkor and relief-atlas connect to prisoma; atlas-relief, melkor and relief-atlas also connect to crebain; cortexel connects to engram." loading="lazy"/>
 </p>
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-more.svg" width="820" alt="More repositories"/></h3>

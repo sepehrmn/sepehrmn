@@ -50,7 +50,7 @@ const nodes = {
   crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
   atlasrelief:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "atlas-relief", dataset: true },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
-  cobotrelief: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "cobot-relief", dataset: true },
+  reliefatlas: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "relief-atlas", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
 for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
@@ -62,10 +62,10 @@ const edges = [
   { a: "pidrs",       b: "prisoma" },
   { a: "atlasrelief",  b: "prisoma" },
   { a: "melkor",      b: "prisoma" },
-  { a: "cobotrelief", b: "prisoma" },
+  { a: "reliefatlas", b: "prisoma" },
   { a: "crebain",     b: "atlasrelief" },
   { a: "crebain",     b: "melkor" },
-  { a: "crebain",     b: "cobotrelief" },
+  { a: "crebain",     b: "reliefatlas" },
   { a: "cortexel",    b: "engram" },
 ];
 
@@ -477,7 +477,7 @@ const frame = `<g class="frame">
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, atlas-relief, melkor and cobot-relief connect to prisoma; atlas-relief, melkor and cobot-relief also connect to crebain; cortexel connects to engram.";
+  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, atlas-relief, melkor and relief-atlas connect to prisoma; atlas-relief, melkor and relief-atlas also connect to crebain; cortexel connects to engram.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>

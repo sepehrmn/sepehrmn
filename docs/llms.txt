@@ -16,7 +16,7 @@ neuroscience, 3D vision and scene reconstruction, robotics.
 - melkor — Gaussian-splatting & depth-analysis pipelines for 3D scene reconstruction; multi-view capture to dense geometry, CUDA-accelerated (Python/C++): https://github.com/sepahead/melkor
 - cortexel — agent-consumable scientific-visualization library for neural simulations; an agent emits a declarative VizSpec and Cortexel renders spike rasters, Brunel networks and STDP curves, with provenance enforced fail-closed (TypeScript): https://github.com/sepahead/cortexel
 - pid-rs — Partial Information Decomposition with continuous mutual-information (KSG) estimators, in safe Rust: https://github.com/sepahead/pid-rs
-- atlas-relief — 3D mesh-generation pipeline; 2,023 meshes for collaborative-robot simulation and embodied AI; dataset on Hugging Face (Python): https://github.com/sepahead/atlas-relief
+- cobot-atlas — 3D mesh-generation pipeline; 2,023 meshes for collaborative-robot simulation and embodied AI; dataset on Hugging Face (Python): https://github.com/sepahead/cobot-atlas
 - engram (private) — NEST-based neural-modeling hub (the "brain" the rest of the stack connects to)
 - prisoma (private) — a prism for embodied agents, robotics and world models; refracts Vision-Language-Action policies through several natively-implemented analysis methods, Partial Information Decomposition among them
 

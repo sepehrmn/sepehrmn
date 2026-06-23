@@ -48,7 +48,7 @@ const nodes = {
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
   crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
-  atlasrelief:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "atlas-relief", dataset: true },
+  cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas", dataset: true },
   melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
   reliefatlas: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "relief-atlas", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
@@ -60,10 +60,10 @@ const edges = [
   { a: "ncp",         b: "prisoma" },
   { a: "ncp",         b: "crebain" },
   { a: "pidrs",       b: "prisoma" },
-  { a: "atlasrelief",  b: "prisoma" },
+  { a: "cobotatlas",  b: "prisoma" },
   { a: "melkor",      b: "prisoma" },
   { a: "reliefatlas", b: "prisoma" },
-  { a: "crebain",     b: "atlasrelief" },
+  { a: "crebain",     b: "cobotatlas" },
   { a: "crebain",     b: "melkor" },
   { a: "crebain",     b: "reliefatlas" },
   { a: "cortexel",    b: "engram" },
@@ -477,7 +477,7 @@ const frame = `<g class="frame">
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, atlas-relief, melkor and relief-atlas connect to prisoma; atlas-relief, melkor and relief-atlas also connect to crebain; cortexel connects to engram.";
+  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and relief-atlas connect to prisoma; cobot-atlas, melkor and relief-atlas also connect to crebain; cortexel connects to engram.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>

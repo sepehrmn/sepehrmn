@@ -86,7 +86,6 @@ export const AGENTS = [
   { name: "Pi",          role: "lead",         note: "mono · the agent", lead: true },
   { name: "Claude Code", role: "engineer",     note: "deep refactors" },
   { name: "Codex",       role: "generalist",   note: "broad coverage" },
-  { name: "Cursor",      role: "editor",       note: "in-IDE pair" },
   { name: "Zed",         role: "editor",       note: "fast · collaborative" },
   { name: "Orca",        role: "orchestrator", note: "multi-agent" },
   { name: "Ghostty",     role: "terminal",     note: "GPU-native" },

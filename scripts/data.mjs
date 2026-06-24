@@ -83,10 +83,11 @@ export const REPOS = [
 
 // Agentic-stack roster (agents.mjs).
 export const AGENTS = [
-  { name: "herdr",    role: "multiplexer",  note: "agent herd · terminal" },
-  { name: "Ghostty",  role: "terminal",     note: "GPU-native" },
-  { name: "OMP",      role: "orchestrator", note: "oh my opencode" },
-  { name: "Zed",      role: "editor",       note: "fast · collaborative" },
+  { name: "Ghostty", role: "terminal",     note: "GPU-native" },
+  { name: "herdr",   role: "multiplexer",  note: "agent herd · terminal" },
+  { name: "Devin",   role: "autonomous",   note: "long-horizon · self-directed" },
+  { name: "OMP",     role: "orchestrator", note: "oh my opencode" },
+  { name: "Pi",      role: "lead",         note: "mono · the agent", lead: true },
 ];
 
 // Toolbox category rails (toolbox-rails.mjs). `count` is the icon count for that

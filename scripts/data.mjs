@@ -84,9 +84,9 @@ export const REPOS = [
 // Agentic-stack roster (agents.mjs).
 export const AGENTS = [
   { name: "Ghostty", role: "terminal",     note: "GPU-native" },
-  { name: "herdr",   role: "multiplexer",  note: "agent herd · terminal" },
+  { name: "herdr",   role: "multiplexer",  note: "agent herd" },
   { name: "Devin",   role: "autonomous",   note: "long-horizon · self-directed" },
-  { name: "OMP",     role: "orchestrator", note: "oh my opencode" },
+  { name: "OMP",     role: "harness",      note: "pi fork · IDE-wired" },
   { name: "Pi",      role: "lead",         note: "mono · the agent", lead: true },
 ];
 

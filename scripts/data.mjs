@@ -85,9 +85,8 @@ export const REPOS = [
 export const AGENTS = [
   { name: "Ghostty", role: "terminal",     note: "GPU-native" },
   { name: "herdr",   role: "multiplexer",  note: "agent herd" },
-  { name: "Devin",   role: "autonomous",   note: "long-horizon · self-directed" },
-  { name: "OMP",     role: "harness",      note: "pi fork · IDE-wired" },
-  { name: "Pi",      role: "lead",         note: "mono · the agent", lead: true },
+  { name: "Devin",   role: "autonomous",   note: "long-horizon · via OMP" },
+  { name: "OMP",     role: "harness",      note: "pi fork · IDE-wired", lead: true },
 ];
 
 // Toolbox category rails (toolbox-rails.mjs). `count` is the icon count for that

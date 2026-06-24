@@ -88,6 +88,7 @@ export const AGENTS = [
   { name: "Codex",       role: "generalist",   note: "broad coverage" },
   { name: "Zed",         role: "editor",       note: "fast · collaborative" },
   { name: "Orca",        role: "orchestrator", note: "multi-agent" },
+  { name: "herdr",       role: "multiplexer",  note: "agent herd · terminal" },
   { name: "Ghostty",     role: "terminal",     note: "GPU-native" },
 ];
 

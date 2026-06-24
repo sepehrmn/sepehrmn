@@ -81,15 +81,12 @@ export const REPOS = [
   { name: "silmaril-vision-studio",       area: "computer-vision studio & testbed",            full: "computer-vision studio and testbed" },
 ];
 
-// Agentic-stack roster (agents.mjs). [0] is the pinned lead.
+// Agentic-stack roster (agents.mjs).
 export const AGENTS = [
-  { name: "Pi",          role: "lead",         note: "mono · the agent", lead: true },
-  { name: "Claude Code", role: "engineer",     note: "deep refactors" },
-  { name: "Codex",       role: "generalist",   note: "broad coverage" },
-  { name: "Zed",         role: "editor",       note: "fast · collaborative" },
-  { name: "Orca",        role: "orchestrator", note: "multi-agent" },
-  { name: "herdr",       role: "multiplexer",  note: "agent herd · terminal" },
-  { name: "Ghostty",     role: "terminal",     note: "GPU-native" },
+  { name: "herdr",    role: "multiplexer",  note: "agent herd · terminal" },
+  { name: "Ghostty",  role: "terminal",     note: "GPU-native" },
+  { name: "OMP",      role: "orchestrator", note: "oh my opencode" },
+  { name: "Zed",      role: "editor",       note: "fast · collaborative" },
 ];
 
 // Toolbox category rails (toolbox-rails.mjs). `count` is the icon count for that

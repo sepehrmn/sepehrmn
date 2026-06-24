@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/connect.mjs
-// Generates assets/connect.svg — the "Elsewhere" sign-off: an OPEN CHANNEL panel
+// Generates assets/connect.svg, the "Elsewhere" sign-off: an OPEN CHANNEL panel
 // that closes the terminal session. The email is rendered terminal-style with a
 // blinking cursor, but it is DISPLAY-ONLY (a real clickable mailto lives in the
 // markdown just beneath, since links inside an <img>-SVG don't click on GitHub).
@@ -38,13 +38,13 @@ const cursorX = X + charLen(EMAIL_PLAIN, 16, 0) + 6;
 // Comms rail with a single travelling packet (flow dash grammar).
 const railY = 116;
 
-// Top bracket sweep — pink, travelling LEFT→RIGHT (matching the hero's opening
+// Top bracket sweep: pink, travelling LEFT→RIGHT (matching the hero's opening
 // cyan sweep and every other panel; the bright band enters from the left edge).
 const sweepFwd = sweepDefs("sweepFwd", {
   x1from: -120, x1to: RIGHT, x2from: 0, x2to: RIGHT + 120, color: pinkD, dur: "3.6s",
 });
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Open channel — reach me at sepmhn@gmail.com; always open to interesting problems.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Open channel: reach me at sepmhn@gmail.com; always open to interesting problems.">
   <title>Open channel</title>
   <defs>
     ${sweepFwd}
@@ -84,7 +84,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V112" class="spine"/>
 
-  <text x="${X}" y="34" class="cap">// OPEN CHANNEL &#8212; REACH ME</text>
+  <text x="${X}" y="34" class="cap">// OPEN CHANNEL // REACH ME</text>
 
   <text x="${X}" y="76">
     <tspan class="prompt">${escapeXML(PROMPT)}</tspan><tspan class="cmd">mail </tspan><tspan class="addr">sepmhn</tspan><tspan class="at">@</tspan><tspan class="addr">gmail</tspan><tspan class="at">.</tspan><tspan class="addr">com</tspan>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian — agentic engineering, continual learning, knowledge graphs and RAG; AI/ML, neural networks, neurorobotics and information theory; defense tech, threat detection, 3D vision and scene reconstruction. Berlin.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 176" width="860" height="176" role="img" aria-label="Sepehr Mahmoudian: agentic engineering, continual learning, knowledge graphs and RAG; AI/ML, neural networks, neurorobotics and information theory; defense tech, threat detection, 3D vision and scene reconstruction. Berlin.">
   <style>
     /* Theme colors mirror assets/weekdays.svg so the page reads as one system. */
     .wordmark { font: 700 40px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; letter-spacing: -1px; }
@@ -7,8 +7,8 @@
     .underline-base { stroke: #30363d; stroke-width: 2; fill: none; }
 
     /* All three rotating lines share one 15s/3-slot clock and the SAME
-       transition — a terminal "decrypt" type-on reveal (left-to-right) with a
-       clean fade-out — each windowed to its own slot. Every line carries its own
+       transition, a terminal "decrypt" type-on reveal (left-to-right) with a
+       clean fade-out, each windowed to its own slot. Every line carries its own
        blinking block cursor (same colour as the text) at its end. Inline opacity
        attrs are the no-anim fallback. */
     .seq1 { animation: seq1 15s linear infinite; }
@@ -88,7 +88,7 @@
     </linearGradient>
   </defs>
 
-  <!-- Rotating role line — three pillars sharing one 15s/3-slot clock. All use
+  <!-- Rotating role line: three pillars sharing one 15s/3-slot clock. All use
        the SAME transition: a decrypt-style type-on reveal with a clean fade-out
        (see the style block), each with its own blinking block cursor in the text
        colour. Inline opacity = the no-animation fallback (first line visible). -->

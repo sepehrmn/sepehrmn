@@ -5,14 +5,14 @@
 //
 // What this renders: a DONUT chart of each weekday's % share of contributions
 // over the last 500 days (~16 months). A week is a cycle, so a ring reads more
-// naturally than bars — and because the slices are shares of the whole, the
+// naturally than bars, and because the slices are shares of the whole, the
 // weekend-heavy / midweek-dip pattern is obvious at a glance. The center
 // holds the 500-day total; the legend (right) gives the exact % per day; the
 // peak slice (the biggest weekday) glows and pulses. GitHub already renders a
-// native 365-day heatmap on github.com/<user>, so we don't duplicate it —
+// native 365-day heatmap on github.com/<user>, so we don't duplicate it;
 // this surfaces the weekly rhythm that grid cannot.
 //
-// DATA SOURCE — server-rendered HTML fragment, NOT the API:
+// DATA SOURCE: server-rendered HTML fragment, NOT the API:
 //   https://github.com/users/{login}/contributions
 // This is a *different host* (github.com, not api.github.com) that returns a
 // server-rendered HTML fragment of the user's last ~365 contribution days.
@@ -20,7 +20,7 @@
 // GitHub Actions runners share IP ranges with massive unauthenticated
 // traffic and so the 60/hr unauthenticated API limit is permanently
 // exhausted there (the GraphQL user(login:) query 403s on every CI run).
-// The default GITHUB_TOKEN can't rescue us either — it's repo-scoped and
+// The default GITHUB_TOKEN can't rescue us either; it's repo-scoped and
 // can't satisfy the user-scoped contributionsCollection query.
 //
 // The fragment encodes each day as:
@@ -47,7 +47,7 @@ const USERNAME = process.env.GH_USERNAME || "sepahead";
 // on my profile" enabled), so the unauthenticated totals are already complete.
 // We deliberately avoid a PAT: a fine-grained metadata-only token under-counts
 // private contributions, and a classic repo-scoped token would grant read
-// access to private repositories — an exposure we don't want for a public
+// access to private repositories, an exposure we don't want for a public
 // profile chart. The tradeoff: no public-vs-private split (that figure needs a
 // repo-scoped token's restrictedContributionsCount), only the correct total.
 
@@ -68,15 +68,15 @@ const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 // still glows. Used for both the donut slices and the legend swatches, and kept
 // readable on light and dark backgrounds.
 const DAY_COLORS = [
-  "#22d3ee", // Mon — cyan
-  "#34d399", // Tue — emerald
-  "#a78bfa", // Wed — violet
-  "#60a5fa", // Thu — blue
-  "#fbbf24", // Fri — amber
-  "#fb7185", // Sat — rose
-  "#f472b6", // Sun — pink
+  "#22d3ee", // Mon: cyan
+  "#34d399", // Tue: emerald
+  "#a78bfa", // Wed: violet
+  "#60a5fa", // Thu: blue
+  "#fbbf24", // Fri: amber
+  "#fb7185", // Sat: rose
+  "#f472b6", // Sun: pink
 ];
-const WINDOW_DAYS = 500; // ~16 months — long enough to smooth out one-off weeks.
+const WINDOW_DAYS = 500; // ~16 months, long enough to smooth out one-off weeks.
 
 // Reference timezone for "today". GitHub Actions runs in UTC with no notion of
 // the viewer's local timezone, so rather than UTC we anchor "today" to the
@@ -101,7 +101,7 @@ const toMonFirst = (jsDow) => (Number(jsDow) + 6) % 7;
 
 // ---------------------------------------------------------------------------
 // 1. Fetch the server-rendered contribution fragment(s) and parse per-day counts.
-//    Returns [{date, count, weekday}], in DOCUMENT order (NOT chronological —
+//    Returns [{date, count, weekday}], in DOCUMENT order (NOT chronological;
 //    see note below). count is 0 for empty days; weekday is Mon-first 0..6.
 //
 //    The default fragment only covers the last ~365 days, but WINDOW_DAYS may
@@ -124,8 +124,8 @@ const parseTipCount = (tipText) => {
   return m ? Number(m[1]) : 0; // "No contributions …" → 0
 };
 
-// IMPORTANT: the fragment lists days in ROW-MAJOR order — all Sundays first
-// (one per week, across columns), then all Mondays, etc. — NOT chronologically.
+// IMPORTANT: the fragment lists days in ROW-MAJOR order: all Sundays first
+// (one per week, across columns), then all Mondays, etc., NOT chronologically.
 // We must therefore NOT rely on entry order for recency; instead each cell
 // carries its own data-date and we filter by date in aggregate(). Pairing
 // dates[i] ↔ tips[i] IS valid because the two appear interleaved 1:1 in
@@ -148,7 +148,7 @@ async function parseFragment(html) {
   const useTips = tipBlocks.length === dates.length;
   if (!useTips) {
     console.warn(
-      `[weekdays] tool-tip count (${tipBlocks.length}) != date count (${dates.length}) — ` +
+      `[weekdays] tool-tip count (${tipBlocks.length}) != date count (${dates.length}); ` +
         `markup may have changed; falling back to data-level buckets (0..4 only, less precise).`
     );
   }
@@ -172,7 +172,7 @@ async function fetchFragmentHtml(login, year) {
   const res = await fetch(FRAGMENT_URL(login, year), {
     headers: {
       // A real browser UA: github.com sometimes varies markup for bots, and a
-      // UA also avoids any bot-throttle heuristics. No auth needed — this is a
+      // UA also avoids any bot-throttle heuristics. No auth needed; this is a
       // public, server-rendered page.
       "User-Agent":
         "Mozilla/5.0 (compatible; sepahead-profile-weekdays-chart/1.0)",
@@ -229,7 +229,7 @@ function aggregate(daily) {
   // DEDUPE BY DATE FIRST. The current-year (rolling 365-day) fragment overlaps
   // the prior-year ?from=YYYY-01-01 fragment for any shared dates, so the same
   // day can appear in `daily` more than once. Each appearance carries the SAME
-  // count (same source), so we OVERWRITE (not sum) into a date→cell map — that
+  // count (same source), so we OVERWRITE (not sum) into a date→cell map; that
   // is what fixes the prior double-count (e.g. 701 cells summed for a 500-day
   // window). All downstream math reads this deduped map.
   const cellByDate = new Map();
@@ -304,7 +304,7 @@ function aggregate(daily) {
 // ---------------------------------------------------------------------------
 function placeholder(errorMessage) {
   const fallback =
-    "Live contribution data could not be fetched — the github.com contributions fragment failed. Retry on the next daily cron.";
+    "Live contribution data could not be fetched: the github.com contributions fragment failed. Retry on the next daily cron.";
   const warning = errorMessage
     ? `Live contribution data could not be fetched: ${errorMessage}`
     : fallback;
@@ -320,7 +320,7 @@ function placeholder(errorMessage) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Render SVG — a percentage DONUT chart.
+// 4. Render SVG: a percentage DONUT chart.
 //    Layout: title/subtitle top; donut centered-left; legend right; caption.
 //    Each weekday is an annular slice ∝ its % share of the 500-day total.
 // ---------------------------------------------------------------------------
@@ -372,7 +372,7 @@ function renderSVG(model) {
   const { perDay, peakTotal, grandTotal, streak, warning, windowDays } = model;
 
   // Per-slice percentages. If grandTotal is 0 (no data) the placeholder ring
-  // is drawn instead — handled below.
+  // is drawn instead; handled below.
   const slices = perDay.map((day, i) => {
     const pct = grandTotal > 0 ? day.total / grandTotal : 0;
     return {
@@ -441,7 +441,7 @@ function renderSVG(model) {
     .join("\n    ");
 
   // Center headline: total contributions over the window + the live streak.
-  const centerNum = grandTotal > 0 ? escapeXML(String(grandTotal)) : "—";
+  const centerNum = grandTotal > 0 ? escapeXML(String(grandTotal)) : "0";
   const centerSub = grandTotal > 0 ? `${windowDays} days` : "no data";
   // Streak line: the consecutive-day run ending today. Highlighted in cyan as
   // a focal "live" stat; hidden when there's no streak (no data).
@@ -474,7 +474,7 @@ function renderSVG(model) {
 
   const title = `<text x="40" y="36" class="title">Where the week goes</text>`;
   // The donut already conveys "share of total", so the grey subtitle just states
-  // the window total (which already includes private contributions — see the
+  // the window total (which already includes private contributions; see the
   // header note). No public/private split: that figure needs a repo-scoped token.
   const fmtN = (n) => Number(n).toLocaleString("en-US");
   const subtitleText =
@@ -493,8 +493,8 @@ function renderSVG(model) {
   const peakLabel = peakTotal > 0 ? slices.find((s) => s.isPeak)?.label : null;
   const aria =
     grandTotal > 0
-      ? `Weekday contribution share over the last ${windowDays} days — ${grandTotal} total, peak ${peakLabel} at ${(slices.find((s) => s.isPeak)?.pct * 100).toFixed(1)}%`
-      : `Weekday contribution share over the last ${windowDays} days — no data`;
+      ? `Weekday contribution share over the last ${windowDays} days: ${grandTotal} total, peak ${peakLabel} at ${(slices.find((s) => s.isPeak)?.pct * 100).toFixed(1)}%`
+      : `Weekday contribution share over the last ${windowDays} days: no data`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>

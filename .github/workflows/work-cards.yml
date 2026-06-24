@@ -52,14 +52,14 @@ jobs:
           # in this workflow's push-paths) stay in lockstep with the cards on any
           # data.mjs edit. Deterministic + no network: on a normal star-refresh
           # run it reproduces byte-identical SVGs, so the commit guard below
-          # skips them — no spurious commits, no extra Actions cost.
+          # skips them; no spurious commits, no extra Actions cost.
           node scripts/section-titles.mjs
 
       - name: Commit updated SVGs
         run: |
           git add assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg
           if git diff --cached --quiet HEAD -- assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg; then
-            echo "No changes to the Selected-work SVGs / banners — skipping commit."
+            echo "No changes to the Selected-work SVGs / banners; skipping commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"

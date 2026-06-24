@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // scripts/work-cards.mjs
-// Generates assets/work-cards.svg — the "Selected work" project cards panel: a
+// Generates assets/work-cards.svg, the "Selected work" project cards panel: a
 // 2×3 grid of per-project cards, each carrying its own IDENTITY (name, status
 // badge, one-liner, stack chips) in the same visual language as the rest of the
 // profile (rounded panels, per-project accent, ui-monospace, soft glow).
-// Relationships are intentionally NOT shown here — the animated work-graph.svg
+// Relationships are intentionally NOT shown here; the animated work-graph.svg
 // directly below the cards already does that.
 //
 // Self-hosted, zero-dep, theme-adaptive (prefers-color-scheme), reduced-motion
@@ -38,7 +38,7 @@ const projects = PROJECTS;
 async function hydrateStars(list) {
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || "";
   if (!token) {
-    console.warn("[work-cards] no token — using baked-in star counts.");
+    console.warn("[work-cards] no token; using baked-in star counts.");
     return;
   }
   for (const p of list) {
@@ -129,7 +129,7 @@ function richDesc(line) {
 // Lock glyph (matches scripts/work-graph.mjs). Top-left of the 12×15 lock body
 // sits at (x, y); `scale` shrinks it. Colour comes from the `.cN.glyph-stroke`
 // / `.cN.glyph-fill` CSS rules (theme-adaptive, no CSS-variable dependency on a
-// presentation attribute — works in every SVG renderer).
+// presentation attribute, works in every SVG renderer).
 function lock(x, y, scale, cls) {
   return `<g transform="translate(${x} ${y}) scale(${scale})">` +
     `<path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="glyph-stroke ${cls}" stroke-width="1.6"/>` +
@@ -185,7 +185,7 @@ const cardEls = projects.map((p, i) => {
   const titleMaxPx = CARD_W - PADL - PADR - 64;
   const title = `<text x="${x + PADL}" y="${y + TITLE_Y}" class="title ${cls}" textLength="${Math.min(p.name.length * 13, titleMaxPx)}" lengthAdjust="spacingAndGlyphs">${escapeXML(p.name)}</text>`;
 
-  // Accent rule under the title — short, like the hero underline.
+  // Accent rule under the title: short, like the hero underline.
   const rule = `<rect x="${x + PADL}" y="${y + TITLE_Y + 8}" width="34" height="2.5" rx="1.25" class="rule ${cls}"/>`;
 
   // Description (2–3 wrapped lines), muted.
@@ -251,7 +251,7 @@ const accentRulesLight = projects
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Selected work — eight project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. melkor (1 star): Gaussian-splatting and depth-analysis pipelines for 3D reconstruction, Python, C++, CUDA. cortexel: agent-consumable scientific-visualization library for neural simulations — VizSpec to spike rasters and STDP curves with fail-closed provenance, TypeScript, React, Three.js. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
+  "Selected work: eight project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models: Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. melkor (1 star): Gaussian-splatting and depth-analysis pipelines for 3D reconstruction, Python, C++, CUDA. cortexel: agent-consumable scientific-visualization library for neural simulations: VizSpec to spike rasters and STDP curves with fail-closed provenance, TypeScript, React, Three.js. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
@@ -290,7 +290,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </style>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
-  <text x="${M + 14}" y="${CAP_Y}" class="cap">SELECTED&#160;WORK&#160;&#8212;&#160;EIGHT&#160;PROJECTS</text>
+  <text x="${M + 14}" y="${CAP_Y}" class="cap">SELECTED&#160;WORK&#160;//&#160;EIGHT&#160;PROJECTS</text>
 
 ${cardEls.join("\n")}
 </svg>

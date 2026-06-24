@@ -1,5 +1,5 @@
 
-# local working clone of sepahead/melkor — not part of the profile repo
+# local working clone of sepahead/melkor, not part of the profile repo
 /melkor/
 
 # Node tooling cruft (this repo is zero-dependency, hand-built SVGs). A stray

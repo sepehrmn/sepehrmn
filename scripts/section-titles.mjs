@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // scripts/section-titles.mjs
-// Generates assets/title-<slug>.svg — one terminal-prompt "command line" banner
+// Generates assets/title-<slug>.svg, one terminal-prompt "command line" banner
 // per README section, so the whole profile reads as a single terminal session
 // (the hero is line 00; each section is a numbered command 01..04). Each banner:
 // an accent SPINE, a two-digit INDEX, a "~/sep ❯" prompt, the section LABEL
-// (neutral ink, never the accent — so it passes contrast on both grounds), a
+// (neutral ink, never the accent, so it passes contrast on both grounds), a
 // right-aligned static "# …" comment, an animated swept hairline rule, and a
 // blinking block cursor (staggered per section so they never strobe in unison).
 // Theme-adaptive (prefers-color-scheme), reduced-motion safe, zero deps.
@@ -106,8 +106,8 @@ function render(s) {
 
 // ---------------------------------------------------------------------------
 // "More repositories" heading. Same terminal grammar as the numbered section
-// banners and at the SAME prominence — full-weight accent spine, bright-ink
-// label, full size — so it reads as a real heading, NOT a dim subtitle. The one
+// banners and at the SAME prominence: full-weight accent spine, bright-ink
+// label, full size, so it reads as a real heading, NOT a dim subtitle. The one
 // difference: no two-digit index (it isn't one of the numbered top-level
 // commands), so the prompt sits where the index would be.
 // ---------------------------------------------------------------------------
@@ -119,7 +119,7 @@ function renderHeading({ label, comment, accent, begin = "0.6s" }) {
 
   const labelW = charLen(label, 14, 4);
   const PROMPT_X = 22; // where the index sits on the numbered banners
-  const HLABEL_X = LABEL_X; // 132 — aligned with the section labels
+  const HLABEL_X = LABEL_X; // 132, aligned with the section labels
   const RULE_X2 = 856; // reaches the right edge, like the numbered section banners
   const cursorX = HLABEL_X + labelW + 10;
 

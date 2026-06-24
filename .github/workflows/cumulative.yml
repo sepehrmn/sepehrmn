@@ -3,9 +3,9 @@ name: Generate cumulative activity chart
 on:
   schedule:
     # HOURLY at :20 past. GitHub's scheduler delays and DROPS scheduled runs
-    # under load — observed here: the old every-4h cron fired 20–90 min late and
+    # under load, observed here: the old every-4h cron fired 20 to 90 min late and
     # skipped ~half its slots, leaving the in-progress year's total visibly stale
-    # for 4–8 h. Running hourly means a dropped slot is recovered within ~an hour.
+    # for 4 to 8 h. Running hourly means a dropped slot is recovered within ~an hour.
     # :20 stays out of the top-of-hour high-load window and offset from the
     # weekdays (:00) and work-cards (:40) charts on the shared contributions
     # fragment. Free: Actions minutes are unlimited on public repos. The
@@ -13,7 +13,7 @@ on:
     - cron: "20 * * * *"
   workflow_dispatch:
   # Also regenerate on EVERY push to main, so the chart refreshes the moment any
-  # work lands rather than waiting for the next scheduled slot — this, not the
+  # work lands rather than waiting for the next scheduled slot; this, not the
   # cron, is what keeps the number feeling live during active days. The workflow's
   # own regen commit is pushed with GITHUB_TOKEN, which by design does NOT
   # re-trigger workflows, so this cannot loop; an unchanged chart is skipped by
@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # We commit SVG back to main; fetch full history so git can compute
-          # the diff at the end (cheap — repo is single-purpose).
+          # the diff at the end (cheap, repo is single-purpose).
           fetch-depth: 0
 
       - name: Setup Node
@@ -51,11 +51,11 @@ jobs:
         env:
           GH_USERNAME: sepahead
         # No token: the script scrapes github.com/users/{login}/contributions
-        # (a different host from api.github.com, so not subject to the Actions-
+        # (a different host from api.github.com, so not subject to the Actions
         # runner API rate limit). The public per-year <h2> total already
         # INCLUDES private contributions because the profile has "include
         # private contributions" enabled, so the numbers are complete without a
-        # PAT. Do not add a token here — see the header note in the script.
+        # PAT. Do not add a token here; see the header note in the script.
         run: node scripts/cumulative.mjs
 
       - name: Commit updated cumulative chart SVG
@@ -65,7 +65,7 @@ jobs:
           # SVG and never push it).
           git add assets/cumulative.svg
           if git diff --cached --quiet HEAD -- assets/cumulative.svg; then
-            echo "No changes to cumulative.svg — skipping commit."
+            echo "No changes to cumulative.svg; skipping commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -76,7 +76,7 @@ jobs:
           # scripts triggers both workflows), and a maintainer may push too. A
           # plain `git push` then fails non-fast-forward. The two chart workflows
           # touch DIFFERENT files, so rebasing onto the concurrent commit is
-          # always conflict-free — pull --rebase and retry.
+          # always conflict-free: pull --rebase and retry.
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
               echo "pushed on attempt $attempt"; exit 0

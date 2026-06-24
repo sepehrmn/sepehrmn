@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/repo-tree.mjs
-// Generates assets/repo-tree.svg — a `tree ~/sep` directory listing of the public
+// Generates assets/repo-tree.svg, a `tree ~/sep` directory listing of the public
 // "More repositories" for the Selected-work sub-section. Twin of connect.svg /
 // agents.svg grammar (rounded panel, accent spine, top sweep, blinking cursor,
 // comms-rail flow) but VIOLET-accented to inherit the parent "02 Selected work"
@@ -26,7 +26,7 @@ const OUT = resolve(__dirname, "..", "assets", "repo-tree.svg");
 async function hydrateBadges(list) {
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || "";
   if (!token) {
-    console.warn("[repo-tree] no token — using baked-in badge counts.");
+    console.warn("[repo-tree] no token; using baked-in badge counts.");
     return;
   }
   for (const r of list) {
@@ -92,7 +92,7 @@ const rows = REPOS.map((r, i) => {
 }).join("\n");
 
 const aria =
-  "More repositories — a directory tree of " + n + " public repos under sepahead. " +
+  "More repositories: a directory tree of " + n + " public repos under sepahead. " +
   REPOS.map((r) => {
     const tag = r.metric === "stars" ? ` (${r.count} stars)` : r.metric === "forks" ? ` (forked by ${r.count})` : "";
     return `${r.name}${tag}: ${r.full}.`;

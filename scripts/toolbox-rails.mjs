@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // scripts/toolbox-rails.mjs
-// Generates assets/rail-<slug>.svg — a slim amber "category rail" for each Toolbox
+// Generates assets/rail-<slug>.svg, a slim amber "category rail" for each Toolbox
 // group (AI/ML, Backend, Cloud, Frontend): an accent spine, the category LABEL
 // (neutral ink), a right-anchored "# N tools" count, and a swept hairline. The
-// content is flush-LEFT and spans the full width — edge-to-edge with the section
+// content is flush-LEFT and spans the full width, edge-to-edge with the section
 // title, no left or right margin; the README left-aligns the whole toolbox. No
 // prompt / index / cursor. Theme-adaptive, reduced-motion safe, zero deps.
 // Run: `node scripts/toolbox-rails.mjs`.
@@ -20,8 +20,8 @@ const ASSETS = resolve(__dirname, "..", "assets");
 const W = 860;
 const H = 30;
 const BASE = 20;
-const LABEL_X = 24;  // flush left — no left margin
-const RIGHT = 856;   // content reaches the right edge — no right gap, edge-to-edge with the title
+const LABEL_X = 24;  // flush left, no left margin
+const RIGHT = 856;   // content reaches the right edge, no right gap, edge-to-edge with the title
 
 const [amberD, amberL] = PALETTE.accents.toolbox;
 const [inkD, inkL] = PALETTE.ink;

@@ -1,7 +1,7 @@
 // scripts/tokens.mjs
 // Shared design tokens + tiny SVG helpers for the "session" assets
 // (section-titles.mjs, connect.mjs). ADDITIVE: imported only by those two new
-// generators — the existing daily-chart generators are intentionally untouched.
+// generators, the existing daily-chart generators are intentionally untouched.
 // Mirrors values already used across hero.svg / work-cards.svg / work-graph.svg
 // so every bespoke asset reads as one system. Zero dependencies.
 

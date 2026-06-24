@@ -2,7 +2,7 @@ name: Generate weekday activity chart
 
 on:
   schedule:
-    # Every 4 hours (00:00, 04:00, 08:00, … UTC) so the live numbers stay fresh
+    # Every 4 hours (00:00, 04:00, 08:00, etc UTC) so the live numbers stay fresh
     # through the day. Free: Actions minutes are unlimited on public repos.
     # GitHub cron is UTC-only and best-effort (runs can be delayed under load);
     # the chart's "today" is anchored to Europe/Berlin in the script (CHART_TZ),
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # We commit SVG back to main; fetch full history so git can compute
-          # the diff at the end (cheap — repo is single-purpose).
+          # the diff at the end (cheap, repo is single-purpose).
           fetch-depth: 0
 
       - name: Setup Node
@@ -50,7 +50,7 @@ jobs:
         env:
           GH_USERNAME: sepahead
         # No token by design. The script scrapes the server-rendered fragment at
-        # github.com/users/{login}/contributions — NOT api.github.com — so it
+        # github.com/users/{login}/contributions, NOT api.github.com, so it
         # needs NO token and isn't subject to the 60/hr unauthenticated
         # api.github.com limit that is permanently exhausted on shared Actions
         # runner IPs. The public daily counts already INCLUDE private
@@ -61,7 +61,7 @@ jobs:
       - name: Commit updated weekday chart SVG
         run: |
           # Stage FIRST, then diff the INDEX against HEAD. A bare
-          # `git diff <path>` only sees modifications to TRACKED files — it
+          # `git diff <path>` only sees modifications to TRACKED files, it
           # ignores untracked files, so a freshly-generated-but-never-committed
           # assets/weekdays.svg would always read "no changes" and never get
           # pushed. (That was the original bug: the file was never tracked, so
@@ -70,7 +70,7 @@ jobs:
           # modified files.
           git add assets/weekdays.svg
           if git diff --cached --quiet HEAD -- assets/weekdays.svg; then
-            echo "No changes to weekdays.svg — skipping commit."
+            echo "No changes to weekdays.svg; skipping commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -81,7 +81,7 @@ jobs:
           # scripts triggers both workflows), and a maintainer may push too. A
           # plain `git push` then fails non-fast-forward. The two chart workflows
           # touch DIFFERENT files, so rebasing onto the concurrent commit is
-          # always conflict-free — pull --rebase and retry.
+          # always conflict-free: pull --rebase and retry.
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
               echo "pushed on attempt $attempt"; exit 0

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 312" width="860" height="312" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 312" width="860" height="312" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs><linearGradient id="sweepFwd" gradientUnits="userSpaceOnUse" x1="-120" y1="0" x2="0" y2="0">
       <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
@@ -52,7 +52,7 @@
   <rect x="40" y="0.5" width="780" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V292" class="spine"/>
 
-  <text x="40" y="34" class="cap">// AGENTIC STACK &#8212; MANIFEST</text>
+  <text x="40" y="34" class="cap">// AGENTIC STACK // MANIFEST</text>
   <text x="40" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">stack </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
   <rect x="222" y="47" width="9" height="15" rx="1" class="cursor"/>
 

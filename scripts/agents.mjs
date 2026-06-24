@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/agents.mjs
-// Generates assets/agents.svg — the "AGENTS // MANIFEST" panel for the Agentic
+// Generates assets/agents.svg, the "AGENTS // MANIFEST" panel for the Agentic
 // Engineering section: a twin of connect.svg / work-cards.svg (rounded panel,
 // emerald spine, top sweep, blinking cursor, comms-rail flow) styled as a live
 // roster of the AI coding agents in the loop. Each row: a pulsing status pip,
@@ -63,7 +63,7 @@ const sweepFwd = sweepDefs("sweepFwd", {
 
 const railY = H - 22;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest — the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Pi (lead, mono the agent); Claude Code (engineer); Codex (generalist); Zed (editor); Orca (orchestrator, multi-agent); Ghostty (terminal). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>
@@ -111,7 +111,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <rect x="${X}" y="0.5" width="${RIGHT - X}" height="3" rx="1.5" fill="url(#sweepFwd)"/>
   <path d="M6 20 V${H - 20}" class="spine"/>
 
-  <text x="${X}" y="34" class="cap">// AGENTIC STACK &#8212; MANIFEST</text>
+  <text x="${X}" y="34" class="cap">// AGENTIC STACK // MANIFEST</text>
   <text x="${X}" y="60"><tspan class="prompt">&#10095; </tspan><tspan class="cmd">stack </tspan><tspan class="flag">--status </tspan><tspan class="live">live</tspan></text>
   <rect x="${cmdCursorX.toFixed(0)}" y="47" width="9" height="15" rx="1" class="cursor"/>
 

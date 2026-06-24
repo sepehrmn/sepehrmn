@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/cumulative.mjs
-// Generates assets/cumulative.svg — an annual contribution bar chart
+// Generates assets/cumulative.svg, an annual contribution bar chart
 // (2020 → current year) with a headline cumulative total.
 // Zero npm dependencies; uses the global `fetch` (Node 20+).
 //
@@ -10,7 +10,7 @@
 // a glowing peak bar, a left-to-right draw-in on load, and a large headline
 // cumulative total.
 //
-// DATA SOURCE — server-rendered HTML fragment, NOT the API (same rationale as
+// DATA SOURCE: server-rendered HTML fragment, NOT the API (same rationale as
 // weekdays.mjs). The endpoint github.com/users/{login}/contributions accepts a
 // ?from=YYYY-01-01 query param that returns that FULL calendar year, and embeds
 // the per-year total in an <h2 id="js-contribution-activity-description">:
@@ -33,7 +33,7 @@ const OUT_PATH = resolve(__dirname, "..", "assets", "cumulative.svg");
 const USERNAME = process.env.GH_USERNAME || "sepahead";
 // NO TOKEN by design. The public per-year <h2> total already INCLUDES this
 // user's private contributions (the profile has "Include private contributions
-// on my profile" enabled — verified: the unauthenticated h2 equals the
+// on my profile" enabled; verified: the unauthenticated h2 equals the
 // authenticated contributionsCollection total). So the unauthenticated numbers
 // are already complete, and we avoid a PAT that could expose private repos.
 // First year of activity on GitHub for this user (account created 2014). The
@@ -78,7 +78,7 @@ const tzDateParts = () =>
       .filter((p) => p.type !== "literal")
       .map((p) => [p.type, Number(p.value)])
   );
-// Current year in the reference timezone — the in-progress year is its own bar.
+// Current year in the reference timezone; the in-progress year is its own bar.
 const currentYear = () => tzDateParts().year;
 
 // ---------------------------------------------------------------------------
@@ -181,7 +181,7 @@ function buildModel(years) {
     });
   }
 
-  // Average year-over-year PERCENT growth (CAGR — geometric mean of the YoY
+  // Average year-over-year PERCENT growth (CAGR, geometric mean of the YoY
   // ratios, robust to wild single-year swings). Measured over the post-stack
   // era (years >= STACK_THROUGH_YEAR), complete years only: the sparse pre-2020
   // years would explode a percentage, and the in-progress year would understate
@@ -242,7 +242,7 @@ const PLOT_LEFT = PAD_LEFT;
 const PLOT_RIGHT = W - PAD_RIGHT;
 const PLOT_WIDTH = PLOT_RIGHT - PLOT_LEFT;
 
-// Distinct colours for the stacked history bar — one per early year (oldest
+// Distinct colours for the stacked history bar, one per early year (oldest
 // first, drawn from the baseline up). Harmonious with the cyan theme but
 // individually distinguishable; cycles if there are more years than colours.
 const STACK_COLORS = [
@@ -273,7 +273,7 @@ function renderSVG(model) {
   const slot = PLOT_WIDTH / n;
   const barW = Math.min(slot * 0.62, 64);
 
-  // Faint horizontal gridlines only — NO numeric y-axis. The bars and the
+  // Faint horizontal gridlines only; NO numeric y-axis. The bars and the
   // cumulative curve live on different scales, so a single labelled axis would
   // be correct for one and wrong for the other. The lines stay purely as light
   // visual guides; values are read from each bar's own label and tooltips.
@@ -491,7 +491,7 @@ function renderSVG(model) {
     .cum-line { fill: none; stroke: url(#cumLineGrad); stroke-width: 2.5; stroke-opacity: 0.3; stroke-linecap: round; stroke-linejoin: round; filter: url(#lineGlow); }
     .cum-dot { fill: #a5f3fc; fill-opacity: 0.7; stroke: #22d3ee; stroke-width: 1.5; filter: url(#lineGlow); }
     /* Legibility halo. An image-embedded SVG resolves prefers-color-scheme from the
-       OS/browser, NOT from GitHub's theme, so the two can disagree — e.g. GitHub in
+       OS/browser, NOT from GitHub's theme, so the two can disagree, e.g. GitHub in
        dark mode while the OS reports "light" (common on mobile). That would paint the
        light-mode near-black labels as black-on-dark and make them unreadable. A
        paint-order stroke in the page-background colour is invisible in the matching
@@ -557,13 +557,13 @@ async function main() {
     );
     // Silent-zero guard: this profile always has thousands of contributions, so
     // a parsed total of 0 means GitHub changed BOTH the <h2> total AND the
-    // <tool-tip> fallback markup — a 200 OK with unrecognised HTML, which
+    // <tool-tip> fallback markup, a 200 OK with unrecognised HTML, which
     // fetchYearTotal() does NOT throw on. Fail here so the catch below renders
     // the visible placeholder banner instead of silently committing a blank
     // chart to the live profile.
     if (!(model.cumulative > 0)) {
       throw new Error(
-        `parsed 0 total contributions for ${START_YEAR}–${end} — likely a ` +
+        `parsed 0 total contributions for ${START_YEAR}–${end}, likely a ` +
           `contributions-page markup change; refusing to emit a blank chart`
       );
     }

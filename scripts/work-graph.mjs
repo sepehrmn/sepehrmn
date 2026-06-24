@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/work-graph.mjs
-// Generates assets/work-graph.svg — the "Selected work" project relationship
+// Generates assets/work-graph.svg, the "Selected work" project relationship
 // graph, from a declarative {nodes, edges} spec so the geometry is correct and
 // easy to edit:
 //   • edges are trimmed to each node's true boundary (rect, circle, or polygon)
@@ -8,7 +8,7 @@
 //   • each edge is a gentle quadratic Bézier that bows AWAY from the graph
 //     centroid (keeps the layout open and separates the bridge crossing);
 //   • each edge is stroked with a gradient from the source node's colour to the
-//     target node's colour — no arrowheads, just connections.
+//     target node's colour; no arrowheads, just connections.
 // NCP's connections are PERSISTENT, live links: a glowing spine plus TWO
 // near-equal counter-flowing packet lanes (full-duplex, the edge echo of NCP's
 // dual-lane gate glyph).
@@ -193,7 +193,7 @@ edges.forEach((e, i) => {
         `<animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" begin="${(i * 0.3).toFixed(2)}s" repeatCount="indefinite"/></path>`
     );
     // …plus TWO near-equal counter-flowing packet lanes, offset across the chord
-    // normal (nx,ny) so they read full-duplex at any edge angle — the edge echo
+    // normal (nx,ny) so they read full-duplex at any edge angle, the edge echo
     // of NCP's dual-lane gate. 21 = two dash periods (jump-free); matched dur.
     const off = 2.4;
     const dF = `M ${f1(p0.x + off * nx)} ${f1(p0.y + off * ny)} Q ${f1(c.x + off * nx)} ${f1(c.y + off * ny)} ${f1(p1.x + off * nx)} ${f1(p1.y + off * ny)}`;
@@ -218,7 +218,7 @@ function lock(cx, cy, scale, color) {
     `<rect x="0" y="6" width="12" height="9" rx="1.6" fill="${color}"/></g>`;
 }
 
-// A small stacked-isometric-plates glyph for a chip — reads as "a layered
+// A small stacked-isometric-plates glyph for a chip, reads as "a layered
 // collection of 3-D mesh samples" (a dataset). Sits where the chip's accent dot does.
 function datasetPlates(cx, cy, color) {
   const hw = 5, hh = 2.6, dy = 3.4, op = [0.16, 0.24, 0.34];
@@ -229,7 +229,7 @@ function datasetPlates(cx, cy, color) {
   }).join("");
 }
 
-// crebain's wordmark flag — a clean, crisp German flag chip: three bands in rich
+// crebain's wordmark flag: a clean, crisp German flag chip: three bands in rich
 // official colours, softly rounded, with a whisper of matte top-light shading and
 // a soft drop shadow for depth. Matte (not glossy), crisp (not distressed), still
 // (not wavy). One instance, so the filter / gradient / clip ids are unique.
@@ -308,9 +308,9 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "gate") {
-    // NCP — TWO LANES, ONE GATE: an upper PERCEPTION lane (body→brain, packets
+    // NCP, TWO LANES, ONE GATE: an upper PERCEPTION lane (body→brain, packets
     // right→left, dashed best-effort) + a lower ACTION lane (brain→body, left→
-    // right, solid express, SAFETY-GATED — its packet dwells to be verify-
+    // right, solid express, SAFETY-GATED; its packet dwells to be verify-
     // stamped then releases). Counter-flowing packets = two-way at a glance;
     // dashed-vs-solid = the QoS asymmetry. The lanes fan straight into the live
     // edges (prisoma=perception/top, crebain=action/bottom, engram=centre trunk).
@@ -342,16 +342,16 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "voxel") {
-    // cortexel — a VOXEL NEURAL NETWORK as a genuine 3-D cluster: three isometric
+    // cortexel: a VOXEL NEURAL NETWORK as a genuine 3-D cluster: three isometric
     // voxel-neurons both SIZED and dimmed by depth (the front-right neuron is
-    // larger + fully opaque, the apex recedes — smaller + fainter), wired by
+    // larger + fully opaque, the apex recedes, smaller + fainter), wired by
     // CALLIGRAPHIC connections: static, tapered pen-strokes that bow and fade into
     // the distance (no moving packets), echoing the script wordmark below and
     // distinct from the SVG's other live wired edges.
     const vw = 9, vbh = 8, rh = vw / 2;
-    const T = { x: n.x,      y: n.y - 25, depth: 1.0 }; // farthest — up/back
+    const T = { x: n.x,      y: n.y - 25, depth: 1.0 }; // farthest, up/back
     const L = { x: n.x - 20, y: n.y + 13, depth: 0.5 }; // mid
-    const R = { x: n.x + 20, y: n.y + 13, depth: 0.0 }; // nearest — front
+    const R = { x: n.x + 20, y: n.y + 13, depth: 0.0 }; // nearest, front
     // Perspective: depth 0 (near)..1 (far) → opacity 1.0..0.45 AND scale 1.2..0.8.
     const dop = (d) => Number((1 - d * 0.55).toFixed(3));
     const dsc = (d) => 1.2 - d * 0.4;
@@ -401,7 +401,7 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "raven") {
-    // crebain — its real brand mark (raven head + red eye in a crosshair reticle)
+    // crebain: its real brand mark (raven head + red eye in a crosshair reticle)
     // over a faint field-green seat. Below it the wordmark is TYPED OUT by a block
     // cursor, holds ~10 s with a German flag fading in beneath it, then the line is
     // "entered" (fades + drops away) and the cycle retypes. The static attribute
@@ -462,7 +462,7 @@ const nodeEls = Object.values(nodes).map((n) => {
 });
 
 // ---------------------------------------------------------------------------
-// Frame — a "provenance instrument": four amber corner brackets, all in NCP's
+// Frame: a "provenance instrument": four amber corner brackets, all in NCP's
 // amber (the connective protocol literally framing the work it connects).
 // ---------------------------------------------------------------------------
 const frame = `<g class="frame">
@@ -477,7 +477,7 @@ const frame = `<g class="frame">
 // Assemble.
 // ---------------------------------------------------------------------------
 const aria =
-  "Project graph — engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and relief-atlas connect to prisoma; cobot-atlas, melkor and relief-atlas also connect to crebain; cortexel connects to engram.";
+  "Project graph: engram (private) and crebain connect through the always-on, two-way NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and relief-atlas connect to prisoma; cobot-atlas, melkor and relief-atlas also connect to crebain; cortexel connects to engram.";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
@@ -588,7 +588,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </style>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
-  <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;&#8212;&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
+  <text x="40" y="40" class="cap">THE&#160;SYSTEM&#160;//&#160;HOW&#160;THE&#160;WORK&#160;CONNECTS</text>
 
   <g class="edges">
     ${calmEdges.join("\n    ")}

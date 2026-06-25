@@ -86,7 +86,7 @@ export const AGENTS = [
   { name: "Ghostty", role: "terminal",     note: "GPU-native" },
   { name: "herdr",   role: "multiplexer",  note: "agent herd" },
   { name: "OMP",     role: "harness",      note: "pi fork · IDE-wired", lead: true },
-  { name: "Devin",   role: "autonomous",   note: "long-horizon · via OMP" },
+  { name: "Devin",   role: "Agent Platform", note: "long-horizon · via OMP" },
   { name: "Zed",     role: "editor",       note: "collaborative · IDE" },
 ];
 

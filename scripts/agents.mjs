@@ -63,7 +63,7 @@ const sweepFwd = sweepDefs("sweepFwd", {
 
 const railY = H - 22;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Ghostty (terminal, GPU-native); herdr (multiplexer, agent herd); OMP (harness, pi fork with IDE wired in); Devin (autonomous, long-horizon via OMP); Zed (editor, collaborative IDE). The loop never sleeps.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Ghostty (terminal, GPU-native); herdr (multiplexer, agent herd); OMP (harness, pi fork with IDE wired in); Devin (Agent Platform, long-horizon via OMP); Zed (editor, collaborative IDE). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>

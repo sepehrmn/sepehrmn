@@ -13,7 +13,7 @@ export const PROJECTS = [
   {
     name: "engram",
     accent: "#22d3ee", light: "#0891b2", grad: "#0b2b33",
-    private: true,
+    private: true, repo: "sepahead/engram",
     desc: "Engram Neural Modeling Labs, the hub: neural-network and neural-modeling experiments that drive the rest of the stack.",
     stack: ["Python"],
   },
@@ -27,7 +27,7 @@ export const PROJECTS = [
   {
     name: "prisoma",
     accent: "#a78bfa", light: "#7c3aed", grad: "#241a44",
-    private: true,
+    private: true, repo: "sepahead/prisoma",
     desc: "A prism for embodied agents, robotics and world models: Vision-Language-Action analysis via several native methods, PID among them.",
     stack: ["Rust", "Python"],
   },

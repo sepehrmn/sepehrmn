@@ -39,15 +39,15 @@
      accent spine + wash, status badge (stars / lock), one-liner, stack chips,
      ui-monospace. Theme-adaptive (prefers-color-scheme), reduced-motion safe,
      fully self-contained (no external card services). Served from
-     raw.githubusercontent.com. Private repos (engram, prisoma) have no public
-     page and are not linked. -->
+     raw.githubusercontent.com. Private repos (engram, prisoma) are linked to
+     their repo pages too — they show a lock badge until they go public. -->
 <table align="center" cellspacing="20" cellpadding="0" border="0">
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-engram.svg" width="400" alt="engram (private): Engram Neural Modeling Labs, a NEST-based neural-modeling hub — the brain the rest of the stack connects to. Neural-network and neural-modeling experiments. Python." loading="lazy"></td>
+    <td><a href="https://github.com/sepahead/engram"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-engram.svg" width="400" alt="engram (private): Engram Neural Modeling Labs, a NEST-based neural-modeling hub — the brain the rest of the stack connects to. Neural-network and neural-modeling experiments. Python." loading="lazy"></a></td>
     <td><a href="https://github.com/sepahead/NCP"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-ncp.svg" width="400" alt="NCP — Neuro-Cybernetic Protocol: a safety-gated, provenance-first wire protocol (Rust SDK) that lets a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Rust." loading="lazy"></a></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-prisoma.svg" width="400" alt="prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including Partial Information Decomposition. Rust, Python." loading="lazy"></td>
+    <td><a href="https://github.com/sepahead/prisoma"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-prisoma.svg" width="400" alt="prisoma (private): a prism for embodied agents, robotics and world models — Vision-Language-Action analysis via several native methods including Partial Information Decomposition. Rust, Python." loading="lazy"></a></td>
     <td><a href="https://github.com/sepahead/crebain"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-crebain.svg" width="400" alt="crebain — Adaptive Response &amp; Awareness System (ARAS): tactical visualization and autonomy, sensor fusion, ML detection, drone physics, ROS / Gazebo. TypeScript, Rust, Nix." loading="lazy"></a></td>
   </tr>
   <tr>

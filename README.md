@@ -14,8 +14,9 @@
      regenerated daily by .github/workflows/cumulative.yml from the per-year
      contribution fragment at github.com/users/sepahead/contributions (the
      unauthenticated host, not the rate-limited API). Served from
-     raw.githubusercontent.com so it never depends on a third-party card. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/>
+     raw.githubusercontent.com so it never depends on a third-party card.
+     Clicking opens GitHub's native contribution heatmap. -->
+<a href="https://github.com/sepahead#user-contribution-grid"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/></a>
 </p>
 
 <p align="center">
@@ -24,8 +25,8 @@
      and shares make the rhythm obvious at a glance. Regenerated daily by
      .github/workflows/weekdays.yml from the same server-rendered fragment. The
      glowing slice marks the peak day. Lives in-repo, so it works regardless of
-     external card services. -->
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share: a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/>
+     external card services. Clicking opens GitHub's native contribution heatmap. -->
+<a href="https://github.com/sepahead#user-contribution-grid"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share: a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/></a>
 </p>
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-work.svg" width="820" alt="Selected work"/></h3>

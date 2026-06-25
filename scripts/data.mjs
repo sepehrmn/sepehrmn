@@ -85,7 +85,7 @@ export const REPOS = [
 export const AGENTS = [
   { name: "Ghostty", role: "terminal",     note: "GPU-native" },
   { name: "herdr",   role: "multiplexer",  note: "agent herd" },
-  { name: "OMP",     role: "orchestrator platform", note: "Pi upgraded · IDE-wired", lead: true },
+  { name: "OMP",     role: "Lead Harness", note: "Pi upgraded · IDE-wired", lead: true },
   { name: "Devin",   role: "harness",      note: "long-horizon" },
   { name: "Zed",     role: "editor",       note: "collaborative · IDE" },
 ];

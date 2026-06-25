@@ -82,9 +82,9 @@
       <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin="0.50s" repeatCount="indefinite"/>
     </circle>
     <text x="62" y="157" class="name">OMP</text>
-    <rect x="103" y="143" width="186" height="22" rx="6" class="chip"/>
-    <text x="196" y="157" text-anchor="middle" class="chip-label">orchestrator platform</text>
-    <text x="301" y="156" class="note">// Pi upgraded · IDE-wired</text>
+    <rect x="103" y="143" width="114" height="22" rx="6" class="chip"/>
+    <text x="160" y="157" text-anchor="middle" class="chip-label">Lead Harness</text>
+    <text x="229" y="156" class="note">// Pi upgraded · IDE-wired</text>
   </g>
   <g>
     

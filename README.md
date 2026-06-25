@@ -82,9 +82,10 @@
      scripts/repo-tree.mjs): a `tree ~/sep` view with drawn branches and each
      repo's area as a right-aligned note, in the same terminal language as the
      rest of the profile but violet-accented to inherit "Selected work".
-     Clicking opens the GitHub profile's pinned repositories tab. -->
+     Clicking opens the GitHub profile, where the pinned repos are the
+     first content section (GitHub exposes no stable anchor for it). -->
 <p align="center">
-<a href="https://github.com/sepahead?tab=pinned"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories: a directory tree of six public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, relief-atlas, manwe, silmaril-vision-studio." loading="lazy"/></a>
+<a href="https://github.com/sepahead"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories: a directory tree of six public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, relief-atlas, manwe, silmaril-vision-studio." loading="lazy"/></a>
 </p>
 
 <p align="center">

@@ -67,9 +67,11 @@
      connect to prisoma; the cobots and melkor also connect to crebain; cortexel
      connects to engram. The NCP links render as live,
      persistent connections (glow + bi-directional flow). Theme-adaptive,
-     reduced-motion safe; served from raw.githubusercontent.com. -->
+     reduced-motion safe; served from raw.githubusercontent.com.
+     Clicking opens the engram repo — the neural-modeling hub at the centre
+     of the graph. -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph: engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and relief-atlas connect to prisoma; cobot-atlas, melkor and relief-atlas also connect to crebain; cortexel connects to engram." loading="lazy"/>
+<a href="https://github.com/sepahead/engram"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-graph.svg" width="820" alt="Project graph: engram (private) and crebain connect through the always-on NCP protocol to prisoma, a private hub; pid-rs, cobot-atlas, melkor and relief-atlas connect to prisoma; cobot-atlas, melkor and relief-atlas also connect to crebain; cortexel connects to engram." loading="lazy"/></a>
 </p>
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-more.svg" width="820" alt="More repositories"/></h3>

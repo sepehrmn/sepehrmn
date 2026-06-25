@@ -84,7 +84,7 @@
     <text x="62" y="157" class="name">OMP</text>
     <rect x="103" y="143" width="114" height="22" rx="6" class="chip"/>
     <text x="160" y="157" text-anchor="middle" class="chip-label">lead harness</text>
-    <text x="229" y="156" class="note">// Pi upgraded · IDE-wired</text>
+    <text x="229" y="156" class="note">// Pi loaded with batteries</text>
   </g>
   <g>
     

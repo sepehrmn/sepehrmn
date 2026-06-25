@@ -87,6 +87,7 @@ export const AGENTS = [
   { name: "herdr",   role: "multiplexer",  note: "agent herd" },
   { name: "Devin",   role: "autonomous",   note: "long-horizon · via OMP" },
   { name: "OMP",     role: "harness",      note: "pi fork · IDE-wired", lead: true },
+  { name: "Zed",     role: "editor",       note: "collaborative · IDE" },
 ];
 
 // Toolbox category rails (toolbox-rails.mjs). `count` is the icon count for that

@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 // scripts/work-cards.mjs
-// Generates assets/work-cards.svg, the "Selected work" project cards panel: a
-// 2×3 grid of per-project cards, each carrying its own IDENTITY (name, status
-// badge, one-liner, stack chips) in the same visual language as the rest of the
-// profile (rounded panels, per-project accent, ui-monospace, soft glow).
-// Relationships are intentionally NOT shown here; the animated work-graph.svg
-// directly below the cards already does that.
+// Generates one self-contained SVG per project card: assets/work-card-<slug>.svg.
+// Each card is its own image so the README can wrap it in a clickable link to
+// the project's repo page — links inside an <img>-embedded SVG are NOT clickable
+// on GitHub, but a markdown image link [![alt](card.svg)](url) is. The visual
+// language is unchanged from the previous single-panel work-cards.svg: rounded
+// card, per-project accent spine + wash, status badge (stars / lock), one-liner
+// and stack chips, ui-monospace. Theme-adaptive (prefers-color-scheme),
+// reduced-motion safe, zero deps.
 //
-// Self-hosted, zero-dep, theme-adaptive (prefers-color-scheme), reduced-motion
-// safe. Because links inside an <img>-embedded SVG are NOT clickable on GitHub,
-// the README keeps a separate markdown link row for the public repos.
-// Run: `node scripts/work-cards.mjs`.
+// Live star counts: with a token (GitHub Actions provides GITHUB_TOKEN) each
+// public repo's stargazerCount is refreshed; the baked-in `stars` in data.mjs
+// is the no-token fallback. Private repos (engram, prisoma) keep their lock
+// badge. Run by the work-cards.yml cron; a local run without a token uses the
+// fallback. Run: `node scripts/work-cards.mjs`.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -18,23 +21,14 @@ import { fileURLToPath } from "node:url";
 import { PROJECTS } from "./data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT_PATH = resolve(__dirname, "..", "assets", "work-cards.svg");
+const ASSETS_DIR = resolve(__dirname, "..", "assets");
 
-// ---------------------------------------------------------------------------
-// Spec. Order is reading order (left→right, top→bottom). Accent colours match
-// the work-graph nodes exactly. `light` is the WCAG-safe accent for light mode
-// (mirrors the *-accent light overrides used elsewhere). `stars`/`private` set
-// the top-right status badge; `repo` drives nothing in the SVG (links live in
-// the README) but documents the public slug for maintainers.
-// ---------------------------------------------------------------------------
 const projects = PROJECTS;
-
-// ---------------------------------------------------------------------------
-// Live star counts. With a token (GitHub Actions provides GITHUB_TOKEN) we read
 // each public repo's current stargazerCount so the badges auto-update; the
-// `stars:` above are the no-token fallback (kept current). Private repos
-// (engram, prisoma) have no `repo` and keep their lock badge. Run by the
-// work-cards.yml cron; a local run without a token just uses the fallback.
+// `stars` in data.mjs is the no-token fallback. Private repos (engram, prisoma)
+// have no `repo` and keep their lock badge. Run by the work-cards.yml cron; a
+// local run without a token just uses the fallback.
+// ---------------------------------------------------------------------------
 async function hydrateStars(list) {
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || "";
   if (!token) {
@@ -67,21 +61,18 @@ async function hydrateStars(list) {
 await hydrateStars(projects);
 
 // ---------------------------------------------------------------------------
-// Layout.
+// Card geometry. CARD_W/CARD_H match the original grid cells exactly. PAD_X
+// adds 1px transparent padding on each side so a README <table cellspacing="20">
+// yields a 22px gutter (1 + 20 + 1) — the same as the original grid's GUTTER —
+// while the vertical row gap stays 20px (cellspacing).
 // ---------------------------------------------------------------------------
-const W = 860;
-const M = 26;            // outer panel margin
-const CAP_Y = 40;        // caption baseline
-const GRID_TOP = 64;     // top of first card row
-const COLS = 2;
-const GUTTER = 22;
-const CARD_W = Math.round((W - 2 * M - (COLS - 1) * GUTTER) / COLS); // 393
+const CARD_W = 393;
 const CARD_H = 150;
-const ROW_GAP = 20;
-const ROWS = Math.ceil(projects.length / COLS);
-const H = GRID_TOP + ROWS * CARD_H + (ROWS - 1) * ROW_GAP + M; // 64 + 3*150 + 2*20 + 26 = 580
+const PAD_X = 1;
+const SVG_W = CARD_W + 2 * PAD_X; // 395
+const SVG_H = CARD_H;             // 150
 
-// Card interior metrics.
+// Card interior metrics (unchanged from the original combined panel).
 const SPINE_W = 4;       // accent spine down the left edge
 const PADL = 22;         // left padding (text start)
 const PADR = 18;         // right padding
@@ -127,8 +118,8 @@ function richDesc(line) {
 }
 
 // Lock glyph (matches scripts/work-graph.mjs). Top-left of the 12×15 lock body
-// sits at (x, y); `scale` shrinks it. Colour comes from the `.cN.glyph-stroke`
-// / `.cN.glyph-fill` CSS rules (theme-adaptive, no CSS-variable dependency on a
+// sits at (x, y); `scale` shrinks it. Colour comes from the `.c0.glyph-stroke`
+// / `.c0.glyph-fill` CSS rules (theme-adaptive, no CSS-variable dependency on a
 // presentation attribute, works in every SVG renderer).
 function lock(x, y, scale, cls) {
   return `<g transform="translate(${x} ${y}) scale(${scale})">` +
@@ -149,24 +140,21 @@ function star(cx, cy, r, cls) {
 }
 
 // ---------------------------------------------------------------------------
-// Build cards.
+// Build one card's inner SVG elements at local origin (PAD_X, 0).
+// Returns { gradDef, body }.
 // ---------------------------------------------------------------------------
-const gradDefs = [];
-const cardEls = projects.map((p, i) => {
-  const col = i % COLS;
-  const row = Math.floor(i / COLS);
-  const x = M + col * (CARD_W + GUTTER);
-  const y = GRID_TOP + row * (CARD_H + ROW_GAP);
-  const cls = `c${i}`; // per-card accent class
+function buildCard(p) {
+  const x = PAD_X;
+  const y = 0;
+  const cls = "c0"; // single card per SVG → always c0
 
   // Per-card accent wash: a faint radial bloom anchored at the top-left so the
   // card reads as "owned" by its colour without overpowering the text.
-  const gid = `wash${i}`;
-  gradDefs.push(
+  const gid = "wash0";
+  const gradDef =
     `<radialGradient id="${gid}" cx="8%" cy="0%" r="120%">` +
       `<stop offset="0%" stop-color="${p.grad}" stop-opacity="0.9"/>` +
-      `<stop offset="60%" stop-color="${p.grad}" stop-opacity="0"/></radialGradient>`
-  );
+      `<stop offset="60%" stop-color="${p.grad}" stop-opacity="0"/></radialGradient>`;
 
   // Status badge (top-right): stars (★ + count) or a lock for private repos.
   let badge = "";
@@ -209,8 +197,7 @@ const cardEls = projects.map((p, i) => {
     })
     .join("\n    ");
 
-  return `  <!-- ${p.name} -->
-  <g>
+  const body = `  <g class="card-group">
     <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" class="card"/>
     <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" fill="url(#${gid})" class="wash"/>
     <path d="M${x + 1.5} ${y + 14} v${CARD_H - 28}" class="spine ${cls}" stroke-width="${SPINE_W}" stroke-linecap="round"/>
@@ -220,82 +207,108 @@ const cardEls = projects.map((p, i) => {
     ${desc}
     ${chips}
   </g>`;
-});
 
-// Per-card accent CSS (dark + light) and an accent-variable per index so glyphs
-// (lock/star) can reference currentColor-like vars.
-const accentVarsDark = projects.map((p, i) => `--a${i}: ${p.accent};`).join(" ");
-const accentVarsLight = projects.map((p, i) => `--a${i}: ${p.light};`).join(" ");
-const accentRules = projects
-  .map((p, i) => {
-    return (
-      `.c${i}.title { fill: ${p.accent}; } .c${i}.rule { fill: ${p.accent}; } ` +
-      `.c${i}.spine { stroke: ${p.accent}; } .c${i}.badge { fill: ${p.accent}; } ` +
-      `.c${i}.chip { stroke: ${p.accent}; } .c${i}.chip-label { fill: ${p.accent}; } ` +
-      `.c${i}.glyph-fill { fill: ${p.accent}; } .c${i}.glyph-stroke { stroke: ${p.accent}; }`
-    );
-  })
-  .join("\n    ");
-const accentRulesLight = projects
-  .map((p, i) => {
-    return (
-      `.c${i}.title { fill: ${p.light}; } .c${i}.rule { fill: ${p.light}; } ` +
-      `.c${i}.spine { stroke: ${p.light}; } .c${i}.badge { fill: ${p.light}; } ` +
-      `.c${i}.chip { stroke: ${p.light}; } .c${i}.chip-label { fill: ${p.light}; } ` +
-      `.c${i}.glyph-fill { fill: ${p.light}; } .c${i}.glyph-stroke { stroke: ${p.light}; }`
-    );
-  })
-  .join("\n      ");
+  return { gradDef, body };
+}
 
 // ---------------------------------------------------------------------------
-// Assemble.
+// Per-card accent CSS (dark + light). Each SVG has a single card so we always
+// use the c0 class and set its colours from this project's accent / light.
 // ---------------------------------------------------------------------------
-const aria =
-  "Selected work: eight project cards. engram (private): Engram Neural Modeling Labs, the neural-modeling hub, Python. NCP (1 star): safety-gated provenance-first wire protocol, Rust. prisoma (private): a prism for embodied agents, robotics and world models: Vision-Language-Action analysis via several native methods including PID, Rust and Python. crebain (8 stars): tactical visualization and autonomy prototype, TypeScript, Rust, Nix. melkor (1 star): Gaussian-splatting and depth-analysis pipelines for 3D reconstruction, Python, C++, CUDA. cortexel: agent-consumable scientific-visualization library for neural simulations: VizSpec to spike rasters and STDP curves with fail-closed provenance, TypeScript, React, Three.js. pid-rs (1 star): Partial Information Decomposition estimators in Rust. cobot-atlas (2 stars): 3D mesh-generation pipeline, Python.";
+function accentRules(p) {
+  const dark = (
+    `.c0.title { fill: ${p.accent}; } .c0.rule { fill: ${p.accent}; } ` +
+    `.c0.spine { stroke: ${p.accent}; } .c0.badge { fill: ${p.accent}; } ` +
+    `.c0.chip { stroke: ${p.accent}; } .c0.chip-label { fill: ${p.accent}; } ` +
+    `.c0.glyph-fill { fill: ${p.accent}; } .c0.glyph-stroke { stroke: ${p.accent}; }`
+  );
+  const light = (
+    `.c0.title { fill: ${p.light}; } .c0.rule { fill: ${p.light}; } ` +
+    `.c0.spine { stroke: ${p.light}; } .c0.badge { fill: ${p.light}; } ` +
+    `.c0.chip { stroke: ${p.light}; } .c0.chip-label { fill: ${p.light}; } ` +
+    `.c0.glyph-fill { fill: ${p.light}; } .c0.glyph-stroke { stroke: ${p.light}; }`
+  );
+  return { dark, light };
+}
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeXML(aria)}">
+// ---------------------------------------------------------------------------
+// Assemble + write one SVG per project.
+// ---------------------------------------------------------------------------
+mkdirSync(ASSETS_DIR, { recursive: true });
+
+for (const p of projects) {
+  const { gradDef, body } = buildCard(p);
+  const { dark, light } = accentRules(p);
+
+  const status = p.private
+    ? "private"
+    : p.stars != null
+      ? `${p.stars} star${p.stars === 1 ? "" : "s"}`
+      : "";
+  const aria = `${p.name}${status ? ` (${status})` : ""}: ${p.desc}`;
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SVG_W} ${SVG_H}" width="${SVG_W}" height="${SVG_H}" role="img" aria-label="${escapeXML(aria)}">
   <defs>
-    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3.5" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    ${gradDefs.join("\n    ")}
+    ${gradDef}
   </defs>
   <style>
-    :root { ${accentVarsDark} }
-    .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
-    .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
+    :root { --accent: ${p.accent}; }
     .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
     .title      { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; }
     .desc       { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9da7b3; }
     .badge      { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
     .chip       { fill: #0d1117; fill-opacity: 0.6; stroke-width: 1.3; }
     .chip-label { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
-    ${accentRules}
+    ${dark}
     text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
-      :root { ${accentVarsLight} }
-      .cap { fill: #57606a; }
-      .panel { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
+      :root { --accent: ${p.light}; }
       .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
-      /* The accent wash is a dark-mode bloom; on white it only muddies the card,
-         so hide it entirely in light mode (the accent spine + title carry the
-         colour there). */
+      /* The accent wash is a dark-mode bloom; on white it only muddies the
+         card, so hide it entirely in light mode (the accent spine + title
+         carry the colour there). */
       .wash { display: none; }
       .desc { fill: #57606a; }
       .chip { fill: #ffffff; fill-opacity: 0.7; }
-      ${accentRulesLight}
+      ${light}
+    }
+    /* Hover / click effects — visible when the SVG is viewed directly or
+       embedded inline or via object (GitHub img sandboxes internal
+       :hover, so these are progressive enhancement for every other context). */
+    .card-group {
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  filter 0.25s ease;
+    }
+    .card-group:hover {
+      transform: translateY(-4px);
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+    }
+    .card-group:hover .card { stroke-opacity: 0.22; }
+    .card-group:hover .spine {
+      stroke-width: 5;
+      filter: drop-shadow(0 0 5px var(--accent));
+    }
+    .card-group:hover .wash { opacity: 1; }
+    .card-group:hover .title { filter: drop-shadow(0 0 4px var(--accent)); }
+    .card-group:active {
+      transform: translateY(-1px);
+      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+      transition: transform 0.08s ease, filter 0.08s ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card-group, .card-group:hover, .card-group:active {
+        transition: none; transform: none;
+      }
     }
   </style>
-
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="16" class="panel"/>
-  <text x="${M + 14}" y="${CAP_Y}" class="cap">SELECTED&#160;WORK&#160;//&#160;EIGHT&#160;PROJECTS</text>
-
-${cardEls.join("\n")}
+${body}
 </svg>
 `;
 
-mkdirSync(dirname(OUT_PATH), { recursive: true });
-writeFileSync(OUT_PATH, svg, "utf8");
-console.log(`[work-cards] wrote ${OUT_PATH} (${svg.length} bytes)`);
+  const slug = p.name.toLowerCase();
+  const outPath = resolve(ASSETS_DIR, `work-card-${slug}.svg`);
+  writeFileSync(outPath, svg, "utf8");
+  console.log(`[work-cards] wrote ${outPath} (${svg.length} bytes)`);
+}

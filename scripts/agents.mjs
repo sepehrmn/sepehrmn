@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // scripts/agents.mjs
 // Generates assets/agents.svg, the "AGENTS // MANIFEST" panel for the Agentic
-// Engineering section: a twin of connect.svg / work-cards.svg (rounded panel,
+// Engineering section: a twin of connect.svg / work-card-*.svg (rounded panel,
 // emerald spine, top sweep, blinking cursor, comms-rail flow) styled as a live
 // roster of the AI coding agents in the loop. Each row: a pulsing status pip,
 // the agent name, an emerald role chip, and a muted "// note". The lead agent
@@ -63,7 +63,7 @@ const sweepFwd = sweepDefs("sweepFwd", {
 
 const railY = H - 22;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Ghostty (terminal, GPU-native); herdr (multiplexer, agent herd); OMP (harness, Pi upgraded with IDE wired in); Devin (Agent Platform, long-horizon via OMP); Zed (editor, collaborative IDE). The loop never sleeps.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Agentic stack manifest: the agents and environment I build with. Ghostty (terminal, GPU-native); herdr (multiplexer, agent herd); OMP (orchestrator platform, Pi upgraded with IDE wired in); Devin (harness, long-horizon); Zed (editor, collaborative IDE). The loop never sleeps.">
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>

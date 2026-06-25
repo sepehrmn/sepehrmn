@@ -57,8 +57,8 @@ jobs:
 
       - name: Commit updated SVGs
         run: |
-          git add assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg
-          if git diff --cached --quiet HEAD -- assets/work-cards.svg assets/repo-tree.svg assets/title-*.svg; then
+          git add assets/work-card-*.svg assets/repo-tree.svg assets/title-*.svg
+          if git diff --cached --quiet HEAD -- assets/work-card-*.svg assets/repo-tree.svg assets/title-*.svg; then
             echo "No changes to the Selected-work SVGs / banners; skipping commit."
             exit 0
           fi

@@ -2,7 +2,7 @@
 // Shared design tokens + tiny SVG helpers for the "session" assets
 // (section-titles.mjs, connect.mjs). ADDITIVE: imported only by those two new
 // generators, the existing daily-chart generators are intentionally untouched.
-// Mirrors values already used across hero.svg / work-cards.svg / work-graph.svg
+// Mirrors values already used across hero.svg / work-card-*.svg / work-graph.svg
 // so every bespoke asset reads as one system. Zero dependencies.
 
 // [dark, light]
@@ -47,6 +47,6 @@ export function sweepDefs(id, { x1from, x1to, x2from, x2to, color, dur = "3.2s" 
     </linearGradient>`;
 }
 
-// The verbatim hero/work-cards block-cursor blink (1s, hard on/off).
+// The verbatim hero/work-card block-cursor blink (1s, hard on/off).
 export const CURBLINK_KEYFRAMES =
   "@keyframes curblink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }";

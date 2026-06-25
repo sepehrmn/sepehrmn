@@ -16,7 +16,7 @@
      unauthenticated host, not the rate-limited API). Served from
      raw.githubusercontent.com so it never depends on a third-party card.
      Clicking opens GitHub's native contribution heatmap. -->
-<a href="https://github.com/sepahead#user-contribution-grid"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/></a>
+<a href="https://github.com/sepahead#js-contribution-activity-description"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/cumulative.svg" width="780" alt="Annual contributions from 2020 to present, with a running cumulative total; the peak year glows." loading="lazy"/></a>
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@
      .github/workflows/weekdays.yml from the same server-rendered fragment. The
      glowing slice marks the peak day. Lives in-repo, so it works regardless of
      external card services. Clicking opens GitHub's native contribution heatmap. -->
-<a href="https://github.com/sepahead#user-contribution-grid"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share: a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/></a>
+<a href="https://github.com/sepahead#js-contribution-activity-description"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/weekdays.svg" width="640" alt="Weekday contribution share: a donut of each weekday's percentage of the last ~16 months (500 days) of contributions; the glowing slice marks the peak day." loading="lazy"/></a>
 </p>
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-work.svg" width="820" alt="Selected work"/></h3>
@@ -82,9 +82,9 @@
      scripts/repo-tree.mjs): a `tree ~/sep` view with drawn branches and each
      repo's area as a right-aligned note, in the same terminal language as the
      rest of the profile but violet-accented to inherit "Selected work".
-     Clicking opens the GitHub profile where the pinned repos are visible. -->
+     Clicking opens the GitHub profile's pinned repositories tab. -->
 <p align="center">
-<a href="https://github.com/sepahead"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories: a directory tree of six public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, relief-atlas, manwe, silmaril-vision-studio." loading="lazy"/></a>
+<a href="https://github.com/sepahead?tab=pinned"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/repo-tree.svg" width="820" alt="More repositories: a directory tree of six public repos under sepahead: brojapid-activationfunctions (4 stars), mahmoudian-2020-rescience (forked by 3), nest-simulator, relief-atlas, manwe, silmaril-vision-studio." loading="lazy"/></a>
 </p>
 
 <p align="center">

@@ -34,22 +34,28 @@ const CREBAIN_LOGO =
   "data:image/png;base64," +
   readFileSync(resolve(__dirname, "..", "pics", "crebain-logo.png")).toString("base64");
 
+// engram's mark: the torus-automations brand logo, embedded the same way so the
+// self-contained SVG renders it with zero external requests.
+const TORUS_LOGO =
+  "data:image/png;base64," +
+  readFileSync(resolve(__dirname, "..", "pics", "torus-automations-logo.png")).toString("base64");
+
 const W = 860;
 const H = 460;
 
 // ---------------------------------------------------------------------------
 // Spec. Positions are node centres; colours are per-project accents.
-//   large: cube · hub (circle) · triangle · hexagon
+//   large: cube · hub (circle) · triangle · logo (image)
 //   bespoke logos: gate (NCP) · voxel-net (cortexel) · raven (crebain) | chip
 // ---------------------------------------------------------------------------
 const nodes = {
-  engram:      { x: 110, y: 230, color: "#22d3ee", kind: "cube", private: true },
+  engram:      { x: 110, y: 230, color: "#9fb3c8", kind: "logo", private: true },
   pidrs:       { x: 250, y: 98,  color: "#34d399", kind: "hub", label: "pid-rs", r: 36 },
   ncp:         { x: 250, y: 230, color: "#fbbf24", kind: "gate", label: "NCP" },
   prisoma:     { x: 460, y: 130, color: "#a78bfa", kind: "triangle", private: true },
   crebain:     { x: 460, y: 332, color: "#9caf88", kind: "raven" },
   cobotatlas:  { x: 690, y: 150, color: "#60a5fa", kind: "chip", label: "cobot-atlas", dataset: true },
-  melkor:      { x: 690, y: 250, color: "#fb923c", kind: "hexagon" },
+  melkor:      { x: 690, y: 250, color: "#fb923c", kind: "cube" },
   reliefatlas: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "relief-atlas", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
@@ -73,9 +79,8 @@ const edges = [
 // Geometry.
 // ---------------------------------------------------------------------------
 const HUB_R = 46;
-const CUBE = 92; // engram square, matched to a hub's diameter
+const CUBE = 92; // melkor square, matched to a hub's diameter
 const TRI_CIRCUM = 53; // prisoma triangle circumradius (~92 wide, like the others)
-const HEX_CIRCUM = 40; // melkor hexagon circumradius (flat-top: 80 wide, ~69 tall)
 const NET_R = 26; // cortexel voxel-net trim radius (only the up-edge to engram uses it)
 const CHIP_H = 32;
 const GAP = 7;
@@ -93,6 +98,7 @@ function halfExtents(n) {
   if (n.kind === "hub") return { hw: (n.r || HUB_R), hh: (n.r || HUB_R), circle: true };
   if (n.kind === "voxel") return { hw: NET_R, hh: NET_R, circle: true };
   if (n.kind === "raven") return { hw: 30, hh: 30, circle: true };
+  if (n.kind === "logo") return { hw: 30, hh: 30, circle: true };
   if (n.kind === "cube") return { hw: CUBE / 2, hh: CUBE / 2, circle: false };
   return { hw: nodeWidth(n) / 2, hh: CHIP_H / 2, circle: false };
 }
@@ -104,10 +110,6 @@ function nodePolygon(n) {
   if (n.kind === "triangle") {
     const dx = (TRI_CIRCUM * Math.sqrt(3)) / 2;
     return [{ x: 0, y: -TRI_CIRCUM }, { x: dx, y: TRI_CIRCUM / 2 }, { x: -dx, y: TRI_CIRCUM / 2 }];
-  }
-  if (n.kind === "hexagon") {
-    const R = HEX_CIRCUM, dy = (R * Math.sqrt(3)) / 2;
-    return [{ x: R, y: 0 }, { x: R / 2, y: -dy }, { x: -R / 2, y: -dy }, { x: -R, y: 0 }, { x: -R / 2, y: dy }, { x: R / 2, y: dy }];
   }
   return null;
 }
@@ -279,6 +281,29 @@ const nodeEls = Object.values(nodes).map((n) => {
     <text x="${n.x}" y="${n.y + 12}" text-anchor="middle" class="cube-label">${escapeXML(n.label)}</text>
   </g>`;
   }
+  if (n.kind === "logo") {
+    // engram: the torus-automations brand mark seated on a subtle gunmetal disc
+    // with a thin steel rim, the project label below + a private lock above. The
+    // node colour is steel (#9fb3c8) so its live edges to NCP and cortexel resolve
+    // cool-steel via the edge gradient system. Metal reads well in both themes, so
+    // the seat gradient is fixed; only the rim, label and lock recolour for
+    // contrast. No animation here → reduced-motion safe. One instance → unique id.
+    const cx = n.x, cy = n.y, S = 64, r = 34;
+    return `<g>
+    <defs>
+      <radialGradient id="engramSeat" cx="38%" cy="30%" r="80%">
+        <stop offset="0%" stop-color="#4b5562"/>
+        <stop offset="55%" stop-color="#2b333e"/>
+        <stop offset="100%" stop-color="#161b22"/>
+      </radialGradient>
+    </defs>
+    <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat" fill="url(#engramSeat)"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat-ring"/>
+    <image href="${TORUS_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
+    ${n.private ? lock(cx, cy - 50, 1, "var(--logo-accent)") : ""}
+    <text x="${cx}" y="${f1(cy + 52)}" text-anchor="middle" class="logo-label">${escapeXML(n.label)}</text>
+  </g>`;
+  }
   if (n.kind === "triangle") {
     const dx = TRI_CIRCUM * Math.sqrt(3) / 2; // half base width
     const top = `${n.x},${f1(n.y - TRI_CIRCUM)}`;
@@ -288,23 +313,6 @@ const nodeEls = Object.values(nodes).map((n) => {
     <polygon points="${top} ${br} ${bl}" class="tri" stroke-linejoin="round"/>
     ${n.private ? lock(n.x, n.y - 8, 1, "var(--tri-accent)") : ""}
     <text x="${n.x}" y="${n.y + 20}" text-anchor="middle" class="tri-label">${escapeXML(n.label)}</text>
-  </g>`;
-  }
-  if (n.kind === "hexagon") {
-    const R = HEX_CIRCUM;
-    const dy = (R * Math.sqrt(3)) / 2; // flat-top hexagon half-height
-    const pts = [
-      `${f1(n.x + R)},${n.y}`,
-      `${f1(n.x + R / 2)},${f1(n.y - dy)}`,
-      `${f1(n.x - R / 2)},${f1(n.y - dy)}`,
-      `${f1(n.x - R)},${n.y}`,
-      `${f1(n.x - R / 2)},${f1(n.y + dy)}`,
-      `${f1(n.x + R / 2)},${f1(n.y + dy)}`,
-    ].join(" ");
-    return `<g>
-    <polygon points="${pts}" class="hex" stroke-linejoin="round"/>
-    ${n.private ? lock(n.x, n.y - 20, 1, "#fb923c") : ""}
-    <text x="${n.x}" y="${n.y + 5}" text-anchor="middle" class="hex-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "gate") {
@@ -486,15 +494,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="cubeGrad" cx="50%" cy="42%" r="70%">
-      <stop offset="0%" stop-color="#0b2b33"/>
+      <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <radialGradient id="triGrad" cx="50%" cy="56%" r="70%">
       <stop offset="0%" stop-color="#241a44"/>
-      <stop offset="100%" stop-color="#0a1117"/>
-    </radialGradient>
-    <radialGradient id="hexGrad" cx="50%" cy="45%" r="70%">
-      <stop offset="0%" stop-color="#2a1608"/>
       <stop offset="100%" stop-color="#0a1117"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
@@ -508,7 +512,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     ${gradDefs.join("\n    ")}
   </defs>
   <style>
-    :root { --hub-accent: #34d399; --cube-accent: #22d3ee; --tri-accent: #a78bfa; }
+    :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; --logo-accent: #9fb3c8; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
@@ -518,12 +522,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
     .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
-    .cube       { fill: url(#cubeGrad); stroke: #22d3ee; stroke-width: 2; filter: url(#soft); }
-    .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #67e8f9; }
+    .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
+    .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
+    .logo-seat      { filter: url(#soft); }
+    .logo-seat-ring { fill: none; stroke: #9fb3c8; stroke-opacity: 0.55; stroke-width: 1.5; }
+    .logo-label     { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
-    .hex        { fill: url(#hexGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
-    .hex-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .gate-wire      { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
     .gate-wire-perc { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 4; opacity: 0.6; }
     .gate-bar       { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
@@ -550,19 +555,19 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
-      :root { --hub-accent: #059669; --cube-accent: #0891b2; --tri-accent: #7c3aed; }
+      :root { --hub-accent: #059669; --cube-accent: #c2410c; --tri-accent: #7c3aed; --logo-accent: #5b6b7e; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
       .chip-label { fill: #1f2328; }
       .hub { fill: #ffffff; stroke: #059669; }
       .hub-label { fill: #059669; }
-      .cube { fill: #ffffff; stroke: #0891b2; }
-      .cube-label { fill: #0891b2; }
+      .cube { fill: #ffffff; stroke: #c2410c; }
+      .cube-label { fill: #c2410c; }
+      .logo-seat-ring { stroke: #5b6b7e; }
+      .logo-label { fill: #44505e; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }
-      .hex { fill: #ffffff; stroke: #c2410c; }
-      .hex-label { fill: #c2410c; }
       .gate-wire { stroke: #b45309; }
       .gate-wire-perc { stroke: #b45309; }
       .gate-bar { fill: #b45309; stroke: #b45309; }

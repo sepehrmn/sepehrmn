@@ -12,7 +12,7 @@
 export const PROJECTS = [
   {
     name: "engram",
-    accent: "#22d3ee", light: "#0891b2", grad: "#0b2b33",
+    accent: "#9fb3c8", light: "#5b6b7e", grad: "#1b2530",
     private: true, repo: "sepahead/engram",
     desc: "Engram Neural Modeling Labs, the hub: neural-network and neural-modeling experiments that drive the rest of the stack.",
     stack: ["Python"],

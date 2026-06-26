@@ -304,7 +304,7 @@ const nodeEls = Object.values(nodes).map((n) => {
       const sx = n.x + Math.cos(ang) * dist;
       const sy = n.y + Math.sin(ang) * dist;
       // keep the label band clear so 'melkor' stays legible
-      if (Math.abs(sy - (n.y + 4)) < 9 && Math.abs(sx - n.x) < 32) continue;
+      if (Math.abs(sy - n.y) < 9 && Math.abs(sx - n.x) < 32) continue;
       const t = dist / SPLAT_R; // 0 core … 1 rim
       const r = 6 - 3.5 * t + rnd() * 1.2; // bigger blobs at the core
       const op = Number((0.5 - 0.28 * t).toFixed(2)); // fainter at the rim
@@ -333,7 +333,7 @@ const nodeEls = Object.values(nodes).map((n) => {
     <rect x="${x}" y="${y}" width="${CUBE}" height="${CUBE}" rx="16" class="cube"/>
     <g class="cube-splat" clip-path="url(#melkorClip)">${splatEls}</g>
     ${n.private ? lock(n.x, n.y - 22, 1, "var(--cube-accent)") : ""}
-    <text x="${n.x}" y="${n.y + 12}" text-anchor="middle" class="cube-label">${escapeXML(n.label)}</text>
+    <text x="${n.x}" y="${n.y}" text-anchor="middle" dominant-baseline="central" class="cube-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "logo") {

@@ -59,7 +59,9 @@ const nodes = {
   reliefatlas: { x: 690, y: 350, color: "#fb7185", kind: "chip", label: "relief-atlas", dataset: true },
   cortexel:    { x: 110, y: 360, color: "#e879f9", kind: "voxel" },
 };
-for (const [id, n] of Object.entries(nodes)) n.label = n.label || id;
+// Uppercase every label in the SOURCE (not via CSS text-transform, which
+// librsvg and other SVG renderers ignore — content-case renders everywhere).
+for (const [id, n] of Object.entries(nodes)) n.label = (n.label || id).toUpperCase();
 
 const edges = [
   { a: "engram",      b: "ncp" },
@@ -91,8 +93,12 @@ const escapeXML = (s) =>
 function nodeWidth(n) {
   if (n.kind === "hub") return (n.r || HUB_R) * 2;
   if (n.kind === "cube") return CUBE;
-  const pad = (n.kind === "gate") ? 28 : 36;
-  return Math.round(n.label.length * 7.8 + pad);
+  // gate (NCP): the dual-lane glyph is hand-tuned at fixed coords and its label
+  // floats below it, so size to the glyph (~7.8px/char), not the tracked label.
+  if (n.kind === "gate") return Math.round(n.label.length * 7.8 + 28);
+  // chips: the label sits INSIDE the rect, now bold + 2.5px tracked (10.3px/char)
+  // so widen to keep it clear of the right edge.
+  return Math.round(n.label.length * 10.3 + 36);
 }
 function halfExtents(n) {
   if (n.kind === "hub") return { hw: (n.r || HUB_R), hh: (n.r || HUB_R), circle: true };
@@ -572,13 +578,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </defs>
   <style>
     :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; }
-    .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
+    .cap        { font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
     .flow       { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
     .flow-rev   { stroke-width: 2; opacity: 0.78; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
-    .chip-label { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .chip-label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
     .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
@@ -605,15 +611,15 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .flag-r     { fill: #d8001d; }
     .flag-g     { fill: #ffcc00; }
     .flag-edge  { fill: none; stroke: #ffffff; stroke-opacity: 0.16; stroke-width: 0.6; }
-    .vox-label  { font: 600 18px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Brush Script MT", cursive; fill: #f0abfc; }
+    .vox-label  { font: 700 18px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
-    .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; letter-spacing: 2.5px; text-transform: uppercase; }
+    .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; }
     .raven-cursor { fill: #9caf88; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }
     .panel      { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; }
-    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; text-transform: uppercase; letter-spacing: 2.5px; }
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
       :root { --hub-accent: #059669; --cube-accent: #c2410c; --tri-accent: #7c3aed; }

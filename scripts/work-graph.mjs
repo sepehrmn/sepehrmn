@@ -578,24 +578,24 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   </defs>
   <style>
     :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; }
-    .cap        { font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
+    .cap        { font: 400 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
     .flow       { fill: none; stroke: #e2faff; stroke-width: 2.4; stroke-dasharray: 1.5 9; stroke-linecap: round; opacity: 0.9; }
     .flow-rev   { stroke-width: 2; opacity: 0.78; }
     .chip       { fill: #0d1117; stroke-width: 1.5; }
-    .chip-label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+    .chip-label { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
-    .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
+    .hub-label  { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
-    .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
+    .cube-label { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .cube-splat { color: #fb923c; }
     .logo-seat      { filter: url(#soft); }
     .logo-seat-ring { fill: none; stroke: #9fb3c8; stroke-opacity: 0.55; stroke-width: 1.5; }
     .logo-glow      { color: #22d3ee; }
-    .logo-label     { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
+    .logo-label     { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
-    .tri-label  { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
+    .tri-label  { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .gate-wire      { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
     .gate-wire-perc { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 4; opacity: 0.6; }
     .gate-bar       { fill: #fbbf24; fill-opacity: 0.16; stroke: #fbbf24; stroke-width: 2; }
@@ -603,7 +603,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .gate-tick      { fill: none; stroke: #fde68a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .gate-packet    { fill: #fde68a; }
     .gate-packet-perc { fill: #fde68a; opacity: 0.7; }
-    .gate-label     { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
+    .gate-label     { font: 400 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fbbf24; text-anchor: middle; }
     .vox-top    { fill: #e879f9; fill-opacity: 0.6; stroke: #e879f9; stroke-width: 1.3; }
     .vox-left   { fill: #e879f9; fill-opacity: 0.32; stroke: #e879f9; stroke-width: 1.3; }
     .vox-right  { fill: #e879f9; fill-opacity: 0.15; stroke: #e879f9; stroke-width: 1.3; }
@@ -611,10 +611,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .flag-r     { fill: #d8001d; }
     .flag-g     { fill: #ffcc00; }
     .flag-edge  { fill: none; stroke: #ffffff; stroke-opacity: 0.16; stroke-width: 0.6; }
-    .vox-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
+    .vox-label  { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0abfc; }
     .vox-net    { color: #e879f9; }
     .raven-seat  { fill: #9caf88; fill-opacity: 0.08; filter: url(#soft); }
-    .raven-label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; }
+    .raven-label { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9caf88; }
     .raven-cursor { fill: #9caf88; }
     .wg-rule    { stroke: #30363d; stroke-width: 1; stroke-opacity: 0.55; }
     .wg-bracket { fill: none; stroke: #fbbf24; stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.85; }

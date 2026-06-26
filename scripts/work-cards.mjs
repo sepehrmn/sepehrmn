@@ -151,10 +151,26 @@ function buildCard(p) {
   // Per-card accent wash: a faint radial bloom anchored at the top-left so the
   // card reads as "owned" by its colour without overpowering the text.
   const gid = "wash0";
+  // Engram (the only `hint` card) weaves teal in via GRADIENTS, not stuck-on
+  // shapes: a steel->teal spine gradient (dark + light variants) and a faint
+  // teal radial bloom from the opposite (bottom-right) corner.
+  // Spine gradients use userSpaceOnUse along the actual (zero-width, vertical)
+  // spine path so they render reliably everywhere; objectBoundingBox over a
+  // zero-area bbox is mishandled by some renderers (e.g. GitHub). The spine runs
+  // vertically at x = PAD_X + 1.5 from y = 14 to y = CARD_H - 14.
+  const spineX = PAD_X + 1.5;
+  const spineY1 = 14;
+  const spineY2 = CARD_H - 14;
+  const hintDefs = p.hint
+    ? `<linearGradient id="spine0" gradientUnits="userSpaceOnUse" x1="${spineX}" y1="${spineY1}" x2="${spineX}" y2="${spineY2}"><stop offset="0%" stop-color="${p.accent}"/><stop offset="100%" stop-color="${p.hint}"/></linearGradient>` +
+      `<linearGradient id="spine0L" gradientUnits="userSpaceOnUse" x1="${spineX}" y1="${spineY1}" x2="${spineX}" y2="${spineY2}"><stop offset="0%" stop-color="${p.light}"/><stop offset="100%" stop-color="${p.hintLight || p.hint}"/></linearGradient>` +
+      `<radialGradient id="wash1" cx="100%" cy="100%" r="120%"><stop offset="0%" stop-color="${p.hint}" stop-opacity="0.16"/><stop offset="55%" stop-color="${p.hint}" stop-opacity="0"/></radialGradient>`
+    : "";
   const gradDef =
     `<radialGradient id="${gid}" cx="8%" cy="0%" r="120%">` +
       `<stop offset="0%" stop-color="${p.grad}" stop-opacity="0.9"/>` +
-      `<stop offset="60%" stop-color="${p.grad}" stop-opacity="0"/></radialGradient>`;
+      `<stop offset="60%" stop-color="${p.grad}" stop-opacity="0"/></radialGradient>` +
+      hintDefs;
 
   // Status badge (top-right): stars (★ + count) or a lock for private repos.
   let badge = "";
@@ -175,13 +191,6 @@ function buildCard(p) {
 
   // Accent rule under the title: short, like the hero underline.
   const rule = `<rect x="${x + PADL}" y="${y + TITLE_Y + 8}" width="34" height="2.5" rx="1.25" class="rule ${cls}"/>`;
-
-  // Optional, subordinate teal hint: a tiny dot just past the accent rule. Only
-  // cards carrying a `hint` colour (engram) get it; it stays clearly secondary
-  // to the card's own accent.
-  const hintDot = p.hint
-    ? `<circle cx="${x + PADL + 41}" cy="${y + TITLE_Y + 9.25}" r="2.4" class="hint ${cls}"/>`
-    : "";
 
   // Description (2–3 wrapped lines), muted.
   const descW = CARD_W - PADL - PADR;
@@ -204,13 +213,27 @@ function buildCard(p) {
     })
     .join("\n    ");
 
+  // Spine: a solid accent bar normally; for `hint` cards a steel->teal vertical
+  // gradient (dark/light variants toggled by prefers-color-scheme). Both carry
+  // the `spine` class so the hover lift still applies.
+  const spineD = `M${x + 1.5} ${y + 14} v${CARD_H - 28}`;
+  const spine = p.hint
+    ? `<path d="${spineD}" class="spine spine-dark" stroke="url(#spine0)" stroke-width="${SPINE_W}" stroke-linecap="round"/>
+    <path d="${spineD}" class="spine spine-light" stroke="url(#spine0L)" stroke-width="${SPINE_W}" stroke-linecap="round"/>`
+    : `<path d="${spineD}" class="spine ${cls}" stroke-width="${SPINE_W}" stroke-linecap="round"/>`;
+
+  // Faint teal bloom from the bottom-right corner (hint cards only). It rides the
+  // same `.wash` class so it's hidden in light mode (a dark-mode bloom).
+  const tealWash = p.hint
+    ? `\n    <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" fill="url(#wash1)" class="wash wash-teal"/>`
+    : "";
+
   const body = `  <g class="card-group">
     <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" class="card"/>
-    <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" fill="url(#${gid})" class="wash"/>
-    <path d="M${x + 1.5} ${y + 14} v${CARD_H - 28}" class="spine ${cls}" stroke-width="${SPINE_W}" stroke-linecap="round"/>
+    <rect x="${x}" y="${y}" width="${CARD_W}" height="${CARD_H}" rx="14" fill="url(#${gid})" class="wash"/>${tealWash}
+    ${spine}
     ${title}
     ${rule}
-    ${hintDot}
     ${badge}
     ${desc}
     ${chips}
@@ -229,14 +252,14 @@ function accentRules(p) {
     `.c0.spine { stroke: ${p.accent}; } .c0.badge { fill: ${p.accent}; } ` +
     `.c0.chip { stroke: ${p.accent}; } .c0.chip-label { fill: ${p.accent}; } ` +
     `.c0.glyph-fill { fill: ${p.accent}; } .c0.glyph-stroke { stroke: ${p.accent}; }` +
-    (p.hint ? ` .c0.hint { fill: ${p.hint}; }` : "")
+    (p.hint ? ` .spine-light { display: none; }` : "")
   );
   const light = (
     `.c0.title { fill: ${p.light}; } .c0.rule { fill: ${p.light}; } ` +
     `.c0.spine { stroke: ${p.light}; } .c0.badge { fill: ${p.light}; } ` +
     `.c0.chip { stroke: ${p.light}; } .c0.chip-label { fill: ${p.light}; } ` +
     `.c0.glyph-fill { fill: ${p.light}; } .c0.glyph-stroke { stroke: ${p.light}; }` +
-    (p.hint ? ` .c0.hint { fill: ${p.hintLight || p.hint}; }` : "")
+    (p.hint ? ` .spine-dark { display: none; } .spine-light { display: inline; }` : "")
   );
   return { dark, light };
 }

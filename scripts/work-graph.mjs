@@ -331,27 +331,35 @@ const nodeEls = Object.values(nodes).map((n) => {
   </g>`;
   }
   if (n.kind === "logo") {
-    // engram: the torus-automations brand mark seated on a gunmetal disc with a
-    // thin steel rim and a whisper of teal inside the rim; the project label sits
-    // ABOVE the seat. The seat is lightened toward its centre so the logo's dark
-    // regions pop. The node colour is steel (#9fb3c8) so its live edges to NCP and
-    // cortexel resolve cool-steel via the edge gradient system; the teal hint is a
-    // subordinate accent. Metal reads well in both themes, so the seat gradient is
-    // fixed; only the rim, teal hint and label recolour for contrast. No animation
-    // here → reduced-motion safe. One instance → unique id.
+    // engram: the torus-automations brand mark seated on a gunmetal disc whose
+    // metal is tinted cool-teal toward the rim and wrapped in a SOFT teal halo
+    // glow (both pure gradients — no hard ring), with a thin steel rim; the
+    // project label sits ABOVE the seat. The seat is lightened toward its centre
+    // so the logo's dark regions pop. The node colour is steel (#9fb3c8) so its
+    // live edges to NCP and cortexel resolve cool-steel via the edge gradient
+    // system; the teal is a subordinate, gradient-borne accent. Metal reads well
+    // in both themes, so the seat gradient is fixed; the halo recolours via
+    // currentColor (.logo-glow) and the rim + label recolour for contrast. No
+    // animation here → reduced-motion safe. One instance → unique ids.
     const cx = n.x, cy = n.y, S = 64, r = 34;
     return `<g>
     <defs>
       <radialGradient id="engramSeat" cx="38%" cy="30%" r="80%">
         <stop offset="0%" stop-color="#6c7787"/>
-        <stop offset="52%" stop-color="#39434f"/>
-        <stop offset="100%" stop-color="#161b22"/>
+        <stop offset="45%" stop-color="#3b4754"/>
+        <stop offset="72%" stop-color="#233a42"/>
+        <stop offset="100%" stop-color="#122026"/>
+      </radialGradient>
+      <radialGradient id="engramGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="50%" stop-color="currentColor" stop-opacity="0"/>
+        <stop offset="78%" stop-color="currentColor" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
       </radialGradient>
     </defs>
+    <circle cx="${cx}" cy="${cy}" r="${f1(r + 10)}" class="logo-glow" fill="url(#engramGlow)"/>
     <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat" fill="url(#engramSeat)"/>
     <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat-ring"/>
     <image href="${TORUS_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
-    <circle cx="${cx}" cy="${cy}" r="${f1(r - 2.5)}" class="logo-teal"/>
     <text x="${cx}" y="${f1(cy - 44)}" text-anchor="middle" class="logo-label">${escapeXML(n.label)}</text>
   </g>`;
   }
@@ -578,7 +586,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .cube-splat { color: #fb923c; }
     .logo-seat      { filter: url(#soft); }
     .logo-seat-ring { fill: none; stroke: #9fb3c8; stroke-opacity: 0.55; stroke-width: 1.5; }
-    .logo-teal      { fill: none; stroke: #22d3ee; stroke-opacity: 0.4; stroke-width: 1.2; }
+    .logo-glow      { color: #22d3ee; }
     .logo-label     { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
@@ -619,7 +627,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .cube-label { fill: #c2410c; }
       .cube-splat { color: #c2410c; }
       .logo-seat-ring { stroke: #5b6b7e; }
-      .logo-teal { stroke: #0891b2; stroke-opacity: 0.45; }
+      .logo-glow { color: #0891b2; }
       .logo-label { fill: #44505e; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }

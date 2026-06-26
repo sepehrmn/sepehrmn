@@ -275,33 +275,84 @@ const nodeEls = Object.values(nodes).map((n) => {
   }
   if (n.kind === "cube") {
     const x = n.x - CUBE / 2, y = n.y - CUBE / 2;
+    // A subtle Gaussian-splat / point-cloud motif inside the cube, echoing
+    // melkor's 3-D reconstruction (Gaussian splatting): a DETERMINISTIC scatter
+    // (mulberry32 seeded with a constant → stable output, clean git diffs) of
+    // soft orange splats, denser + larger at the core, sparser + fainter at the
+    // rim, a few twinkling slowly. They're clipped to the cube face and sit
+    // BETWEEN it and the label, which keeps its paint-order halo so the wordmark
+    // stays crisp. Colour is themed via .cube-splat's `color` (currentColor).
+    let s = 0x9e3779b9;
+    const rnd = () => {
+      s |= 0; s = (s + 0x6d2b79f5) | 0;
+      let t = Math.imul(s ^ (s >>> 15), 1 | s);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    const SPLAT_R = 36; // point-cloud radius within the 92px cube
+    const splats = [];
+    let guard = 0;
+    while (splats.length < 18 && guard++ < 90) {
+      const ang = rnd() * Math.PI * 2;
+      const dist = SPLAT_R * Math.pow(rnd(), 1.35); // bias toward a dense core
+      const sx = n.x + Math.cos(ang) * dist;
+      const sy = n.y + Math.sin(ang) * dist;
+      // keep the label band clear so 'melkor' stays legible
+      if (Math.abs(sy - (n.y + 4)) < 9 && Math.abs(sx - n.x) < 32) continue;
+      const t = dist / SPLAT_R; // 0 core … 1 rim
+      const r = 6 - 3.5 * t + rnd() * 1.2; // bigger blobs at the core
+      const op = Number((0.5 - 0.28 * t).toFixed(2)); // fainter at the rim
+      splats.push({ sx, sy, r, op });
+    }
+    const splatEls = splats
+      .map((sp, k) => {
+        const base = `cx="${f1(sp.sx)}" cy="${f1(sp.sy)}" r="${f1(sp.r)}" fill="url(#melkorSplat)" opacity="${sp.op}"`;
+        if (k % 3 === 0) {
+          // a calm, staggered twinkle on a subset; reduced-motion freezes it at op
+          const hi = Number(Math.min(0.85, sp.op + 0.3).toFixed(2));
+          return `<circle ${base}><animate attributeName="opacity" values="${sp.op};${hi};${sp.op}" dur="${(3.4 + (k % 5) * 0.4).toFixed(1)}s" begin="${(k * 0.37).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
+        }
+        return `<circle ${base}/>`;
+      })
+      .join("");
     return `<g>
+    <defs>
+      <radialGradient id="melkorSplat" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.95"/>
+        <stop offset="55%" stop-color="currentColor" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+      </radialGradient>
+      <clipPath id="melkorClip"><rect x="${x}" y="${y}" width="${CUBE}" height="${CUBE}" rx="16"/></clipPath>
+    </defs>
     <rect x="${x}" y="${y}" width="${CUBE}" height="${CUBE}" rx="16" class="cube"/>
+    <g class="cube-splat" clip-path="url(#melkorClip)">${splatEls}</g>
     ${n.private ? lock(n.x, n.y - 22, 1, "var(--cube-accent)") : ""}
     <text x="${n.x}" y="${n.y + 12}" text-anchor="middle" class="cube-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "logo") {
-    // engram: the torus-automations brand mark seated on a subtle gunmetal disc
-    // with a thin steel rim, the project label below + a private lock above. The
-    // node colour is steel (#9fb3c8) so its live edges to NCP and cortexel resolve
-    // cool-steel via the edge gradient system. Metal reads well in both themes, so
-    // the seat gradient is fixed; only the rim, label and lock recolour for
-    // contrast. No animation here → reduced-motion safe. One instance → unique id.
+    // engram: the torus-automations brand mark seated on a gunmetal disc with a
+    // thin steel rim and a whisper of teal inside the rim; the project label sits
+    // ABOVE the seat. The seat is lightened toward its centre so the logo's dark
+    // regions pop. The node colour is steel (#9fb3c8) so its live edges to NCP and
+    // cortexel resolve cool-steel via the edge gradient system; the teal hint is a
+    // subordinate accent. Metal reads well in both themes, so the seat gradient is
+    // fixed; only the rim, teal hint and label recolour for contrast. No animation
+    // here → reduced-motion safe. One instance → unique id.
     const cx = n.x, cy = n.y, S = 64, r = 34;
     return `<g>
     <defs>
       <radialGradient id="engramSeat" cx="38%" cy="30%" r="80%">
-        <stop offset="0%" stop-color="#4b5562"/>
-        <stop offset="55%" stop-color="#2b333e"/>
+        <stop offset="0%" stop-color="#6c7787"/>
+        <stop offset="52%" stop-color="#39434f"/>
         <stop offset="100%" stop-color="#161b22"/>
       </radialGradient>
     </defs>
     <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat" fill="url(#engramSeat)"/>
     <circle cx="${cx}" cy="${cy}" r="${r}" class="logo-seat-ring"/>
     <image href="${TORUS_LOGO}" x="${f1(cx - S / 2)}" y="${f1(cy - S / 2)}" width="${S}" height="${S}" preserveAspectRatio="xMidYMid meet"/>
-    ${n.private ? lock(cx, cy - 50, 1, "var(--logo-accent)") : ""}
-    <text x="${cx}" y="${f1(cy + 52)}" text-anchor="middle" class="logo-label">${escapeXML(n.label)}</text>
+    <circle cx="${cx}" cy="${cy}" r="${f1(r - 2.5)}" class="logo-teal"/>
+    <text x="${cx}" y="${f1(cy - 44)}" text-anchor="middle" class="logo-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "triangle") {
@@ -512,7 +563,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     ${gradDefs.join("\n    ")}
   </defs>
   <style>
-    :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; --logo-accent: #9fb3c8; }
+    :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; }
     .cap        { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }
@@ -524,8 +575,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .hub-label  { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
+    .cube-splat { color: #fb923c; }
     .logo-seat      { filter: url(#soft); }
     .logo-seat-ring { fill: none; stroke: #9fb3c8; stroke-opacity: 0.55; stroke-width: 1.5; }
+    .logo-teal      { fill: none; stroke: #22d3ee; stroke-opacity: 0.4; stroke-width: 1.2; }
     .logo-label     { font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
@@ -555,7 +608,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
-      :root { --hub-accent: #059669; --cube-accent: #c2410c; --tri-accent: #7c3aed; --logo-accent: #5b6b7e; }
+      :root { --hub-accent: #059669; --cube-accent: #c2410c; --tri-accent: #7c3aed; }
       .cap { fill: #57606a; }
       .flow { stroke: #22d3ee; }
       .chip { fill: #ffffff; }
@@ -564,7 +617,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .hub-label { fill: #059669; }
       .cube { fill: #ffffff; stroke: #c2410c; }
       .cube-label { fill: #c2410c; }
+      .cube-splat { color: #c2410c; }
       .logo-seat-ring { stroke: #5b6b7e; }
+      .logo-teal { stroke: #0891b2; stroke-opacity: 0.45; }
       .logo-label { fill: #44505e; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }

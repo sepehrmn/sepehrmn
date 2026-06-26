@@ -176,6 +176,13 @@ function buildCard(p) {
   // Accent rule under the title: short, like the hero underline.
   const rule = `<rect x="${x + PADL}" y="${y + TITLE_Y + 8}" width="34" height="2.5" rx="1.25" class="rule ${cls}"/>`;
 
+  // Optional, subordinate teal hint: a tiny dot just past the accent rule. Only
+  // cards carrying a `hint` colour (engram) get it; it stays clearly secondary
+  // to the card's own accent.
+  const hintDot = p.hint
+    ? `<circle cx="${x + PADL + 41}" cy="${y + TITLE_Y + 9.25}" r="2.4" class="hint ${cls}"/>`
+    : "";
+
   // Description (2–3 wrapped lines), muted.
   const descW = CARD_W - PADL - PADR;
   const lines = wrap(p.desc, descW, 3);
@@ -203,6 +210,7 @@ function buildCard(p) {
     <path d="M${x + 1.5} ${y + 14} v${CARD_H - 28}" class="spine ${cls}" stroke-width="${SPINE_W}" stroke-linecap="round"/>
     ${title}
     ${rule}
+    ${hintDot}
     ${badge}
     ${desc}
     ${chips}
@@ -220,13 +228,15 @@ function accentRules(p) {
     `.c0.title { fill: ${p.accent}; } .c0.rule { fill: ${p.accent}; } ` +
     `.c0.spine { stroke: ${p.accent}; } .c0.badge { fill: ${p.accent}; } ` +
     `.c0.chip { stroke: ${p.accent}; } .c0.chip-label { fill: ${p.accent}; } ` +
-    `.c0.glyph-fill { fill: ${p.accent}; } .c0.glyph-stroke { stroke: ${p.accent}; }`
+    `.c0.glyph-fill { fill: ${p.accent}; } .c0.glyph-stroke { stroke: ${p.accent}; }` +
+    (p.hint ? ` .c0.hint { fill: ${p.hint}; }` : "")
   );
   const light = (
     `.c0.title { fill: ${p.light}; } .c0.rule { fill: ${p.light}; } ` +
     `.c0.spine { stroke: ${p.light}; } .c0.badge { fill: ${p.light}; } ` +
     `.c0.chip { stroke: ${p.light}; } .c0.chip-label { fill: ${p.light}; } ` +
-    `.c0.glyph-fill { fill: ${p.light}; } .c0.glyph-stroke { stroke: ${p.light}; }`
+    `.c0.glyph-fill { fill: ${p.light}; } .c0.glyph-stroke { stroke: ${p.light}; }` +
+    (p.hint ? ` .c0.hint { fill: ${p.hintLight || p.hint}; }` : "")
   );
   return { dark, light };
 }

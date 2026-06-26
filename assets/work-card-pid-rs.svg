@@ -60,7 +60,6 @@
     <path d="M2.5 14 v122" class="spine c0" stroke-width="4" stroke-linecap="round"/>
     <text x="23" y="38" class="title c0" textLength="78" lengthAdjust="spacingAndGlyphs">pid-rs</text>
     <rect x="23" y="46" width="34" height="2.5" rx="1.25" class="rule c0"/>
-    
     <polygon points="370.0,16.0 371.5,20.0 375.7,20.1 372.4,22.8 373.5,26.9 370.0,24.5 366.5,26.9 367.6,22.8 364.3,20.1 368.5,20.0" class="glyph-fill c0"/><text x="360" y="27" text-anchor="end" class="badge c0">7</text>
     <text x="23" y="60" class="desc">Partial Information Decomposition with continuous</text>
     <text x="23" y="78" class="desc">mutual-information (KSG / I<tspan baseline-shift="-22%" font-size="9">sx</tspan><tspan baseline-shift="0">​</tspan>) estimators, in</text>

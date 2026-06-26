@@ -60,6 +60,7 @@
     <path d="M2.5 14 v122" class="spine c0" stroke-width="4" stroke-linecap="round"/>
     <text x="23" y="38" class="title c0" textLength="91" lengthAdjust="spacingAndGlyphs">prisoma</text>
     <rect x="23" y="46" width="34" height="2.5" rx="1.25" class="rule c0"/>
+    
     <g transform="translate(365 16) scale(0.78)"><path d="M2 6 V4.4 a4 4 0 0 1 8 0 V6" fill="none" class="glyph-stroke c0" stroke-width="1.6"/><rect x="0" y="6" width="12" height="9" rx="1.6" class="glyph-fill c0"/></g><text x="360" y="28" text-anchor="end" class="badge c0">private</text>
     <text x="23" y="60" class="desc">A prism for embodied agents, robotics and world</text>
     <text x="23" y="78" class="desc">models: Vision-Language-Action analysis via</text>

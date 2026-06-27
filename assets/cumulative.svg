@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" width="820" height="280" role="img" aria-label="Cumulative contributions 2014–2026: 6,820 total, peak 2,342 in a single year">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" width="820" height="280" role="img" aria-label="Cumulative contributions 2014–2026: 6,821 total, peak 2,343 in a single year">
   <defs>
     <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#22d3ee"/>
@@ -85,7 +85,7 @@
     }
   </style>
   <rect x="0.5" y="0.5" width="819" height="279" rx="16" class="panel"/>
-  <text x="56" y="58" class="headline">6,820</text>
+  <text x="56" y="58" class="headline">6,821</text>
   <text x="56" y="86" class="sub">total contributions since 2014</text>
   <text x="792" y="26" text-anchor="end" class="sub">avg growth +54%/yr</text>
   <line x1="56" y1="224.0" x2="792" y2="224.0" class="grid"/>
@@ -206,16 +206,16 @@
     <text x="634.3" y="246" text-anchor="middle" class="year">2025</text>
   </g>
   <g>
-    <rect x="707.4" y="162.2" width="64.0" height="61.8" rx="5" class="bar-glow"/>
-    <rect x="707.4" y="162.2" width="64.0" height="61.8" rx="5" class="bar peak">
-      <title>2026: 2,342 contributions (year in progress) · cumulative 6,820</title>
-      <animate attributeName="height" from="0" to="61.8" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
-      <animate attributeName="y" from="224" to="162.2" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+    <rect x="707.4" y="162.1" width="64.0" height="61.9" rx="5" class="bar-glow"/>
+    <rect x="707.4" y="162.1" width="64.0" height="61.9" rx="5" class="bar peak">
+      <title>2026: 2,343 contributions (year in progress) · cumulative 6,821</title>
+      <animate attributeName="height" from="0" to="61.9" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+      <animate attributeName="y" from="224" to="162.1" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
       <animate attributeName="opacity" values="1;0.65;1" dur="2.6s" begin="1.63s" repeatCount="indefinite"/>
     </rect>
     <g class="bar-label">
-      <text x="739.4" y="154.2" text-anchor="middle" class="value">2,342
-        <animate attributeName="y" from="224" to="154.2" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+      <text x="739.4" y="154.1" text-anchor="middle" class="value">2,343
+        <animate attributeName="y" from="224" to="154.1" begin="0.93s" dur="0.7s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
         <animate attributeName="opacity" from="0" to="1" begin="1.35s" dur="0.28s" fill="freeze"/>
       </text>
     </g>

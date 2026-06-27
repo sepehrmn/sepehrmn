@@ -350,12 +350,11 @@ const nodeEls = Object.values(nodes).map((n) => {
     const cx = n.x, cy = n.y, S = 64, r = 34;
     return `<g>
     <defs>
-      <radialGradient id="engramSeat" cx="50%" cy="50%" r="80%">
-        <stop offset="0%" stop-color="#6c7787"/>
-        <stop offset="45%" stop-color="#3b4754"/>
-        <stop offset="72%" stop-color="#233a42"/>
-        <stop offset="100%" stop-color="#122026"/>
-      </radialGradient>
+      <linearGradient id="engramSeat" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1a4a52"/>
+        <stop offset="50%" stop-color="#2a3a42"/>
+        <stop offset="100%" stop-color="#4a5560"/>
+      </linearGradient>
       <radialGradient id="engramGlow" cx="50%" cy="50%" r="50%">
         <stop offset="50%" stop-color="currentColor" stop-opacity="0"/>
         <stop offset="78%" stop-color="currentColor" stop-opacity="0.22"/>
@@ -593,7 +592,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .logo-seat      { filter: url(#soft); }
     .logo-seat-ring { fill: none; stroke: #22d3ee; stroke-opacity: 1; stroke-width: 2; }
     .logo-glow      { color: #22d3ee; }
-    .logo-label     { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
+    .logo-label     { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #22d3ee; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
     .tri-label  { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c4b5fd; }
     .gate-wire      { fill: none; stroke: #fbbf24; stroke-width: 2.6; stroke-linecap: round; opacity: 0.92; }
@@ -634,7 +633,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .cube-splat { color: #c2410c; }
       .logo-seat-ring { stroke: #0891b2; }
       .logo-glow { color: #0891b2; }
-      .logo-label { fill: #44505e; }
+      .logo-label { fill: #0891b2; }
       .tri { fill: #ffffff; stroke: #7c3aed; }
       .tri-label { fill: #6d28d9; }
       .gate-wire { stroke: #b45309; }

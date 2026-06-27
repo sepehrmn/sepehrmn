@@ -586,7 +586,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .chip       { fill: #0d1117; stroke-width: 1.5; }
     .chip-label { font: 400 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
     .hub        { fill: url(#hubGrad); stroke: #34d399; stroke-width: 2; filter: url(#soft); }
-    .hub-label  { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
+    .hub-label  { font: 400 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .cube-splat { color: #fb923c; }

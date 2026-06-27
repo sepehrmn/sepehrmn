@@ -591,7 +591,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .cube-label { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
     .cube-splat { color: #fb923c; }
     .logo-seat      { filter: url(#soft); }
-    .logo-seat-ring { fill: none; stroke: #9fb3c8; stroke-opacity: 0.55; stroke-width: 1.5; }
+    .logo-seat-ring { fill: none; stroke: #22d3ee; stroke-opacity: 1; stroke-width: 2; }
     .logo-glow      { color: #22d3ee; }
     .logo-label     { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c7d2e0; }
     .tri        { fill: url(#triGrad); stroke: #a78bfa; stroke-width: 2; filter: url(#soft); }
@@ -632,7 +632,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .cube { fill: #ffffff; stroke: #c2410c; }
       .cube-label { fill: #c2410c; }
       .cube-splat { color: #c2410c; }
-      .logo-seat-ring { stroke: #5b6b7e; }
+      .logo-seat-ring { stroke: #0891b2; }
       .logo-glow { color: #0891b2; }
       .logo-label { fill: #44505e; }
       .tri { fill: #ffffff; stroke: #7c3aed; }

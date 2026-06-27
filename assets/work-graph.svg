@@ -254,7 +254,7 @@
       <path d="M110 335 Q92.7 350.2 90 373 Q96.6 352.2 110 335 Z" fill="url(#voxCalli0)"/> <path d="M110 335 Q123.4 352.2 130 373 Q127.3 350.2 110 335 Z" fill="url(#voxCalli1)"/> <path d="M90 373 Q110 381.2 130 373 Q110 376.8 90 373 Z" fill="url(#voxCalli2)"/>
       <g opacity="0.45"><polygon points="102.8,331.8 110,335.4 110,341.8 102.8,338.2" class="vox-left" stroke-linejoin="round"/><polygon points="117.2,331.8 110,335.4 110,341.8 117.2,338.2" class="vox-right" stroke-linejoin="round"/><polygon points="110,328.2 117.2,331.8 110,335.4 102.8,331.8" class="vox-top" stroke-linejoin="round"/></g> <g opacity="0.725"><polygon points="81,369 90,373.5 90,381.5 81,377" class="vox-left" stroke-linejoin="round"/><polygon points="99,369 90,373.5 90,381.5 99,377" class="vox-right" stroke-linejoin="round"/><polygon points="90,364.5 99,369 90,373.5 81,369" class="vox-top" stroke-linejoin="round"/></g> <g opacity="1"><polygon points="119.2,368.2 130,373.6 130,383.2 119.2,377.8" class="vox-left" stroke-linejoin="round"/><polygon points="140.8,368.2 130,373.6 130,383.2 140.8,377.8" class="vox-right" stroke-linejoin="round"/><polygon points="130,362.8 140.8,368.2 130,373.6 119.2,368.2" class="vox-top" stroke-linejoin="round"/></g>
     </g>
-    <text x="110" y="395" text-anchor="middle" class="vox-label">CORTEXEL</text>
+    <text x="110" y="399" text-anchor="middle" class="vox-label">CORTEXEL</text>
   </g>
   </g>
   <g class="frame">

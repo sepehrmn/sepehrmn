@@ -44,7 +44,7 @@
      their repo pages too — they show a lock badge until they go public. -->
 <table align="center" cellspacing="20" cellpadding="0" border="0">
   <tr>
-    <td><a href="https://github.com/sepahead/engram"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-engram.svg" width="400" alt="engram (private): Engram Neural Modeling Labs, a NEST-based neural-modeling hub — the brain the rest of the stack connects to. Neural-network and neural-modeling experiments. Python." loading="lazy"></a></td>
+    <td><a href="https://github.com/sepahead/engram"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-engram.svg" width="400" alt="engram (private): Engram Neural Modeling Labs, a NEST-based neural-modeling hub — the brain the rest of the stack connects to. Neural-network and neural-modeling experiments. Python, Rust, TypeScript, Metal, CUDA." loading="lazy"></a></td>
     <td><a href="https://github.com/sepahead/NCP"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/work-card-ncp.svg" width="400" alt="NCP — Neuro-Cybernetic Protocol: a safety-gated, provenance-first wire protocol (Rust SDK) that lets a spiking neural simulation perceive and act through robots, UAVs and analysis clients. Rust." loading="lazy"></a></td>
   </tr>
   <tr>

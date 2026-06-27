@@ -16,7 +16,7 @@ export const PROJECTS = [
     hint: "#22d3ee", hintLight: "#0891b2",
     private: true, repo: "sepahead/engram",
     desc: "Engram Neural Modeling Labs, the hub: neural-network and neural-modeling experiments that drive the rest of the stack.",
-    stack: ["Python"],
+    stack: ["Python", "Rust", "TS", "Metal", "CUDA"],
   },
   {
     name: "NCP",

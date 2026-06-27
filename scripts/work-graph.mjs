@@ -470,7 +470,7 @@ const nodeEls = Object.values(nodes).map((n) => {
       ${conns}
       ${cubeAt(T)} ${cubeAt(L)} ${cubeAt(R)}
     </g>
-    <text x="${n.x}" y="${f1(n.y + 35)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
+    <text x="${n.x}" y="${f1(n.y + 39)}" text-anchor="middle" class="vox-label">${escapeXML(n.label)}</text>
   </g>`;
   }
   if (n.kind === "raven") {

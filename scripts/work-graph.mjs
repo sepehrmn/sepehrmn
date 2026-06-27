@@ -350,11 +350,12 @@ const nodeEls = Object.values(nodes).map((n) => {
     const cx = n.x, cy = n.y, S = 64, r = 34;
     return `<g>
     <defs>
-      <linearGradient id="engramSeat" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#1a4a52"/>
-        <stop offset="50%" stop-color="#2a3a42"/>
-        <stop offset="100%" stop-color="#4a5560"/>
-      </linearGradient>
+      <radialGradient id="engramSeat" cx="50%" cy="50%" r="80%">
+        <stop offset="0%" stop-color="#6c7787"/>
+        <stop offset="45%" stop-color="#3b4754"/>
+        <stop offset="72%" stop-color="#233a42"/>
+        <stop offset="100%" stop-color="#122026"/>
+      </radialGradient>
       <radialGradient id="engramGlow" cx="50%" cy="50%" r="50%">
         <stop offset="50%" stop-color="currentColor" stop-opacity="0"/>
         <stop offset="78%" stop-color="currentColor" stop-opacity="0.22"/>

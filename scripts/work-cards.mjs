@@ -164,10 +164,10 @@ function buildCard(p) {
   const hintDefs = p.hint
     ? `<linearGradient id="spine0" gradientUnits="userSpaceOnUse" x1="${spineX}" y1="${spineY1}" x2="${spineX}" y2="${spineY2}"><stop offset="0%" stop-color="${p.accent}"/><stop offset="100%" stop-color="${p.hint}"/></linearGradient>` +
       `<linearGradient id="spine0L" gradientUnits="userSpaceOnUse" x1="${spineX}" y1="${spineY1}" x2="${spineX}" y2="${spineY2}"><stop offset="0%" stop-color="${p.light}"/><stop offset="100%" stop-color="${p.hintLight || p.hint}"/></linearGradient>` +
-      `<radialGradient id="wash1" cx="100%" cy="100%" r="120%"><stop offset="0%" stop-color="${p.hint}" stop-opacity="0.16"/><stop offset="55%" stop-color="${p.hint}" stop-opacity="0"/></radialGradient>`
+      `<radialGradient id="wash1" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="${p.hint}" stop-opacity="0.16"/><stop offset="55%" stop-color="${p.hint}" stop-opacity="0"/></radialGradient>`
     : "";
   const gradDef =
-    `<radialGradient id="${gid}" cx="8%" cy="0%" r="120%">` +
+    `<radialGradient id="${gid}" cx="${p.hint ? "100%" : "8%"}" cy="${p.hint ? "100%" : "0%"}" r="120%">` +
       `<stop offset="0%" stop-color="${p.grad}" stop-opacity="0.9"/>` +
       `<stop offset="60%" stop-color="${p.grad}" stop-opacity="0"/></radialGradient>` +
       hintDefs;
@@ -248,14 +248,14 @@ function buildCard(p) {
 // ---------------------------------------------------------------------------
 function accentRules(p) {
   const dark = (
-    `.c0.title { fill: ${p.accent}; } .c0.rule { fill: ${p.accent}; } ` +
+    `.c0.title { fill: ${p.hint || p.accent}; } .c0.rule { fill: ${p.accent}; } ` +
     `.c0.spine { stroke: ${p.accent}; } .c0.badge { fill: ${p.accent}; } ` +
     `.c0.chip { stroke: ${p.accent}; } .c0.chip-label { fill: ${p.accent}; } ` +
     `.c0.glyph-fill { fill: ${p.accent}; } .c0.glyph-stroke { stroke: ${p.accent}; }` +
     (p.hint ? ` .spine-light { display: none; }` : "")
   );
   const light = (
-    `.c0.title { fill: ${p.light}; } .c0.rule { fill: ${p.light}; } ` +
+    `.c0.title { fill: ${p.hintLight || p.light}; } .c0.rule { fill: ${p.light}; } ` +
     `.c0.spine { stroke: ${p.light}; } .c0.badge { fill: ${p.light}; } ` +
     `.c0.chip { stroke: ${p.light}; } .c0.chip-label { fill: ${p.light}; } ` +
     `.c0.glyph-fill { fill: ${p.light}; } .c0.glyph-stroke { stroke: ${p.light}; }` +

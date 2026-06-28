@@ -10,6 +10,7 @@
     </linearGradient>
   </defs>
   <style>
+    :root { color-scheme: light dark; }
     .idx    { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a78bfa; letter-spacing: 1px; }
     .prompt { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .caret  { fill: #a78bfa; }

@@ -8,6 +8,7 @@
       <animate attributeName="x2" from="188" to="966" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
     </linearGradient></defs>
   <style>
+    :root { color-scheme: light dark; }
     .label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 3px; }
     .cap   { font: 600 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; letter-spacing: 2px; }
     .spine { stroke: #fbbf24; stroke-width: 4; stroke-linecap: round; }

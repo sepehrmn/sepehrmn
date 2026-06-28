@@ -285,8 +285,8 @@ for (const p of projects) {
     ${gradDef}
   </defs>
   <style>
-    :root { --accent: ${p.accent}; }
-    .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
+    :root { --accent: ${p.accent}; color-scheme: light dark; }
+    .card       { fill: #0d1117; fill-opacity: 1; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
     .title      { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; }
     .desc       { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9da7b3; }
     .badge      { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -297,7 +297,7 @@ for (const p of projects) {
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
       :root { --accent: ${p.light}; }
-      .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
+      .card { fill: #ffffff; fill-opacity: 1; stroke: #0b1f2a; stroke-opacity: 0.1; }
       /* The accent wash is a dark-mode bloom; on white it only muddies the
          card, so hide it entirely in light mode (the accent spine + title
          carry the colour there). */

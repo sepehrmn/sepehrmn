@@ -66,6 +66,7 @@ function render(s) {
     ${sweep}
   </defs>
   <style>
+    :root { color-scheme: light dark; }
     .idx    { font: 700 13px ${MONO}; fill: ${accentD}; letter-spacing: 1px; }
     .prompt { font: 600 14px ${MONO}; fill: ${mutedD}; }
     .caret  { fill: ${accentD}; }
@@ -134,6 +135,7 @@ function renderHeading({ label, comment, accent, begin = "0.6s" }) {
     ${sweep}
   </defs>
   <style>
+    :root { color-scheme: light dark; }
     .prompt { font: 600 14px ${MONO}; fill: ${mutedD}; }
     .caret  { fill: ${accentD}; }
     .label  { font: 700 14px ${MONO}; fill: ${inkD}; letter-spacing: 4px; }

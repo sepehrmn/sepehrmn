@@ -33,7 +33,7 @@
     <linearGradient id="eg10" gradientUnits="userSpaceOnUse" x1="110" y1="327" x2="110" y2="267"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#9fb3c8"/></linearGradient>
   </defs>
   <style>
-    :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; }
+    :root { --hub-accent: #34d399; --cube-accent: #fb923c; --tri-accent: #a78bfa; color-scheme: light dark; }
     .cap        { font: 400 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6e7681; }
     .edge       { opacity: 0.55; }
     .edge-live  { filter: url(#edgeGlow); }

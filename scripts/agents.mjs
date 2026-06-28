@@ -67,7 +67,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <title>Agents manifest</title>
   <defs>${sweepFwd}</defs>
   <style>
-    :root { --em: ${emD}; }
+    :root { --em: ${emD}; color-scheme: light dark; }
     .panel { fill: ${pD.fill}; fill-opacity: ${pD.fillOpacity}; stroke: ${pD.stroke}; stroke-opacity: ${pD.strokeOpacity}; }
     .spine { stroke: ${emD}; stroke-width: 4; stroke-linecap: round; }
     .cap   { font: 600 11px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }

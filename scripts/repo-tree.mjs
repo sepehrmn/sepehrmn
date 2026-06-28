@@ -102,6 +102,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
   <title>More repositories</title>
   <defs>${sweepFwd}</defs>
   <style>
+    :root { color-scheme: light dark; }
     .panel { fill: ${pD.fill}; fill-opacity: ${pD.fillOpacity}; stroke: ${pD.stroke}; stroke-opacity: ${pD.strokeOpacity}; }
     .spine { stroke: ${vioD}; stroke-width: 4; stroke-linecap: round; }
     .prompt{ font: 600 14px ${MONO}; fill: ${vioD}; }

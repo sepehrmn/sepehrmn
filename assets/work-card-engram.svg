@@ -3,8 +3,8 @@
     <radialGradient id="wash0" cx="100%" cy="100%" r="120%"><stop offset="0%" stop-color="#1b2530" stop-opacity="0.9"/><stop offset="60%" stop-color="#1b2530" stop-opacity="0"/></radialGradient><linearGradient id="spine0" gradientUnits="userSpaceOnUse" x1="2.5" y1="14" x2="2.5" y2="136"><stop offset="0%" stop-color="#9fb3c8"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient><linearGradient id="spine0L" gradientUnits="userSpaceOnUse" x1="2.5" y1="14" x2="2.5" y2="136"><stop offset="0%" stop-color="#5b6b7e"/><stop offset="100%" stop-color="#0891b2"/></linearGradient><radialGradient id="wash1" cx="8%" cy="0%" r="120%"><stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/><stop offset="55%" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
   </defs>
   <style>
-    :root { --accent: #9fb3c8; }
-    .card       { fill: #0d1117; fill-opacity: 0.55; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
+    :root { --accent: #9fb3c8; color-scheme: light dark; }
+    .card       { fill: #0d1117; fill-opacity: 1; stroke: #ffffff; stroke-opacity: 0.09; stroke-width: 1; }
     .title      { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; }
     .desc       { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9da7b3; }
     .badge      { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -15,7 +15,7 @@
     @media (prefers-color-scheme: light) {
       text { stroke: #ffffff; }
       :root { --accent: #5b6b7e; }
-      .card { fill: #ffffff; fill-opacity: 0.9; stroke: #0b1f2a; stroke-opacity: 0.1; }
+      .card { fill: #ffffff; fill-opacity: 1; stroke: #0b1f2a; stroke-opacity: 0.1; }
       /* The accent wash is a dark-mode bloom; on white it only muddies the
          card, so hide it entirely in light mode (the accent spine + title
          carry the colour there). */

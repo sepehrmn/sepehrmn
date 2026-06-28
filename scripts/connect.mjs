@@ -50,6 +50,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     ${sweepFwd}
   </defs>
   <style>
+    :root { color-scheme: light dark; }
     .panel { fill: ${panelD.fill}; fill-opacity: ${panelD.fillOpacity}; stroke: ${panelD.stroke}; stroke-opacity: ${panelD.strokeOpacity}; }
     .spine { stroke: ${pinkD}; stroke-width: 4; stroke-linecap: round; }
     .cap   { font: 600 11px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }

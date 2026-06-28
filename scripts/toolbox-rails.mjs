@@ -44,6 +44,7 @@ function render(r) {
   <title>${escapeXML(visible)} stack</title>
   <defs>${sweep}</defs>
   <style>
+    :root { color-scheme: light dark; }
     .label { font: 700 13px ${MONO}; fill: ${inkD}; letter-spacing: 3px; }
     .cap   { font: 600 10px ${MONO}; fill: ${mutedD}; letter-spacing: 2px; }
     .spine { stroke: ${amberD}; stroke-width: 4; stroke-linecap: round; }

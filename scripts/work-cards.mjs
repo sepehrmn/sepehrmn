@@ -308,31 +308,35 @@ for (const p of projects) {
     }
     /* Hover / click effects — visible when the SVG is viewed directly or
        embedded inline or via object (GitHub img sandboxes internal
-       :hover, so these are progressive enhancement for every other context). */
-    .card-group {
-      cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  filter 0.25s ease;
-    }
-    .card-group:hover {
-      transform: translateY(-4px);
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
-    }
-    .card-group:hover .card { stroke-opacity: 0.22; }
-    .card-group:hover .spine {
-      stroke-width: 5;
-      filter: drop-shadow(0 0 5px var(--accent));
-    }
-    .card-group:hover .wash { opacity: 1; }
-    .card-group:hover .title { filter: drop-shadow(0 0 4px var(--accent)); }
-    .card-group:active {
-      transform: translateY(-1px);
-      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
-      transition: transform 0.08s ease, filter 0.08s ease;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .card-group, .card-group:hover, .card-group:active {
-        transition: none; transform: none;
+       :hover, so these are progressive enhancement for every other context).
+       Gated to @media (hover: hover) so touch devices don't get sticky
+       :hover states that change card colours after a tap. */
+    @media (hover: hover) {
+      .card-group {
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    filter 0.25s ease;
+      }
+      .card-group:hover {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+      }
+      .card-group:hover .card { stroke-opacity: 0.22; }
+      .card-group:hover .spine {
+        stroke-width: 5;
+        filter: drop-shadow(0 0 5px var(--accent));
+      }
+      .card-group:hover .wash { opacity: 1; }
+      .card-group:hover .title { filter: drop-shadow(0 0 4px var(--accent)); }
+      .card-group:active {
+        transform: translateY(-1px);
+        filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+        transition: transform 0.08s ease, filter 0.08s ease;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card-group, .card-group:hover, .card-group:active {
+          transition: none; transform: none;
+        }
       }
     }
   </style>

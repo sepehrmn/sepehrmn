@@ -281,57 +281,8 @@ const nodeEls = Object.values(nodes).map((n) => {
   }
   if (n.kind === "cube") {
     const x = n.x - CUBE / 2, y = n.y - CUBE / 2;
-    // A subtle Gaussian-splat / point-cloud motif inside the cube, echoing
-    // melkor's 3-D reconstruction (Gaussian splatting): a DETERMINISTIC scatter
-    // (mulberry32 seeded with a constant → stable output, clean git diffs) of
-    // soft orange splats, denser + larger at the core, sparser + fainter at the
-    // rim, a few twinkling slowly. They're clipped to the cube face and sit
-    // BETWEEN it and the label, which keeps its paint-order halo so the wordmark
-    // stays crisp. Colour is themed via .cube-splat's `color` (currentColor).
-    let s = 0x9e3779b9;
-    const rnd = () => {
-      s |= 0; s = (s + 0x6d2b79f5) | 0;
-      let t = Math.imul(s ^ (s >>> 15), 1 | s);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-    const SPLAT_R = 36; // point-cloud radius within the 92px cube
-    const splats = [];
-    let guard = 0;
-    while (splats.length < 18 && guard++ < 90) {
-      const ang = rnd() * Math.PI * 2;
-      const dist = SPLAT_R * Math.pow(rnd(), 1.35); // bias toward a dense core
-      const sx = n.x + Math.cos(ang) * dist;
-      const sy = n.y + Math.sin(ang) * dist;
-      // keep the label band clear so 'melkor' stays legible
-      if (Math.abs(sy - n.y) < 9 && Math.abs(sx - n.x) < 32) continue;
-      const t = dist / SPLAT_R; // 0 core … 1 rim
-      const r = 6 - 3.5 * t + rnd() * 1.2; // bigger blobs at the core
-      const op = Number((0.5 - 0.28 * t).toFixed(2)); // fainter at the rim
-      splats.push({ sx, sy, r, op });
-    }
-    const splatEls = splats
-      .map((sp, k) => {
-        const base = `cx="${f1(sp.sx)}" cy="${f1(sp.sy)}" r="${f1(sp.r)}" fill="url(#melkorSplat)" opacity="${sp.op}"`;
-        if (k % 3 === 0) {
-          // a calm, staggered twinkle on a subset; reduced-motion freezes it at op
-          const hi = Number(Math.min(0.85, sp.op + 0.3).toFixed(2));
-          return `<circle ${base}><animate attributeName="opacity" values="${sp.op};${hi};${sp.op}" dur="${(3.4 + (k % 5) * 0.4).toFixed(1)}s" begin="${(k * 0.37).toFixed(2)}s" repeatCount="indefinite"/></circle>`;
-        }
-        return `<circle ${base}/>`;
-      })
-      .join("");
     return `<g>
-    <defs>
-      <radialGradient id="melkorSplat" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="currentColor" stop-opacity="0.95"/>
-        <stop offset="55%" stop-color="currentColor" stop-opacity="0.5"/>
-        <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
-      </radialGradient>
-      <clipPath id="melkorClip"><rect x="${x}" y="${y}" width="${CUBE}" height="${CUBE}" rx="16"/></clipPath>
-    </defs>
     <rect x="${x}" y="${y}" width="${CUBE}" height="${CUBE}" rx="16" class="cube"/>
-    <g class="cube-splat" clip-path="url(#melkorClip)">${splatEls}</g>
     ${n.private ? lock(n.x, n.y - 22, 1, "var(--cube-accent)") : ""}
     <text x="${n.x}" y="${n.y}" text-anchor="middle" dominant-baseline="central" class="cube-label">${escapeXML(n.label)}</text>
   </g>`;
@@ -589,7 +540,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
     .hub-label  { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #6ee7b7; }
     .cube       { fill: url(#cubeGrad); stroke: #fb923c; stroke-width: 2; filter: url(#soft); }
     .cube-label { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #fdba74; }
-    .cube-splat { color: #fb923c; }
     .logo-seat      { filter: url(#soft); }
     .logo-seat-ring { fill: none; stroke: #4a8a92; stroke-opacity: 0.7; stroke-width: 1.5; }
     .logo-glow      { color: #4a8a92; }
@@ -631,7 +581,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
       .hub-label { fill: #059669; }
       .cube { fill: #ffffff; stroke: #c2410c; }
       .cube-label { fill: #c2410c; }
-      .cube-splat { color: #c2410c; }
       .logo-seat-ring { stroke: #3a7a8a; }
       .logo-glow { color: #3a7a8a; }
       .logo-label { fill: #0891b2; }

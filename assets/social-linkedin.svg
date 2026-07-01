@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 48" width="148" height="48" role="img" aria-label="LinkedIn — Sepehr Mahmoudian">
+  <title>LinkedIn — Sepehr Mahmoudian</title>
+  <defs>
+    <radialGradient id="wash" cx="0%" cy="50%" r="120%">
+      <stop offset="0" stop-color="#4ba3e3" stop-opacity="0.18"/>
+      <stop offset="62%" stop-color="#4ba3e3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    :root { --accent: #4ba3e3; color-scheme: light dark; }
+    .pill  { fill: #ffffff; fill-opacity: 0.022; stroke: #ffffff; stroke-opacity: 0.07; stroke-width: 1; }
+    .seat  { fill: #4ba3e3; fill-opacity: 0.14; stroke: #4ba3e3; stroke-opacity: 0.85; stroke-width: 1.4; }
+    .glyph { fill: #4ba3e3; }
+    .name  { font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; letter-spacing: 0.5px; }
+    text { paint-order: stroke; stroke: #0d1117; stroke-width: 2.6; stroke-linejoin: round; }
+    @media (prefers-color-scheme: light) {
+      text { stroke: #ffffff; }
+      :root { --accent: #0a66c2; }
+      .pill  { fill: #0b1f2a; fill-opacity: 0.025; stroke: #0b1f2a; stroke-opacity: 0.08; }
+      .wash  { display: none; }
+      .seat  { fill: #0a66c2; fill-opacity: 0.10; stroke: #0a66c2; }
+      .glyph { fill: #0a66c2; }
+      .name  { fill: #1f2328; }
+    }
+    /* Hover / click affordance — progressive enhancement (GitHub img sandboxes
+       the internal :hover of an img-embedded SVG, so this shows when the badge is
+       viewed directly or inline). Gated to hover-capable devices so a tap on
+       touch doesn't leave a sticky lifted/glowing state. */
+    @media (hover: hover) {
+      .badge-group {
+        cursor: pointer;
+        transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.22s ease;
+      }
+      .badge-group:hover { transform: translateY(-3px); filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)); }
+      .badge-group:hover .pill { stroke-opacity: 0.3; }
+      .badge-group:hover .seat { fill-opacity: 0.26; filter: drop-shadow(0 0 5px var(--accent)); }
+      .badge-group:hover .glyph { filter: drop-shadow(0 0 4px var(--accent)); }
+      .badge-group:active {
+        transform: translateY(-1px);
+        filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+        transition: transform 0.08s ease, filter 0.08s ease;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .badge-group, .badge-group:hover, .badge-group:active { transition: none; transform: none; }
+      }
+    }
+  </style>
+  <g class="badge-group">
+    <rect x="1.5" y="0.5" width="145" height="47" rx="14" class="pill"/>
+    <rect x="1.5" y="0.5" width="145" height="47" rx="14" fill="url(#wash)" class="wash"/>
+    <rect x="12" y="7" width="34" height="34" rx="10" class="seat"/>
+    <g transform="translate(19 14) scale(0.8333)" class="glyph"><path fill-rule="evenodd" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></g>
+    <text x="58" y="30" class="name">LinkedIn</text>
+  </g>
+</svg>

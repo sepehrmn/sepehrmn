@@ -15,15 +15,15 @@
      Theme-adaptive (prefers-color-scheme), reduced-motion safe, served from
      raw.githubusercontent.com so it never depends on an external badge service. -->
 <p align="center">
-<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/" title="LinkedIn — Sepehr Mahmoudian"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-linkedin.svg" width="148" height="48" alt="LinkedIn — Sepehr Mahmoudian"/></a>
+<a href="https://www.linkedin.com/in/sepehr-mahmoudian-99367516/" title="LinkedIn — Sepehr Mahmoudian"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-linkedin.svg" width="58" height="48" alt="LinkedIn — Sepehr Mahmoudian"/></a>
 &nbsp;&nbsp;
-<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ" title="Google Scholar — Sepehr Mahmoudian"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-scholar.svg" width="139" height="48" alt="Google Scholar — Sepehr Mahmoudian"/></a>
+<a href="https://scholar.google.com/citations?user=t3PSg8kAAAAJ" title="Google Scholar — Sepehr Mahmoudian"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-scholar.svg" width="58" height="48" alt="Google Scholar — Sepehr Mahmoudian"/></a>
 &nbsp;&nbsp;
-<a href="https://substack.com/@thetorus" title="Substack — @thetorus"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-substack.svg" width="148" height="48" alt="Substack — @thetorus"/></a>
+<a href="https://substack.com/@thetorus" title="Substack — @thetorus"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-substack.svg" width="157" height="48" alt="Substack — @thetorus"/></a>
 &nbsp;&nbsp;
-<a href="https://huggingface.co/torusprime" title="Hugging Face — @torusprime"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-huggingface.svg" width="183" height="48" alt="Hugging Face — @torusprime"/></a>
+<a href="https://huggingface.co/torusprime" title="Hugging Face — @torusprime"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-huggingface.svg" width="174" height="48" alt="Hugging Face — @torusprime"/></a>
 &nbsp;&nbsp;
-<a href="https://x.com/SepAhead" title="X (Twitter) — @SepAhead"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-x.svg" width="85" height="48" alt="X (Twitter) — @SepAhead"/></a>
+<a href="https://x.com/SepAhead" title="X (Twitter) — @SepAhead"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/social-x.svg" width="157" height="48" alt="X (Twitter) — @SepAhead"/></a>
 </p>
 
 <h3 align="center"><img src="https://raw.githubusercontent.com/sepahead/sepahead/main/assets/title-pulse.svg" width="820" alt="The pulse"/></h3>

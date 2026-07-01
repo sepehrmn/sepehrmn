@@ -45,8 +45,12 @@ const panelL = PALETTE.panel.light;
 
 function render(s) {
   const [aD, aL] = s.accent;
-  const nameW = charLen(s.name, NAME_PX, NAME_TRACK);
-  const W = NAME_X + nameW + PAD_R + PAD;
+  // Icon-only pills (channels without a clean username) are a compact square with
+  // the seat centred; the rest size to fit the username label after the seat.
+  const label = s.label || s.name;
+  const W = s.iconOnly
+    ? SEAT_X + SEAT + (SEAT_X - PAD) + PAD // symmetric side padding → square-ish
+    : NAME_X + charLen(label, NAME_PX, NAME_TRACK) + PAD_R + PAD;
 
   const scale = (GLYPH / 24).toFixed(4);
   const gx = SEAT_X + (SEAT - GLYPH) / 2;
@@ -109,8 +113,9 @@ function render(s) {
     <rect x="${rectX}" y="0.5" width="${rectW}" height="${rectH}" rx="${RX}" class="pill"/>
     <rect x="${rectX}" y="0.5" width="${rectW}" height="${rectH}" rx="${RX}" fill="url(#wash)" class="wash"/>
     <rect x="${SEAT_X}" y="${SEAT_Y}" width="${SEAT}" height="${SEAT}" rx="${SEAT_RX}" class="seat"/>
-    <g transform="translate(${gx} ${gy}) scale(${scale})" class="glyph"><path fill-rule="evenodd" d="${s.glyph}"/></g>
-    <text x="${NAME_X}" y="${NAME_Y}" class="name">${escapeXML(s.name)}</text>
+    <g transform="translate(${gx} ${gy}) scale(${scale})" class="glyph"><path fill-rule="evenodd" d="${s.glyph}"/></g>${
+      s.iconOnly ? "" : `
+    <text x="${NAME_X}" y="${NAME_Y}" class="name">${escapeXML(label)}</text>`}
   </g>
 </svg>
 `;

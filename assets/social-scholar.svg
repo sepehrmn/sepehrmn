@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139 48" width="139" height="48" role="img" aria-label="Scholar — Google Scholar · Sepehr Mahmoudian">
-  <title>Scholar — Google Scholar · Sepehr Mahmoudian</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 48" width="58" height="48" role="img" aria-label="Google Scholar — Sepehr Mahmoudian">
+  <title>Google Scholar — Sepehr Mahmoudian</title>
   <defs>
     <radialGradient id="wash" cx="0%" cy="50%" r="120%">
       <stop offset="0" stop-color="#6c9bf0" stop-opacity="0.18"/>
@@ -46,10 +46,9 @@
     }
   </style>
   <g class="badge-group">
-    <rect x="1.5" y="0.5" width="136" height="47" rx="14" class="pill"/>
-    <rect x="1.5" y="0.5" width="136" height="47" rx="14" fill="url(#wash)" class="wash"/>
+    <rect x="1.5" y="0.5" width="55" height="47" rx="14" class="pill"/>
+    <rect x="1.5" y="0.5" width="55" height="47" rx="14" fill="url(#wash)" class="wash"/>
     <rect x="12" y="7" width="34" height="34" rx="10" class="seat"/>
     <g transform="translate(19 14) scale(0.8333)" class="glyph"><path fill-rule="evenodd" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></g>
-    <text x="58" y="30" class="name">Scholar</text>
   </g>
 </svg>

@@ -103,26 +103,31 @@ export const RAILS = [
 
 // Social channels, rendered as the self-hosted badge strip at the top of the
 // profile (socials.mjs → assets/social-<slug>.svg, one clickable pill each).
-// Single source of truth: `name` is the pill label (neutral ink), `handle` the
-// tooltip/aria detail, `accent` the platform's [dark, light] brand colour (drives
-// the icon seat, glyph and hover glow), `glyph` the authentic monochrome brand
-// mark as a 24×24 path (fill-rule evenodd punches the counters). CHANNELS derives
-// from the list so the count stays in sync everywhere it is referenced.
+// Single source of truth: `name` is the platform (used for aria + tooltip),
+// `label` the username shown on the pill (neutral ink), `handle` the tooltip/aria
+// detail, `accent` the platform's [dark, light] brand colour (drives the icon
+// seat, glyph and hover glow), `glyph` the authentic monochrome brand mark as a
+// 24×24 path (fill-rule evenodd punches the counters). `iconOnly` renders a
+// compact icon-only pill for channels with no clean username (LinkedIn's handle
+// carries a numeric suffix; Google Scholar is keyed by an opaque id). CHANNELS
+// derives from the list so the count stays in sync everywhere it is referenced.
 export const SOCIALS = [
   {
     slug: "linkedin",
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/sepehr-mahmoudian-99367516/",
     handle: "Sepehr Mahmoudian",
+    iconOnly: true,
     accent: ["#4ba3e3", "#0a66c2"],
     glyph:
       "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z",
   },
   {
     slug: "scholar",
-    name: "Scholar",
+    name: "Google Scholar",
     href: "https://scholar.google.com/citations?user=t3PSg8kAAAAJ",
-    handle: "Google Scholar · Sepehr Mahmoudian",
+    handle: "Sepehr Mahmoudian",
+    iconOnly: true,
     accent: ["#6c9bf0", "#3367d6"],
     glyph:
       "M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z",
@@ -131,6 +136,7 @@ export const SOCIALS = [
     slug: "substack",
     name: "Substack",
     href: "https://substack.com/@thetorus",
+    label: "@thetorus",
     handle: "@thetorus",
     accent: ["#ff7a45", "#e0561a"],
     glyph:
@@ -140,6 +146,7 @@ export const SOCIALS = [
     slug: "huggingface",
     name: "Hugging Face",
     href: "https://huggingface.co/torusprime",
+    label: "@torusprime",
     handle: "@torusprime",
     accent: ["#ffd21e", "#c98a00"],
     glyph:
@@ -149,6 +156,7 @@ export const SOCIALS = [
     slug: "x",
     name: "X",
     href: "https://x.com/SepAhead",
+    label: "@SepAhead",
     handle: "@SepAhead",
     accent: ["#e7e9ea", "#0f1419"],
     glyph:
